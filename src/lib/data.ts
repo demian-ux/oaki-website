@@ -109,6 +109,13 @@ export type HomePageData = {
   heroTitle?: string;
   heroSubtext?: string;
   heroImage?: SanityImage | null;
+  heroVideo?: {
+    asset?: {
+      url?: string;
+      mimeType?: string;
+      size?: number;
+    } | null;
+  } | null;
   heroPrimaryCta?: string;
   heroSecondaryCta?: string;
   featuredLabel?: string;

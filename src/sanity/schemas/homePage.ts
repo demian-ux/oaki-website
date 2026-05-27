@@ -36,13 +36,24 @@ export default defineType({
     }),
     defineField({
       name: "heroImage",
-      title: "Hero — Background Image",
+      title: "Hero — Background Image (Poster)",
       type: "image",
       group: "hero",
       description:
-        "Full-bleed image behind the hero copy. A protection gradient is layered on top automatically. Skip to use the animated text-only treatment.",
+        "Full-bleed image behind the hero copy. If a hero video is also set, this acts as the poster shown before the video loads — pick a strong frame from your video. A protection gradient is layered on top automatically.",
       options: { hotspot: true },
       fields: [{ name: "alt", title: "Alt Text", type: "string" }],
+    }),
+    defineField({
+      name: "heroVideo",
+      title: "Hero — Background Video",
+      type: "file",
+      group: "hero",
+      description:
+        "Looping muted video behind the hero (5–10 seconds works best). Encode tightly: 1080p H.264 mp4 at ~2 Mbps, strip audio, total file under 5 MB. The Hero Image above is used as the poster so the user sees something immediately while the video downloads.",
+      options: {
+        accept: "video/mp4,video/webm,video/quicktime",
+      },
     }),
     defineField({
       name: "heroSubtext",

@@ -114,6 +114,7 @@ export const homePageQuery = groq`
     heroTitle,
     heroSubtext,
     heroImage{ ${imageFields} },
+    heroVideo{ asset->{ url, mimeType, size } },
     heroPrimaryCta,
     heroSecondaryCta,
     featuredLabel,

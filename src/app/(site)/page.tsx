@@ -43,6 +43,7 @@ export default async function HomePage() {
         }
         primaryCta={home.heroPrimaryCta ?? "Start a project"}
         image={home.heroImage ?? null}
+        video={home.heroVideo ?? null}
       />
 
       {/* 2. Case Studies — moved up. Work before quote. */}
