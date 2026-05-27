@@ -18,6 +18,7 @@ export default defineConfig({
   ...sanityConfig,
   name: "oaki-studio",
   title: "Oaki Studio",
+  basePath: "/studio",
   theme: oakiTheme,
 
   plugins: [
