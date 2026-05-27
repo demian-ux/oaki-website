@@ -8,14 +8,14 @@ export default defineType({
   icon: HomeIcon,
   groups: [
     { name: "hero", title: "Hero" },
-    { name: "featured", title: "Featured Books" },
-    { name: "positioning", title: "Positioning" },
+    { name: "peerBand", title: "Peer Band" },
+    { name: "featured", title: "Case Studies" },
+    { name: "positioning", title: "Process Lead-in" },
     { name: "fases", title: "FASES Preview" },
-    { name: "testimonial", title: "Testimonial" },
-    { name: "collaborators", title: "Collaborators" },
     { name: "about", title: "About Preview" },
     { name: "cta", title: "Final CTA" },
     { name: "seo", title: "SEO" },
+    { name: "legacy", title: "Legacy", hidden: true },
   ],
   fields: [
     // Hero
@@ -125,54 +125,107 @@ export default defineType({
       initialValue: "See the full process",
     }),
 
-    // Testimonial
+    // Peer Band (replaces old testimonial + collaborators sections)
     defineField({
-      name: "testimonialQuote",
-      title: "Testimonial — Quote",
+      name: "peerBandHeading",
+      title: "Peer Band — Section Header",
+      type: "string",
+      group: "peerBand",
+      initialValue: "Trusted by the people who could do it themselves.",
+    }),
+    defineField({
+      name: "peerBandQuote",
+      title: "Peer Band — Anchor Quote",
       type: "text",
       rows: 3,
-      group: "testimonial",
+      group: "peerBand",
       initialValue:
-        "Oaki helped us find the tone of the project before a single final image was made.",
+        "You overcome any obstacle that we throw at your team with the technical skills and ability to work to meet the deliverables.",
+    }),
+    defineField({
+      name: "peerBandAuthorName",
+      title: "Peer Band — Author Name",
+      type: "string",
+      group: "peerBand",
+      initialValue: "Andrew Delgado",
+    }),
+    defineField({
+      name: "peerBandAuthorTitle",
+      title: "Peer Band — Author Title",
+      type: "string",
+      group: "peerBand",
+      initialValue: "Technical Director of Visualization, Journey / iCrave",
+    }),
+    defineField({
+      name: "clientMarks",
+      title: "Peer Band — Client Marks",
+      type: "array",
+      of: [{ type: "string" }],
+      group: "peerBand",
+      description: "Horizontal row of client studio names.",
+      initialValue: [
+        "KoDA",
+        "Journey / iCrave",
+        "AFT",
+        "Object Territories",
+        "Naos",
+        "Ceibo / Koqio",
+      ],
+    }),
+    defineField({
+      name: "factStrip",
+      title: "Peer Band — Fact Strip",
+      type: "string",
+      group: "peerBand",
+      description: "Small caps line beneath the client marks.",
+      initialValue: "100+ projects · 12 cities · 4 continents · since 2019",
+    }),
+
+    // Hidden legacy fields — kept for back-compat, not rendered
+    defineField({
+      name: "testimonialQuote",
+      title: "(Legacy) Testimonial Quote",
+      type: "text",
+      rows: 3,
+      group: "legacy",
+      hidden: true,
     }),
     defineField({
       name: "testimonialAttribution",
-      title: "Testimonial — Attribution",
+      title: "(Legacy) Testimonial Attribution",
       type: "string",
-      group: "testimonial",
-      initialValue: "Creative Director, Undisclosed Studio",
+      group: "legacy",
+      hidden: true,
     }),
     defineField({
       name: "testimonialRef",
-      title: "Or: Referenced Testimonial",
+      title: "(Legacy) Testimonial Ref",
       type: "reference",
       to: [{ type: "testimonial" }],
-      group: "testimonial",
-      description: "If set, overrides the inline quote/attribution above.",
+      group: "legacy",
+      hidden: true,
     }),
-
-    // Collaborators
     defineField({
       name: "collaboratorsLabel",
-      title: "Collaborators — Eyebrow",
+      title: "(Legacy) Collaborators Eyebrow",
       type: "string",
-      group: "collaborators",
-      initialValue: "Selected Collaborators",
+      group: "legacy",
+      hidden: true,
     }),
     defineField({
       name: "collaboratorsHeading",
-      title: "Collaborators — Heading",
+      title: "(Legacy) Collaborators Heading",
       type: "text",
       rows: 2,
-      group: "collaborators",
-      initialValue:
-        "We publish for studios who want their projects read closely.",
+      group: "legacy",
+      hidden: true,
     }),
     defineField({
       name: "collaborators",
-      title: "Collaborators — List",
+      title: "(Legacy) Collaborators List",
       type: "array",
-      group: "collaborators",
+      group: "legacy",
+      hidden: true,
       of: [
         {
           type: "object",
@@ -181,9 +234,6 @@ export default defineType({
             { name: "name", title: "Name", type: "string" },
             { name: "meta", title: "City / Meta", type: "string" },
           ],
-          preview: {
-            select: { title: "name", subtitle: "meta" },
-          },
         },
       ],
     }),
@@ -238,22 +288,21 @@ export default defineType({
       initialValue: "Begin the conversation",
     }),
 
-    // Legacy field kept for back-compat
+    // Deprecated free-text positioning statement
     defineField({
       name: "positioningStatement",
       title: "(Deprecated) Positioning Statement",
       type: "text",
       rows: 4,
-      group: "positioning",
-      description: "Legacy field — use Positioning fields above.",
+      group: "legacy",
       hidden: true,
     }),
     defineField({
       name: "testimonial",
-      title: "(Deprecated) Testimonial Ref",
+      title: "(Legacy) Testimonial Reference",
       type: "reference",
       to: [{ type: "testimonial" }],
-      group: "testimonial",
+      group: "legacy",
       hidden: true,
     }),
 

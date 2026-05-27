@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" aria-label="Oaki Studio — Home" className="inline-block mb-5">
+            <Link href="/" aria-label="Oaki Studio, Home" className="inline-block mb-5">
               <Image
                 src="/brand/oaki-logotipo.png"
                 alt="Oaki Studio"

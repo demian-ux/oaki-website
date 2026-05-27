@@ -40,16 +40,16 @@ const sangBleu = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Oaki Studio — Architectural Narrative Studio",
-    template: "%s — Oaki Studio",
+    default: "oaki.studio | A studio building architectural narratives",
+    template: "%s | oaki.studio",
   },
   description:
-    "Oaki Studio crafts architectural narratives for unbuilt places, helping architects, designers, and developers shape how projects are seen, understood, and desired.",
+    "Architectural narrative studio. 100+ projects across 12 cities and 4 continents. Animation, stills, and film for the pitch, the board, and the jury.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3001"
   ),
   openGraph: {
-    siteName: "Oaki Studio",
+    siteName: "oaki.studio",
     locale: "en_US",
     type: "website",
   },

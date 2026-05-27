@@ -40,7 +40,12 @@ export async function sanityFetch<T>({
 }): Promise<T> {
   const activeClient = preview ? previewClient : sanityClient;
   return activeClient.fetch<T>(query, params, {
-    next: preview ? undefined : (tags ? { tags } : undefined),
+    // Preview mode: always fresh.
+    // Production reads: 10s ISR window so Studio publishes propagate fast
+    // without hammering Sanity on every request.
+    next: preview
+      ? undefined
+      : { revalidate: 10, ...(tags ? { tags } : {}) },
     cache: preview ? "no-store" : undefined,
   });
 }

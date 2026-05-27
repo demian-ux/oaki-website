@@ -54,43 +54,59 @@ const docs = [
   {
     _id: "singleton-homePage",
     _type: "homePage",
-    heroLabel: "Architectural Storytelling Studio",
-    heroTitle: "Your project, told the way Phaidon would publish it.",
+    // Hero
+    heroLabel: "A studio building architectural narratives",
+    heroTitle: "Made for the pitch, the board, and the jury.",
     heroSubtext:
-      "We work with architects, interior designers, and developers across New York and Europe. We reply within two hours. We deliver on time. Every time.",
-    heroPrimaryCta: "Begin the conversation",
-    heroSecondaryCta: "View Case Studies",
-    featuredLabel: "Selected Project Books",
-    featuredHeading: "Each project is a complete story, not a folder of renders.",
+      "For architectural, interior design and real estate development firms across New York, Miami, Europe, and the Middle East.\n\nAnimation, stills, and film composed as one story, not a folder of jpegs.\n\nWork that holds up year after year.",
+    heroPrimaryCta: "Start a project",
+    heroSecondaryCta: "See the case studies",
+    // Case Studies
+    featuredLabel: "Case studies",
+    featuredHeading: "Each one a book of its own.",
     featuredViewAllLabel: "View the Library →",
-    positioningHeading: "Most studios start with the image. We start with the story.",
+    // Process lead-in
+    positioningHeading: "Most studios start with a rough draft. We start with the story.",
     positioningParagraph1:
-      "Our role is to read the project, find its tone, and build the visual world that makes others want to be part of it before the first brick is laid.",
-    positioningParagraph2: "For sales. For approval. For competitions. For memory.",
-    fasesLabel: "Before we make a single image, we build the story.",
+      "Our role is to understand the project, find its tone, and build the visual world that makes others want to be part of it before the first brick is laid.",
+    positioningParagraph2: "", // intentionally empty — old pulse line removed
+    // FASES transition line
+    fasesLabel: "Before we open 3ds Max, we ask questions to define:",
     fasesButtonLabel: "See the full process",
-    testimonialQuote:
-      "Oaki helped us find the tone of the project before a single final image was made.",
-    testimonialAttribution: "Creative Director, Undisclosed Studio",
-    collaboratorsLabel: "Selected Collaborators",
-    collaboratorsHeading: "We publish for studios who want their projects read closely.",
-    collaborators: [
-      { _key: "c1", name: "Estudio Marelli", meta: "Buenos Aires" },
-      { _key: "c2", name: "Rosen & Fiore", meta: "New York" },
-      { _key: "c3", name: "Haus Nordlicht", meta: "Berlin" },
-      { _key: "c4", name: "Atelier Venn", meta: "Paris" },
-      { _key: "c5", name: "Arquitectura del Sur", meta: "Madrid" },
-      { _key: "c6", name: "Bureau Delacroix", meta: "Brussels" },
-      { _key: "c7", name: "Costa / Rivera", meta: "Lisbon" },
-      { _key: "c8", name: "Bosco Studio", meta: "Milan" },
+    // Peer Band (replaces old testimonial + collaborators)
+    peerBandHeading: "Trusted by the people who could do it themselves.",
+    peerBandQuote:
+      "You overcome any obstacle that we throw at your team with the technical skills and ability to work to meet the deliverables.",
+    peerBandAuthorName: "Andrew Delgado",
+    peerBandAuthorTitle: "Technical Director of Visualization, Journey / iCrave",
+    clientMarks: [
+      "KoDA",
+      "Journey / iCrave",
+      "AFT",
+      "Object Territories",
+      "Naos",
+      "Ceibo / Koqio",
     ],
-    aboutLabel: "About the Studio",
-    aboutHeading: "A boutique team. A Phaidon standard.",
+    factStrip: "100+ projects · 12 cities · 4 continents · since 2019",
+    // Clear legacy fields so they don't haunt the data
+    testimonialQuote: "",
+    testimonialAttribution: "",
+    collaboratorsLabel: "",
+    collaboratorsHeading: "",
+    collaborators: [],
+    // About Preview
+    aboutLabel: "About the studio",
+    aboutHeading: "The same team on every project.",
     aboutBody:
-      "Small enough to know every detail of your project. Skilled enough to make it look like a museum commission.",
+      "Principals on every brief. The people you meet are the people doing the work.",
     aboutButtonLabel: "About the Studio",
+    // Final CTA
     finalCtaHeading: "Tell us what you are building.",
-    finalCtaButtonLabel: "Begin the conversation",
+    finalCtaButtonLabel: "Start a project",
+    // SEO
+    seoTitle: "oaki.studio | A studio building architectural narratives",
+    seoDescription:
+      "Architectural narrative studio. 100+ projects across 12 cities and 4 continents. Animation, stills, and film for the pitch, the board, and the jury.",
   },
   {
     _id: "singleton-aboutPage",
@@ -224,7 +240,13 @@ const docs = [
 // ── Push via Sanity's mutate REST API ─────────────────────
 const url = `https://${projectId}.api.sanity.io/v${apiVersion}/data/mutate/${dataset}`;
 
-const mutations = docs.map((doc) => ({ createOrReplace: doc }));
+// Mutations: first delete any orphan drafts (so old draft content doesn't
+// override the freshly-seeded published doc), then createOrReplace each one.
+const draftDeletes = docs.map((doc) => ({
+  delete: { id: `drafts.${doc._id}` },
+}));
+const replaces = docs.map((doc) => ({ createOrReplace: doc }));
+const mutations = [...draftDeletes, ...replaces];
 
 console.log(`Seeding ${docs.length} documents → ${dataset} (${projectId})`);
 

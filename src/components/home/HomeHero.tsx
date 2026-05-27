@@ -10,7 +10,7 @@ import IsoSpotlight from "@/components/global/IsoSpotlight";
 interface HomeHeroProps {
   label: string;
   title: string;
-  subtext: string;
+  subtextLines: string[];
   primaryCta: string;
   secondaryCta: string;
 }
@@ -18,7 +18,7 @@ interface HomeHeroProps {
 export default function HomeHero({
   label,
   title,
-  subtext,
+  subtextLines,
   primaryCta,
   secondaryCta,
 }: HomeHeroProps) {
@@ -41,10 +41,16 @@ export default function HomeHero({
 
       <div className="max-w-3xl relative" style={{ zIndex: 2 }}>
         <SectionLabel className="mb-8">{label}</SectionLabel>
-        <h1 className="text-display-xl mb-8">
+        <h1 className="text-display-xl mb-10">
           <Typewriter text={title} charDelay={26} startDelay={120} />
         </h1>
-        <p className="text-editorial text-muted mb-12 max-text">{subtext}</p>
+        <div className="mb-12 max-text flex flex-col gap-5">
+          {subtextLines.map((line, i) => (
+            <p key={i} className="text-editorial text-muted">
+              {line}
+            </p>
+          ))}
+        </div>
         <div className="flex flex-wrap gap-4">
           <Button href="/case-studies" variant="outline">
             {secondaryCta}

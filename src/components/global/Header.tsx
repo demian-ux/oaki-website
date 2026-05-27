@@ -68,7 +68,7 @@ export default function Header({ projects = [], ctaLabel, navLabels }: HeaderPro
       >
         <div className="page-x flex items-center justify-between h-16 lg:h-20 relative">
           {/* Logotype */}
-          <Link href="/" aria-label="Oaki Studio — Home">
+          <Link href="/" aria-label="Oaki Studio, Home">
             <Image
               src="/brand/oaki-logotipo.png"
               alt="Oaki Studio"

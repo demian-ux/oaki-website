@@ -114,19 +114,12 @@ export type HomePageData = {
   positioningStatement?: string;
   fasesLabel?: string;
   fasesButtonLabel?: string;
-  testimonialQuote?: string;
-  testimonialAttribution?: string;
-  testimonialRef?: {
-    quote?: string;
-    shortQuote?: string;
-    displayName?: string;
-    personName?: string;
-    personTitle?: string;
-    company?: string;
-  };
-  collaboratorsLabel?: string;
-  collaboratorsHeading?: string;
-  collaborators?: { name: string; meta: string }[];
+  peerBandHeading?: string;
+  peerBandQuote?: string;
+  peerBandAuthorName?: string;
+  peerBandAuthorTitle?: string;
+  clientMarks?: string[];
+  factStrip?: string;
   aboutLabel?: string;
   aboutHeading?: string;
   aboutBody?: string;
