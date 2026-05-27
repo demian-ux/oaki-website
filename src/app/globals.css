@@ -134,13 +134,18 @@
 }
 
 @layer components {
-  /* Typography scale */
+  /* Typography scale.
+     `text-wrap: balance` is applied to all display sizes — it tells the
+     browser to balance line lengths so a single word never orphans onto
+     its own line. Editorial typography rule. Falls back to normal wrap
+     in older browsers (Chrome <117, Safari <17.4, Firefox <121). */
   .text-display-xl {
     font-family: var(--font-display);
     font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: 400;
     line-height: 1.0;
     letter-spacing: -0.03em;
+    text-wrap: balance;
   }
 
   .text-display-lg {
@@ -149,6 +154,7 @@
     font-weight: 400;
     line-height: 1.05;
     letter-spacing: -0.025em;
+    text-wrap: balance;
   }
 
   .text-display-md {
@@ -157,6 +163,7 @@
     font-weight: 400;
     line-height: 1.1;
     letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
   .text-editorial {
