@@ -1,0 +1,88 @@
+import Link from "next/link";
+import { type Project } from "@/lib/types";
+import SanityImg from "@/components/global/SanityImg";
+import SectionLabel from "@/components/global/SectionLabel";
+
+interface BookCardProps {
+  project: Project;
+}
+
+function PlaceholderCover({ title }: { title: string }) {
+  const initials = title
+    .split(" ")
+    .filter((w) => w.length > 2)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("");
+
+  return (
+    <div className="w-full h-full flex items-end p-6 bg-soft">
+      <span
+        className="font-display text-line"
+        style={{
+          lineHeight: 1,
+          fontSize: "clamp(3rem, 6vw, 6rem)",
+        }}
+      >
+        {initials}
+      </span>
+    </div>
+  );
+}
+
+export default function BookCard({ project }: BookCardProps) {
+  const displayClient =
+    project.clientVisibility === "Public"
+      ? project.clientName
+      : project.clientVisibility === "Undisclosed"
+      ? "Undisclosed"
+      : null;
+
+  // Build location string from whichever pieces are present
+  const location = [project.city, project.country].filter(Boolean).join(", ");
+
+  // Build the client/year line — only show separator if both pieces are present
+  const clientYear = [displayClient, project.year].filter(Boolean).join(" · ");
+
+  return (
+    <Link
+      href={`/case-studies/${project.slug}`}
+      className="group block"
+      aria-label={`Open case study: ${project.title}`}
+    >
+      {/* Book cover */}
+      <div className="relative aspect-[3/4] overflow-hidden mb-5">
+        <SanityImg
+          image={project.coverImage}
+          alt={project.title}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover"
+          fallback={<PlaceholderCover title={project.title} />}
+        />
+
+        {/* Hover label */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="text-label text-ink bg-paper px-4 py-2">
+            Open Case Study
+          </span>
+        </div>
+      </div>
+
+      {/* Card text */}
+      <div className="space-y-1.5">
+        {project.collectionLabel && (
+          <SectionLabel>{project.collectionLabel}</SectionLabel>
+        )}
+        <h3
+          className="text-label text-ink tracking-wide font-display"
+          style={{ fontSize: "0.875rem", letterSpacing: "0.08em" }}
+        >
+          {project.title.toUpperCase()}
+        </h3>
+        {location && <p className="text-meta text-muted">{location}</p>}
+        {clientYear && <p className="text-meta text-muted">{clientYear}</p>}
+      </div>
+    </Link>
+  );
+}
