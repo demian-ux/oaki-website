@@ -103,6 +103,10 @@ export type HomePageData = {
   heroLabel?: string;
   heroTitle?: string;
   heroSubtext?: string;
+  heroImage?: {
+    asset?: { url?: string; _ref?: string };
+    alt?: string;
+  } | null;
   heroPrimaryCta?: string;
   heroSecondaryCta?: string;
   featuredLabel?: string;

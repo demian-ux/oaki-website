@@ -39,7 +39,7 @@ export default defineType({
       title: "Header CTA Button Label",
       type: "string",
       group: "nav",
-      initialValue: "Let's talk",
+      initialValue: "Start a project",
     }),
     defineField({
       name: "navLabels",

@@ -7,6 +7,13 @@ interface BookCardProps {
   project: Project;
 }
 
+/**
+ * Warm "paint" placeholder — uses the same gradient language as the rest
+ * of the brand instead of grey-on-soft initials. Renders only when a
+ * project has no coverImage in Sanity. Initials are kept but rendered
+ * with very low contrast so the card still feels editorial rather than
+ * empty.
+ */
 function PlaceholderCover({ title }: { title: string }) {
   const initials = title
     .split(" ")
@@ -16,12 +23,30 @@ function PlaceholderCover({ title }: { title: string }) {
     .join("");
 
   return (
-    <div className="w-full h-full flex items-end p-6 bg-soft">
-      <span
-        className="font-display text-line"
+    <div
+      className="w-full h-full relative overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(120% 80% at 80% 10%, rgba(198, 177, 147, 0.35), transparent 60%), radial-gradient(80% 100% at 10% 90%, rgba(34, 34, 34, 0.10), transparent 55%), var(--color-soft)",
+      }}
+    >
+      {/* Fine vertical line texture echoing the isotipo */}
+      <div
+        className="absolute inset-0 pointer-events-none"
         style={{
+          backgroundImage:
+            "repeating-linear-gradient(90deg, rgba(34,34,34,0.025) 0, rgba(34,34,34,0.025) 1px, transparent 1px, transparent 28px)",
+          mixBlendMode: "multiply",
+        }}
+      />
+      <span
+        className="absolute font-display"
+        style={{
+          left: "1.5rem",
+          bottom: "1.5rem",
+          color: "rgba(34, 34, 34, 0.18)",
           lineHeight: 1,
-          fontSize: "clamp(3rem, 6vw, 6rem)",
+          fontSize: "clamp(2rem, 4vw, 3.5rem)",
         }}
       >
         {initials}

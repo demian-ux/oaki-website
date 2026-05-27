@@ -113,6 +113,7 @@ export const homePageQuery = groq`
     heroLabel,
     heroTitle,
     heroSubtext,
+    heroImage{ ${imageFields} },
     heroPrimaryCta,
     heroSecondaryCta,
     featuredLabel,

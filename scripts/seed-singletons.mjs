@@ -54,11 +54,11 @@ const docs = [
   {
     _id: "singleton-homePage",
     _type: "homePage",
-    // Hero
+    // Hero — single editorial line per design critique (May 2026)
     heroLabel: "A studio building architectural narratives",
     heroTitle: "Made for the pitch, the board, and the jury.",
     heroSubtext:
-      "For architectural, interior design and real estate development firms across New York, Miami, Europe, and the Middle East.\n\nAnimation, stills, and film composed as one story, not a folder of jpegs.\n\nWork that holds up year after year.",
+      "Animation, stills, and film composed as one story, not a folder of jpegs.",
     heroPrimaryCta: "Start a project",
     heroSecondaryCta: "See the case studies",
     // Case Studies
@@ -232,6 +232,7 @@ const docs = [
     },
     footerCopyright: "All rights reserved.",
     footerCities: "Buenos Aires · New York",
+    headerCtaLabel: "Start a project",
     showJournal: false,
     showClientNames: false,
   },

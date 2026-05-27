@@ -35,13 +35,25 @@ export default defineType({
       initialValue: "Your project, told the way Phaidon would publish it.",
     }),
     defineField({
+      name: "heroImage",
+      title: "Hero — Background Image",
+      type: "image",
+      group: "hero",
+      description:
+        "Full-bleed image behind the hero copy. A protection gradient is layered on top automatically. Skip to use the animated text-only treatment.",
+      options: { hotspot: true },
+      fields: [{ name: "alt", title: "Alt Text", type: "string" }],
+    }),
+    defineField({
       name: "heroSubtext",
       title: "Hero — Subtext",
       type: "text",
-      rows: 3,
+      rows: 2,
       group: "hero",
+      description:
+        "One sentence beneath the headline. Keep short — peer studios use a single editorial line.",
       initialValue:
-        "We work with architects, interior designers, and developers across New York and Europe. We reply within two hours. We deliver on time. Every time.",
+        "Animation, stills, and film composed as one story, not a folder of jpegs.",
     }),
     defineField({
       name: "heroPrimaryCta",

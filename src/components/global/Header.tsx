@@ -111,7 +111,7 @@ export default function Header({ projects = [], ctaLabel, navLabels }: HeaderPro
           {/* Desktop CTA */}
           <div className="hidden lg:block">
             <Button href="/contact" variant="outline" size="sm">
-              {ctaLabel ?? "Let's talk"}
+              {ctaLabel ?? "Start a project"}
             </Button>
           </div>
 

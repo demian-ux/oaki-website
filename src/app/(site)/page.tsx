@@ -6,8 +6,6 @@ import Button from "@/components/global/Button";
 import HomeHero from "@/components/home/HomeHero";
 import PeerBand from "@/components/home/PeerBand";
 
-// Metadata is owned by ./metadata.ts (generateMetadata is wired in there
-// so the homepage can read Sanity for SEO copy too)
 export { generateMetadata } from "./home-metadata";
 
 const fallbackPeerBand = {
@@ -27,26 +25,11 @@ const fallbackPeerBand = {
   factStrip: "100+ projects · 12 cities · 4 continents · since 2019",
 };
 
-const fallbackSubtextLines = [
-  "For architectural, interior design and real estate development firms across New York, Miami, Europe, and the Middle East.",
-  "Animation, stills, and film composed as one story, not a folder of jpegs.",
-  "Work that holds up year after year.",
-];
-
 export default async function HomePage() {
   const [featured, home] = await Promise.all([
     getFeaturedProjects(),
     getHomePage(),
   ]);
-
-  // Hero subhead arrives from Sanity as a single text block. Split on blank
-  // line OR newline so each paragraph renders as its own <p>.
-  const subtextRaw =
-    home.heroSubtext ?? fallbackSubtextLines.join("\n\n");
-  const subtextLines = subtextRaw
-    .split(/\n\s*\n|\n/)
-    .map((s) => s.trim())
-    .filter(Boolean);
 
   return (
     <>
@@ -54,26 +37,15 @@ export default async function HomePage() {
       <HomeHero
         label={home.heroLabel ?? "A studio building architectural narratives"}
         title={home.heroTitle ?? "Made for the pitch, the board, and the jury."}
-        subtextLines={subtextLines}
-        primaryCta={home.heroPrimaryCta ?? "Start a project"}
-        secondaryCta={home.heroSecondaryCta ?? "See the case studies"}
-      />
-
-      {/* 2. Peer Band (replaces old testimonial + collaborators) */}
-      <PeerBand
-        heading={home.peerBandHeading ?? fallbackPeerBand.heading}
-        quote={home.peerBandQuote ?? fallbackPeerBand.quote}
-        authorName={home.peerBandAuthorName ?? fallbackPeerBand.authorName}
-        authorTitle={home.peerBandAuthorTitle ?? fallbackPeerBand.authorTitle}
-        clientMarks={
-          home.clientMarks && home.clientMarks.length > 0
-            ? home.clientMarks
-            : fallbackPeerBand.clientMarks
+        subtext={
+          home.heroSubtext ??
+          "Animation, stills, and film composed as one story, not a folder of jpegs."
         }
-        factStrip={home.factStrip ?? fallbackPeerBand.factStrip}
+        primaryCta={home.heroPrimaryCta ?? "Start a project"}
+        image={home.heroImage ?? null}
       />
 
-      {/* 3. Case Studies */}
+      {/* 2. Case Studies — moved up. Work before quote. */}
       <section className="section-y page-x border-t border-line">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
           <div>
@@ -94,7 +66,7 @@ export default async function HomePage() {
         <BookGrid projects={featured.slice(0, 4)} />
       </section>
 
-      {/* 4. Process lead-in + FASES */}
+      {/* 3. Process lead-in */}
       <section className="section-y page-x border-t border-line">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <p className="text-display-md mb-8">
@@ -108,7 +80,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 5. FASES grid with transition line as lead-in */}
+      {/* 4. FASES grid with transition line */}
       <section className="section-y page-x border-t border-line bg-soft">
         <p className="text-display-md mb-12 max-w-3xl">
           {home.fasesLabel ?? "Before we open 3ds Max, we ask questions to define:"}
@@ -135,6 +107,20 @@ export default async function HomePage() {
           </Button>
         </div>
       </section>
+
+      {/* 5. Peer Band — moved DOWN. Quote follows proof. */}
+      <PeerBand
+        heading={home.peerBandHeading ?? fallbackPeerBand.heading}
+        quote={home.peerBandQuote ?? fallbackPeerBand.quote}
+        authorName={home.peerBandAuthorName ?? fallbackPeerBand.authorName}
+        authorTitle={home.peerBandAuthorTitle ?? fallbackPeerBand.authorTitle}
+        clientMarks={
+          home.clientMarks && home.clientMarks.length > 0
+            ? home.clientMarks
+            : fallbackPeerBand.clientMarks
+        }
+        factStrip={home.factStrip ?? fallbackPeerBand.factStrip}
+      />
 
       {/* 6. About Preview */}
       <section className="section-y page-x border-t border-line bg-soft">
