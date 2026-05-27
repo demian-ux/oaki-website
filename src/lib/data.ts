@@ -1,5 +1,10 @@
 import { draftMode } from "next/headers";
-import { type Project, type SiteSettings, type TeamMember } from "./types";
+import {
+  type Project,
+  type SanityImage,
+  type SiteSettings,
+  type TeamMember,
+} from "./types";
 import { placeholderProjects } from "./placeholder-data";
 
 const hasSanityConfig =
@@ -103,10 +108,7 @@ export type HomePageData = {
   heroLabel?: string;
   heroTitle?: string;
   heroSubtext?: string;
-  heroImage?: {
-    asset?: { url?: string; _ref?: string };
-    alt?: string;
-  } | null;
+  heroImage?: SanityImage | null;
   heroPrimaryCta?: string;
   heroSecondaryCta?: string;
   featuredLabel?: string;

@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import { type CSSProperties, type ReactNode } from "react";
 
 type SectionLabelTone = "muted" | "ink" | "warm";
 
@@ -7,6 +7,7 @@ interface SectionLabelProps {
   className?: string;
   as?: "p" | "span";
   tone?: SectionLabelTone;
+  style?: CSSProperties;
 }
 
 const toneClass: Record<SectionLabelTone, string> = {
@@ -27,9 +28,10 @@ export default function SectionLabel({
   className = "",
   as: Tag = "p",
   tone = "muted",
+  style,
 }: SectionLabelProps) {
   return (
-    <Tag className={`text-label ${toneClass[tone]} ${className}`}>
+    <Tag className={`text-label ${toneClass[tone]} ${className}`} style={style}>
       {children}
     </Tag>
   );
