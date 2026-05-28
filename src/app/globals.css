@@ -93,6 +93,7 @@
     letter-spacing: -0.02em;
     color: var(--color-ink);
     margin: 0;
+    text-transform: uppercase;
   }
 
   p {
@@ -139,6 +140,11 @@
      browser to balance line lengths so a single word never orphans onto
      its own line. Editorial typography rule. Falls back to normal wrap
      in older browsers (Chrome <117, Safari <17.4, Firefox <121). */
+  /* Display classes do NOT force uppercase — they're reused on quotes and
+     editorial statements (blockquotes, <p> pull-statements) that must stay
+     sentence case. Uppercasing happens on heading ELEMENTS (h1–h6) above,
+     so a heading styled with these classes still renders caps, while a
+     quote styled with the same class does not. */
   .text-display-xl {
     font-family: var(--font-display);
     font-size: clamp(2.5rem, 6vw, 5rem);
