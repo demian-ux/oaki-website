@@ -172,6 +172,21 @@
     text-wrap: balance;
   }
 
+  /* Sans display text = a title. All titles share ONE size — matched to the
+     OAKI STUDIO logo wordmark (~18px) — and render uppercase. Hierarchy now
+     comes from weight, spacing, color, and position rather than size.
+     Serif display text = a quote/pull-statement → opts out via .font-serif,
+     keeping its larger sentence-case treatment. */
+  .text-display-xl:not(.font-serif),
+  .text-display-lg:not(.font-serif),
+  .text-display-md:not(.font-serif) {
+    text-transform: uppercase;
+    font-size: 1.125rem;          /* ~18px, matches the logo wordmark */
+    line-height: 1.35;
+    letter-spacing: 0.05em;       /* echoes the logo's spaced caps */
+    text-wrap: balance;
+  }
+
   .text-editorial {
     font-family: var(--font-serif), Georgia, serif;
     font-size: clamp(1.125rem, 2vw, 1.375rem);

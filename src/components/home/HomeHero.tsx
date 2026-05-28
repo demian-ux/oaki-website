@@ -141,11 +141,13 @@ export default function HomeHero({
         </h1>
         <p
           className="text-editorial mb-12 max-text"
-          style={
-            hasMedia
-              ? { color: "rgba(255,255,255,0.85)" }
-              : { color: "var(--color-muted)" }
-          }
+          style={{
+            // Sit just below the 18px logo-matched title so the hero
+            // hierarchy reads title → subtext, not the reverse.
+            fontSize: "0.9375rem",
+            lineHeight: 1.6,
+            color: hasMedia ? "rgba(255,255,255,0.85)" : "var(--color-muted)",
+          }}
         >
           {subtext}
         </p>
