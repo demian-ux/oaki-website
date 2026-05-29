@@ -171,10 +171,10 @@ export default async function CaseStudyPage({ params }: Props) {
           <SectionLabel className="mb-3">Next Project Book</SectionLabel>
           <Link
             href={`/case-studies/${nextProject.slug}`}
-            className="group flex items-baseline gap-4 hover:text-warm transition-colors duration-300"
+            className="group flex items-baseline gap-4 hover:text-warm-deep transition-colors duration-300"
           >
             <span className="text-display-lg">{nextProject.title}</span>
-            <span className="text-meta text-muted group-hover:text-warm transition-colors duration-300">
+            <span className="text-meta text-muted group-hover:text-warm-deep transition-colors duration-300">
               →
             </span>
           </Link>

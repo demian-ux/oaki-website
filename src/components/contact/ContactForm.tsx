@@ -92,7 +92,7 @@ function TextInput({
     <div>
       <label htmlFor={name} className="text-label text-muted block mb-2">
         {label}
-        {required && <span className="text-warm ml-1">*</span>}
+        {required && <span className="text-warm-deep ml-1">*</span>}
       </label>
       <input
         id={name}
@@ -385,7 +385,7 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
         <div>
           <label htmlFor="message" className="text-label text-muted block mb-2">
             {messagePrompt}
-            <span className="text-warm ml-1">*</span>
+            <span className="text-warm-deep ml-1">*</span>
           </label>
           <textarea
             id="message"

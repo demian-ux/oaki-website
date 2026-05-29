@@ -43,7 +43,7 @@ function PhaseHeader({ phase }: { phase: Phase }) {
   return (
     <div className="mb-12">
       <div className="flex items-baseline gap-4 mb-4">
-        <span className="text-label text-warm font-display">
+        <span className="text-label text-warm-deep font-display">
           FASE {phase.phaseNumber}
         </span>
         <SectionLabel as="span">{phase.layoutType}</SectionLabel>

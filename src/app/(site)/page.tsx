@@ -89,7 +89,7 @@ export default async function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border border-line">
           {defaultPhases.map((phase) => (
             <div key={phase._id} className="p-8 bg-soft border-line">
-              <p className="text-label text-warm mb-3 font-display">
+              <p className="text-label text-warm-deep mb-3 font-display">
                 {phase.phaseNumber}
               </p>
               <p

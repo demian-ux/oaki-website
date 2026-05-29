@@ -4,10 +4,11 @@
   /* Colors — brand */
   --color-ink: #222222;
   --color-paper: #ffffff;
-  --color-warm: #c6b193;
+  --color-warm: #c6b193;       /* ocre — FILL ONLY on light (2.08:1, never text) */
+  --color-warm-deep: #7c6549;  /* ocre for TEXT on light — 5.5:1, WCAG AA. From design-system ocre-700. */
   --color-soft: #f4f2ee;
   --color-line: #e8e5df;
-  --color-muted: #8f8a82;
+  --color-muted: #67645d;      /* a11y: was #8f8a82 (3.43:1 — sub-AA for small text). Now 5.9:1 on white. */
 
   /* Colors — state */
   --color-error: #c0392b;
@@ -40,12 +41,32 @@
     --color-ink: #222222;
     --color-paper: #ffffff;
     --color-warm: #c6b193;
+    --color-warm-deep: #7c6549;
     --color-soft: #f4f2ee;
     --color-line: #e8e5df;
-    --color-muted: #8f8a82;
+    --color-muted: #67645d;
     --color-error: #c0392b;
     --color-success: #4a7c59;
     --color-divider-dark: #444444;
+
+    /* ── Contrast contract (WCAG 2.1 AA — do not regress) ──────────
+       Ported from the Oaki Design System v1.1.0 audit.
+       · --color-warm (#c6b193) is FILL ONLY on light surfaces:
+         backgrounds, borders, underlines, focus rings, slider bars.
+         It is 2.08:1 on white — never legal as a text color on light.
+       · --color-warm-deep (#7c6549, 5.5:1) is the text-legal ocre for
+         light surfaces: FASE/step numbers, required marks, gold hovers.
+       · On the dark ink banner, --color-warm IS text-legal (high
+         contrast on #222) — the preview "Exit" link keeps it.
+       · --color-muted (#67645d, 5.9:1) clears AA for small text.
+       · --color-ink primary text is 15.9:1.
+       ────────────────────────────────────────────────────────────── */
+
+    /* Semantic text roles — reference intent, not raw hex */
+    --text-primary: var(--color-ink);
+    --text-secondary: var(--color-muted);
+    --accent-fill: var(--color-warm);   /* fills / borders / decoration only */
+    --accent-text: var(--color-warm-deep); /* text-legal accent on light */
 
     --font-sans: var(--font-neue-montreal), Arial, sans-serif;
     --font-display: var(--font-pp-neue-machina), Arial, sans-serif;
@@ -497,7 +518,7 @@
 .btn-glass.btn-glass-ghost::before,
 .btn-glass.btn-glass-ghost::after { display: none; }
 .btn-glass.btn-glass-ghost:hover {
-  color: var(--color-warm);
+  color: var(--color-warm-deep);
   background: transparent;
   border-color: transparent;
   transform: none;
@@ -686,12 +707,12 @@
     transform 240ms var(--motion-ease),
     color 240ms var(--motion-ease);
 }
-.mega-link:hover { color: var(--color-warm); }
-.mega-link:hover .mega-link-num { color: var(--color-warm); }
+.mega-link:hover { color: var(--color-warm-deep); }
+.mega-link:hover .mega-link-num { color: var(--color-warm-deep); }
 .mega-link:hover .mega-link-arrow {
   opacity: 1;
   transform: translateX(0);
-  color: var(--color-warm);
+  color: var(--color-warm-deep);
 }
 .mega-featured-grid {
   display: grid;
@@ -775,8 +796,8 @@
   opacity: 1;
   transform: translateY(0);
 }
-.mega-recent-link:hover { color: var(--color-warm); }
-.mega-recent-link:hover .mega-recent-year { color: var(--color-warm); }
+.mega-recent-link:hover { color: var(--color-warm-deep); }
+.mega-recent-link:hover .mega-recent-year { color: var(--color-warm-deep); }
 .mega-recent-year { transition: color 240ms var(--motion-ease); }
 .mega-cta {
   padding-top: 16px;
@@ -802,7 +823,7 @@
   background: var(--color-warm);
   transition: right 360ms var(--motion-ease);
 }
-.mega-cta-link:hover { color: var(--color-warm); }
+.mega-cta-link:hover { color: var(--color-warm-deep); }
 .mega-cta-link:hover::after { right: 0; }
 .mega-cta-arrow {
   font-size: 1.125rem;
@@ -810,7 +831,7 @@
 }
 .mega-cta-link:hover .mega-cta-arrow {
   transform: translateX(6px);
-  color: var(--color-warm);
+  color: var(--color-warm-deep);
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -1006,7 +1027,7 @@
   text-transform: uppercase;
   color: var(--color-muted);
 }
-.partner-row:hover .partner-meta span { color: var(--color-warm); }
+.partner-row:hover .partner-meta span { color: var(--color-warm-deep); }
 
 /* ════════════════════════════════════════════════════════════════════
    FROSTED GLASS PILLS (contact form chips)

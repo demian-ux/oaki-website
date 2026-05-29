@@ -71,7 +71,7 @@ export default async function ProcessPage() {
                 i < steps.length - 1 ? "border-b border-line" : ""
               }`}
             >
-              <span className="text-label text-warm shrink-0 w-12 font-display">
+              <span className="text-label text-warm-deep shrink-0 w-12 font-display">
                 {step.number}
               </span>
               <div className="flex-1">
@@ -92,7 +92,7 @@ export default async function ProcessPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border border-line">
           {defaultPhases.map((phase) => (
             <div key={phase._id} className="p-8 bg-soft">
-              <p className="text-label text-warm mb-3 font-display">
+              <p className="text-label text-warm-deep mb-3 font-display">
                 FASE {phase.phaseNumber}
               </p>
               <p className="mb-2 font-display" style={{ fontSize: "1rem", letterSpacing: "-0.01em" }}>

@@ -55,7 +55,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
               key={link.href}
               href={link.href}
               onClick={onClose}
-              className="text-display-md text-ink hover:text-warm transition-colors duration-300"
+              className="text-display-md text-ink hover:text-warm-deep transition-colors duration-300"
             >
               {link.label}
             </Link>

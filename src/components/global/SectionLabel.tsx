@@ -13,7 +13,7 @@ interface SectionLabelProps {
 const toneClass: Record<SectionLabelTone, string> = {
   muted: "text-muted",
   ink: "text-ink",
-  warm: "text-warm",
+  warm: "text-warm-deep",
 };
 
 /**
