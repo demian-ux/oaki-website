@@ -26,11 +26,12 @@ export default defineType({
     // Preloader
     defineField({
       name: "preloaderText",
-      title: "Preloader — Typewriter Line",
+      title: "Preloader — Coordinate Line",
       type: "string",
       group: "preloader",
-      description: "The italic line typed out below 'OAKI STUDIO' during page load.",
-      initialValue: "Everything you see in this website is computer generated.",
+      description:
+        "The system/coordinate line typed out below the animated mark during page load. Set in the §09 mono voice: it renders UPPERCASE in Geist-mono, ocre-700 — write it as a coordinate (locations, counts, scales · separated by ·).",
+      initialValue: "100% computer-generated · Oaki Studio · Buenos Aires",
     }),
 
     // Navigation

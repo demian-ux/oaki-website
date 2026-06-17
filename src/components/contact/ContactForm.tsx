@@ -134,7 +134,7 @@ function CheckGroup({
             key={opt}
             type="button"
             onClick={() => toggle(opt)}
-            className={`pill-glass ${selected.includes(opt) ? "selected" : ""}`}
+            className={`pill ${selected.includes(opt) ? "selected" : ""}`}
           >
             {opt}
           </button>

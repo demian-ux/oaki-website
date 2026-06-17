@@ -11,6 +11,23 @@ Single source of truth for tokens, components, and the rules that hold the site 
 3. **Tokens, not literals.** Hex values, font names, motion durations, and spacing scales live in `globals.css` only. Everywhere else uses Tailwind classes or `var(--*)`.
 4. **Square corners on purpose.** Every interactive element is `rounded-none`. Rounded corners would break the editorial feel. Don't add `rounded-md`.
 5. **No em dashes in copy.** They read as AI-generated. Restructure the sentence instead. (See [`oaki-copywriting`](https://...) skill for full copy rules.)
+6. **Flat surfaces. No glass.** Glassmorphism was explored for the design system and declined. No `backdrop-filter` except the one place it's allowed: the **sticky header**. No frosted buttons, pills, or cards. Depth comes from photography and type, not effects. Buttons change background on hover, never transform/scale/glow.
+
+---
+
+## Brand Modes (v3.0)
+
+The brand runs in **three modes**, switched by what a surface is doing. One shared core (the mark, the type families, the ocre/ink/paper axis, the 4px rhythm, flat surfaces); only imagery, ocre's role, and the layout grammar shift. Guiding line: *ocre is the connective tissue; renders are the events.*
+
+| Mode | Surfaces | Field | Ocre's job | Type |
+|---|---|---|---|---|
+| **Studio** | Home, About, the work, the story | Clean full-bleed render | Accent — the caption rule (`.ocre-rule`), the mark | NeueMachina display (`.text-statement`) in a solid band |
+| **Process** | `/process`, how-we-work, feedback | Paper + visible grid (`.process-grid`) | Structure-ink — rules, step numbers (`--color-warm-deep`) | Neue Montreal + mono coordinate labels (`.text-coordinate`) |
+| **Case** | Case study pages | Ocre drench (`.case-drench`, `--color-warm-ground`) | Ground — title spreads & dividers, blanco type on it | Display + **SangBleu** (its one home) for pull quotes |
+
+**The hero rule (Studio + Case).** A full-bleed render **carries only the navbar** — no headline or body type ever sits on the image. The headline drops to a solid band below. The header inverts over the render (transparent + slim scrim + white chrome) via `HeroTheme` / `useHeroDarkWhileCovering`, handing back to the bar the moment you scroll onto the band. See `HomeHero.tsx` and `case-studies/CaseHero.tsx`.
+
+**SangBleu is reserved to Case.** Retired from Studio/Process so the editorial lane stays one named room. On Studio/Process surfaces, editorial body is Neue Montreal (`.text-lede`), not serif. Renders in Case sit full-colour **inside ocre frames** (`bg-warm` mat) — frame, never tint.
 
 ---
 
@@ -21,10 +38,17 @@ Single source of truth for tokens, components, and the rules that hold the site 
 |---|---|---|
 | `--color-ink` | `#222222` | Primary text, primary button background |
 | `--color-paper` | `#ffffff` | Page background, inverted text |
-| `--color-warm` | `#c6b193` | Accent (focus, hover state on primary button, FASE markers, required asterisks) |
-| `--color-soft` | `#f4f2ee` | Section backgrounds, placeholder fills |
+| `--color-warm` | `#c6b193` | ocre-400. **Fill only** on light (2.08:1 — never text): the mark, rules, focus rings, ocre frames/mats |
+| `--color-warm-deep` | `#7c6549` | ocre-700. **Text-legal** ocre on light (~5.9:1): FASE/step numbers, coordinate labels, gold hovers |
+| `--color-warm-ground` | `#9e8261` | ocre-600. Case **ground** — `ocre-50`/blanco type on it clears AA (~4.8:1) |
+| `--color-warm-pale` | `#f7f2ea` | ocre-50. Type **on** the ocre ground; pale ocre paper tint |
+| `--color-warm-200` | `#ddc8a8` | ocre-200. Metadata keys on the ocre ground (label tier) |
+| `--color-warm-500` | `#b89c79` | ocre-500. Dividers on the ocre ground |
+| `--color-soft` | `#f4f2ee` | Section backgrounds, placeholder fills, the Studio hero band |
 | `--color-line` | `#e8e5df` | Borders, dividers, low-emphasis fills |
-| `--color-muted` | `#8f8a82` | Secondary text, metadata, captions |
+| `--color-muted` | `#67645d` | Secondary text, metadata, captions (5.9:1 — AA on white) |
+
+> **Ocre contract (do not regress).** One ramp, three jobs: `warm` (400) decorates, `warm-deep` (700) speaks on light, `warm-ground` (600) grounds with pale type. `--color-warm` is **never** a text colour on light surfaces.
 
 ### Colors — state
 | Token | Hex | Use |
@@ -51,15 +75,18 @@ These already include `font-family` — don't redeclare it.
 
 | Class | Font | Size | Use |
 |---|---|---|---|
-| `.text-display-xl` | display | clamp(2.5rem, 6vw, 5rem) | Hero H1 |
-| `.text-display-lg` | display | clamp(2rem, 4vw, 3.5rem) | Page-level H2 |
-| `.text-display-md` | display | clamp(1.5rem, 3vw, 2.5rem) | Section heading |
-| `.text-editorial` | serif | clamp(1.125rem, 2vw, 1.375rem) | Body copy, editorial paragraphs |
+| `.text-display-xl/lg/md` | display | **18px uppercase** (logo-matched) by default | Section titles. Hierarchy is weight/spacing/colour/position, not size. The big clamp size only applies when paired with `.font-serif`. |
+| `.text-statement` | display | clamp(2rem, 4.6vw, 3.25rem), sentence case | **Studio hero band headline** + large statements. Escapes the 18px cap; overrides the h1–h6 uppercase. |
+| `.text-mode-title` | display | clamp(1.75rem, 3.2vw, 2.5rem), sentence case | Process / Case / About section titles that want a real display size. |
+| `.text-coordinate` | mono | 0.6875rem, uppercase, tracked | **Process coordinate labels** + Studio/Case eyebrows. Pair with `text-warm-deep`. |
+| `.text-lede` | sans | clamp(1rem, 1.3vw, 1.125rem) | Editorial body on **Studio + Process** (Neue Montreal, since serif is Case-only). |
+| `.text-editorial` | serif | clamp(1.125rem, 2vw, 1.375rem) | **Case mode only** — SangBleu pull quotes & prestige typography. |
 | `.text-body` | sans | 1rem | Default body |
-| `.text-label` | sans | 0.6875rem, uppercase, tracked | Section labels, button text, captions |
+| `.text-label` | sans | 0.6875rem, uppercase, tracked | Section labels, captions |
 | `.text-meta` | sans | 0.8125rem | Metadata, fine print |
 
-**Override font only when intentional.** Examples: `text-display-md font-serif` renders a heading in serif (a real override — display heading rendered editorially). Don't redeclare the font that the class already sets.
+**SangBleu (serif) is Case-only.** Use `.text-lede` for body on Studio/Process. `.text-editorial` and `.font-serif` belong to case studies (and pull quotes inside them).
+**Override font only when intentional.** `text-display-md font-serif` renders a heading at the big serif size (a real override). Don't redeclare the font a class already sets.
 
 ### Spacing
 

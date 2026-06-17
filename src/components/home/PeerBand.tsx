@@ -1,5 +1,3 @@
-import SectionLabel from "@/components/global/SectionLabel";
-
 interface PeerBandProps {
   heading: string;
   quote: string;
@@ -29,11 +27,12 @@ export default function PeerBand({
 }: PeerBandProps) {
   return (
     <section className="section-y page-x border-t border-line">
-      <SectionLabel className="mb-14">{heading}</SectionLabel>
+      <p className="coord mb-6">{heading}</p>
+      <div className="stripe-rule mb-14" aria-hidden="true" />
 
-      {/* Anchor quote */}
+      {/* Anchor quote — sans (Studio surface; SangBleu is Case-only in 4.1) */}
       <figure className="max-w-3xl mb-20">
-        <blockquote className="text-display-lg font-serif leading-tight mb-8">
+        <blockquote className="text-mode-title leading-tight mb-8">
           <span aria-hidden>&ldquo;</span>
           {quote}
           <span aria-hidden>&rdquo;</span>

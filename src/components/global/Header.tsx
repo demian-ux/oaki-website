@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { startTransition, useEffect, useRef, useState } from "react";
 import MobileMenu from "./MobileMenu";
 import Button from "./Button";
 import SectionLabel from "./SectionLabel";
+import Logotipo from "./Logotipo";
+import { useHeroTheme } from "./HeroTheme";
 import type { Project } from "@/lib/types";
 
 interface HeaderProps {
@@ -57,25 +58,25 @@ export default function Header({ projects = [], ctaLabel, navLabels }: HeaderPro
     closeTimer.current = setTimeout(() => setMegaOpen(false), 120);
   };
 
-  // Non-home pages get the glass header at rest
+  const { overHeroDark } = useHeroTheme();
   const isHome = pathname === "/";
-  const glass = scrolled || !isHome || megaOpen;
+  // overHeroDark is live: the hero reports it true only while its render
+  // still sits under the navbar. Invert there; everywhere else, the subtle
+  // glass bar (at rest on inner pages, on scroll on home).
+  const inverted = overHeroDark && !megaOpen;
+  const glass = !inverted && (scrolled || !isHome || megaOpen);
 
   return (
     <>
       <header
-        className={`site-header fixed top-0 left-0 right-0 z-50 ${glass ? "glass" : ""} ${megaOpen ? "mega-open" : ""}`}
+        className={`site-header fixed top-0 left-0 right-0 z-50 ${glass ? "glass" : ""} ${inverted ? "inverted" : ""} ${megaOpen ? "mega-open" : ""}`}
       >
         <div className="page-x flex items-center justify-between h-16 lg:h-20 relative">
-          {/* Logotype */}
-          <Link href="/" aria-label="Oaki Studio, Home">
-            <Image
-              src="/brand/oaki-logotipo.png"
-              alt="Oaki Studio"
-              width={190}
-              height={40}
-              priority
-              style={{ width: "clamp(120px, 12vw, 190px)", height: "auto" }}
+          {/* Logotipo — the word mark (Brand Guidelines 4.1 §01) */}
+          <Link href="/" aria-label="Oaki Studio, Home" className="inline-flex items-center">
+            <Logotipo
+              inverted={inverted}
+              style={{ fontSize: "clamp(22px, 2.3vw, 30px)" }}
             />
           </Link>
 
@@ -110,7 +111,12 @@ export default function Header({ projects = [], ctaLabel, navLabels }: HeaderPro
 
           {/* Desktop CTA */}
           <div className="hidden lg:block">
-            <Button href="/contact" variant="outline" size="sm">
+            <Button
+              href="/contact"
+              variant="outline"
+              size="sm"
+              className={inverted ? "btn-on-dark" : ""}
+            >
               {ctaLabel ?? "Start a project"}
             </Button>
           </div>

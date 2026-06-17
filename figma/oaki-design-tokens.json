@@ -1,0 +1,107 @@
+{
+  "global": {
+    "color": {
+      "ink":          { "value": "#222222", "type": "color", "description": "Primary text; primary button fill (el negro, never pure black)" },
+      "paper":        { "value": "#ffffff", "type": "color", "description": "Page background; inverted text (el blanco)" },
+      "warm":         { "value": "#c6b193", "type": "color", "description": "ocre-400 — FILL ONLY on light (mark, rules, focus rings, ocre frames). Never text on light." },
+      "warm-deep":    { "value": "#7c6549", "type": "color", "description": "ocre-700 — text-legal ocre on light (~5.9:1). Process structure-ink, coordinate labels, gold hovers." },
+      "warm-ground":  { "value": "#9e8261", "type": "color", "description": "ocre-600 — Case ground; pale/blanco type on it clears AA (~4.8:1)" },
+      "warm-pale":    { "value": "#f7f2ea", "type": "color", "description": "ocre-50 — type ON the ocre ground; pale ocre paper tint" },
+      "warm-200":     { "value": "#ddc8a8", "type": "color", "description": "ocre-200 — metadata keys on the ocre ground (label tier)" },
+      "warm-500":     { "value": "#b89c79", "type": "color", "description": "ocre-500 — dividers on the ocre ground" },
+      "soft":         { "value": "#f4f2ee", "type": "color", "description": "Section backgrounds, placeholders, the Studio hero band" },
+      "line":         { "value": "#e8e5df", "type": "color", "description": "Borders, dividers, low-emphasis fills" },
+      "muted":        { "value": "#67645d", "type": "color", "description": "Secondary text, metadata, captions (AA on white)" },
+      "error":        { "value": "#c0392b", "type": "color", "description": "Form errors, validation" },
+      "success":      { "value": "#4a7c59", "type": "color", "description": "Confirmation states" },
+      "divider-dark": { "value": "#444444", "type": "color", "description": "Dividers on dark surfaces" }
+    },
+
+    "fontFamily": {
+      "sans":    { "value": "Neue Montreal", "type": "fontFamilies", "description": "Workhorse sans — all brand body, UI, labels" },
+      "display": { "value": "PP Neue Machina", "type": "fontFamilies", "description": "Display / headlines (Figma font name may read 'PP NeueMachina Plain')" },
+      "serif":   { "value": "SangBleu BP", "type": "fontFamilies", "description": "Editorial serif — Case mode ONLY (pull quotes, prestige type)" },
+      "mono":    { "value": "Geist Mono", "type": "fontFamilies", "description": "Process coordinate labels (system mono is the live fallback)" }
+    },
+
+    "fontWeight": {
+      "light":     { "value": "300", "type": "fontWeights" },
+      "regular":   { "value": "400", "type": "fontWeights" },
+      "medium":    { "value": "500", "type": "fontWeights" },
+      "bold":      { "value": "700", "type": "fontWeights" },
+      "ultrabold": { "value": "800", "type": "fontWeights" }
+    },
+
+    "fontSize": {
+      "2xs":  { "value": "11", "type": "fontSizes", "description": "coordinate / button / micro-label" },
+      "xs":   { "value": "12", "type": "fontSizes", "description": "label" },
+      "sm":   { "value": "13", "type": "fontSizes", "description": "meta" },
+      "base": { "value": "16", "type": "fontSizes", "description": "body" },
+      "md":   { "value": "18", "type": "fontSizes", "description": "lede / logo-matched title" },
+      "lg":   { "value": "24", "type": "fontSizes" },
+      "xl":   { "value": "32", "type": "fontSizes" },
+      "2xl":  { "value": "40", "type": "fontSizes", "description": "mode-title (desktop max)" },
+      "3xl":  { "value": "52", "type": "fontSizes", "description": "statement / hero (desktop max)" }
+    },
+
+    "lineHeight": {
+      "display": { "value": "95%",  "type": "lineHeights" },
+      "tight":   { "value": "100%", "type": "lineHeights" },
+      "title":   { "value": "135%", "type": "lineHeights" },
+      "body":    { "value": "165%", "type": "lineHeights" },
+      "editorial": { "value": "160%", "type": "lineHeights" }
+    },
+
+    "letterSpacing": {
+      "statement": { "value": "-3.5%", "type": "letterSpacing" },
+      "title":     { "value": "-3%",   "type": "letterSpacing" },
+      "logo":      { "value": "5%",    "type": "letterSpacing" },
+      "label":     { "value": "12%",   "type": "letterSpacing" },
+      "coordinate":{ "value": "14%",   "type": "letterSpacing" },
+      "normal":    { "value": "0%",    "type": "letterSpacing" }
+    },
+
+    "spacing": {
+      "1":  { "value": "4",   "type": "spacing" },
+      "2":  { "value": "8",   "type": "spacing" },
+      "3":  { "value": "12",  "type": "spacing" },
+      "4":  { "value": "16",  "type": "spacing" },
+      "5":  { "value": "20",  "type": "spacing" },
+      "6":  { "value": "24",  "type": "spacing" },
+      "8":  { "value": "32",  "type": "spacing" },
+      "10": { "value": "40",  "type": "spacing" },
+      "12": { "value": "48",  "type": "spacing" },
+      "16": { "value": "64",  "type": "spacing" },
+      "20": { "value": "80",  "type": "spacing" },
+      "24": { "value": "96",  "type": "spacing" },
+      "32": { "value": "128", "type": "spacing" },
+      "page-x":      { "value": "32",  "type": "spacing", "description": "mobile gutter (desktop 48)" },
+      "page-x-lg":   { "value": "48",  "type": "spacing" },
+      "section-y":   { "value": "96",  "type": "spacing", "description": "mobile (desktop 160)" },
+      "section-y-lg":{ "value": "160", "type": "spacing" },
+      "hero-y":      { "value": "80",  "type": "spacing", "description": "mobile (desktop 112)" },
+      "hero-y-lg":   { "value": "112", "type": "spacing" }
+    },
+
+    "borderRadius": {
+      "none": { "value": "0", "type": "borderRadius", "description": "Square corners everywhere — the editorial rule" },
+      "pill": { "value": "999", "type": "borderRadius", "description": "Badges only, never buttons" }
+    },
+
+    "typography": {
+      "statement":   { "value": { "fontFamily": "PP Neue Machina", "fontWeight": "400", "fontSize": "52", "lineHeight": "95%",  "letterSpacing": "-3.5%", "textCase": "none" },      "type": "typography", "description": "Studio hero band headline + large statements" },
+      "mode-title":  { "value": { "fontFamily": "PP Neue Machina", "fontWeight": "400", "fontSize": "40", "lineHeight": "100%", "letterSpacing": "-3%",   "textCase": "none" },      "type": "typography", "description": "Process / Case / About section titles" },
+      "display-title":{ "value": { "fontFamily": "PP Neue Machina", "fontWeight": "400", "fontSize": "18", "lineHeight": "135%", "letterSpacing": "5%",    "textCase": "uppercase" }, "type": "typography", "description": "Logo-matched 18px section titles (hierarchy via weight/position)" },
+      "lede":        { "value": { "fontFamily": "Neue Montreal",   "fontWeight": "400", "fontSize": "18", "lineHeight": "165%", "letterSpacing": "0%",    "textCase": "none" },      "type": "typography", "description": "Studio + Process editorial body (serif retired to Case)" },
+      "body":        { "value": { "fontFamily": "Neue Montreal",   "fontWeight": "400", "fontSize": "16", "lineHeight": "165%", "letterSpacing": "0%",    "textCase": "none" },      "type": "typography" },
+      "editorial":   { "value": { "fontFamily": "SangBleu BP",     "fontWeight": "300", "fontSize": "22", "lineHeight": "160%", "letterSpacing": "0%",    "textCase": "none" },      "type": "typography", "description": "Case mode only — SangBleu pull quotes" },
+      "label":       { "value": { "fontFamily": "Neue Montreal",   "fontWeight": "500", "fontSize": "12", "lineHeight": "135%", "letterSpacing": "12%",   "textCase": "uppercase" }, "type": "typography", "description": "Section labels, captions" },
+      "meta":        { "value": { "fontFamily": "Neue Montreal",   "fontWeight": "400", "fontSize": "13", "lineHeight": "150%", "letterSpacing": "2%",    "textCase": "none" },      "type": "typography" },
+      "coordinate":  { "value": { "fontFamily": "Geist Mono",      "fontWeight": "500", "fontSize": "11", "lineHeight": "135%", "letterSpacing": "14%",   "textCase": "uppercase" }, "type": "typography", "description": "Process drawing-set coordinate labels (pair with color.warm-deep)" },
+      "button":      { "value": { "fontFamily": "Neue Montreal",   "fontWeight": "500", "fontSize": "11", "lineHeight": "100%", "letterSpacing": "14%",   "textCase": "uppercase" }, "type": "typography" }
+    }
+  },
+
+  "$themes": [],
+  "$metadata": { "tokenSetOrder": ["global"] }
+}

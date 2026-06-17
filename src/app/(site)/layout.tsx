@@ -2,6 +2,7 @@ import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
 import Header from "@/components/global/Header";
 import Footer from "@/components/global/Footer";
+import { HeroThemeProvider } from "@/components/global/HeroTheme";
 import { getAllProjects, getSiteSettings } from "@/lib/data";
 
 export default async function SiteLayout({
@@ -16,7 +17,7 @@ export default async function SiteLayout({
   ]);
 
   return (
-    <>
+    <HeroThemeProvider>
       <Header
         projects={projects}
         ctaLabel={settings.headerCtaLabel}
@@ -42,6 +43,6 @@ export default async function SiteLayout({
           </div>
         </>
       )}
-    </>
+    </HeroThemeProvider>
   );
 }

@@ -28,6 +28,19 @@ const ppNeueMachina = localFont({
   display: "swap",
 });
 
+// STRIA 4.1: PP NeueMachina Inktrap — the "loud" display voice. Inktrap
+// Ultrabold leads brand surfaces (uppercase, tight, full volume); Plain
+// stays the calm second. See brand/Oaki Brand Guidelines 4.1.html §04.
+const ppNeueMachinaInktrap = localFont({
+  src: [
+    { path: "../../public/fonts/PPNeueMachina-InktrapLight.otf",     weight: "300", style: "normal" },
+    { path: "../../public/fonts/PPNeueMachina-InktrapRegular.otf",   weight: "400", style: "normal" },
+    { path: "../../public/fonts/PPNeueMachina-InktrapUltrabold.otf", weight: "800", style: "normal" },
+  ],
+  variable: "--font-pp-neue-machina-inktrap",
+  display: "swap",
+});
+
 const sangBleu = localFont({
   src: [
     { path: "../../public/fonts/SangBleuBP-Hairline.otf",       weight: "100", style: "normal" },
@@ -67,7 +80,7 @@ export default async function RootLayout({
   const settings = await getSiteSettings();
   const preloaderText =
     settings.preloaderText ??
-    "Everything you see in this website is computer generated.";
+    "100% computer-generated · Oaki Studio · Buenos Aires";
   // Escape for embedding inside a single-quoted JS string literal
   const safePreloaderText = preloaderText
     .replace(/\\/g, "\\\\")
@@ -75,28 +88,22 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${neueMontreal.variable} ${ppNeueMachina.variable} ${sangBleu.variable}`}
+      className={`h-full antialiased ${neueMontreal.variable} ${ppNeueMachina.variable} ${ppNeueMachinaInktrap.variable} ${sangBleu.variable}`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
         {/* Preloader — shown immediately, before React hydrates */}
         <div id="oaki-loader" className="active" aria-hidden="false" aria-label="Loading">
           <div className="loader-inner">
-            <svg className="loader-spin" viewBox="0 0 48 48" aria-hidden="true">
-              <circle cx="24" cy="24" r="20" fill="none" stroke="#e8e5df" strokeWidth="1" />
-              <circle
-                cx="24"
-                cy="24"
-                r="20"
-                fill="none"
-                stroke="#c6b193"
-                strokeWidth="1.5"
-                strokeDasharray="30 130"
-                strokeLinecap="butt"
-                transform="rotate(-90 24 24)"
-                className="loader-arc"
-              />
-            </svg>
-            <div className="loader-mark">OAKI STUDIO</div>
+            {/* The living mark — the one sanctioned brand loop (Guidelines 4.1 §07).
+                Transparent gif: the negro mark on the paper ground, whole and
+                unobstructed (the §02 "mark" use). */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="loader-iso"
+              src="/brand/oaki-mark-motion.gif"
+              alt=""
+              aria-hidden="true"
+            />
             <div className="loader-typewriter" aria-hidden="true">
               <span className="loader-tw-text" id="oaki-loader-tw"></span>
               <span className="loader-tw-caret" id="oaki-loader-caret"></span>

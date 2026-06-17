@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SectionLabel from "./SectionLabel";
+import Logotipo from "./Logotipo";
 
 const footerLinks = {
   studio: [
@@ -43,14 +44,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" aria-label="Oaki Studio, Home" className="inline-block mb-5">
-              <Image
-                src="/brand/oaki-logotipo.png"
-                alt="Oaki Studio"
-                width={160}
-                height={34}
-                style={{ width: "clamp(120px, 10vw, 160px)", height: "auto" }}
-              />
+            <Link href="/" aria-label="Oaki Studio, Home" className="inline-flex mb-5">
+              <Logotipo style={{ fontSize: "clamp(26px, 2.6vw, 34px)" }} />
             </Link>
             <p className="text-meta text-muted max-w-xs">
               Stories for architecture that doesn&apos;t exist yet.

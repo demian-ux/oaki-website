@@ -18,14 +18,14 @@ interface ButtonProps {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: "",
-  ghost: "btn-glass-ghost",
-  outline: "btn-glass-outline",
+  ghost: "btn-ghost",
+  outline: "btn-outline",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "btn-glass-sm",
+  sm: "btn-sm",
   md: "",
-  lg: "btn-glass-lg",
+  lg: "btn-lg",
 };
 
 export default function Button({
@@ -39,7 +39,7 @@ export default function Button({
   disabled = false,
   external = false,
 }: ButtonProps) {
-  const classes = `btn-glass ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.trim();
+  const classes = `btn ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.trim();
 
   if (href) {
     if (external) {

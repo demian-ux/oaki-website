@@ -43,12 +43,12 @@ function PhaseHeader({ phase }: { phase: Phase }) {
   return (
     <div className="mb-12">
       <div className="flex items-baseline gap-4 mb-4">
-        <span className="text-label text-warm-deep font-display">
+        <span className="coord">
           FASE {phase.phaseNumber}
         </span>
-        <SectionLabel as="span">{phase.layoutType}</SectionLabel>
+        <span className="coord" style={{ color: "var(--color-muted)" }}>{phase.layoutType}</span>
       </div>
-      <h2 className="text-display-lg">{phase.phaseTitle}</h2>
+      <h2 className="text-mode-title text-volume">{phase.phaseTitle}</h2>
       {phase.description && (
         <p className="text-editorial text-muted mt-4 max-text">
           {phase.description}
@@ -67,12 +67,15 @@ function FullscreenLayout({ phase }: { phase: Phase }) {
           &ldquo;{phase.quote}&rdquo;
         </blockquote>
       )}
-      <div className="relative aspect-[16/9] overflow-hidden">
-        <PhaseImage
-          image={phase.mainImage}
-          label={`${phase.phaseTitle} — Main Image`}
-          sizes="100vw"
-        />
+      {/* Render in an ocre frame — full-colour, never tinted (v3.0 Case) */}
+      <div className="bg-warm p-1.5 lg:p-2">
+        <div className="relative aspect-[16/9] overflow-hidden">
+          <PhaseImage
+            image={phase.mainImage}
+            label={`${phase.phaseTitle} — Main Image`}
+            sizes="100vw"
+          />
+        </div>
       </div>
     </div>
   );
@@ -109,12 +112,15 @@ function SplitTextImageLayout({ phase }: { phase: Phase }) {
             <p className="text-meta text-muted mt-6">{phase.whatItContains}</p>
           )}
         </div>
-        <div className="relative aspect-[4/5] overflow-hidden">
-          <PhaseImage
-            image={phase.mainImage}
-            label={`${phase.phaseTitle} — Image`}
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+        {/* Render in an ocre frame — full-colour, never tinted (v3.0 Case) */}
+        <div className="bg-warm p-1.5 lg:p-2">
+          <div className="relative aspect-[4/5] overflow-hidden">
+            <PhaseImage
+              image={phase.mainImage}
+              label={`${phase.phaseTitle} — Image`}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </div>
     </div>

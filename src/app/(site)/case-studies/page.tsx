@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getAllProjects } from "@/lib/data";
 import CaseStudiesClient from "@/components/case-studies/CaseStudiesClient";
-import SectionLabel from "@/components/global/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Project Books",
@@ -16,9 +15,10 @@ export default async function CaseStudiesPage() {
     <>
       {/* Hero */}
       <section className="page-x pt-20 pb-14 border-b border-line">
-        <SectionLabel className="mb-6">Library</SectionLabel>
-        <h1 className="text-display-xl mb-6">Project Books</h1>
-        <p className="text-editorial text-muted max-text">
+        <p className="coord mb-6">Library</p>
+        <h1 className="text-statement text-volume mb-6">Project Books</h1>
+        <div className="stripe-rule mb-8" aria-hidden="true" />
+        <p className="text-lede text-muted max-text">
           Each project, told as a complete visual story.
           From first sketch to final image sequence.
         </p>

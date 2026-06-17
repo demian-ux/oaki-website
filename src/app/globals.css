@@ -4,9 +4,15 @@
   /* Colors — brand */
   --color-ink: #222222;
   --color-paper: #ffffff;
-  --color-warm: #c6b193;       /* ocre — FILL ONLY on light (2.08:1, never text) */
-  --color-warm-deep: #7c6549;  /* ocre for TEXT on light — 5.5:1, WCAG AA. From design-system ocre-700. */
+  --color-warm: #c6b193;       /* ocre-400 — FILL ONLY on light (2.08:1, never text) */
+  --color-warm-deep: #7c6549;  /* ocre-700 — TEXT-legal on light (~5.9:1). Process structure-ink. */
+  --color-warm-ground: #9e8261;/* ocre-600 — Case GROUND; ocre-50 / blanco type on it = AA (~4.8:1) */
+  --color-warm-pale: #f7f2ea;  /* ocre-50  — type ON the ocre ground; pale ocre paper tint */
+  --color-warm-200: #ddc8a8;   /* ocre-200 — metadata keys on the ocre ground (label tier) */
+  --color-warm-500: #b89c79;   /* ocre-500 — dividers / hover on the ocre ground */
   --color-soft: #f4f2ee;
+  --color-gris: #f4f3f0;        /* el gris — the warm paper grey, named into the core in 4.0 (STRIA) */
+  --color-negro: #222222;      /* el negro — alias of ink; "never pure black" */
   --color-line: #e8e5df;
   --color-muted: #67645d;      /* a11y: was #8f8a82 (3.43:1 — sub-AA for small text). Now 5.9:1 on white. */
 
@@ -18,7 +24,14 @@
   /* Fonts — resolved from next/font/local CSS variables */
   --font-sans: var(--font-neue-montreal), Arial, sans-serif;
   --font-display: var(--font-pp-neue-machina), Arial, sans-serif;
+  /* STRIA 4.1 — the loud display voice: Inktrap Ultrabold leads, Plain
+     is the calm second. Opt-in via .text-volume / .logotipo (§04). */
+  --font-display-volume: var(--font-pp-neue-machina-inktrap), var(--font-pp-neue-machina), Arial, sans-serif;
   --font-serif: var(--font-sangbleu), Georgia, serif;
+  /* Mono — Process "coordinate label" / drawing-set grammar. Design system
+     calls for Geist Mono (not uploaded); system mono stack stands in until
+     Geist Mono is self-hosted. */
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
 
   /* Spacing tokens */
   --spacing-page-x: 2rem;
@@ -42,7 +55,13 @@
     --color-paper: #ffffff;
     --color-warm: #c6b193;
     --color-warm-deep: #7c6549;
+    --color-warm-ground: #9e8261;
+    --color-warm-pale: #f7f2ea;
+    --color-warm-200: #ddc8a8;
+    --color-warm-500: #b89c79;
     --color-soft: #f4f2ee;
+    --color-gris: #f4f3f0;
+    --color-negro: #222222;
     --color-line: #e8e5df;
     --color-muted: #67645d;
     --color-error: #c0392b;
@@ -70,13 +89,20 @@
 
     --font-sans: var(--font-neue-montreal), Arial, sans-serif;
     --font-display: var(--font-pp-neue-machina), Arial, sans-serif;
+    --font-display-volume: var(--font-pp-neue-machina-inktrap), var(--font-pp-neue-machina), Arial, sans-serif;
     --font-serif: var(--font-sangbleu), Georgia, serif;
+    --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
 
     --motion-fast: 200ms;
     --motion-base: 300ms;
     --motion-slow: 500ms;
     --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
     --motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* STRIA 4.0/4.1 gestures — wipe / corner tick / rise (§07) */
+    --dur-wipe: 400ms;
+    --dur-tick: 200ms;
+    --dur-rise: 400ms;
   }
 
   *,
@@ -280,302 +306,137 @@
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   LIQUID GLASS BUTTONS — Apple-style translucent body with backdrop
-   blur, inner highlights, warm-gold halo on hover. Square corners.
+   BUTTONS — flat, square, border-driven (v3.0: glassmorphism declined).
+   No backdrop blur, no shadow, no glow, no scale-on-press. Hover changes
+   background only. Focus = 1px ocre ring. Editorial uppercase label type.
    ════════════════════════════════════════════════════════════════════ */
-.btn-glass {
-  position: relative;
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.01em;
-  padding: 13px 26px;
-  cursor: pointer;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 15px 28px;
+  border: 1px solid var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
   border-radius: 0;
   white-space: nowrap;
-  isolation: isolate;
-  background:
-    linear-gradient(180deg,
-      rgba(64, 64, 64, 0.62) 0%,
-      rgba(28, 28, 28, 0.78) 50%,
-      rgba(20, 20, 20, 0.88) 100%);
-  color: var(--color-paper);
-  border: 1px solid rgba(34, 34, 34, 0.50);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-          backdrop-filter: blur(16px) saturate(180%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.30),
-    0 1px 2px rgba(34, 34, 34, 0.12),
-    0 8px 22px -12px rgba(34, 34, 34, 0.35);
+  cursor: pointer;
   transition:
-    color 320ms var(--motion-ease),
-    border-color 320ms var(--motion-ease),
-    background 320ms var(--motion-ease),
-    box-shadow 480ms var(--motion-ease),
-    transform 320ms var(--motion-ease);
-  overflow: hidden;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+    background var(--motion-base) var(--motion-ease),
+    color var(--motion-base) var(--motion-ease),
+    border-color var(--motion-base) var(--motion-ease);
+}
+.btn:hover {
+  background: var(--color-warm-deep);
+  border-color: var(--color-warm-deep);
+  color: var(--color-paper);
+}
+.btn:focus-visible {
+  outline: 1px solid var(--color-warm);
+  outline-offset: 2px;
 }
 
-/* Top inner highlight + warm under-glow */
-.btn-glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.32) 0%,
-      rgba(255, 255, 255, 0.12) 18%,
-      rgba(255, 255, 255, 0.00) 38%),
-    linear-gradient(90deg,
-      rgba(255, 255, 255, 0.06) 0%,
-      rgba(255, 255, 255, 0.00) 8%,
-      rgba(255, 255, 255, 0.00) 92%,
-      rgba(255, 255, 255, 0.06) 100%),
-    radial-gradient(120% 110% at 50% 115%,
-      rgba(198, 177, 147, 0.28) 0%,
-      rgba(198, 177, 147, 0.00) 55%);
-  transition: opacity 320ms var(--motion-ease),
-              background 320ms var(--motion-ease);
-}
-
-/* Specular sheen sweep */
-.btn-glass::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -120%;
-  width: 55%;
-  z-index: 2;
-  background: linear-gradient(
-    100deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.00) 30%,
-    rgba(255, 255, 255, 0.28) 50%,
-    rgba(255, 255, 255, 0.00) 70%,
-    transparent 100%
-  );
-  transform: skewX(-18deg);
-  transition: left 900ms cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-  mix-blend-mode: overlay;
-}
-
-.btn-glass > * {
-  position: relative;
-  z-index: 3;
-}
-
-.btn-glass:hover {
-  border-color: rgba(198, 177, 147, 0.85);
-  background:
-    linear-gradient(180deg,
-      rgba(72, 64, 50, 0.78) 0%,
-      rgba(38, 32, 22, 0.92) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.30),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.30),
-    inset 0 0 0 1px rgba(198, 177, 147, 0.25),
-    0 0 0 1px rgba(198, 177, 147, 0.35),
-    0 0 22px 0 rgba(198, 177, 147, 0.55),
-    0 0 56px 6px rgba(198, 177, 147, 0.30),
-    0 12px 36px -10px rgba(34, 34, 34, 0.40);
-  transform: translateY(-1px);
-}
-.btn-glass:hover::before {
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.46) 0%,
-      rgba(255, 255, 255, 0.18) 18%,
-      rgba(255, 255, 255, 0.00) 38%),
-    linear-gradient(90deg,
-      rgba(255, 255, 255, 0.10) 0%,
-      rgba(255, 255, 255, 0.00) 8%,
-      rgba(255, 255, 255, 0.00) 92%,
-      rgba(255, 255, 255, 0.10) 100%),
-    radial-gradient(120% 110% at 50% 115%,
-      rgba(198, 177, 147, 0.55) 0%,
-      rgba(198, 177, 147, 0.05) 60%);
-}
-.btn-glass:hover::after { left: 130%; }
-
-.btn-glass:active {
-  transform: translateY(0) scale(0.99);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.32),
-    inset 0 0 0 1px rgba(198, 177, 147, 0.40),
-    0 0 0 1px rgba(198, 177, 147, 0.50),
-    0 0 14px 0 rgba(198, 177, 147, 0.45);
-}
-.btn-glass:focus-visible {
-  outline: none;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    0 0 0 1px var(--color-warm),
-    0 0 0 4px rgba(198, 177, 147, 0.28),
-    0 0 22px 0 rgba(198, 177, 147, 0.45);
-}
-
-/* Outline variant — paper-toned clear glass */
-.btn-glass.btn-glass-outline {
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.42) 0%,
-      rgba(248, 246, 241, 0.30) 50%,
-      rgba(244, 242, 238, 0.32) 100%);
+/* Outline — bordered on paper, fills with ink on hover */
+.btn.btn-outline {
+  background: transparent;
   color: var(--color-ink);
-  border-color: rgba(34, 34, 34, 0.65);
-  -webkit-backdrop-filter: blur(18px) saturate(200%);
-          backdrop-filter: blur(18px) saturate(200%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.30),
-    inset 0 -1px 1px rgba(34, 34, 34, 0.06),
-    0 1px 2px rgba(34, 34, 34, 0.05),
-    0 8px 22px -12px rgba(34, 34, 34, 0.20);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+  border-color: var(--color-ink);
 }
-.btn-glass.btn-glass-outline::before {
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(255, 255, 255, 0.30) 18%,
-      rgba(255, 255, 255, 0.00) 42%),
-    linear-gradient(90deg,
-      rgba(255, 255, 255, 0.40) 0%,
-      rgba(255, 255, 255, 0.00) 8%,
-      rgba(255, 255, 255, 0.00) 92%,
-      rgba(255, 255, 255, 0.40) 100%),
-    radial-gradient(120% 110% at 50% 115%,
-      rgba(198, 177, 147, 0.28) 0%,
-      rgba(198, 177, 147, 0.00) 55%);
-}
-.btn-glass.btn-glass-outline::after {
-  background: linear-gradient(
-    100deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.00) 30%,
-    rgba(255, 255, 255, 0.65) 50%,
-    rgba(255, 255, 255, 0.00) 70%,
-    transparent 100%
-  );
-  mix-blend-mode: normal;
-}
-.btn-glass.btn-glass-outline:hover {
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.78) 0%,
-      rgba(248, 243, 232, 0.55) 100%);
-  color: var(--color-ink);
-  border-color: rgba(198, 177, 147, 0.85);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(198, 177, 147, 0.18),
-    inset 0 0 0 1px rgba(198, 177, 147, 0.18),
-    0 0 0 1px rgba(198, 177, 147, 0.45),
-    0 0 18px 0 rgba(198, 177, 147, 0.50),
-    0 0 44px 4px rgba(198, 177, 147, 0.28),
-    0 10px 28px -10px rgba(34, 34, 34, 0.18);
-}
-.btn-glass.btn-glass-outline:hover::before {
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 1.00) 0%,
-      rgba(255, 255, 255, 0.42) 18%,
-      rgba(255, 255, 255, 0.00) 42%),
-    linear-gradient(90deg,
-      rgba(255, 255, 255, 0.55) 0%,
-      rgba(255, 255, 255, 0.00) 8%,
-      rgba(255, 255, 255, 0.00) 92%,
-      rgba(255, 255, 255, 0.55) 100%),
-    radial-gradient(120% 110% at 50% 115%,
-      rgba(198, 177, 147, 0.52) 0%,
-      rgba(198, 177, 147, 0.06) 60%);
+.btn.btn-outline:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
 }
 
-/* Ghost — no glass body */
-.btn-glass.btn-glass-ghost {
+/* Ghost — text link, no box; ocre-700 on hover */
+.btn.btn-ghost {
   background: transparent;
   border-color: transparent;
   color: var(--color-ink);
   padding: 6px 0;
-  overflow: visible;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  box-shadow: none;
-  text-shadow: none;
 }
-.btn-glass.btn-glass-ghost::before,
-.btn-glass.btn-glass-ghost::after { display: none; }
-.btn-glass.btn-glass-ghost:hover {
-  color: var(--color-warm-deep);
+.btn.btn-ghost:hover {
   background: transparent;
   border-color: transparent;
-  transform: none;
-  box-shadow: none;
-  text-shadow: 0 0 12px rgba(198, 177, 147, 0.55);
+  color: var(--color-warm-deep);
 }
 
-.btn-glass.btn-glass-sm { padding: 9px 16px; font-size: 0.8125rem; }
-.btn-glass.btn-glass-lg { padding: 17px 34px; font-size: 0.9375rem; }
+/* Sizes */
+.btn.btn-sm { padding: 11px 18px; font-size: 0.625rem; }
+.btn.btn-lg { padding: 18px 38px; font-size: 0.75rem; letter-spacing: 0.16em; }
 
-.btn-glass[disabled],
-.btn-glass[aria-disabled="true"] {
-  cursor: not-allowed;
+/* On a dark surface (hero band / footer): paper border, fills with paper */
+.btn.btn-on-dark {
+  background: transparent;
+  color: var(--color-paper);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.btn.btn-on-dark:hover {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  border-color: var(--color-paper);
+}
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
   opacity: 0.4;
+  cursor: not-allowed;
 }
-.btn-glass[disabled]:hover,
-.btn-glass[aria-disabled="true"]:hover {
-  transform: none;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.25);
-  border-color: rgba(34, 34, 34, 0.55);
-}
-.btn-glass[disabled]:hover::after,
-.btn-glass[aria-disabled="true"]:hover::after { left: -120%; }
 
 /* ════════════════════════════════════════════════════════════════════
-   LIQUID GLASS HEADER
+   STICKY HEADER — the one place a subtle blur is allowed (v3.0). A flat
+   translucent paper bar with a single 1px line; no inner highlights, no
+   shadow. The .inverted state sits over a full-bleed hero render:
+   transparent, with a slim top scrim and white chrome.
    ════════════════════════════════════════════════════════════════════ */
 .site-header {
   transition: background var(--motion-base) var(--motion-ease),
               border-color var(--motion-base) var(--motion-ease),
-              box-shadow var(--motion-base) var(--motion-ease),
               backdrop-filter var(--motion-base) var(--motion-ease);
 }
 .site-header.glass {
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.72) 0%,
-      rgba(255, 255, 255, 0.58) 100%);
-  border-bottom: 1px solid rgba(232, 229, 223, 0.85);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-          backdrop-filter: blur(18px) saturate(180%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.85),
-    inset 0 -1px 0 rgba(34, 34, 34, 0.04),
-    0 6px 24px -12px rgba(34, 34, 34, 0.10);
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid var(--color-line);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+          backdrop-filter: blur(8px) saturate(120%);
 }
 .site-header.mega-open {
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.80) 0%,
-      rgba(255, 255, 255, 0.66) 100%);
-  border-bottom-color: rgba(232, 229, 223, 0.85);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-          backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--color-line);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+          backdrop-filter: blur(10px) saturate(120%);
 }
+
+/* Over a dark hero render: only the navbar sits on the image, kept legible
+   by a slim top scrim (v3.0 Studio rule). No frosted bar. */
+.site-header.inverted {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+.site-header.inverted::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 220%;
+  background: linear-gradient(180deg, rgba(20, 18, 15, 0.55), rgba(20, 18, 15, 0));
+  pointer-events: none;
+}
+/* White chrome over the scrim. Unlayered, so these beat Tailwind's
+   text-muted / text-ink / bg-ink utilities inside the inverted header. */
+.site-header.inverted a { color: #fff; }
+.site-header.inverted .text-muted { color: rgba(255, 255, 255, 0.78); }
+.site-header.inverted .text-ink { color: #fff; }
+.site-header.inverted .nav-caret { color: #fff; }
+.site-header.inverted .bg-ink { background-color: #fff; }
 
 /* Nav link underline */
 .nav-link-warm {
@@ -858,42 +719,49 @@
   align-items: center;
   gap: 24px;
 }
-#oaki-loader .loader-spin {
-  width: 40px;
-  height: 40px;
-  animation: oaki-spin 1.4s linear infinite;
+/* The living mark — the §07 brand loop, on the white loader ground. The
+   source gif is the white mark on negro; invert() flips it to the negro
+   mark on white so its (now-white) ground merges into the paper. */
+#oaki-loader .loader-iso {
+  width: 60px;
+  height: auto;
+  display: block;
+  filter: invert(1);
 }
-#oaki-loader .loader-mark {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-ink);
-  opacity: 0.55;
-}
+/* The coordinate / system voice (4.1 §09): Geist-mono, uppercase, tracked
+   wide, ocre-700 — the system speaking on the splash. */
 #oaki-loader .loader-typewriter {
-  margin-top: 10px;
-  font-family: var(--font-sans), Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
   line-height: 1.45;
-  color: var(--color-ink);
-  letter-spacing: 0.01em;
+  color: var(--color-warm-deep);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   text-align: center;
-  max-width: 460px;
+  white-space: nowrap;        /* coordinate line stays one line — never wraps */
+  max-width: 92vw;
   padding: 0 24px;
   min-height: 1.45em;
   display: inline-flex;
   align-items: baseline;
   justify-content: center;
   gap: 2px;
-  opacity: 0.78;
+}
+/* Narrow screens: shrink the coordinate line so it still fits on one line. */
+@media (max-width: 560px) {
+  #oaki-loader .loader-typewriter {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 0 12px;
+  }
 }
 #oaki-loader .loader-tw-caret {
   display: inline-block;
   width: 2px;
   height: 0.95em;
-  background: var(--color-ink);
+  background: var(--color-warm-deep);
   opacity: 0.7;
   animation: tw-blink 800ms steps(2, end) infinite;
   vertical-align: -0.05em;
@@ -901,9 +769,6 @@
 }
 #oaki-loader .loader-tw-caret.done {
   animation: tw-fadeout 500ms ease forwards;
-}
-@keyframes oaki-spin {
-  to { transform: rotate(360deg); }
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -1030,101 +895,44 @@
 .partner-row:hover .partner-meta span { color: var(--color-warm-deep); }
 
 /* ════════════════════════════════════════════════════════════════════
-   FROSTED GLASS PILLS (contact form chips)
+   PILLS — flat selectable chips (contact form). Square, border-driven
+   (v3.0: glassmorphism declined). Selected = ink fill + paper text, the
+   system's strongest signal.
    ════════════════════════════════════════════════════════════════════ */
-.pill-glass {
-  position: relative;
+.pill {
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 10px 18px;
-  border: 1px solid rgba(34, 34, 34, 0.22);
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.65) 0%,
-      rgba(244, 242, 238, 0.50) 100%);
+  padding: 11px 18px;
+  border: 1px solid var(--color-line);
+  background: var(--color-paper);
   color: var(--color-muted);
-  cursor: pointer;
   border-radius: 0;
-  -webkit-backdrop-filter: blur(14px) saturate(180%);
-          backdrop-filter: blur(14px) saturate(180%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.80),
-    inset 0 -1px 0 rgba(34, 34, 34, 0.05),
-    0 1px 2px rgba(34, 34, 34, 0.04),
-    0 4px 14px -8px rgba(34, 34, 34, 0.14);
+  cursor: pointer;
   transition:
-    color 240ms var(--motion-ease),
-    border-color 240ms var(--motion-ease),
-    background 240ms var(--motion-ease),
-    box-shadow 360ms var(--motion-ease),
-    transform 240ms var(--motion-ease);
-  isolation: isolate;
-  overflow: hidden;
+    color var(--motion-fast) var(--motion-ease),
+    border-color var(--motion-fast) var(--motion-ease),
+    background var(--motion-fast) var(--motion-ease);
 }
-.pill-glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.55) 0%,
-      rgba(255, 255, 255, 0.12) 22%,
-      rgba(255, 255, 255, 0.00) 50%);
-  pointer-events: none;
-  z-index: 0;
-}
-.pill-glass > * { position: relative; z-index: 1; }
-.pill-glass:hover {
-  border-color: rgba(198, 177, 147, 0.70);
+.pill:hover {
   color: var(--color-ink);
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.80) 0%,
-      rgba(248, 243, 232, 0.60) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(198, 177, 147, 0.12),
-    0 0 0 1px rgba(198, 177, 147, 0.32),
-    0 0 16px 0 rgba(198, 177, 147, 0.36),
-    0 0 32px 2px rgba(198, 177, 147, 0.20);
-  transform: translateY(-1px);
+  border-color: var(--color-warm);
 }
-.pill-glass.selected {
-  background:
-    linear-gradient(180deg,
-      rgba(56, 56, 56, 0.78) 0%,
-      rgba(28, 28, 28, 0.92) 100%);
+.pill:focus-visible {
+  outline: 1px solid var(--color-warm);
+  outline-offset: 2px;
+}
+.pill.selected {
+  background: var(--color-ink);
   color: var(--color-paper);
-  border-color: rgba(34, 34, 34, 0.70);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
-    0 1px 2px rgba(34, 34, 34, 0.10),
-    0 6px 18px -10px rgba(34, 34, 34, 0.30);
+  border-color: var(--color-ink);
 }
-.pill-glass.selected::before {
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.22) 0%,
-      rgba(255, 255, 255, 0.06) 20%,
-      rgba(255, 255, 255, 0.00) 45%);
-}
-.pill-glass.selected:hover {
-  border-color: rgba(198, 177, 147, 0.85);
-  background:
-    linear-gradient(180deg,
-      rgba(72, 64, 50, 0.78) 0%,
-      rgba(38, 32, 22, 0.92) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.30),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.30),
-    inset 0 0 0 1px rgba(198, 177, 147, 0.25),
-    0 0 0 1px rgba(198, 177, 147, 0.35),
-    0 0 18px 0 rgba(198, 177, 147, 0.50),
-    0 0 40px 4px rgba(198, 177, 147, 0.26);
+.pill.selected:hover {
+  background: var(--color-warm-deep);
+  border-color: var(--color-warm-deep);
+  color: var(--color-paper);
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -1312,5 +1120,204 @@
   .duration-slider { padding-top: 72px; }
   .duration-slider .ds-helper { display: none; }
   .duration-slider .ds-tick-labels span:nth-child(even) { display: none; }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   V3.0 BRAND MODES — Studio · Process · Case helpers
+   One shared core; only imagery, ocre's role, and layout grammar shift.
+   "Ocre is the connective tissue; renders are the events." These are
+   left UNLAYERED so a .text-statement on an <h1> overrides the base
+   uppercase + the 18px logo-matched title cap.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Display statement that escapes the global 18px title cap — the Studio
+   hero band headline and large mode statements. Sentence case. */
+.text-statement {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: none;
+  text-wrap: balance;
+}
+.text-mode-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+/* Mono "coordinate label" — Process drawing-set grammar, and the Studio /
+   Case eyebrow. Pair with text-warm-deep (ocre-700) on light. */
+.text-coordinate {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Sans lede — body copy for Studio + Process (SangBleu is retired to Case
+   in v3.0, so editorial body on those surfaces is Neue Montreal). */
+.text-lede {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+
+/* The ocre rule — a short 2px ocre-400 fill used as a Studio caption rule.
+   Fill only; never carries text. */
+.ocre-rule {
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: var(--color-warm);
+}
+
+/* PROCESS — construction-grid paper. Faint 28px grid; structure-ink ocre.
+   Cards/cells with their own fill sit ON the grid, drawing-set style. */
+.process-grid {
+  background-color: var(--color-paper);
+  background-image:
+    linear-gradient(var(--color-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* CASE — ocre-600 drench ground; type rides on it in ocre-50 (AA). The one
+   home for SangBleu. Renders sit in ocre frames, never tinted. */
+.case-drench {
+  background: var(--color-warm-ground);
+  color: var(--color-warm-pale);
+}
+.case-rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--color-warm-500);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   STRIA 4.1 FOUNDATION — sphere grammar + page furniture + the Canon.
+   Ported from brand/Oaki Brand Guidelines 4.1.html + styles.css. The
+   stripes are the brand's entire decorative budget; spend them only in
+   these ways. Utilities are opt-in — pages adopt them incrementally; the
+   base type scale is untouched so nothing regresses.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* TYPE AT FULL VOLUME — the loud display voice (§04). Inktrap Ultrabold,
+   uppercase, tight. Opt-in: headlines are claims, under seven words, one
+   period. Body copy never takes this register. */
+.text-volume {
+  font-family: var(--font-display-volume);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+.text-volume .o,
+.text-volume .dot { color: var(--color-warm-deep); }
+
+/* THE LOGOTIPO — the dominant word mark (§01). As of 4.1 the mark is the
+   WORD ALONE: lowercase "oaki" in Inktrap Ultrabold with the ocre dot;
+   the "studio" sub-label is dropped from the canonical lockup. Size via
+   font-size on the wrapper; .inv on negro grounds. */
+.logotipo {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-display-volume);
+  font-weight: 800;
+  font-size: 1.125rem;
+  letter-spacing: 0.021em;
+  line-height: 0.82;
+  text-transform: lowercase;
+  color: var(--color-ink);
+}
+.logotipo .dot { color: var(--color-warm-500); }
+.logotipo.inv { color: var(--color-paper); }
+.logotipo.inv .dot { color: var(--color-warm); }
+
+/* THE STRIPE RULE — the sphere's stripes flattened into a divider: 3px
+   bars, 12px period, 10px tall. Negro on paper; add .ocre on negro
+   grounds. Dividers & section breaks ONLY — never a tile. */
+.stripe-rule {
+  height: 10px;
+  background: repeating-linear-gradient(90deg, currentColor 0 3px, transparent 3px 12px);
+  color: var(--color-negro);
+}
+.stripe-rule.ocre { color: var(--color-warm); }
+
+/* THE COORDINATE LABEL — the mono system voice promoted to every brand
+   surface (§04/§09): locations, counts, scales, doc numbers. Always
+   uppercase, tracked wide, ocre-700. Spanish welcome. */
+.coord {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-warm-deep);
+}
+
+/* THE FRAMED PLATE — every image gets a 1px frame, square corners, no
+   shadow (§05/§06). */
+.frame-plate {
+  border: 1px solid var(--color-line);
+  border-radius: 0;
+}
+
+/* THE NEGRO TAG — tags, not captions. Bottom-left of a plate: subject ·
+   study type. The only surviving "pill" (§05). */
+.tag-negro {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--color-negro);
+  color: var(--color-paper);
+  padding: 7px 12px;
+}
+
+/* THE B&W LANE — graphic surfaces only (heroes, covers, studies). Full
+   grayscale, never a tint, never an ocre wash. Cases & proposals stay
+   true to colour (§03/§05). */
+.bw-lane { filter: grayscale(1) contrast(1.04); }
+
+/* THE BASELINE — every Stria page ends on a 2px negro rule with a mono
+   footline left + right (§06). */
+.baseline-rule { border-top: 2px solid var(--color-negro); }
+
+/* MOTION (§07) — wipe / corner tick / rise, all ≤400ms ease-out,
+   reduced-motion safe. One rise per page; body copy never animates;
+   nothing loops in production. */
+.anim-tick { position: relative; }
+.anim-tick::before,
+.anim-tick::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 0 solid var(--color-warm-500);
+  opacity: 0;
+  transition: opacity var(--dur-tick) var(--motion-ease-out);
+}
+.anim-tick::before { left: -1px; top: -1px; border-left-width: 2px; border-top-width: 2px; }
+.anim-tick::after { right: -1px; bottom: -1px; border-right-width: 2px; border-bottom-width: 2px; }
+.anim-tick:hover::before,
+.anim-tick:hover::after { opacity: 1; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-wipe { animation: stria-wipe var(--dur-wipe) var(--motion-ease-out) both; }
+  @keyframes stria-wipe {
+    from { clip-path: inset(0 100% 0 0); }
+    to   { clip-path: inset(0 0 0 0); }
+  }
+  .anim-rise { animation: stria-rise var(--dur-rise) var(--motion-ease-out) both; }
+  @keyframes stria-rise {
+    from { transform: translateY(14px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
 }
 

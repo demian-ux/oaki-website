@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getProcessPage } from "@/lib/data";
 import { defaultPhases } from "@/lib/placeholder-data";
-import SectionLabel from "@/components/global/SectionLabel";
 import Button from "@/components/global/Button";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -49,53 +48,76 @@ export default async function ProcessPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="page-x pt-24 pb-20 lg:pt-32 lg:pb-28 border-b border-line">
-        <SectionLabel className="mb-6">{process.heroLabel ?? "How we work"}</SectionLabel>
-        <h1 className="text-display-xl mb-8 max-w-2xl">
-          {process.heroTitle ?? "Our process starts before the image."}
-        </h1>
-        <p className="text-editorial text-muted max-text">
-          {process.heroText ??
-            "We read the project, find its tone, and build the image world that lets others see what you see."}
-        </p>
+      {/* Hero — Process mode: a drawing-set masthead on a construction grid.
+          Mono coordinate labels in ocre-700 structure-ink; sans body. */}
+      <section className="process-grid border-b border-line">
+        <div className="page-x pt-24 pb-16 lg:pt-32 lg:pb-20">
+          <div className="flex items-center justify-between mb-10">
+            <p className="text-coordinate text-warm-deep">DOC. 01 — PROCESS</p>
+            <p className="text-coordinate text-muted">OAKI STUDIO</p>
+          </div>
+          <p className="coord mb-6">{process.heroLabel ?? "How we work"}</p>
+          <h1 className="text-mode-title text-volume mb-8 max-w-3xl">
+            {process.heroTitle ?? "Our process starts before the image."}
+          </h1>
+          <p className="text-lede text-muted max-text">
+            {process.heroText ??
+              "We read the project, find its tone, and build the image world that lets others see what you see."}
+          </p>
+          {/* Scale bar — drawing-set signature */}
+          <div className="flex items-center gap-4 mt-12">
+            <span className="text-coordinate text-muted">Scale</span>
+            <span className="flex" aria-hidden="true">
+              {[0, 1, 2, 3, 4, 5].map((i) => (
+                <span
+                  key={i}
+                  className="block w-5 h-2 border border-warm-deep"
+                  style={{ background: i % 2 ? "var(--color-warm-deep)" : "transparent" }}
+                />
+              ))}
+            </span>
+            <span className="text-coordinate text-muted">5 steps · 6 fases</span>
+          </div>
+        </div>
       </section>
 
-      {/* Process steps */}
+      {/* Process steps — coordinate-numbered rows, hairline rules between */}
       <section className="page-x section-y border-b border-line">
-        <div className="space-y-0">
+        <div>
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className={`flex flex-col lg:flex-row lg:items-start gap-6 py-12 ${
+              className={`grid grid-cols-[3.5rem_1fr] lg:grid-cols-[6rem_1fr] gap-5 lg:gap-12 py-12 ${
                 i < steps.length - 1 ? "border-b border-line" : ""
               }`}
             >
-              <span className="text-label text-warm-deep shrink-0 w-12 font-display">
-                {step.number}
+              <span className="text-coordinate text-warm-deep pt-1">
+                {`STEP ${step.number}`}
               </span>
-              <div className="flex-1">
+              <div>
                 <h2 className="text-display-md mb-4">{step.title}</h2>
-                <p className="text-editorial text-muted max-text">{step.body}</p>
+                <p className="text-body text-muted max-text">{step.body}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* FASES method */}
-      <section className="page-x section-y border-b border-line bg-soft">
-        <SectionLabel className="mb-4">{process.fasesLabel ?? "The FASES Method"}</SectionLabel>
-        <h2 className="text-display-md mb-14">
+      {/* FASES method — a drawing-set table: hairline grid, coordinate labels */}
+      <section className="page-x section-y border-b border-line">
+        <p className="coord mb-4">{process.fasesLabel ?? "The FASES Method"}</p>
+        <h2 className="text-mode-title text-volume mb-8 max-w-3xl">
           {process.fasesHeading ?? "Every project book follows the same six-part structure."}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border border-line">
+        <div className="stripe-rule mb-12" aria-hidden="true" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border border-line bg-line">
           {defaultPhases.map((phase) => (
-            <div key={phase._id} className="p-8 bg-soft">
-              <p className="text-label text-warm-deep mb-3 font-display">
-                FASE {phase.phaseNumber}
-              </p>
-              <p className="mb-2 font-display" style={{ fontSize: "1rem", letterSpacing: "-0.01em" }}>
+            <div key={phase._id} className="p-8 bg-paper">
+              <p className="text-coordinate text-warm-deep mb-3">FASE {phase.phaseNumber}</p>
+              <p
+                className="mb-2 font-display"
+                style={{ fontSize: "1rem", letterSpacing: "-0.01em", textTransform: "uppercase" }}
+              >
                 {phase.phaseTitle}
               </p>
               <p className="text-meta text-muted">{phase.whatItIs}</p>
@@ -107,10 +129,10 @@ export default async function ProcessPage() {
       {/* CTA */}
       <section className="page-x section-y border-t border-line text-center">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-display-md mb-4">
+          <h2 className="text-mode-title text-volume mb-6">
             {process.ctaHeading ?? "Your images need to do a job."}
           </h2>
-          <p className="text-editorial text-muted mb-10">
+          <p className="text-lede text-muted mb-10">
             {process.ctaBody ?? "Let us figure out what it is."}
           </p>
           <Button href="/contact" variant="primary" size="lg">

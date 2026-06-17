@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllProjectSlugs, getAllProjects, getProjectBySlug, getNextProject } from "@/lib/data";
 import PhaseSection from "@/components/case-studies/PhaseSection";
-import SanityImg from "@/components/global/SanityImg";
+import CaseHero from "@/components/case-studies/CaseHero";
 import SectionLabel from "@/components/global/SectionLabel";
 
 interface Props {
@@ -45,21 +45,43 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <>
-      {/* Cover */}
-      <section className="page-x pt-24 pb-20 lg:pt-32 lg:pb-28 border-b border-line">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] lg:gap-16">
+      {/* Full-bleed render hero — carries only the navbar (v3.0 Case mode) */}
+      <CaseHero image={project.heroMedia ?? project.coverImage} alt={project.title} />
+
+      {/* Ocre-drench binding — the Case title spread. ocre-600 ground, type
+          in ocre-50 (AA). SangBleu for the subtitle: its one home. */}
+      <section className="case-drench page-x py-16 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] lg:gap-16">
           {/* Left column: collection / title / subtitle */}
           <div>
-            <SectionLabel className="mb-8">{project.collectionLabel}</SectionLabel>
-            <h1 className="text-display-xl mb-8">{project.title}</h1>
+            <p className="text-coordinate mb-6" style={{ color: "var(--color-warm-200)" }}>
+              {project.collectionLabel}
+            </p>
+            <h1 className="text-statement text-volume mb-8" style={{ color: "var(--color-warm-pale)" }}>
+              {project.title}
+            </h1>
             {project.subtitle && (
-              <p className="text-editorial text-muted max-text">{project.subtitle}</p>
+              <p
+                className="font-serif max-w-2xl"
+                style={{
+                  fontStyle: "italic",
+                  fontWeight: 300,
+                  fontSize: "clamp(1.25rem, 2.4vw, 1.75rem)",
+                  lineHeight: 1.3,
+                  color: "var(--color-warm-pale)",
+                }}
+              >
+                {project.subtitle}
+              </p>
             )}
           </div>
 
-          {/* Right column: metadata, stacked editorially */}
-          <aside className="mt-12 lg:mt-0 lg:pt-2 border-t lg:border-t-0 lg:border-l border-line lg:pl-8 pt-8">
-            <div className="flex flex-col gap-6">
+          {/* Right column: metadata — keys in ocre-200, values in ocre-50 */}
+          <aside
+            className="mt-12 lg:mt-0 lg:pt-1 lg:border-l lg:pl-8"
+            style={{ borderColor: "var(--color-warm-500)" }}
+          >
+            <div className="flex flex-col gap-5">
               {[
                 { label: "Location", value: project.city && project.country ? `${project.city}, ${project.country}` : project.city || project.country || null },
                 { label: "Type", value: project.projectType },
@@ -70,27 +92,21 @@ export default async function CaseStudyPage({ params }: Props) {
                 .filter((item) => item.value)
                 .map((item) => (
                   <div key={item.label}>
-                    <SectionLabel>{item.label}</SectionLabel>
-                    <p className="text-meta text-ink mt-1">{item.value}</p>
+                    <span
+                      className="text-coordinate block mb-1"
+                      style={{ color: "var(--color-warm-200)" }}
+                    >
+                      {item.label}
+                    </span>
+                    <p style={{ color: "var(--color-warm-pale)", fontSize: "0.9375rem" }}>
+                      {item.value}
+                    </p>
                   </div>
                 ))}
             </div>
           </aside>
         </div>
       </section>
-
-      {/* Hero */}
-      <div className="relative w-full aspect-[21/9] overflow-hidden">
-        <SanityImg
-          image={project.heroMedia ?? project.coverImage}
-          alt={project.title}
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-          fallback={<div className="w-full h-full bg-soft" />}
-        />
-      </div>
 
       {/* Narrative intro */}
       <section className="page-x section-y border-b border-line">
@@ -122,7 +138,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* Result */}
       <section className="page-x section-y border-b border-line bg-soft">
         <div className="max-w-2xl">
-          <SectionLabel className="mb-6">What the narrative helped clarify.</SectionLabel>
+          <p className="coord mb-6">What the narrative helped clarify.</p>
           <p className="text-editorial text-muted">
             The final image sequence gave the project a clear tone, a stronger sense of place, and a complete visual world for presentation, approval, and marketing.
           </p>
@@ -143,7 +159,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* Credits */}
       <section className="page-x py-16 border-b border-line">
-        <SectionLabel className="mb-8">Credits</SectionLabel>
+        <p className="coord mb-8">Credits</p>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
           {(
             project.credits ?? [
@@ -168,7 +184,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* Next project */}
       {nextProject && (
         <section className="page-x py-16">
-          <SectionLabel className="mb-3">Next Project Book</SectionLabel>
+          <p className="coord mb-3">Next Project Book</p>
           <Link
             href={`/case-studies/${nextProject.slug}`}
             className="group flex items-baseline gap-4 hover:text-warm-deep transition-colors duration-300"
