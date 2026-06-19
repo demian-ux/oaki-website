@@ -54,10 +54,10 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] lg:gap-16">
           {/* Left column: collection / title / subtitle */}
           <div>
-            <p className="text-coordinate mb-6" style={{ color: "var(--color-warm-200)" }}>
+            <p className="coord mb-6" style={{ color: "var(--color-warm-200)" }}>
               {project.collectionLabel}
             </p>
-            <h1 className="text-statement text-volume mb-8" style={{ color: "var(--color-warm-pale)" }}>
+            <h1 className="text-statement text-volume reveal mb-8" style={{ color: "var(--color-warm-pale)" }}>
               {project.title}
             </h1>
             {project.subtitle && (
@@ -93,7 +93,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 .map((item) => (
                   <div key={item.label}>
                     <span
-                      className="text-coordinate block mb-1"
+                      className="coord block mb-1"
                       style={{ color: "var(--color-warm-200)" }}
                     >
                       {item.label}
@@ -111,7 +111,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* Narrative intro */}
       <section className="page-x section-y border-b border-line">
         <div className="max-w-2xl">
-          <p className="text-display-md mb-6 font-serif">
+          <p className="text-quote reveal mb-6">
             Before the image, there is the story.
           </p>
           <p className="text-editorial text-muted">
@@ -148,7 +148,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* Testimonial */}
       <section className="page-x section-y border-b border-line">
         <div className="max-w-xl">
-          <p className="text-display-md mb-8 leading-relaxed font-serif">
+          <p className="text-quote reveal mb-8 leading-relaxed">
             &ldquo;Oaki gave the project a voice before the building existed.&rdquo;
           </p>
           <p className="text-meta text-muted">
@@ -189,7 +189,7 @@ export default async function CaseStudyPage({ params }: Props) {
             href={`/case-studies/${nextProject.slug}`}
             className="group flex items-baseline gap-4 hover:text-warm-deep transition-colors duration-300"
           >
-            <span className="text-display-lg">{nextProject.title}</span>
+            <span className="text-title">{nextProject.title}</span>
             <span className="text-meta text-muted group-hover:text-warm-deep transition-colors duration-300">
               →
             </span>

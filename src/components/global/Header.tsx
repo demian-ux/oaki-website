@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { startTransition, useEffect, useRef, useState } from "react";
 import MobileMenu from "./MobileMenu";
-import Button from "./Button";
 import SectionLabel from "./SectionLabel";
 import Logotipo from "./Logotipo";
 import { useHeroTheme } from "./HeroTheme";
@@ -21,25 +20,37 @@ interface HeaderProps {
   };
 }
 
-export default function Header({ projects = [], ctaLabel, navLabels }: HeaderProps) {
+export default function Header({ projects = [], navLabels }: HeaderProps) {
+  // The three sections — same set the home hero presents (§02). The nav bar
+  // emerges from that masthead, so it carries the same items + mono voice.
   const navLinks = [
     { label: navLabels?.caseStudies ?? "Case Studies", href: "/case-studies" },
-    { label: navLabels?.process ?? "Process", href: "/process" },
     { label: navLabels?.about ?? "About", href: "/about" },
-    { label: navLabels?.contact ?? "Contact", href: "/contact" },
+    { label: navLabels?.process ?? "Process", href: "/process" },
   ];
+  const contactLink = { label: navLabels?.contact ?? "Contact", href: "/contact" };
+  const mobileLinks = [...navLinks, contactLink];
 
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 32);
+    const handleScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 32);
+      setPastHero(y > window.innerHeight * 0.82);
+    };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -65,11 +76,21 @@ export default function Header({ projects = [], ctaLabel, navLabels }: HeaderPro
   // glass bar (at rest on inner pages, on scroll on home).
   const inverted = overHeroDark && !megaOpen;
   const glass = !inverted && (scrolled || !isHome || megaOpen);
+  // The home hero owns the top chrome (its own INFO / oaki. / CONTACT bar),
+  // so the site header stays hidden until you scroll past the hero.
+  const hideForHero = isHome && !pastHero && !megaOpen;
 
   return (
     <>
       <header
         className={`site-header fixed top-0 left-0 right-0 z-50 ${glass ? "glass" : ""} ${inverted ? "inverted" : ""} ${megaOpen ? "mega-open" : ""}`}
+        style={{
+          transition:
+            "transform 450ms cubic-bezier(0.66,0,0.2,1), opacity 450ms cubic-bezier(0.66,0,0.2,1), background 300ms, border-color 300ms, backdrop-filter 300ms",
+          ...(hideForHero
+            ? { transform: "translateY(-100%)", opacity: 0, pointerEvents: "none" as const }
+            : null),
+        }}
       >
         <div className="page-x flex items-center justify-between h-16 lg:h-20 relative">
           {/* Logotipo — the word mark (Brand Guidelines 4.1 §01) */}
@@ -80,8 +101,8 @@ export default function Header({ projects = [], ctaLabel, navLabels }: HeaderPro
             />
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+          {/* Desktop nav — the three sections, mono coordinate voice */}
+          <nav className="hidden lg:flex items-center gap-7" aria-label="Main navigation">
             {navLinks.map((link) => {
               const isCaseStudies = link.href === "/case-studies";
               return (
@@ -93,8 +114,8 @@ export default function Header({ projects = [], ctaLabel, navLabels }: HeaderPro
                 >
                   <Link
                     href={link.href}
-                    className={`nav-link-warm text-meta inline-flex items-center gap-1 py-1 transition-colors duration-300 ${
-                      pathname === link.href ? "text-ink active" : "text-muted hover:text-ink"
+                    className={`coord nav-link-warm inline-flex items-center gap-1 py-1 transition-colors duration-300 ${
+                      pathname === link.href ? "text-ink active" : "hover:text-ink"
                     } ${isCaseStudies && megaOpen ? "open" : ""}`}
                     aria-haspopup={isCaseStudies ? "true" : undefined}
                     aria-expanded={isCaseStudies ? megaOpen : undefined}
@@ -109,16 +130,16 @@ export default function Header({ projects = [], ctaLabel, navLabels }: HeaderPro
             })}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:block">
-            <Button
-              href="/contact"
-              variant="outline"
-              size="sm"
-              className={inverted ? "btn-on-dark" : ""}
+          {/* Desktop utility — Contact (mirrors the hero's top-right) */}
+          <div className="hidden lg:flex items-center">
+            <Link
+              href={contactLink.href}
+              className={`coord nav-link-warm py-1 transition-colors duration-300 ${
+                pathname === contactLink.href ? "text-ink active" : "hover:text-ink"
+              }`}
             >
-              {ctaLabel ?? "Start a project"}
-            </Button>
+              {contactLink.label}
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -146,7 +167,7 @@ export default function Header({ projects = [], ctaLabel, navLabels }: HeaderPro
         )}
       </header>
 
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} links={navLinks} />
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} links={mobileLinks} />
     </>
   );
 }
@@ -222,7 +243,7 @@ function CaseStudiesMegaMenu({
                     <p className="text-label text-muted" style={{ marginBottom: 4 }}>
                       {p.collectionLabel}
                     </p>
-                    <p className="mega-card-title">{p.title.toUpperCase()}</p>
+                    <p className="card-title">{p.title.toUpperCase()}</p>
                     <p className="text-meta text-muted">
                       {[p.city, p.country].filter(Boolean).join(", ")}
                       {p.year ? ` · ${p.year}` : ""}

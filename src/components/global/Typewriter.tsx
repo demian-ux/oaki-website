@@ -20,7 +20,9 @@ export default function Typewriter({
   text,
   charDelay = 28,
   startDelay = 0,
-  waitForLoad = true,
+  // The preloader was removed; nothing emits "oaki:loaded" anymore, so this
+  // defaults off (the legacy wait path is kept only for explicit callers).
+  waitForLoad = false,
   onDone,
 }: TypewriterProps) {
   const [n, setN] = useState(0);

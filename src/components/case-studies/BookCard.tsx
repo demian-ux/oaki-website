@@ -75,22 +75,24 @@ export default function BookCard({ project }: BookCardProps) {
       className="group block"
       aria-label={`Open case study: ${project.title}`}
     >
-      {/* Book cover */}
-      <div className="relative aspect-[3/4] overflow-hidden mb-5">
-        <SanityImg
-          image={project.coverImage}
-          alt={project.title}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover"
-          fallback={<PlaceholderCover title={project.title} />}
-        />
+      {/* Book cover — plate frame with the §07 corner-tick + desaturate on hover */}
+      <div className="anim-tick relative mb-5">
+        <div className="relative aspect-[3/4] overflow-hidden">
+          <SanityImg
+            image={project.coverImage}
+            alt={project.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover"
+            fallback={<PlaceholderCover title={project.title} />}
+          />
 
-        {/* Hover label */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <span className="text-label text-ink bg-paper px-4 py-2">
-            Open Case Study
-          </span>
+          {/* Hover label */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className="text-label text-ink bg-paper px-4 py-2">
+              Open Case Study
+            </span>
+          </div>
         </div>
       </div>
 
@@ -99,12 +101,7 @@ export default function BookCard({ project }: BookCardProps) {
         {project.collectionLabel && (
           <SectionLabel>{project.collectionLabel}</SectionLabel>
         )}
-        <h3
-          className="text-label text-ink tracking-wide font-display"
-          style={{ fontSize: "0.875rem", letterSpacing: "0.08em" }}
-        >
-          {project.title.toUpperCase()}
-        </h3>
+        <h3 className="card-title">{project.title.toUpperCase()}</h3>
         {location && <p className="text-meta text-muted">{location}</p>}
         {clientYear && <p className="text-meta text-muted">{clientYear}</p>}
       </div>

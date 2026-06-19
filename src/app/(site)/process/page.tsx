@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getProcessPage } from "@/lib/data";
 import { defaultPhases } from "@/lib/placeholder-data";
 import Button from "@/components/global/Button";
+import StripeRule from "@/components/global/StripeRule";
 
 export async function generateMetadata(): Promise<Metadata> {
   const process = await getProcessPage();
@@ -53,11 +54,11 @@ export default async function ProcessPage() {
       <section className="process-grid border-b border-line">
         <div className="page-x pt-24 pb-16 lg:pt-32 lg:pb-20">
           <div className="flex items-center justify-between mb-10">
-            <p className="text-coordinate text-warm-deep">DOC. 01 — PROCESS</p>
-            <p className="text-coordinate text-muted">OAKI STUDIO</p>
+            <p className="coord">DOC. 01 — PROCESS</p>
+            <p className="coord" style={{ color: "var(--color-muted)" }}>OAKI STUDIO</p>
           </div>
           <p className="coord mb-6">{process.heroLabel ?? "How we work"}</p>
-          <h1 className="text-mode-title text-volume mb-8 max-w-3xl">
+          <h1 className="text-mode-title text-volume reveal mb-8 max-w-3xl">
             {process.heroTitle ?? "Our process starts before the image."}
           </h1>
           <p className="text-lede text-muted max-text">
@@ -66,7 +67,7 @@ export default async function ProcessPage() {
           </p>
           {/* Scale bar — drawing-set signature */}
           <div className="flex items-center gap-4 mt-12">
-            <span className="text-coordinate text-muted">Scale</span>
+            <span className="coord" style={{ color: "var(--color-muted)" }}>Scale</span>
             <span className="flex" aria-hidden="true">
               {[0, 1, 2, 3, 4, 5].map((i) => (
                 <span
@@ -76,7 +77,7 @@ export default async function ProcessPage() {
                 />
               ))}
             </span>
-            <span className="text-coordinate text-muted">5 steps · 6 fases</span>
+            <span className="coord" style={{ color: "var(--color-muted)" }}>5 steps · 6 fases</span>
           </div>
         </div>
       </section>
@@ -91,11 +92,9 @@ export default async function ProcessPage() {
                 i < steps.length - 1 ? "border-b border-line" : ""
               }`}
             >
-              <span className="text-coordinate text-warm-deep pt-1">
-                {`STEP ${step.number}`}
-              </span>
+              <span className="coord pt-1">{`STEP ${step.number}`}</span>
               <div>
-                <h2 className="text-display-md mb-4">{step.title}</h2>
+                <h2 className="text-title reveal mb-4">{step.title}</h2>
                 <p className="text-body text-muted max-text">{step.body}</p>
               </div>
             </div>
@@ -106,20 +105,15 @@ export default async function ProcessPage() {
       {/* FASES method — a drawing-set table: hairline grid, coordinate labels */}
       <section className="page-x section-y border-b border-line">
         <p className="coord mb-4">{process.fasesLabel ?? "The FASES Method"}</p>
-        <h2 className="text-mode-title text-volume mb-8 max-w-3xl">
+        <h2 className="text-mode-title text-volume reveal mb-8 max-w-3xl">
           {process.fasesHeading ?? "Every project book follows the same six-part structure."}
         </h2>
-        <div className="stripe-rule mb-12" aria-hidden="true" />
+        <StripeRule className="mb-12" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border border-line bg-line">
           {defaultPhases.map((phase) => (
             <div key={phase._id} className="p-8 bg-paper">
-              <p className="text-coordinate text-warm-deep mb-3">FASE {phase.phaseNumber}</p>
-              <p
-                className="mb-2 font-display"
-                style={{ fontSize: "1rem", letterSpacing: "-0.01em", textTransform: "uppercase" }}
-              >
-                {phase.phaseTitle}
-              </p>
+              <p className="coord mb-3">FASE {phase.phaseNumber}</p>
+              <p className="text-title mb-2">{phase.phaseTitle}</p>
               <p className="text-meta text-muted">{phase.whatItIs}</p>
             </div>
           ))}
@@ -129,7 +123,7 @@ export default async function ProcessPage() {
       {/* CTA */}
       <section className="page-x section-y border-t border-line text-center">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-mode-title text-volume mb-6">
+          <h2 className="text-mode-title text-volume reveal mb-6">
             {process.ctaHeading ?? "Your images need to do a job."}
           </h2>
           <p className="text-lede text-muted mb-10">

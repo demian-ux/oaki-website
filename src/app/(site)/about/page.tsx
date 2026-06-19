@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getAboutPage, getTeamMembers } from "@/lib/data";
 import Button from "@/components/global/Button";
+import StripeRule from "@/components/global/StripeRule";
 
 export async function generateMetadata(): Promise<Metadata> {
   const about = await getAboutPage();
@@ -32,7 +33,7 @@ export default async function AboutPage() {
         <p className="coord mb-6">
           {about.heroLabel ?? "About the Studio"}
         </p>
-        <h1 className="text-statement text-volume mb-8 max-w-4xl">
+        <h1 className="text-statement text-volume reveal mb-8 max-w-4xl">
           {about.heroTitle ?? "We build the image world around architecture that doesn't exist yet."}
         </h1>
         <span className="ocre-rule mb-9" />
@@ -46,7 +47,7 @@ export default async function AboutPage() {
       <section className="page-x section-y border-b border-line">
         <div className="lg:grid lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="text-mode-title text-volume mb-10">
+            <p className="text-mode-title text-volume reveal mb-10">
               {about.statementHeading ?? "A building can be correct and still fail to move anyone."}
             </p>
             <p className="text-lede text-muted mb-6" style={{ maxWidth: "60ch" }}>
@@ -67,7 +68,7 @@ export default async function AboutPage() {
       {/* Team */}
       <section className="page-x section-y border-b border-line">
         <p className="coord mb-4">{about.teamLabel ?? "The team"}</p>
-        <div className="stripe-rule mb-14" aria-hidden="true" />
+        <StripeRule className="mb-14" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-14">
           {team.map((member) => (
             <div key={member._id}>
@@ -84,7 +85,7 @@ export default async function AboutPage() {
         <p className="coord mb-12">{about.workWithLabel ?? "We work with"}</p>
         <div className="flex flex-wrap gap-x-12 gap-y-5">
           {workWith.map((label) => (
-            <span key={label} className="text-display-md text-muted">
+            <span key={label} className="text-title text-muted">
               {label}
             </span>
           ))}
@@ -94,7 +95,7 @@ export default async function AboutPage() {
       {/* CTA */}
       <section className="page-x section-y text-center">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-mode-title text-volume mb-8">
+          <h2 className="text-mode-title text-volume reveal mb-8">
             {about.ctaHeading ?? "Tell us what you are building."}
           </h2>
           <Button href="/contact" variant="primary" size="lg">

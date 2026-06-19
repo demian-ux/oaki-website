@@ -48,7 +48,7 @@ function PhaseHeader({ phase }: { phase: Phase }) {
         </span>
         <span className="coord" style={{ color: "var(--color-muted)" }}>{phase.layoutType}</span>
       </div>
-      <h2 className="text-mode-title text-volume">{phase.phaseTitle}</h2>
+      <h2 className="text-mode-title text-volume reveal">{phase.phaseTitle}</h2>
       {phase.description && (
         <p className="text-editorial text-muted mt-4 max-text">
           {phase.description}
@@ -63,7 +63,7 @@ function FullscreenLayout({ phase }: { phase: Phase }) {
     <div>
       <PhaseHeader phase={phase} />
       {phase.quote && (
-        <blockquote className="text-display-md mb-12 border-l-2 border-warm pl-8 font-serif">
+        <blockquote className="text-quote mb-12 border-l-2 border-warm pl-8">
           &ldquo;{phase.quote}&rdquo;
         </blockquote>
       )}

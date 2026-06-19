@@ -1,0 +1,243 @@
+/* ════════════════════════════════════════════════════════════════════
+   HERO SHELF — the home opening (Burnett concept, repurposed to Oaki 4.1)
+   Two states joined by one continuous motion:
+   1) "ticker": giant lowercase "oaki" wordmark, a single cover flipping
+      through the seven books, landing on 04 (Manhattan).
+   2) "open":  wordmark shrinks to the top-centre logotipo; the cover
+      splits into the seven and spreads into a row; INFO / CONTACT and the
+      per-book captions fade in; the row then drifts right-to-left forever.
+   ════════════════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 620px;
+  overflow: hidden;
+  background: #ffffff;
+  --ease: cubic-bezier(0.66, 0, 0.2, 1);
+  /* hidden until webfonts are ready, then fades in as the opening begins */
+  opacity: 0;
+  transition: opacity 450ms ease;
+}
+.heroReady {
+  opacity: 1;
+}
+
+/* ── the wordmark / logotipo ───────────────────────────────────────── */
+.wm {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--font-display-volume), sans-serif;
+  font-weight: 800;
+  color: var(--color-ink, #222);
+  text-transform: lowercase;
+  line-height: 0.8;
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;
+  transition: font-size 1150ms var(--ease), top 1150ms var(--ease),
+    letter-spacing 1150ms var(--ease);
+}
+.wmTicker {
+  top: 22vh;
+  font-size: clamp(120px, 33vw, 660px);
+  letter-spacing: -0.05em;
+}
+.wmOpen {
+  top: 20px;
+  font-size: 30px;
+  letter-spacing: 0.02em;
+}
+/* the ocre dot is the brand identifier — present from the opening on */
+.dot {
+  color: var(--color-warm-500, #b89c79);
+}
+
+/* ── INFO / CONTACT (top corners) ──────────────────────────────────── */
+.nav {
+  position: absolute;
+  top: 26px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-warm-deep, #7c6549);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 600ms ease 650ms, transform 600ms var(--ease) 650ms,
+    color 240ms ease;
+  z-index: 3;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.nav:hover {
+  color: var(--color-ink, #222);
+}
+.navOpen {
+  opacity: 1;
+  transform: translateY(0);
+}
+.info {
+  left: 28px;
+}
+.contact {
+  right: 28px;
+}
+
+/* ── subtitle — SangBleu, the editorial serif, to set it apart from the
+   sans/mono system; sits as a footer line at the bottom of the hero ── */
+.subtitle {
+  position: absolute;
+  bottom: 34px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 100;
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+  color: var(--color-muted, #67645d);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 650ms ease 720ms, transform 650ms var(--ease) 720ms;
+  z-index: 3;
+  pointer-events: none;
+}
+.subtitleOpen {
+  opacity: 1;
+  transform: translateY(0);
+}
+.heroNav {
+  position: absolute;
+  top: 86px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity 650ms ease 820ms, transform 650ms var(--ease) 820ms;
+  z-index: 3;
+  pointer-events: none;
+}
+.heroNavOpen {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.heroNavLink {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-warm-deep, #7c6549);
+  transition: color 240ms ease;
+}
+.heroNavLink:hover {
+  color: var(--color-ink, #222);
+}
+
+/* ── the shelf ─────────────────────────────────────────────────────── */
+.shelf {
+  position: absolute;
+  top: 53%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.track {
+  display: flex;
+  align-items: flex-start;
+  will-change: transform;
+}
+.item {
+  flex: 0 0 auto;
+  width: clamp(132px, 12.5vw, 216px);
+  margin-right: clamp(22px, 2.4vw, 46px);
+  transition: transform 1050ms var(--ease), opacity 850ms var(--ease);
+}
+.cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.66;
+  background: var(--color-soft, #f4f2ee);
+  overflow: hidden;
+}
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* brand placeholder for any missing cover */
+.ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  background: radial-gradient(120% 80% at 80% 12%, rgba(198, 177, 147, 0.42), transparent 60%),
+    radial-gradient(80% 100% at 12% 92%, rgba(34, 34, 34, 0.12), transparent 55%),
+    var(--color-soft, #f4f2ee);
+  font-family: var(--font-display-volume), sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  color: rgba(34, 34, 34, 0.22);
+}
+
+.cap {
+  margin-top: 16px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 720ms ease, transform 720ms var(--ease);
+}
+.capOpen {
+  opacity: 1;
+  transform: translateY(0);
+}
+.title {
+  font-family: var(--font-display-volume), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12.5px;
+  letter-spacing: -0.005em;
+  line-height: 1.05;
+  color: var(--color-ink, #222);
+}
+.tag {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-warm-deep, #7c6549);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wm,
+  .item,
+  .cap,
+  .nav {
+    transition-duration: 0.01ms !important;
+  }
+}

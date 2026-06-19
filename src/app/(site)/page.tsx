@@ -3,7 +3,8 @@ import { getFeaturedProjects, getHomePage } from "@/lib/data";
 import { defaultPhases } from "@/lib/placeholder-data";
 import BookGrid from "@/components/case-studies/BookGrid";
 import Button from "@/components/global/Button";
-import HomeHero from "@/components/home/HomeHero";
+import StripeRule from "@/components/global/StripeRule";
+import HeroShelf from "@/components/home/HeroShelf";
 import PeerBand from "@/components/home/PeerBand";
 
 export { generateMetadata } from "./home-metadata";
@@ -33,25 +34,15 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* 1. Hero */}
-      <HomeHero
-        label={home.heroLabel ?? "A studio building architectural narratives"}
-        title={home.heroTitle ?? "Made for the pitch, the board, and the jury."}
-        subtext={
-          home.heroSubtext ??
-          "Animation, stills, and film composed as one story, not a folder of jpegs."
-        }
-        primaryCta={home.heroPrimaryCta ?? "Start a project"}
-        image={home.heroImage ?? null}
-        video={home.heroVideo ?? null}
-      />
+      {/* 1. Hero — animated wordmark → drifting project-book shelf */}
+      <HeroShelf />
 
       {/* 2. Case Studies — moved up. Work before quote. */}
       <section className="section-y page-x border-t border-line">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
           <div>
             <p className="coord mb-4">{home.featuredLabel ?? "Case studies"}</p>
-            <h2 className="text-statement text-volume">
+            <h2 className="text-statement text-volume reveal">
               {home.featuredHeading ?? "Each one a book of its own."}
             </h2>
           </div>
@@ -63,14 +54,14 @@ export default async function HomePage() {
           </Link>
         </div>
         {/* Stripe rule — the sphere's stripes flattened into a divider (§02) */}
-        <div className="stripe-rule mb-14" aria-hidden="true" />
+        <StripeRule className="mb-14" />
         <BookGrid projects={featured.slice(0, 4)} />
       </section>
 
       {/* 3. Process lead-in */}
       <section className="section-y page-x border-t border-line">
         <div className="max-w-3xl mx-auto lg:mx-0">
-          <p className="text-statement text-volume mb-8">
+          <p className="text-statement text-volume reveal mb-8">
             {home.positioningHeading ??
               "Most studios start with a rough draft. We start with the story."}
           </p>
@@ -83,7 +74,7 @@ export default async function HomePage() {
 
       {/* 4. FASES grid with transition line */}
       <section className="section-y page-x border-t border-line bg-soft">
-        <p className="text-statement text-volume mb-12 max-w-3xl">
+        <p className="text-statement text-volume reveal mb-12 max-w-3xl">
           {home.fasesLabel ?? "Before we open 3ds Max, we ask questions to define:"}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border border-line">
@@ -92,12 +83,7 @@ export default async function HomePage() {
               <p className="coord mb-3">
                 {phase.phaseNumber}
               </p>
-              <p
-                className="text-display-md"
-                style={{ fontSize: "1.125rem", letterSpacing: "-0.01em" }}
-              >
-                {phase.phaseTitle}
-              </p>
+              <p className="text-title">{phase.phaseTitle}</p>
               <p className="text-meta text-muted mt-2">{phase.description}</p>
             </div>
           ))}
@@ -128,7 +114,7 @@ export default async function HomePage() {
         <div className="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
           <div>
             <p className="coord mb-6">{home.aboutLabel ?? "About the studio"}</p>
-            <h2 className="text-statement text-volume mb-8">
+            <h2 className="text-statement text-volume reveal mb-8">
               {home.aboutHeading ?? "The same team on every project."}
             </h2>
             <p className="text-lede text-muted mb-8">
@@ -146,7 +132,7 @@ export default async function HomePage() {
       {/* 7. Final CTA */}
       <section className="section-y page-x border-t border-line text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-statement text-volume mb-10">
+          <h2 className="text-statement text-volume reveal mb-10">
             {home.finalCtaHeading ?? "Tell us what you are building."}
           </h2>
           <Button href="/contact" variant="primary" size="lg">

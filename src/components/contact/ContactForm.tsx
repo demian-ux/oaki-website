@@ -300,7 +300,7 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
           height={48}
           className="mb-10 opacity-30"
         />
-        <p className="text-display-md mb-6 font-serif">{thankYouHeading}</p>
+        <p className="text-quote mb-6">{thankYouHeading}</p>
         <p className="text-editorial text-muted">{successMessage}</p>
       </div>
     );
@@ -324,7 +324,7 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
       <SectionLabel className="mb-2">
         Step {step} of {TOTAL_STEPS}
       </SectionLabel>
-      <h2 className="text-display-md mb-12">{stepTitles[step - 1]}</h2>
+      <h2 className="text-title mb-12">{stepTitles[step - 1]}</h2>
 
       {/* Steps */}
       {step === 1 && (

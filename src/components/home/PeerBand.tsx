@@ -1,3 +1,5 @@
+import StripeRule from "@/components/global/StripeRule";
+
 interface PeerBandProps {
   heading: string;
   quote: string;
@@ -28,11 +30,11 @@ export default function PeerBand({
   return (
     <section className="section-y page-x border-t border-line">
       <p className="coord mb-6">{heading}</p>
-      <div className="stripe-rule mb-14" aria-hidden="true" />
+      <StripeRule className="mb-14" />
 
       {/* Anchor quote — sans (Studio surface; SangBleu is Case-only in 4.1) */}
       <figure className="max-w-3xl mb-20">
-        <blockquote className="text-mode-title leading-tight mb-8">
+        <blockquote className="text-mode-title reveal leading-tight mb-8">
           <span aria-hidden>&ldquo;</span>
           {quote}
           <span aria-hidden>&rdquo;</span>
@@ -51,7 +53,7 @@ export default function PeerBand({
         {clientMarks.map((mark) => (
           <li
             key={mark}
-            className="text-display-md font-display text-muted hover:text-ink transition-colors duration-300"
+            className="text-title text-muted hover:text-ink transition-colors duration-300"
             style={{ fontSize: "clamp(1.125rem, 1.8vw, 1.5rem)", letterSpacing: "-0.01em" }}
           >
             {mark}

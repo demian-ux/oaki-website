@@ -27,11 +27,12 @@
   /* STRIA 4.1 — the loud display voice: Inktrap Ultrabold leads, Plain
      is the calm second. Opt-in via .text-volume / .logotipo (§04). */
   --font-display-volume: var(--font-pp-neue-machina-inktrap), var(--font-pp-neue-machina), Arial, sans-serif;
+  /* SangBleu — the editorial serif. Scope: Case pull-quotes (.text-quote /
+     .text-editorial) AND select studio descriptors/taglines (the hero
+     subtitle). Never body copy on Studio/Process surfaces. */
   --font-serif: var(--font-sangbleu), Georgia, serif;
-  /* Mono — Process "coordinate label" / drawing-set grammar. Design system
-     calls for Geist Mono (not uploaded); system mono stack stands in until
-     Geist Mono is self-hosted. */
-  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  /* Mono — the coordinate / system voice (§04). Geist Mono, self-hosted. */
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   /* Spacing tokens */
   --spacing-page-x: 2rem;
@@ -91,7 +92,7 @@
     --font-display: var(--font-pp-neue-machina), Arial, sans-serif;
     --font-display-volume: var(--font-pp-neue-machina-inktrap), var(--font-pp-neue-machina), Arial, sans-serif;
     --font-serif: var(--font-sangbleu), Georgia, serif;
-    --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
     --motion-fast: 200ms;
     --motion-base: 300ms;
@@ -99,10 +100,12 @@
     --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
     --motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
-    /* STRIA 4.0/4.1 gestures — wipe / corner tick / rise (§07) */
-    --dur-wipe: 400ms;
+    /* STRIA 4.0/4.1 gestures — wipe / corner tick / rise (§07).
+       Scroll-triggered, so a touch longer than the 400ms on-load spec to read
+       clearly as the element enters view. */
+    --dur-wipe: 650ms;
     --dur-tick: 200ms;
-    --dur-rise: 400ms;
+    --dur-rise: 650ms;
   }
 
   *,
@@ -120,7 +123,7 @@
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
-    font-family: var(--font-neue-montreal), Arial, sans-serif;
+    font-family: var(--font-sans);
     font-weight: 400;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -145,6 +148,13 @@
 
   p {
     margin: 0;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--font-mono);   /* the coordinate / system voice */
   }
 
   a {
@@ -187,50 +197,27 @@
      browser to balance line lengths so a single word never orphans onto
      its own line. Editorial typography rule. Falls back to normal wrap
      in older browsers (Chrome <117, Safari <17.4, Firefox <121). */
-  /* Display classes do NOT force uppercase — they're reused on quotes and
-     editorial statements (blockquotes, <p> pull-statements) that must stay
-     sentence case. Uppercasing happens on heading ELEMENTS (h1–h6) above,
-     so a heading styled with these classes still renders caps, while a
-     quote styled with the same class does not. */
-  .text-display-xl {
+  /* One title utility — the sans logo-cap that the old .text-display-xl/lg/md
+     all collapsed to. Hierarchy comes from weight, colour, space and
+     position, not size. (Large sentence-case statements use .text-statement /
+     .text-mode-title; large serif pull-quotes use .text-quote.) */
+  .text-title {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 400;
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    text-wrap: balance;
-  }
-
-  .text-display-lg {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    text-wrap: balance;
-  }
-
-  .text-display-md {
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    text-wrap: balance;
-  }
-
-  /* Sans display text = a title. All titles share ONE size — matched to the
-     OAKI STUDIO logo wordmark (~18px) — and render uppercase. Hierarchy now
-     comes from weight, spacing, color, and position rather than size.
-     Serif display text = a quote/pull-statement → opts out via .font-serif,
-     keeping its larger sentence-case treatment. */
-  .text-display-xl:not(.font-serif),
-  .text-display-lg:not(.font-serif),
-  .text-display-md:not(.font-serif) {
-    text-transform: uppercase;
-    font-size: 1.125rem;          /* ~18px, matches the logo wordmark */
+    font-size: 1.125rem;          /* ~18px, matches the logotipo cap */
     line-height: 1.35;
     letter-spacing: 0.05em;       /* echoes the logo's spaced caps */
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  /* The one large editorial-serif statement — Case pull-quotes and the
+     thank-you line. SangBleu, sentence case. Never body. */
+  .text-quote {
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
     text-wrap: balance;
   }
 
@@ -552,9 +539,9 @@
   transform: translateY(0);
 }
 .mega-link-num {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);   /* numeric index = coordinate voice */
   font-size: 0.6875rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   color: var(--color-muted);
   transition: color 240ms var(--motion-ease);
 }
@@ -624,12 +611,12 @@
 }
 .mega-card-hover span { color: var(--color-paper); }
 .mega-card:hover .mega-card-hover { opacity: 1; }
-.mega-card-title {
+/* Shared card title — book covers (BookCard) and mega-menu cards. */
+.card-title {
   font-family: var(--font-display);
   font-size: 0.875rem;
   letter-spacing: 0.08em;
   color: var(--color-ink);
-  margin-bottom: 4px;
   line-height: 1.2;
 }
 .mega-list-recent { margin-bottom: 32px; }
@@ -693,82 +680,6 @@
 .mega-cta-link:hover .mega-cta-arrow {
   transform: translateX(6px);
   color: var(--color-warm-deep);
-}
-
-/* ════════════════════════════════════════════════════════════════════
-   PRELOADER
-   ════════════════════════════════════════════════════════════════════ */
-#oaki-loader {
-  position: fixed;
-  inset: 0;
-  background: var(--color-paper);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#oaki-loader.loaded {
-  animation: oaki-loader-fade 600ms ease forwards;
-}
-@keyframes oaki-loader-fade {
-  to { opacity: 0; visibility: hidden; }
-}
-#oaki-loader .loader-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-/* The living mark — the §07 brand loop, on the white loader ground. The
-   source gif is the white mark on negro; invert() flips it to the negro
-   mark on white so its (now-white) ground merges into the paper. */
-#oaki-loader .loader-iso {
-  width: 60px;
-  height: auto;
-  display: block;
-  filter: invert(1);
-}
-/* The coordinate / system voice (4.1 §09): Geist-mono, uppercase, tracked
-   wide, ocre-700 — the system speaking on the splash. */
-#oaki-loader .loader-typewriter {
-  margin-top: 18px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 1.45;
-  color: var(--color-warm-deep);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-align: center;
-  white-space: nowrap;        /* coordinate line stays one line — never wraps */
-  max-width: 92vw;
-  padding: 0 24px;
-  min-height: 1.45em;
-  display: inline-flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 2px;
-}
-/* Narrow screens: shrink the coordinate line so it still fits on one line. */
-@media (max-width: 560px) {
-  #oaki-loader .loader-typewriter {
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    padding: 0 12px;
-  }
-}
-#oaki-loader .loader-tw-caret {
-  display: inline-block;
-  width: 2px;
-  height: 0.95em;
-  background: var(--color-warm-deep);
-  opacity: 0.7;
-  animation: tw-blink 800ms steps(2, end) infinite;
-  vertical-align: -0.05em;
-  margin-left: 2px;
-}
-#oaki-loader .loader-tw-caret.done {
-  animation: tw-fadeout 500ms ease forwards;
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -873,9 +784,9 @@
   to { transform: translateY(0); opacity: 1; }
 }
 .partner-row .partner-num span {
-  font-family: var(--font-display);
+  font-family: var(--font-mono);   /* numeric index = coordinate voice */
   font-size: 0.6875rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   color: var(--color-muted);
 }
 .partner-row .partner-name span {
@@ -1149,15 +1060,6 @@
   text-wrap: balance;
 }
 
-/* Mono "coordinate label" — Process drawing-set grammar, and the Studio /
-   Case eyebrow. Pair with text-warm-deep (ocre-700) on light. */
-.text-coordinate {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 /* Sans lede — body copy for Studio + Process (SangBleu is retired to Case
    in v3.0, so editorial body on those surfaces is Neue Montreal). */
 .text-lede {
@@ -1307,17 +1209,44 @@
 .anim-tick::after { right: -1px; bottom: -1px; border-right-width: 2px; border-bottom-width: 2px; }
 .anim-tick:hover::before,
 .anim-tick:hover::after { opacity: 1; }
+/* …and the plate desaturates toward the B&W lane on hover (§07). */
+.anim-tick img { transition: filter var(--dur-tick) var(--motion-ease-out); }
+.anim-tick:hover img { filter: grayscale(0.4) contrast(1.02); }
 
+/* THE RISE — scroll-triggered (Reveal): a heading rises + fades in the first
+   time it enters the viewport. Pre-state holds it down/transparent. */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  will-change: transform;
+}
+.reveal-in {
+  opacity: 1;
+  transform: none;
+}
 @media (prefers-reduced-motion: no-preference) {
-  .anim-wipe { animation: stria-wipe var(--dur-wipe) var(--motion-ease-out) both; }
+  /* small delay so above-the-fold elements animate just AFTER first paint
+     (otherwise the entrance plays during navigation and is easily missed). */
+  .reveal {
+    transition: opacity var(--dur-rise) var(--motion-ease-out) 160ms,
+      transform var(--dur-rise) var(--motion-ease-out) 160ms;
+  }
+  /* THE WIPE — stripe rules draw in left-to-right on viewport entry. The
+     pre-wipe state holds them clipped until a client observer adds .anim-wipe. */
+  .pre-wipe { clip-path: inset(0 100% 0 0); }
+  .anim-wipe { animation: stria-wipe var(--dur-wipe) var(--motion-ease-out) 160ms both; }
   @keyframes stria-wipe {
     from { clip-path: inset(0 100% 0 0); }
     to   { clip-path: inset(0 0 0 0); }
   }
+  /* THE RISE (legacy on-load variant, kept for any direct use). */
   .anim-rise { animation: stria-rise var(--dur-rise) var(--motion-ease-out) both; }
   @keyframes stria-rise {
-    from { transform: translateY(14px); opacity: 0; }
+    from { transform: translateY(22px); opacity: 0; }
     to   { transform: translateY(0); opacity: 1; }
   }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
 }
 

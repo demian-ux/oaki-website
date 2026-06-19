@@ -2,6 +2,7 @@ import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
 import Header from "@/components/global/Header";
 import Footer from "@/components/global/Footer";
+import RevealOnScroll from "@/components/global/RevealOnScroll";
 import { HeroThemeProvider } from "@/components/global/HeroTheme";
 import { getAllProjects, getSiteSettings } from "@/lib/data";
 
@@ -24,6 +25,7 @@ export default async function SiteLayout({
         navLabels={settings.navLabels}
       />
       <main className="flex-1 pt-16 lg:pt-20">{children}</main>
+      <RevealOnScroll />
       <Footer />
       {isDraftMode && (
         <>
