@@ -1121,8 +1121,9 @@
   line-height: 0.92;
   text-transform: uppercase;
 }
-.text-volume .o,
-.text-volume .dot { color: var(--color-warm-deep); }
+.text-volume .o { color: var(--color-warm-deep); }
+/* the headline ocre dot — matches the logo dot (warm-500) */
+.text-volume .dot { color: var(--color-warm-500); }
 
 /* THE LOGOTIPO — the dominant word mark (§01). As of 4.1 the mark is the
    WORD ALONE: lowercase "oaki" in Inktrap Ultrabold with the ocre dot;

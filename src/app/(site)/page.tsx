@@ -124,7 +124,8 @@ export default async function HomePage() {
           <div>
             <p className="coord mb-6">{home.aboutLabel ?? "About the studio"}</p>
             <h2 className="text-statement text-volume reveal mb-8">
-              {home.aboutHeading ?? "The people you meet are the people doing the work."}
+              {(home.aboutHeading ?? "The people you meet are the people doing the work").replace(/\.$/, "")}
+              <span className="dot">.</span>
             </h2>
             <p className="text-lede text-muted mb-8">
               {home.aboutBody ??
@@ -142,7 +143,8 @@ export default async function HomePage() {
       <section className="section-y page-x border-t border-line text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-statement text-volume reveal mb-6">
-            {home.finalCtaHeading ?? "Tell us what you’re building."}
+            {(home.finalCtaHeading ?? "Tell us what you’re building").replace(/\.$/, "")}
+            <span className="dot">.</span>
           </h2>
           <p className="text-lede text-muted mb-4">
             You don’t need the brief finished. Send what you have, a plan, a
