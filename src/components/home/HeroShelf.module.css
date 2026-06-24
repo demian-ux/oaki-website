@@ -52,7 +52,7 @@
 }
 /* the ocre dot is the brand identifier — present from the opening on */
 .dot {
-  color: var(--color-warm-500, #b89c79);
+  color: var(--color-warm, #c6b193);
 }
 
 /* ── INFO / CONTACT (top corners) ──────────────────────────────────── */

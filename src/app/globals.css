@@ -1140,7 +1140,7 @@
   text-transform: lowercase;
   color: var(--color-ink);
 }
-.logotipo .dot { color: var(--color-warm-500); }
+.logotipo .dot { color: var(--color-warm); }
 .logotipo.inv { color: var(--color-paper); }
 .logotipo.inv .dot { color: var(--color-warm); }
 
