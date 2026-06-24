@@ -78,9 +78,9 @@ export default async function HomePage() {
       <section className="section-y page-x border-t border-line">
         <div className="lg:grid lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <p className="coord mb-7">{home.conceptLabel ?? "What we do"}</p>
             <h2 className="text-statement text-volume reveal mb-8">
-              {home.conceptHeading ?? "We show your project before it exists."}
+              {(home.conceptHeading ?? "We show your project before it exists").replace(/\.$/, "")}
+              <span className="dot">.</span>
             </h2>
             <p className="text-lede text-muted max-w-xl">
               {home.conceptBody ??
