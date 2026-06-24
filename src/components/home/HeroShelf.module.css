@@ -230,13 +230,13 @@
   color: var(--color-ink, #222);
   white-space: nowrap;   /* title always on one line */
 }
-/* client · year — Neue Montreal, neutral ink, mixed case (preserves KoDA etc.) */
+/* client · year — Neue Montreal, ocre, mixed case (preserves KoDA etc.) */
 .meta {
   margin-top: 4px;
   font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.02em;
-  color: var(--color-ink, #222);
+  color: var(--color-warm-deep, #7c6549);
 }
 
 .srOnly {
