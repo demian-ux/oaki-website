@@ -5,7 +5,11 @@
   --gap: 22px;
   --center-pad: calc(50vw - var(--slide-w) / 2);
   background: var(--color-gris, #f4f3f0);
-  padding: clamp(56px, 9vh, 120px) 0 clamp(40px, 6vh, 80px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(64px, 10vh, 140px) 0;
   overflow: hidden;
 }
 

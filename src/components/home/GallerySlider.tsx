@@ -38,6 +38,7 @@ export default function GallerySlider({
 
   const startXRef = useRef(0);
   const draggedRef = useRef(false);
+  const pressedRef = useRef<number | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const active = ((pos % n) + n) % n;
@@ -111,6 +112,8 @@ export default function GallerySlider({
   const onPointerDown = (e: React.PointerEvent) => {
     startXRef.current = e.clientX || 1;
     draggedRef.current = false;
+    const el = (e.target as HTMLElement).closest("[data-idx]") as HTMLElement | null;
+    pressedRef.current = el ? Number(el.dataset.idx) : null;
     setAnimate(false);
     e.currentTarget.setPointerCapture(e.pointerId);
   };
@@ -120,15 +123,23 @@ export default function GallerySlider({
     if (Math.abs(dx) > 5) draggedRef.current = true;
     setDragPx(dx);
   };
+  // Pointer capture suppresses the native click, so resolve tap-vs-drag here.
   const endDrag = () => {
     if (!startXRef.current) return;
     const moved = dragPx;
+    const wasDrag = draggedRef.current;
+    const pressed = pressedRef.current;
     startXRef.current = 0;
+    pressedRef.current = null;
     setDragPx(0);
     setAnimate(true);
-    const threshold = 80;
-    if (loop && moved <= -threshold) setPos((p) => p + 1);
-    else if (loop && moved >= threshold) setPos((p) => p - 1);
+    if (wasDrag) {
+      const threshold = 80;
+      if (loop && moved <= -threshold) setPos((p) => p + 1);
+      else if (loop && moved >= threshold) setPos((p) => p - 1);
+    } else if (pressed !== null) {
+      onSlideClick(pressed);
+    }
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {
@@ -164,7 +175,7 @@ export default function GallerySlider({
               key={i}
               className={`${styles.slide} ${i === pos ? styles.active : ""}`}
               aria-hidden={i !== pos}
-              onClick={() => onSlideClick(i)}
+              data-idx={i}
             >
               <div className={styles.frame}>
                 <Image
