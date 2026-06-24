@@ -193,8 +193,8 @@
 }
 
 .cap {
-  margin-top: 16px;
-  text-align: center;
+  margin-top: 14px;
+  text-align: left;
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 720ms ease, transform 720ms var(--ease);
@@ -203,33 +203,34 @@
   opacity: 1;
   transform: translateY(0);
 }
-/* collection eyebrow — italic editorial serif, book-cover style, above the title */
+/* collection line — SangBleu Light, the Assouline book-collection register.
+   Upright (no readable Light Italic cut is loaded). */
 .collection {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 100;
-  font-size: 10.5px;
-  letter-spacing: 0.01em;
-  line-height: 1.2;
-  color: var(--color-muted, #67645d);
-  margin-bottom: 5px;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.005em;
+  line-height: 1.25;
+  color: var(--color-ink, #222);
+  margin-bottom: 3px;
 }
 .title {
-  font-family: var(--font-display-volume), sans-serif;
-  font-weight: 800;
+  /* Neue Machina Plain, Light */
+  font-family: var(--font-display);
+  font-weight: 300;
   text-transform: uppercase;
   font-size: 12.5px;
-  letter-spacing: -0.005em;
-  line-height: 1.05;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
   color: var(--color-ink, #222);
 }
-/* client · year — mono meta, mixed case to preserve brand casing (KoDA) */
+/* client · year — Neue Montreal, neutral ink, mixed case (preserves KoDA etc.) */
 .meta {
-  margin-top: 6px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.04em;
-  color: var(--color-warm-deep, #7c6549);
+  margin-top: 4px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: var(--color-ink, #222);
 }
 
 .srOnly {
