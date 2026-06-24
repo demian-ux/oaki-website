@@ -74,19 +74,17 @@ export default async function HomePage() {
       {/* 1. Hero — animated wordmark → drifting project-book shelf */}
       <HeroShelf />
 
-      {/* 2. Concept — what we do and who we are, in one declarative column. */}
-      <section className="section-y page-x border-t border-line">
-        <div className="lg:grid lg:grid-cols-12">
-          <div className="lg:col-span-8">
-            <h2 className="text-statement text-volume reveal mb-8">
-              {(home.conceptHeading ?? "We show your project before it exists").replace(/\.$/, "")}
-              <span className="dot">.</span>
-            </h2>
-            <p className="text-lede text-muted max-w-xl">
-              {home.conceptBody ??
-                "Stills, film, and narrative, composed as one. Not a deliverable, the version of your project people fall for at the pitch and remember long after."}
-            </p>
-          </div>
+      {/* 2. Concept — full-screen declarative statement. */}
+      <section className="min-h-screen flex items-center page-x border-t border-line">
+        <div className="w-full">
+          <h2 className="text-statement text-volume reveal mb-8">
+            {(home.conceptHeading ?? "We show your project before it exists").replace(/\.$/, "")}
+            <span className="dot">.</span>
+          </h2>
+          <p className="text-lede text-muted max-w-3xl">
+            {home.conceptBody ??
+              "Stills, film, and narrative, composed as one. Not a deliverable, the version of your project people fall for at the pitch and remember long after."}
+          </p>
         </div>
       </section>
 
