@@ -121,7 +121,7 @@ export default async function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-16">
           {services.map((service) => (
             <div key={service.name}>
-              <div className="relative aspect-[3/2] overflow-hidden mb-7 bg-line">
+              <div className="relative aspect-[3/4] overflow-hidden mb-7 bg-line">
                 <Image
                   src={service.image}
                   alt={service.name}
