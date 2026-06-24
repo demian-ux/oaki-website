@@ -2,23 +2,16 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./HeroShelf.module.css";
+import { homeProjects, type HomeProject } from "@/lib/home-projects";
 
 // Avoid the SSR "useLayoutEffect does nothing on the server" warning.
 const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-type Project = { n: string; collection: string; title: string; client: string; year: string; img: string };
+type Project = HomeProject;
 
 // Project order = shelf order (01 … 07). 04 (Manhattan) is the one the
 // ticker lands on and that stays centred.
-const PROJECTS: Project[] = [
-  { n: "01", collection: "The Competition Collection", title: "Raghsa Tower", client: "AFT", year: "2026", img: "/images/01.jpg" },
-  { n: "02", collection: "The Competition Collection", title: "Cazouls les Bézier", client: "Naos", year: "2025", img: "/images/02.jpg" },
-  { n: "03", collection: "The Residential Collection", title: "Dillido Residence", client: "Ceïba", year: "2024", img: "/images/03.jpg" },
-  { n: "04", collection: "The Residential Collection", title: "Manhattan Apartment", client: "TBD Architecture + Design", year: "2024", img: "/images/04.jpg" },
-  { n: "05", collection: "The Residential Collection", title: "NY Penthouse", client: "TBD Architecture + Design", year: "2024", img: "/images/05.jpg" },
-  { n: "06", collection: "The Residential Collection", title: "Windsor Residence", client: "KoDA", year: "2024", img: "/images/06.jpg" },
-  { n: "07", collection: "The Residential Collection", title: "803 Hunter Rd", client: "TBD Architecture + Design", year: "2025", img: "/images/07.jpg" },
-];
+const PROJECTS: Project[] = homeProjects;
 
 const N = PROJECTS.length;
 const CENTER = 3; // index that lands centred (04 — Manhattan)
