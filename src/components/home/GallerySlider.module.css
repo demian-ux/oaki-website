@@ -1,0 +1,106 @@
+/* Editorial gallery — single image at a time on a negro band, B&W treatment. */
+.section {
+  background: var(--color-negro, #222);
+  padding: clamp(48px, 8vh, 104px) 0 clamp(40px, 6vh, 72px);
+}
+
+.viewport {
+  position: relative;
+  width: min(1500px, 100% - 4rem);
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #1b1b1b;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.viewport:focus-visible {
+  outline: 1px solid var(--color-warm, #c6b193);
+  outline-offset: 3px;
+}
+.viewport.dragging {
+  cursor: grabbing;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 700ms var(--motion-ease, ease), transform 600ms var(--motion-ease, ease);
+}
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.img {
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.04);
+  pointer-events: none;
+}
+
+/* bottom-left project label */
+.label {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-paper, #fff);
+  background: rgba(20, 18, 15, 0.55);
+  padding: 9px 16px;
+  pointer-events: none;
+}
+
+/* bottom-right counter */
+.counter {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(20, 18, 15, 0.55);
+  padding: 9px 16px;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+/* dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.28);
+  transition: background var(--motion-base, 300ms) var(--motion-ease, ease), transform var(--motion-base, 300ms) var(--motion-ease, ease);
+}
+.dot:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+.dotActive {
+  background: var(--color-warm, #c6b193);
+}
+.dot:focus-visible {
+  outline: 1px solid var(--color-warm, #c6b193);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .viewport {
+    width: calc(100% - 2rem);
+    aspect-ratio: 4 / 5;
+  }
+}

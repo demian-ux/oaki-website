@@ -1,6 +1,8 @@
-import { getHomePage } from "@/lib/data";
+import { getFeaturedProjects, getHomePage } from "@/lib/data";
+import { urlFor } from "@/sanity/client";
 import Button from "@/components/global/Button";
 import HeroShelf from "@/components/home/HeroShelf";
+import GallerySlider, { type GallerySlide } from "@/components/home/GallerySlider";
 import PeerBand from "@/components/home/PeerBand";
 
 export { generateMetadata } from "./home-metadata";
@@ -38,8 +40,34 @@ const services = [
   },
 ];
 
+// Gallery fallback for local dev when no featured project carries an image yet.
+const DEFAULT_GALLERY: GallerySlide[] = [
+  { src: "/images/01.jpg", label: "Raghsa Tower" },
+  { src: "/images/02.jpg", label: "Cazouls les Bézier" },
+  { src: "/images/03.jpg", label: "Dillido Residence" },
+  { src: "/images/04.jpg", label: "Manhattan Apartment" },
+  { src: "/images/05.jpg", label: "NY Penthouse" },
+  { src: "/images/06.jpg", label: "Windsor Residence" },
+  { src: "/images/07.jpg", label: "803 Hunter Rd" },
+];
+
 export default async function HomePage() {
-  const home = await getHomePage();
+  const [home, featured] = await Promise.all([getHomePage(), getFeaturedProjects()]);
+
+  // Selected project images for the gallery — heroMedia (the render), falling
+  // back to the book cover. Falls back to the local set when CMS has no images.
+  const cmsSlides = featured.flatMap((p): GallerySlide[] => {
+    const img = p.heroMedia ?? p.coverImage;
+    if (!img?.asset) return [];
+    return [
+      {
+        src: urlFor(img).width(2200).auto("format").quality(85).url(),
+        alt: img.alt ?? p.title,
+        label: p.title,
+      },
+    ];
+  });
+  const gallerySlides = cmsSlides.length > 0 ? cmsSlides : DEFAULT_GALLERY;
 
   return (
     <>
@@ -62,7 +90,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 3. Peer Band — proof follows the claim. */}
+      {/* 3. Gallery — selected project images, one at a time. */}
+      <GallerySlider slides={gallerySlides} />
+
+      {/* 4. Peer Band — proof follows the claim. */}
       <PeerBand
         heading={home.peerBandHeading ?? fallbackPeerBand.heading}
         quote={home.peerBandQuote ?? fallbackPeerBand.quote}
