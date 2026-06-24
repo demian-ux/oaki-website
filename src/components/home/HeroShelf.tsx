@@ -175,7 +175,6 @@ export default function HeroShelf() {
         >
           <div className={styles.collection}>{project.collection}</div>
           <div className={styles.title}>{project.title}</div>
-          <div className={styles.meta}>{`${project.client} · ${project.year}`}</div>
         </div>
       </div>
     );
@@ -197,7 +196,9 @@ export default function HeroShelf() {
 
       {/* subtitle — descriptor, body voice (§09 sentence case) */}
       <p className={`${styles.subtitle} ${open ? styles.subtitleOpen : ""}`} aria-hidden={!open}>
-        Creative production studio for architectural projects
+        <span className={styles.subtitleInner}>
+          Creative production studio for architectural projects
+        </span>
       </p>
 
       {/* CONTACT (top-right) — section links live in the nav bar */}

@@ -95,18 +95,23 @@
   left: 0;
   right: 0;
   text-align: center;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 100;
-  font-size: 19px;
-  line-height: 1.4;
-  letter-spacing: 0.005em;
-  color: var(--color-muted, #67645d);
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 650ms ease 720ms, transform 650ms var(--ease) 720ms;
   z-index: 3;
   pointer-events: none;
+}
+/* white SangBleu Light on a black rectangle (rule #3 treatment) */
+.subtitleInner {
+  display: inline-block;
+  background: var(--color-negro, #222);
+  color: var(--color-paper, #fff);
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  padding: 12px 26px;
 }
 .subtitleOpen {
   opacity: 1;
