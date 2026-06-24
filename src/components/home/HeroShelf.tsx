@@ -175,6 +175,7 @@ export default function HeroShelf() {
         >
           <div className={styles.collection}>{project.collection}</div>
           <div className={styles.title}>{project.title}</div>
+          <div className={styles.meta}>{`${project.client} · ${project.year}`}</div>
         </div>
       </div>
     );
