@@ -31,8 +31,10 @@
      .text-editorial) AND select studio descriptors/taglines (the hero
      subtitle). Never body copy on Studio/Process surfaces. */
   --font-serif: var(--font-sangbleu), Georgia, serif;
-  /* Mono — the coordinate / system voice (§04). Geist Mono, self-hosted. */
-  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* Mono token retired — Geist Mono removed. "Coordinate" text now renders in
+     Neue Montreal (the sans). Token kept so any legacy .coord/.tag-negro/index
+     consumers resolve to the sans until purged section-by-section. */
+  --font-mono: var(--font-neue-montreal), Arial, sans-serif;
 
   /* Spacing tokens */
   --spacing-page-x: 2rem;
@@ -92,7 +94,7 @@
     --font-display: var(--font-pp-neue-machina), Arial, sans-serif;
     --font-display-volume: var(--font-pp-neue-machina-inktrap), var(--font-pp-neue-machina), Arial, sans-serif;
     --font-serif: var(--font-sangbleu), Georgia, serif;
-    --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --font-mono: var(--font-neue-montreal), Arial, sans-serif;
 
     --motion-fast: 200ms;
     --motion-base: 300ms;

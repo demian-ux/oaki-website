@@ -50,18 +50,6 @@ const sangBleu = localFont({
   display: "swap",
 });
 
-// STRIA 4.1: Geist Mono — the coordinate / system voice (eyebrows, indices,
-// counts, doc numbers, tags). Self-hosted (OFL); replaces the system-mono
-// placeholder so the coordinate grammar is consistent cross-platform.
-const geistMono = localFont({
-  src: [
-    { path: "../../public/fonts/geist/GeistMono-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../../public/fonts/geist/GeistMono-Medium.woff2",  weight: "500", style: "normal" },
-  ],
-  variable: "--font-geist-mono",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: {
     default: "oaki.studio | A studio building architectural narratives",
@@ -91,7 +79,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${neueMontreal.variable} ${ppNeueMachina.variable} ${ppNeueMachinaInktrap.variable} ${sangBleu.variable} ${geistMono.variable}`}
+      className={`h-full antialiased ${neueMontreal.variable} ${ppNeueMachina.variable} ${ppNeueMachinaInktrap.variable} ${sangBleu.variable}`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">{children}</body>
     </html>

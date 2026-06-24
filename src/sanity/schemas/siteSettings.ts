@@ -30,7 +30,7 @@ export default defineType({
       type: "string",
       group: "preloader",
       description:
-        "The system/coordinate line typed out below the animated mark during page load. Set in the §09 mono voice: it renders UPPERCASE in Geist-mono, ocre-700 — write it as a coordinate (locations, counts, scales · separated by ·).",
+        "The system/coordinate line typed out below the animated mark during page load. Renders UPPERCASE in Neue Montreal, ocre-700. Write it as a coordinate (locations, counts, scales, separated by ·).",
       initialValue: "100% computer-generated · Oaki Studio · Buenos Aires",
     }),
 
