@@ -115,13 +115,13 @@ export default async function HomePage() {
 
       {/* 4. Services — Stills, Film, Narrative. The offering in three forms. */}
       <section className="min-h-screen flex flex-col justify-center page-x border-t border-line bg-soft">
-        <h2 className="text-statement text-volume reveal mb-12 lg:mb-16">
+        <h2 className="text-statement text-volume reveal mb-20 lg:mb-32">
           One project, three ways to show it<span className="dot">.</span>
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-20">
           {services.map((service) => (
             <div key={service.name}>
-              <div className="relative aspect-[3/4] overflow-hidden mb-7 bg-line">
+              <div className="relative aspect-[3/4] overflow-hidden mb-10 lg:mb-12 bg-line">
                 <Image
                   src={service.image}
                   alt={service.name}
@@ -130,7 +130,7 @@ export default async function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-mode-title text-volume mb-5">{service.name}</h3>
+              <h3 className="text-volume text-2xl mb-5">{service.name}</h3>
               <span className="ocre-rule mb-7" />
               <p className="text-meta text-muted">{service.body}</p>
             </div>
