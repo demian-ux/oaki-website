@@ -166,12 +166,9 @@ export default async function HomePage() {
             {(home.finalCtaHeading ?? "Tell us what you’re building").replace(/\.$/, "")}
             <span className="dot">.</span>
           </h2>
-          <p className="text-lede text-muted mb-4">
+          <p className="text-lede text-muted mb-10">
             You don’t need the brief finished. Send what you have, a plan, a
             reference, a rough idea, and we will take it from there.
-          </p>
-          <p className="text-meta text-muted mb-10">
-            A principal reads every message, and you will hear back within two hours.
           </p>
           <Button href="/contact" variant="primary" size="lg">
             {home.finalCtaButtonLabel ?? "Start a project"}

@@ -25,11 +25,11 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
   // emerges from that masthead, so it carries the same items + mono voice.
   const navLinks = [
     { label: navLabels?.caseStudies ?? "Case Studies", href: "/case-studies" },
-    { label: navLabels?.about ?? "About", href: "/about" },
     { label: navLabels?.process ?? "Process", href: "/process" },
+    { label: navLabels?.about ?? "About", href: "/about" },
+    { label: navLabels?.contact ?? "Contact", href: "/contact" },
   ];
-  const contactLink = { label: navLabels?.contact ?? "Contact", href: "/contact" };
-  const mobileLinks = [...navLinks, contactLink];
+  const mobileLinks = navLinks;
 
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -92,7 +92,7 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
             : null),
         }}
       >
-        <div className="page-x flex items-center justify-between h-16 lg:h-20 relative">
+        <div className="pl-8 lg:pl-12 pr-7 flex items-center justify-between h-16 lg:h-20 relative">
           {/* Logotipo — the word mark (Brand Guidelines 4.1 §01) */}
           <Link href="/" aria-label="Oaki Studio, Home" className="inline-flex items-center">
             <Logotipo
@@ -129,18 +129,6 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
               );
             })}
           </nav>
-
-          {/* Desktop utility — Contact (mirrors the hero's top-right) */}
-          <div className="hidden lg:flex items-center">
-            <Link
-              href={contactLink.href}
-              className={`coord nav-link-warm py-1 transition-colors duration-300 ${
-                pathname === contactLink.href ? "text-ink active" : "hover:text-ink"
-              }`}
-            >
-              {contactLink.label}
-            </Link>
-          </div>
 
           {/* Mobile menu button */}
           <button
