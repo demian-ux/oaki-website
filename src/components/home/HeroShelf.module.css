@@ -228,6 +228,7 @@
   letter-spacing: 0.02em;
   line-height: 1.15;
   color: var(--color-ink, #222);
+  white-space: nowrap;   /* title always on one line */
 }
 /* client · year — Neue Montreal, neutral ink, mixed case (preserves KoDA etc.) */
 .meta {
