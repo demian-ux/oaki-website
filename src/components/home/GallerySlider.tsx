@@ -34,15 +34,18 @@ export default function GallerySlider({
   const [pos, setPos] = useState(loop ? n : 0); // index into `items`
   const [animate, setAnimate] = useState(true);
   const [dragPx, setDragPx] = useState(0);
+  const [lightbox, setLightbox] = useState<number | null>(null); // content index, or null
 
   const startXRef = useRef(0);
+  const draggedRef = useRef(false);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const active = ((pos % n) + n) % n;
 
-  // Auto-advance — disabled for a single slide or reduced-motion users.
+  // Auto-advance — disabled for a single slide, reduced-motion, or while the
+  // lightbox is open.
   useEffect(() => {
-    if (!loop) return;
+    if (!loop || lightbox !== null) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => {
       if (!startXRef.current) {
@@ -51,7 +54,24 @@ export default function GallerySlider({
       }
     }, intervalMs);
     return () => window.clearInterval(id);
-  }, [loop, intervalMs]);
+  }, [loop, intervalMs, lightbox]);
+
+  // Lightbox: Escape / arrow keys, and lock body scroll while open.
+  useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+      else if (e.key === "ArrowRight") setLightbox((l) => (l === null ? l : (l + 1) % n));
+      else if (e.key === "ArrowLeft") setLightbox((l) => (l === null ? l : (l - 1 + n) % n));
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lightbox, n]);
 
   // Re-enable the transition one frame after a seamless snap.
   useEffect(() => {
@@ -77,15 +97,28 @@ export default function GallerySlider({
     setPos((p) => p + (i - active));
   };
 
+  // Tap on the centred image expands it; tap on a peeking image centres it.
+  const onSlideClick = (i: number) => {
+    if (draggedRef.current) return;
+    if (i === pos) setLightbox(active);
+    else {
+      setAnimate(true);
+      setPos(i);
+    }
+  };
+
   // Pointer drag / swipe.
   const onPointerDown = (e: React.PointerEvent) => {
     startXRef.current = e.clientX || 1;
+    draggedRef.current = false;
     setAnimate(false);
     e.currentTarget.setPointerCapture(e.pointerId);
   };
   const onPointerMove = (e: React.PointerEvent) => {
     if (!startXRef.current) return;
-    setDragPx(e.clientX - startXRef.current);
+    const dx = e.clientX - startXRef.current;
+    if (Math.abs(dx) > 5) draggedRef.current = true;
+    setDragPx(dx);
   };
   const endDrag = () => {
     if (!startXRef.current) return;
@@ -131,6 +164,7 @@ export default function GallerySlider({
               key={i}
               className={`${styles.slide} ${i === pos ? styles.active : ""}`}
               aria-hidden={i !== pos}
+              onClick={() => onSlideClick(i)}
             >
               <div className={styles.frame}>
                 <Image
@@ -187,6 +221,56 @@ export default function GallerySlider({
           </div>
         ) : null}
       </div>
+
+      {lightbox !== null ? (
+        <div
+          className={styles.lightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image viewer"
+          onClick={() => setLightbox(null)}
+        >
+          <button type="button" className={styles.lbClose} aria-label="Close" onClick={() => setLightbox(null)}>
+            ×
+          </button>
+          {loop ? (
+            <button
+              type="button"
+              className={`${styles.lbArrow} ${styles.lbPrev}`}
+              aria-label="Previous image"
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightbox((l) => (l === null ? l : (l - 1 + n) % n));
+              }}
+            >
+              ←
+            </button>
+          ) : null}
+          <div className={styles.lbFrame} onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={slides[lightbox].src}
+              alt={slides[lightbox].description ?? slides[lightbox].title ?? ""}
+              fill
+              sizes="100vw"
+              className={styles.lbImg}
+              priority
+            />
+          </div>
+          {loop ? (
+            <button
+              type="button"
+              className={`${styles.lbArrow} ${styles.lbNext}`}
+              aria-label="Next image"
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightbox((l) => (l === null ? l : (l + 1) % n));
+              }}
+            >
+              →
+            </button>
+          ) : null}
+        </div>
+      ) : null}
     </section>
   );
 }

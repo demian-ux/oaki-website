@@ -43,6 +43,9 @@
 .slide.active {
   opacity: 1;
 }
+.slide.active .frame {
+  cursor: zoom-in;
+}
 
 .frame {
   position: relative;
@@ -148,6 +151,62 @@
   color: var(--color-warm-deep, #7c6549);
 }
 .arrow:focus-visible {
+  outline: 1px solid var(--color-warm, #c6b193);
+  outline-offset: 3px;
+}
+
+/* lightbox — full-frame image on a dark backdrop */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vmin;
+  background: rgba(17, 16, 14, 0.96);
+  cursor: zoom-out;
+}
+.lbFrame {
+  position: relative;
+  width: 92vw;
+  height: 88vh;
+  cursor: default;
+}
+.lbImg {
+  object-fit: contain;
+}
+.lbClose {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  z-index: 2;
+  font-size: 30px;
+  line-height: 1;
+  color: #fff;
+}
+.lbArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: #fff;
+  padding: 14px;
+}
+.lbPrev {
+  left: 18px;
+}
+.lbNext {
+  right: 18px;
+}
+.lbClose:hover,
+.lbArrow:hover {
+  color: var(--color-warm, #c6b193);
+}
+.lbClose:focus-visible,
+.lbArrow:focus-visible {
   outline: 1px solid var(--color-warm, #c6b193);
   outline-offset: 3px;
 }
