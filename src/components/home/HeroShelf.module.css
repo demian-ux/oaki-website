@@ -104,11 +104,11 @@
 }
 .subtitleInner {
   color: var(--color-muted, #67645d);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);   /* Neue Machina Plain, like the titles */
   font-weight: 300;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.4;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 .subtitleOpen {
   opacity: 1;
