@@ -187,7 +187,7 @@ export default function HeroShelf() {
       aria-label="Oaki Studio, featured project books"
     >
       <h1 className={styles.srOnly}>
-        Oaki Studio, creative production studio for architectural projects
+        Oaki Studio, visualization and narrative studio for architectural projects
       </h1>
 
       {/* wordmark → logotipo */}
@@ -198,7 +198,7 @@ export default function HeroShelf() {
       {/* subtitle — descriptor, body voice (§09 sentence case) */}
       <p className={`${styles.subtitle} ${open ? styles.subtitleOpen : ""}`} aria-hidden={!open}>
         <span className={styles.subtitleInner}>
-          Creative production studio for architectural projects
+          Visualization and Narrative studio for Architectural projects
         </span>
       </p>
 
