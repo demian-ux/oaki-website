@@ -112,7 +112,7 @@ export default async function HomePage() {
       {/* 4. Services — Stills, Film, Narrative. The offering in three forms. */}
       <section className="min-h-screen flex flex-col justify-center page-x border-t border-line bg-soft">
         <h2 className="text-statement text-volume reveal mb-12 lg:mb-16">
-          Three forms, composed as one<span className="dot">.</span>
+          One project, three ways to show it<span className="dot">.</span>
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-12">
           {services.map((service) => (
