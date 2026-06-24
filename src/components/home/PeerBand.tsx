@@ -21,6 +21,10 @@ export default function PeerBand({
   clientMarks,
   factStrip,
 }: PeerBandProps) {
+  // Repeat within each half so a half is always wider than the viewport — keeps
+  // the -50% loop seamless (no empty gap) on any screen width.
+  const loopMarks = [...clientMarks, ...clientMarks, ...clientMarks];
+
   return (
     <section className="section-y page-x border-t border-line">
       <figure className={styles.quoteBlock}>
@@ -31,7 +35,7 @@ export default function PeerBand({
         </blockquote>
         <figcaption className={styles.attribution}>
           <span className={styles.author}>{authorName}</span>
-          <span className={styles.role}>, {authorTitle}</span>
+          <span className={styles.role}> – {authorTitle}</span>
         </figcaption>
       </figure>
 
@@ -40,15 +44,15 @@ export default function PeerBand({
         <div className={styles.marquee}>
           <div className={styles.track}>
             <div className={styles.group}>
-              {clientMarks.map((mark, i) => (
-                <span key={`a-${mark}-${i}`} className={styles.mark}>
+              {loopMarks.map((mark, i) => (
+                <span key={`a-${i}`} className={styles.mark}>
                   {mark}
                 </span>
               ))}
             </div>
             <div className={styles.group} aria-hidden>
-              {clientMarks.map((mark, i) => (
-                <span key={`b-${mark}-${i}`} className={styles.mark}>
+              {loopMarks.map((mark, i) => (
+                <span key={`b-${i}`} className={styles.mark}>
                   {mark}
                 </span>
               ))}
