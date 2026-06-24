@@ -89,29 +89,29 @@
 
 /* ── subtitle — SangBleu, the editorial serif, to set it apart from the
    sans/mono system; sits as a footer line at the bottom of the hero ── */
+/* full-bleed black band at the hero's bottom edge (rule #3 treatment) */
 .subtitle {
   position: absolute;
-  bottom: 34px;
+  bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
+  background: var(--color-negro, #222);
+  padding: 38px 24px;
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 650ms ease 720ms, transform 650ms var(--ease) 720ms;
   z-index: 3;
   pointer-events: none;
 }
-/* white SangBleu Light on a black rectangle (rule #3 treatment) */
+/* white SangBleu Light text inside the band */
 .subtitleInner {
-  display: inline-block;
-  background: var(--color-negro, #222);
   color: var(--color-paper, #fff);
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: 19px;
+  font-size: 22px;
   line-height: 1.4;
   letter-spacing: 0.01em;
-  padding: 12px 26px;
 }
 .subtitleOpen {
   opacity: 1;
