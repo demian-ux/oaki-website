@@ -121,6 +121,9 @@ export type HomePageData = {
   featuredLabel?: string;
   featuredHeading?: string;
   featuredViewAllLabel?: string;
+  conceptLabel?: string;
+  conceptHeading?: string;
+  conceptBody?: string;
   positioningHeading?: string;
   positioningParagraph1?: string;
   positioningParagraph2?: string;

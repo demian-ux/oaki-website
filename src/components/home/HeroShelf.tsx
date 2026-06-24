@@ -6,18 +6,18 @@ import styles from "./HeroShelf.module.css";
 // Avoid the SSR "useLayoutEffect does nothing on the server" warning.
 const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-type Project = { n: string; title: string; tag: string; img: string };
+type Project = { n: string; collection: string; title: string; client: string; year: string; img: string };
 
 // Project order = shelf order (01 … 07). 04 (Manhattan) is the one the
 // ticker lands on and that stays centred.
 const PROJECTS: Project[] = [
-  { n: "01", title: "Raghsa Tower", tag: "Competition Collection", img: "/images/01.jpg" },
-  { n: "02", title: "Cazouls les Bézier", tag: "Competition Collection", img: "/images/02.jpg" },
-  { n: "03", title: "Dillido Residence", tag: "Residential", img: "/images/03.jpg" },
-  { n: "04", title: "Manhattan Apartment", tag: "Residential · Park View", img: "/images/04.jpg" },
-  { n: "05", title: "NY Penthouse", tag: "Residential", img: "/images/05.jpg" },
-  { n: "06", title: "Windsor Residence", tag: "Residential", img: "/images/06.jpg" },
-  { n: "07", title: "803 Hunter Rd", tag: "Residential", img: "/images/07.jpg" },
+  { n: "01", collection: "The Competition Collection", title: "Raghsa Tower", client: "AFT", year: "2026", img: "/images/01.jpg" },
+  { n: "02", collection: "The Competition Collection", title: "Cazouls les Bézier", client: "Naos", year: "2025", img: "/images/02.jpg" },
+  { n: "03", collection: "The Residential Collection", title: "Dillido Residence", client: "Ceïba", year: "2024", img: "/images/03.jpg" },
+  { n: "04", collection: "The Residential Collection", title: "Manhattan Apartment", client: "TBD Architecture + Design", year: "2024", img: "/images/04.jpg" },
+  { n: "05", collection: "The Residential Collection", title: "NY Penthouse", client: "TBD Architecture + Design", year: "2024", img: "/images/05.jpg" },
+  { n: "06", collection: "The Residential Collection", title: "Windsor Residence", client: "KoDA", year: "2024", img: "/images/06.jpg" },
+  { n: "07", collection: "The Residential Collection", title: "803 Hunter Rd", client: "TBD Architecture + Design", year: "2025", img: "/images/07.jpg" },
 ];
 
 const N = PROJECTS.length;
@@ -173,8 +173,9 @@ export default function HeroShelf() {
           className={`${styles.cap} ${open ? styles.capOpen : ""}`}
           style={{ transitionDelay: capDelay }}
         >
+          <div className={styles.collection}>{project.collection}</div>
           <div className={styles.title}>{project.title}</div>
-          <div className={styles.tag}>{project.tag}</div>
+          <div className={styles.meta}>{`${project.client} · ${project.year}`}</div>
         </div>
       </div>
     );
@@ -183,10 +184,10 @@ export default function HeroShelf() {
   return (
     <section
       className={`${styles.hero} ${ready ? styles.heroReady : ""} -mt-16 lg:-mt-20`}
-      aria-label="Oaki Studio — featured project books"
+      aria-label="Oaki Studio, featured project books"
     >
       <h1 className={styles.srOnly}>
-        Oaki Studio — a studio building architectural narratives
+        Oaki Studio, creative production studio for architectural projects
       </h1>
 
       {/* wordmark → logotipo */}

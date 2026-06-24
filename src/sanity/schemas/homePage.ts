@@ -32,7 +32,7 @@ export default defineType({
       type: "string",
       group: "hero",
       description: "Main H1, animated as typewriter.",
-      initialValue: "Your project, told the way Phaidon would publish it.",
+      initialValue: "Made for the pitch, the board, and the jury.",
     }),
     defineField({
       name: "heroImage",
@@ -275,7 +275,7 @@ export default defineType({
       type: "text",
       rows: 2,
       group: "about",
-      initialValue: "A boutique team. A Phaidon standard.",
+      initialValue: "The people you meet are the people doing the work.",
     }),
     defineField({
       name: "aboutBody",
@@ -284,7 +284,7 @@ export default defineType({
       rows: 3,
       group: "about",
       initialValue:
-        "Small enough to know every detail of your project. Skilled enough to make it look like a museum commission.",
+        "oaki is built around one team, by choice. They carry every project from the first call to the final frame, principals included. Nothing gets lost between the people who understand your project and the people who build it.",
     }),
     defineField({
       name: "aboutButtonLabel",

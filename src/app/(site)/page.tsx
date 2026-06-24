@@ -1,9 +1,5 @@
-import Link from "next/link";
-import { getFeaturedProjects, getHomePage } from "@/lib/data";
-import { defaultPhases } from "@/lib/placeholder-data";
-import BookGrid from "@/components/case-studies/BookGrid";
+import { getHomePage } from "@/lib/data";
 import Button from "@/components/global/Button";
-import StripeRule from "@/components/global/StripeRule";
 import HeroShelf from "@/components/home/HeroShelf";
 import PeerBand from "@/components/home/PeerBand";
 
@@ -26,76 +22,47 @@ const fallbackPeerBand = {
   factStrip: "100+ projects · 12 cities · 4 continents · since 2019",
 };
 
+// Services — the offering in three forms. Baked in for now (no Sanity field yet).
+const services = [
+  {
+    name: "Stills",
+    body: "The images that carry the project. They open the deck, fill the board, and stay on your homepage long after the building is finished. Made to be looked at twice.",
+  },
+  {
+    name: "Film",
+    body: "Not a flythrough. A film, with a beginning, a middle, and a reason to keep watching. The project moving the way you would move through it, long before it is built.",
+  },
+  {
+    name: "Narrative",
+    body: "Beyond the building: the life inside it, the setting around it, the materials up close. We build the lifestyle, context, and materiality, then tie it into one story that carries the project.",
+  },
+];
+
 export default async function HomePage() {
-  const [featured, home] = await Promise.all([
-    getFeaturedProjects(),
-    getHomePage(),
-  ]);
+  const home = await getHomePage();
 
   return (
     <>
       {/* 1. Hero — animated wordmark → drifting project-book shelf */}
       <HeroShelf />
 
-      {/* 2. Case Studies — moved up. Work before quote. */}
+      {/* 2. Concept — what we do and who we are, in one declarative column. */}
       <section className="section-y page-x border-t border-line">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
-          <div>
-            <p className="coord mb-4">{home.featuredLabel ?? "Case studies"}</p>
-            <h2 className="text-statement text-volume reveal">
-              {home.featuredHeading ?? "Each one a book of its own."}
+        <div className="lg:grid lg:grid-cols-12">
+          <div className="lg:col-span-8">
+            <p className="coord mb-7">{home.conceptLabel ?? "What we do"}</p>
+            <h2 className="text-statement text-volume reveal mb-8">
+              {home.conceptHeading ?? "We show your project before it exists."}
             </h2>
+            <p className="text-lede text-muted max-w-xl">
+              {home.conceptBody ??
+                "Stills, film, and narrative, composed as one. Not a deliverable, the version of your project people fall for at the pitch and remember long after."}
+            </p>
           </div>
-          <Link
-            href="/case-studies"
-            className="coord text-ink/60 hover:text-ink transition-colors duration-300 shrink-0"
-          >
-            {home.featuredViewAllLabel ?? "View the Library →"}
-          </Link>
-        </div>
-        {/* Stripe rule — the sphere's stripes flattened into a divider (§02) */}
-        <StripeRule className="mb-14" />
-        <BookGrid projects={featured.slice(0, 4)} />
-      </section>
-
-      {/* 3. Process lead-in */}
-      <section className="section-y page-x border-t border-line">
-        <div className="max-w-3xl mx-auto lg:mx-0">
-          <p className="text-statement text-volume reveal mb-8">
-            {home.positioningHeading ??
-              "Most studios start with a rough draft. We start with the story."}
-          </p>
-          <p className="text-lede text-muted">
-            {home.positioningParagraph1 ??
-              "Our role is to understand the project, find its tone, and build the visual world that makes others want to be part of it before the first brick is laid."}
-          </p>
         </div>
       </section>
 
-      {/* 4. FASES grid with transition line */}
-      <section className="section-y page-x border-t border-line bg-soft">
-        <p className="text-statement text-volume reveal mb-12 max-w-3xl">
-          {home.fasesLabel ?? "Before we open 3ds Max, we ask questions to define:"}
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border border-line">
-          {defaultPhases.map((phase) => (
-            <div key={phase._id} className="p-8 bg-soft border-line">
-              <p className="coord mb-3">
-                {phase.phaseNumber}
-              </p>
-              <p className="text-title">{phase.phaseTitle}</p>
-              <p className="text-meta text-muted mt-2">{phase.description}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-10">
-          <Button href="/process" variant="outline">
-            {home.fasesButtonLabel ?? "See the full process"}
-          </Button>
-        </div>
-      </section>
-
-      {/* 5. Peer Band — moved DOWN. Quote follows proof. */}
+      {/* 3. Peer Band — proof follows the claim. */}
       <PeerBand
         heading={home.peerBandHeading ?? fallbackPeerBand.heading}
         quote={home.peerBandQuote ?? fallbackPeerBand.quote}
@@ -109,32 +76,52 @@ export default async function HomePage() {
         factStrip={home.factStrip ?? fallbackPeerBand.factStrip}
       />
 
-      {/* 6. About Preview */}
+      {/* 4. Services — Stills, Film, Narrative. The offering in three forms. */}
       <section className="section-y page-x border-t border-line bg-soft">
+        <p className="coord mb-7">What we make</p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-12">
+          {services.map((service) => (
+            <div key={service.name} className="border-t border-line pt-6">
+              <h3 className="text-title mb-4">{service.name}</h3>
+              <p className="text-meta text-muted">{service.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. About — the trust spine: same team, every project. */}
+      <section className="section-y page-x border-t border-line">
         <div className="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
           <div>
             <p className="coord mb-6">{home.aboutLabel ?? "About the studio"}</p>
             <h2 className="text-statement text-volume reveal mb-8">
-              {home.aboutHeading ?? "The same team on every project."}
+              {home.aboutHeading ?? "The people you meet are the people doing the work."}
             </h2>
             <p className="text-lede text-muted mb-8">
               {home.aboutBody ??
-                "Principals on every brief. The people you meet are the people doing the work."}
+                "oaki is built around one team, by choice. They carry every project from the first call to the final frame, principals included. Nothing gets lost between the people who understand your project and the people who build it."}
             </p>
             <Button href="/about" variant="outline">
-              {home.aboutButtonLabel ?? "About the Studio"}
+              {home.aboutButtonLabel ?? "About the studio"}
             </Button>
           </div>
           <div className="hidden lg:block aspect-square mt-0 bg-line" />
         </div>
       </section>
 
-      {/* 7. Final CTA */}
+      {/* 6. Contact — remove friction, foster connection. */}
       <section className="section-y page-x border-t border-line text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-statement text-volume reveal mb-10">
-            {home.finalCtaHeading ?? "Tell us what you are building."}
+          <h2 className="text-statement text-volume reveal mb-6">
+            {home.finalCtaHeading ?? "Tell us what you’re building."}
           </h2>
+          <p className="text-lede text-muted mb-4">
+            You don’t need the brief finished. Send what you have, a plan, a
+            reference, a rough idea, and we will take it from there.
+          </p>
+          <p className="text-meta text-muted mb-10">
+            A principal reads every message, and you will hear back within two hours.
+          </p>
           <Button href="/contact" variant="primary" size="lg">
             {home.finalCtaButtonLabel ?? "Start a project"}
           </Button>
