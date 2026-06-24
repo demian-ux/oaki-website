@@ -114,7 +114,7 @@ export default async function HomePage() {
       />
 
       {/* 4. Services — Stills, Film, Narrative. The offering in three forms. */}
-      <section className="min-h-screen flex flex-col justify-center page-x border-t border-line bg-soft">
+      <section className="min-h-screen flex flex-col justify-center page-x py-32 lg:py-48 border-t border-line bg-soft">
         <h2 className="text-statement text-volume reveal mb-20 lg:mb-32">
           One project, three ways to show it<span className="dot">.</span>
         </h2>
