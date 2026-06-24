@@ -194,7 +194,7 @@
 
 .cap {
   margin-top: 14px;
-  text-align: left;
+  text-align: center;
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 720ms ease, transform 720ms var(--ease);
