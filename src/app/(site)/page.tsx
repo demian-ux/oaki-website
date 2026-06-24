@@ -22,7 +22,7 @@ const fallbackPeerBand = {
     "Naos",
     "Ceibo / Koqio",
   ],
-  factStrip: "100+ projects · 12 cities · 4 continents · since 2019",
+  factStrip: "100+ projects + 12 cities + 4 continents + since 2019",
 };
 
 // Services — the offering in three forms. Baked in for now (no Sanity field yet).
