@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { getFeaturedProjects, getHomePage } from "@/lib/data";
-import { urlFor } from "@/sanity/client";
+import { getHomePage } from "@/lib/data";
 import Button from "@/components/global/Button";
 import HeroShelf from "@/components/home/HeroShelf";
-import GallerySlider, { type GallerySlide } from "@/components/home/GallerySlider";
+import JournalSlider from "@/components/home/JournalSlider";
 import PeerBand from "@/components/home/PeerBand";
-import { homeProjects } from "@/lib/home-projects";
+import { journalArticlesMock } from "@/lib/journal-mock";
 
 export { generateMetadata } from "./home-metadata";
 
@@ -15,16 +14,60 @@ const fallbackPeerBand = {
     "You overcome any obstacle that we throw at your team with the technical skills and ability to work to meet the deliverables.",
   authorName: "Andrew Delgado",
   authorTitle: "Technical Director of Visualization, Journey / iCrave",
-  clientMarks: [
-    "KoDA",
-    "Journey / iCrave",
-    "AFT",
-    "Object Territories",
-    "Naos",
-    "Ceibo / Koqio",
-  ],
   factStrip: "100+ projects · 12 cities · 4 continents · since 2019",
 };
+
+// Client roster for the "Trusted by" bar. Names from the studio's client list;
+// URLs verified to each firm's official site (left undefined when no official
+// site was confirmed, so the name renders as plain text, not a broken link).
+const clientMarks: { name: string; url?: string }[] = [
+  { name: "AFT arquitectos", url: "https://www.aftarquitectos.com.ar" },
+  { name: "Asifa Tirmizi", url: "https://www.tirmizi.co" },
+  { name: "Aura Architecture", url: "https://www.aura-architecte.com" },
+  { name: "BKS Partners", url: "https://www.bks-partner.de" },
+  { name: "Cochet Pais", url: "https://www.cochetpais.com" },
+  { name: "DNA Miami", url: "https://www.dna-arc.com" },
+  { name: "Fornaris Pau", url: "https://fpadesigns.com" },
+  { name: "Garrett Singer", url: "https://www.garrettsinger.com" },
+  { name: "Gregory Tuck", url: "https://www.gregorytuck.com" },
+  { name: "iCrave", url: "https://icrave.com" },
+  { name: "Inch" }, // unresolved — no official site confirmed
+  { name: "Jessica Helgerson ID", url: "https://www.jhinteriordesign.com" },
+  { name: "KoDA", url: "https://www.kodamiami.com" },
+  { name: "Koqio", url: "https://www.ceiba.us" }, // koqio.us now redirects to ceiba.us
+  { name: "LandFluent", url: "https://landfluent.com" },
+  { name: "Lawrence Architects" }, // low confidence — candidate lawrencearchitects.com, unverified
+  { name: "MatiPavon" }, // only an Instagram profile found, no website
+  { name: "MdB3d", url: "https://mdb3d.nl" },
+  { name: "Naos" }, // low confidence — candidate naos-architecture.fr, several French firms share the name
+  { name: "Object Territories", url: "https://object-territories.com" },
+  { name: "Portia Fox", url: "https://portiafox.com" },
+  { name: "Studio ST architects", url: "https://studio-st.com" },
+  { name: "TBD Architecture", url: "https://www.tbddesignstudio.com" },
+];
+
+// Additional client testimonials that cycle in after Andrew's. Verified,
+// attribution-permitting. The first quote comes from Sanity (editable); these
+// follow in sequence.
+const additionalPeerQuotes = [
+  {
+    quote:
+      "Knowing the results will be excellent. It's reassuring to have their support, especially in a competitive field where stress is high.",
+    authorName: "David Reichert",
+    authorTitle: "BKS",
+  },
+  {
+    quote:
+      "For us, an image needs to spark all the senses. The building and architecture become secondary as it relates to marketing imagery.",
+    authorName: "Javier Fornaris Pau",
+    authorTitle: "FPA+A",
+  },
+  {
+    quote: "The quality has held up from when we first received it to now.",
+    authorName: "Michael Kokora",
+    authorTitle: "Object Territories",
+  },
+];
 
 // Services — the offering in three forms. Baked in for now (no Sanity field yet).
 const services = [
@@ -45,37 +88,8 @@ const services = [
   },
 ];
 
-// Gallery fallback (matches the hero project set) for local dev when no
-// featured project carries an image yet.
-const DEFAULT_GALLERY: GallerySlide[] = homeProjects.map((p) => ({
-  src: p.img,
-  collection: p.collection,
-  title: p.title,
-  client: p.client,
-  year: p.year,
-  description: p.description,
-}));
-
 export default async function HomePage() {
-  const [home, featured] = await Promise.all([getHomePage(), getFeaturedProjects()]);
-
-  // Selected project images for the gallery — heroMedia (the render), falling
-  // back to the book cover. Falls back to the local set when CMS has no images.
-  const cmsSlides = featured.flatMap((p): GallerySlide[] => {
-    const img = p.heroMedia ?? p.coverImage;
-    if (!img?.asset) return [];
-    return [
-      {
-        src: urlFor(img).width(2400).auto("format").quality(85).url(),
-        collection: p.collectionLabel,
-        title: p.title,
-        client: p.clientName,
-        year: p.year,
-        description: p.shortDescription ?? p.subtitle,
-      },
-    ];
-  });
-  const gallerySlides = cmsSlides.length > 0 ? cmsSlides : DEFAULT_GALLERY;
+  const home = await getHomePage();
 
   return (
     <>
@@ -96,20 +110,20 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 3. Gallery — selected project images, one at a time. */}
-      <GallerySlider slides={gallerySlides} />
+      {/* 3. Journal — editorial peek carousel of recent entries. */}
+      <JournalSlider articles={journalArticlesMock} />
 
       {/* 4. Peer Band — proof follows the claim. */}
       <PeerBand
-        heading={home.peerBandHeading ?? fallbackPeerBand.heading}
-        quote={home.peerBandQuote ?? fallbackPeerBand.quote}
-        authorName={home.peerBandAuthorName ?? fallbackPeerBand.authorName}
-        authorTitle={home.peerBandAuthorTitle ?? fallbackPeerBand.authorTitle}
-        clientMarks={
-          home.clientMarks && home.clientMarks.length > 0
-            ? home.clientMarks
-            : fallbackPeerBand.clientMarks
-        }
+        quotes={[
+          {
+            quote: home.peerBandQuote ?? fallbackPeerBand.quote,
+            authorName: home.peerBandAuthorName ?? fallbackPeerBand.authorName,
+            authorTitle: home.peerBandAuthorTitle ?? fallbackPeerBand.authorTitle,
+          },
+          ...additionalPeerQuotes,
+        ]}
+        clientMarks={clientMarks}
         factStrip={home.factStrip ?? fallbackPeerBand.factStrip}
       />
 

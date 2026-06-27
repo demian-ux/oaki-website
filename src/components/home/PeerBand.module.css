@@ -1,8 +1,35 @@
 /* Centred SangBleu anchor quote + drifting "Trusted by" client row + facts. */
 .quoteBlock {
-  max-width: 920px;
+  max-width: 1080px;
   margin: 0 auto;
   text-align: center;
+}
+
+/* Each quote is split into balanced lines (one block per line) so every
+   testimonial keeps the same line count as they rotate. */
+.qline {
+  display: block;
+}
+
+/* Each quote rises + fades in as it becomes active — the same reveal motion as
+   the first, replayed on every change via a remounting `key`. */
+.quoteSwap {
+  animation: peer-quote-rise 1800ms var(--motion-ease-out, cubic-bezier(0.16, 1, 0.3, 1));
+}
+@keyframes peer-quote-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quoteSwap {
+    animation: none;
+  }
 }
 .quote {
   /* SangBleu, dark on light (a deliberate exception to the white-on-black rule) */
@@ -52,10 +79,11 @@
 .track {
   display: flex;
   width: max-content;
-  animation: peer-marquee 40s linear infinite;
+  animation: peer-marquee 75s linear infinite;
   will-change: transform;
 }
-.marquee:hover .track {
+.marquee:hover .track,
+.marquee:focus-within .track {
   animation-play-state: paused;
 }
 .group {
@@ -84,6 +112,10 @@
 }
 .mark:hover {
   color: var(--color-ink, #222);
+}
+a.mark:focus-visible {
+  outline: 1px solid var(--color-warm, #c6b193);
+  outline-offset: 4px;
 }
 
 .facts {
