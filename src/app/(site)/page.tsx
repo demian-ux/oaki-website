@@ -99,7 +99,7 @@ export default async function HomePage() {
       {/* 2. Concept — full-screen declarative statement. */}
       <section className="min-h-screen flex items-center page-x border-t border-line">
         <div className="w-full">
-          <h2 className="text-statement text-volume reveal mb-8">
+          <h2 className="text-statement text-volume reveal mb-2">
             {(home.conceptHeading ?? "We show your project before it exists").replace(/\.$/, "")}
             <span className="dot">.</span>
           </h2>
@@ -144,9 +144,9 @@ export default async function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-volume text-2xl mb-5">{service.name}</h3>
+              <h3 className="text-quote mb-5">{service.name}</h3>
               <span className="ocre-rule mb-7" />
-              <p className="text-meta text-muted">{service.body}</p>
+              <p className="text-lede text-muted">{service.body}</p>
             </div>
           ))}
         </div>

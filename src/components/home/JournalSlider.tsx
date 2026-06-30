@@ -138,7 +138,7 @@ export default function JournalSlider({
     <section className={styles.section} aria-label="From the journal">
       <div className={`${styles.header} page-x`}>
         <div className={styles.headLeft}>
-          <h2 className={`${styles.heading} text-volume reveal`}>
+          <h2 className={`${styles.heading} text-statement text-volume reveal`}>
             {heading.split("\n").map((line, i, arr) => (
               <span key={i}>
                 {line}

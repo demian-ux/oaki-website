@@ -33,9 +33,7 @@
   gap: 14px;
 }
 .heading {
-  /* Match the other section headers (.text-statement scale). */
-  font-size: clamp(2rem, 4.6vw, 3.25rem);
-  line-height: 0.92;
+  /* Sized by the shared .text-statement / .text-volume utilities. */
   margin: 0;
 }
 .allEntries {
@@ -70,7 +68,7 @@
   max-width: 46ch;
   margin-bottom: clamp(40px, 6vh, 80px);
   font-family: var(--font-sans);
-  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
   line-height: 1.6;
   color: var(--color-muted, #67645d);
 }
@@ -160,11 +158,14 @@
   margin-top: clamp(18px, 2vw, 28px);
 }
 .title {
+  /* Matches the peer-quote serif treatment (.text-quote): mixed case, 300, tight leading. */
   font-family: var(--font-serif), Georgia, serif;
   font-weight: 300;
   font-size: clamp(1.5rem, 2.6vw, 2.4rem);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  text-wrap: balance;
   color: #b9b6b0; /* dimmed by default */
   transition: color 600ms var(--motion-ease, ease);
 }

@@ -188,13 +188,6 @@ export default function HeroShelf() {
         oaki<span className={styles.dot}>.</span>
       </div>
 
-      {/* subtitle — descriptor, body voice (§09 sentence case) */}
-      <p className={`${styles.subtitle} ${open ? styles.subtitleOpen : ""}`} aria-hidden={!open}>
-        <span className={styles.subtitleInner}>
-          Visualization and Narrative studio for Architectural projects
-        </span>
-      </p>
-
       {/* CONTACT (top-right) — section links live in the nav bar */}
       <button type="button" className={`${styles.nav} ${styles.contact} ${open ? styles.navOpen : ""}`}>
         Contact

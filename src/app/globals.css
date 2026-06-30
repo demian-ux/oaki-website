@@ -220,6 +220,7 @@
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     line-height: 1.15;
     letter-spacing: -0.015em;
+    text-transform: none;
     text-wrap: balance;
   }
 
@@ -232,8 +233,8 @@
 
   .text-body {
     font-family: var(--font-sans);
-    font-size: 1rem;
-    line-height: 1.65;
+    font-size: 1.25rem;
+    line-height: 1.6;
   }
 
   .text-label {
@@ -1066,8 +1067,8 @@
    in v3.0, so editorial body on those surfaces is Neue Montreal). */
 .text-lede {
   font-family: var(--font-sans);
-  font-size: clamp(1rem, 1.3vw, 1.125rem);
-  line-height: 1.65;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
   letter-spacing: 0;
 }
 
