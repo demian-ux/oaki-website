@@ -176,6 +176,7 @@ export default function HeroShelf() {
 
   return (
     <section
+      data-hero
       className={`${styles.hero} ${ready ? styles.heroReady : ""} -mt-16 lg:-mt-20`}
       aria-label="Oaki Studio, featured project books"
     >

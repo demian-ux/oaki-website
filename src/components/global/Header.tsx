@@ -39,19 +39,32 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    // Reveal the nav only once the hero section is fully scrolled past. Measure
+    // the hero's actual bottom (it is one full svh tall) rather than guessing a
+    // fraction of the viewport. Pages without a hero always show the nav.
+    const hero = document.querySelector<HTMLElement>("[data-hero]");
+    let heroBottom = 0;
+    const measure = () => {
+      heroBottom = hero ? hero.getBoundingClientRect().bottom + window.scrollY : 0;
+    };
     const handleScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 32);
-      setPastHero(y > window.innerHeight * 0.82);
+      setPastHero(hero ? y >= heroBottom : true);
     };
+    const onResize = () => {
+      measure();
+      handleScroll();
+    };
+    measure();
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      window.removeEventListener("resize", onResize);
     };
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     startTransition(() => {
