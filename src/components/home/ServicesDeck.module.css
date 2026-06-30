@@ -1,0 +1,259 @@
+/* Services — a horizontal slide deck. A fixed editorial frame (statement +
+   bottom progress nav) holds still while three slides pass through. Desktop
+   pins and scroll-scrubs; mobile is a swipe carousel; reduced motion is a
+   cross-fade. Only transform / opacity animate (grade is a static filter). */
+
+.deck {
+  position: relative;
+  background: var(--color-gris);
+  color: var(--color-ink);
+}
+
+.pin {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  /* top padding clears the fixed site header (h-16 / lg:h-20) so the statement
+     never hides under it while the section is pinned. */
+  padding: clamp(96px, 13vh, 140px) var(--spacing-page-x) clamp(24px, 4vh, 48px);
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .pin {
+    padding-left: var(--spacing-page-x-lg);
+    padding-right: var(--spacing-page-x-lg);
+  }
+}
+
+/* ── Persistent chrome: the statement (top-left) ──────────────────────── */
+.statement {
+  margin: 0 0 clamp(16px, 3vh, 32px);
+  font-family: var(--font-display-volume);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  font-size: clamp(1.75rem, 3.6vw, 3rem);
+  color: var(--color-ink);
+}
+
+/* ── The frame: clips the moving track ────────────────────────────────── */
+.frame {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+.track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  will-change: transform;
+}
+
+/* ── A slide ──────────────────────────────────────────────────────────── */
+.panel {
+  position: relative;
+  /* Each panel is exactly the frame width (no JS sizing needed -> no CLS, and
+     it is correct even before/without JS). They overflow the track and the
+     frame clips; render() translates the track by -pos * frameWidth. */
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 72px);
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* image (large hero, right) */
+.panelImage {
+  position: relative;
+  flex: 1 1 58%;
+  align-self: stretch;
+  overflow: hidden; /* clips the parallax layer */
+  background: var(--color-line);
+}
+.panelImageInner {
+  position: absolute;
+  top: 0;
+  left: -15%;
+  width: 130%; /* horizontal headroom for the parallax */
+  height: 100%;
+  will-change: transform;
+}
+.img {
+  object-fit: cover;
+}
+
+/* text (index, word, lede — left) */
+.panelText {
+  flex: 0 0 38%;
+  max-width: 38%;
+  will-change: transform, opacity;
+}
+.index {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: var(--color-warm-deep);
+  margin-bottom: clamp(12px, 2vh, 22px);
+}
+.word {
+  margin: 0 0 clamp(16px, 2.4vh, 28px);
+  font-family: var(--font-display-volume);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.94;
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  color: var(--color-ink);
+}
+.lede {
+  margin: 0;
+  max-width: 36ch;
+  font-family: var(--font-sans);
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+
+/* ── Bottom progress nav (persistent) ─────────────────────────────────── */
+.deckNav {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+  margin-top: clamp(20px, 3vh, 36px);
+}
+.arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-line);
+  background: transparent;
+  color: var(--color-ink);
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    border-color 300ms var(--motion-ease),
+    background 300ms var(--motion-ease),
+    color 300ms var(--motion-ease);
+}
+.arrow:hover {
+  border-color: var(--color-warm);
+}
+.arrow:focus-visible {
+  outline: 2px solid var(--color-warm-deep);
+  outline-offset: 2px;
+}
+
+.navList {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+  padding-bottom: 12px;
+}
+.label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: clamp(0.8125rem, 1.1vw, 0.9375rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  opacity: 0.7;
+  transition:
+    color 300ms var(--motion-ease),
+    opacity 300ms var(--motion-ease);
+}
+.label:hover {
+  color: var(--color-ink);
+  opacity: 1;
+}
+.labelActive {
+  color: var(--color-ink);
+  opacity: 1;
+  font-weight: 600;
+}
+.labelNum {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  color: var(--color-warm-deep);
+}
+.label:focus-visible {
+  outline: 2px solid var(--color-warm-deep);
+  outline-offset: 3px;
+}
+/* the underline rule that tweens to the active label */
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--color-warm);
+  will-change: transform, width;
+  pointer-events: none;
+}
+
+/* ════════════ Mobile: stacked slide content, swipe carousel ════════════ */
+@media (max-width: 767px) {
+  .pin {
+    height: auto;
+    min-height: 0;
+  }
+  .frame {
+    height: 78svh;
+    flex: 0 0 auto;
+  }
+  .panel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(16px, 3vh, 24px);
+  }
+  .panelImage {
+    flex: 1 1 auto;
+  }
+  .panelText {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+  .word {
+    font-size: clamp(2.25rem, 12vw, 3.5rem);
+  }
+  .deckNav {
+    justify-content: space-between;
+  }
+}
+
+/* ════════════ Reduced motion: stacked cross-fade, zero travel ══════════ */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    display: block;
+  }
+  .panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: none !important;
+  }
+  .panel[data-active] {
+    opacity: 1;
+  }
+  .underline {
+    transition: none;
+  }
+}

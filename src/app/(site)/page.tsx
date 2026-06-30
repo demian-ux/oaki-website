@@ -3,7 +3,7 @@ import Button from "@/components/global/Button";
 import HeroShelf from "@/components/home/HeroShelf";
 import JournalSlider from "@/components/home/JournalSlider";
 import PeerBand from "@/components/home/PeerBand";
-import ServicesSequence from "@/components/home/ServicesSequence";
+import ServicesDeck from "@/components/home/ServicesDeck";
 import { journalArticlesMock } from "@/lib/journal-mock";
 
 export { generateMetadata } from "./home-metadata";
@@ -108,8 +108,8 @@ export default async function HomePage() {
         factStrip={home.factStrip ?? fallbackPeerBand.factStrip}
       />
 
-      {/* 5. Services — the offering as the life of a project: Concept, Proof, Campaign. */}
-      <ServicesSequence />
+      {/* 5. Services — horizontal slide deck: Concept, Proof, Campaign. */}
+      <ServicesDeck />
 
       {/* 5. About — the trust spine: same team, every project. */}
       <section className="section-y page-x border-t border-line">
