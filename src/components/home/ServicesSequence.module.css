@@ -1,0 +1,38 @@
+/* Services section wrapper: eyebrow + two-line statement + the stage stack.
+   The statement lines sit in overflow:hidden masks so they can rise on entry. */
+
+.section {
+  padding-block: clamp(96px, 16vh, 220px);
+  background: var(--color-soft);
+  border-top: 1px solid var(--color-line);
+  overflow-x: clip; /* contain word drift / strip reveal */
+}
+
+.eyebrow {
+  margin: 0 0 clamp(20px, 3vw, 36px);
+}
+
+.statement {
+  margin: 0 0 clamp(72px, 13vh, 180px);
+  font-family: var(--font-display-volume);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  color: var(--color-ink);
+}
+
+.lineMask {
+  display: block;
+  overflow: hidden;
+}
+.line {
+  display: block;
+}
+
+.stages {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(72px, 12vh, 180px);
+}

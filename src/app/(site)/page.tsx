@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { getHomePage } from "@/lib/data";
 import Button from "@/components/global/Button";
 import HeroShelf from "@/components/home/HeroShelf";
 import JournalSlider from "@/components/home/JournalSlider";
 import PeerBand from "@/components/home/PeerBand";
+import ServicesSequence from "@/components/home/ServicesSequence";
 import { journalArticlesMock } from "@/lib/journal-mock";
 
 export { generateMetadata } from "./home-metadata";
@@ -69,25 +69,6 @@ const additionalPeerQuotes = [
   },
 ];
 
-// Services — the offering in three forms. Baked in for now (no Sanity field yet).
-const services = [
-  {
-    name: "Stills",
-    image: "/images/02.jpg", // placeholder — swap for a real landscape still
-    body: "The images that carry the project. They open the deck, fill the board, and stay on your homepage long after the building is finished. Made to be looked at twice.",
-  },
-  {
-    name: "Film",
-    image: "/images/01.jpg", // placeholder — swap for a real film frame
-    body: "Not a flythrough. A film, with a beginning, a middle, and a reason to keep watching. The project moving the way you would move through it, long before it is built.",
-  },
-  {
-    name: "Narrative",
-    image: "/images/04.jpg", // placeholder — swap for a real narrative still
-    body: "Beyond the building: the life inside it, the setting around it, the materials up close. We build the lifestyle, context, and materiality, then tie it into one story that carries the project.",
-  },
-];
-
 export default async function HomePage() {
   const home = await getHomePage();
 
@@ -127,30 +108,8 @@ export default async function HomePage() {
         factStrip={home.factStrip ?? fallbackPeerBand.factStrip}
       />
 
-      {/* 4. Services — Stills, Film, Narrative. The offering in three forms. */}
-      <section className="min-h-screen flex flex-col justify-center page-x py-32 lg:py-48 border-t border-line bg-soft">
-        <h2 className="text-statement text-volume reveal mb-20 lg:mb-32">
-          One project, three ways to show it<span className="dot">.</span>
-        </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-20">
-          {services.map((service) => (
-            <div key={service.name}>
-              <div className="relative aspect-[3/4] overflow-hidden mb-10 lg:mb-12 bg-line">
-                <Image
-                  src={service.image}
-                  alt={service.name}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-quote mb-5">{service.name}</h3>
-              <span className="ocre-rule mb-7" />
-              <p className="text-lede text-muted">{service.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 5. Services — the offering as the life of a project: Concept, Proof, Campaign. */}
+      <ServicesSequence />
 
       {/* 5. About — the trust spine: same team, every project. */}
       <section className="section-y page-x border-t border-line">
