@@ -128,10 +128,13 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
   // still sits under the navbar. Invert there; everywhere else, the subtle
   // glass bar (at rest on inner pages, on scroll on hero pages).
   const inverted = overHeroDark && !megaOpen;
-  const glass = !inverted && (scrolled || !heroPage || megaOpen);
   // The hero owns the top chrome (its own INFO / oaki. / CONTACT bar), so the
   // site header stays hidden until you scroll past it.
   const hideForHero = heroPage && !pastHero && !megaOpen;
+  // Never dress the bar while it's hidden: an off-screen element with a
+  // painted background still costs the compositor a full-width layer on
+  // every scrolled frame.
+  const glass = !inverted && !hideForHero && (scrolled || !heroPage || megaOpen);
 
   return (
     <>

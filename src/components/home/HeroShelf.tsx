@@ -111,10 +111,14 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
   }, []);
 
   // ── the drift loop (direct style writes; no React churn) ──
+  // Runs only while the hero is actually on screen: a perpetual rAF mutating
+  // a large composited layer would otherwise keep competing with the scroll
+  // for frame time long after the hero is gone.
   useEffect(() => {
     if (!drift) return;
     let raf = 0;
     let last = performance.now();
+    let visible = true;
     const loop = (now: number) => {
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
@@ -127,8 +131,33 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
       }
       raf = requestAnimationFrame(loop);
     };
-    raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
+    const start = () => {
+      if (raf) return;
+      last = performance.now();
+      raf = requestAnimationFrame(loop);
+    };
+    const stop = () => {
+      if (!raf) return;
+      cancelAnimationFrame(raf);
+      raf = 0;
+    };
+    const track = trackRef.current;
+    let io: IntersectionObserver | null = null;
+    if (track && typeof IntersectionObserver !== "undefined") {
+      io = new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible) start();
+        else stop();
+      });
+      io.observe(track);
+    } else {
+      start();
+    }
+    if (visible) start();
+    return () => {
+      io?.disconnect();
+      stop();
+    };
   }, [drift]);
 
   const open = phase === "open";

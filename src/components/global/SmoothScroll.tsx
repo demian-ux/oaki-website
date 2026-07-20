@@ -29,6 +29,11 @@ export default function SmoothScroll() {
     // lerp 0.1 is Lenis's own default: present, not floaty.
     const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
     lenisInstance = lenis;
+    // Perf debugging hook: ?debugscroll exposes the instance so frame-time
+    // measurements can drive a scripted scroll. No effect otherwise.
+    if (window.location.search.includes("debugscroll")) {
+      (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+    }
 
     lenis.on("scroll", ScrollTrigger.update);
 
