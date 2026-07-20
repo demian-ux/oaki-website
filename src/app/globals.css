@@ -391,6 +391,15 @@
               border-color var(--motion-base) var(--motion-ease),
               backdrop-filter var(--motion-base) var(--motion-ease);
 }
+/* Pre-hydration only: on pages with a hero the nav must not paint over the
+   masthead before React mounts. Once the Header measures the DOM it sets
+   data-nav-ready and takes over via inline styles. Prerendered HTML can't
+   know the route (see Header.tsx), so this is decided in CSS from the DOM. */
+body:has([data-hero]) .site-header:not([data-nav-ready]) {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
 .site-header.glass {
   background: rgba(255, 255, 255, 0.85);
   border-bottom: 1px solid var(--color-line);

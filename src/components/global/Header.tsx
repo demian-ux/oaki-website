@@ -90,9 +90,12 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
   };
 
   const { overHeroDark } = useHeroTheme();
-  // Until the DOM is measured, fall back to the route (correct in dev SSR,
-  // harmlessly wrong for one pre-hydration paint in prod).
-  const heroPage = hasHero ?? pathname === "/";
+  // Server and first client render must agree (nav visible), otherwise React
+  // silently keeps the prerendered attributes on hydration and later state
+  // changes never patch the real DOM. Until the layout-effect measures the
+  // DOM, the pre-hydration hide is handled by CSS (body:has([data-hero])
+  // in globals.css), which the data-nav-ready attribute below switches off.
+  const heroPage = hasHero ?? false;
   // overHeroDark is live: the hero reports it true only while its render
   // still sits under the navbar. Invert there; everywhere else, the subtle
   // glass bar (at rest on inner pages, on scroll on hero pages).
@@ -105,6 +108,7 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
   return (
     <>
       <header
+        data-nav-ready={hasHero === null ? undefined : ""}
         className={`site-header fixed top-0 left-0 right-0 z-50 ${glass ? "glass" : ""} ${inverted ? "inverted" : ""} ${megaOpen ? "mega-open" : ""}`}
         style={{
           transition:
