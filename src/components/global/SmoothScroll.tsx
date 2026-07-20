@@ -26,8 +26,11 @@ export default function SmoothScroll() {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // lerp 0.1 is Lenis's own default: present, not floaty.
-    const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    // lerp 0.1 is Lenis's own default: present, not floaty. wheelMultiplier
+    // 0.8 caps how fast a flick can cross the page — past that speed the GPU
+    // can't rasterize tiles fast enough and frames drop, so the ceiling also
+    // sets the site's reading pace.
+    const lenis = new Lenis({ lerp: 0.1, smoothWheel: true, wheelMultiplier: 0.8 });
     lenisInstance = lenis;
     // Perf debugging hook: ?debugscroll exposes the instance so frame-time
     // measurements can drive a scripted scroll. No effect otherwise.
