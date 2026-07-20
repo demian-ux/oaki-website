@@ -28,6 +28,16 @@ export default async function ContactPage() {
           {contact.heroText ??
             "Share the project, the timeline, and what the images need to do. We reply within two hours."}
         </p>
+        <p className="text-meta text-muted mt-6">
+          Prefer email? Write to{" "}
+          <a
+            href="mailto:demian@oaki.studio"
+            className="underline underline-offset-4 hover:text-ink transition-colors duration-300"
+          >
+            demian@oaki.studio
+          </a>
+          {" "}and we will take it from there.
+        </p>
       </section>
 
       {/* Form */}
