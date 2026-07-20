@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { startTransition, useEffect, useRef, useState } from "react";
+import { startTransition, useEffect, useLayoutEffect, useRef, useState } from "react";
 import MobileMenu from "./MobileMenu";
 import SectionLabel from "./SectionLabel";
 import Logotipo from "./Logotipo";
@@ -10,6 +10,9 @@ import CopyEmail from "./CopyEmail";
 import SanityImg from "./SanityImg";
 import { useHeroTheme } from "./HeroTheme";
 import type { Project } from "@/lib/types";
+
+// Avoid the SSR "useLayoutEffect does nothing on the server" warning.
+const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 interface HeaderProps {
   projects?: Project[];
@@ -36,29 +39,37 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [pastHero, setPastHero] = useState(false);
+  // null = not yet measured (SSR / first paint). Whether the page has a hero
+  // is read from the DOM, never derived from the route: in production the
+  // layout is prerendered without a concrete pathname, so usePathname() can't
+  // be trusted for the initial chrome. The layout-effect below corrects the
+  // state before first paint, and that state change also forces the re-render
+  // React needs to patch any stale SSR attributes it kept on hydration.
+  const [hasHero, setHasHero] = useState<boolean | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     // Reveal the nav only once the hero section is fully scrolled past.
     // Query the hero on every check instead of capturing it once: with
     // streamed server components the header can mount before the hero exists
-    // in the DOM, and a one-time null lookup would show the nav forever.
-    // A missing hero counts as "not past it" — hideForHero only applies on
-    // the home page, so inner pages still show the nav regardless.
-    const handleScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 32);
+    // in the DOM. The MutationObserver re-checks as streamed content arrives.
+    const check = () => {
       const hero = document.querySelector<HTMLElement>("[data-hero]");
-      setPastHero(hero ? y >= hero.getBoundingClientRect().bottom + y : false);
+      setHasHero(!!hero);
+      setScrolled(window.scrollY > 32);
+      setPastHero(hero ? hero.getBoundingClientRect().bottom <= 0 : false);
     };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
+    check();
+    const mo = new MutationObserver(check);
+    mo.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check, { passive: true });
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      mo.disconnect();
+      window.removeEventListener("scroll", check);
+      window.removeEventListener("resize", check);
     };
   }, [pathname]);
 
@@ -79,15 +90,17 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
   };
 
   const { overHeroDark } = useHeroTheme();
-  const isHome = pathname === "/";
+  // Until the DOM is measured, fall back to the route (correct in dev SSR,
+  // harmlessly wrong for one pre-hydration paint in prod).
+  const heroPage = hasHero ?? pathname === "/";
   // overHeroDark is live: the hero reports it true only while its render
   // still sits under the navbar. Invert there; everywhere else, the subtle
-  // glass bar (at rest on inner pages, on scroll on home).
+  // glass bar (at rest on inner pages, on scroll on hero pages).
   const inverted = overHeroDark && !megaOpen;
-  const glass = !inverted && (scrolled || !isHome || megaOpen);
-  // The home hero owns the top chrome (its own INFO / oaki. / CONTACT bar),
-  // so the site header stays hidden until you scroll past the hero.
-  const hideForHero = isHome && !pastHero && !megaOpen;
+  const glass = !inverted && (scrolled || !heroPage || megaOpen);
+  // The hero owns the top chrome (its own INFO / oaki. / CONTACT bar), so the
+  // site header stays hidden until you scroll past it.
+  const hideForHero = heroPage && !pastHero && !megaOpen;
 
   return (
     <>
