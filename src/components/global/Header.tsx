@@ -52,24 +52,52 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
 
   useIsoLayoutEffect(() => {
     // Reveal the nav only once the hero section is fully scrolled past.
-    // Query the hero on every check instead of capturing it once: with
-    // streamed server components the header can mount before the hero exists
-    // in the DOM. The MutationObserver re-checks as streamed content arrives.
-    const check = () => {
-      const hero = document.querySelector<HTMLElement>("[data-hero]");
-      setHasHero(!!hero);
-      setScrolled(window.scrollY > 32);
-      setPastHero(hero ? hero.getBoundingClientRect().bottom <= 0 : false);
+    // The scroll path must stay cheap — Lenis emits a scroll event per frame,
+    // so the hero's document-space bottom is measured once (and on resize /
+    // streamed-content arrival) and scroll frames only compare scrollY
+    // against that cached number, throttled to one update per frame.
+    let hero: HTMLElement | null = null;
+    let heroBottom = 0;
+    let frame = 0;
+
+    const update = () => {
+      const y = window.scrollY;
+      setScrolled(y > 32);
+      setPastHero(hero !== null && y >= heroBottom);
     };
-    check();
-    const mo = new MutationObserver(check);
+    const measure = () => {
+      hero = document.querySelector<HTMLElement>("[data-hero]");
+      if (hero) heroBottom = hero.getBoundingClientRect().bottom + window.scrollY;
+      setHasHero(!!hero);
+      update();
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        update();
+      });
+    };
+
+    measure();
+    // With streamed server components the header can mount before the hero
+    // exists in the DOM; watch for it, then stop — the observer must not
+    // stay hot (its callback forces layout) once the hero is measured.
+    const mo = new MutationObserver(() => {
+      if (hero) {
+        mo.disconnect();
+        return;
+      }
+      measure();
+    });
     mo.observe(document.body, { childList: true, subtree: true });
-    window.addEventListener("scroll", check, { passive: true });
-    window.addEventListener("resize", check, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", measure, { passive: true });
     return () => {
       mo.disconnect();
-      window.removeEventListener("scroll", check);
-      window.removeEventListener("resize", check);
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", measure);
     };
   }, [pathname]);
 
