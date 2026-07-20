@@ -95,6 +95,14 @@ export default function PeerBand({
   const [inView, setInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
+  // Previous quote index — kept mounted for one cycle so it can cross-fade out
+  // underneath the incoming quote. Null on first render / repeated index.
+  const prevIRef = useRef(i);
+  const prevI = prevIRef.current === i ? null : prevIRef.current;
+  useEffect(() => {
+    prevIRef.current = i;
+  }, [i]);
+
   // Start the rotation only when the band is on screen — keeps Andrew's quote
   // first for everyone, regardless of how long the page sat before scrolling.
   useEffect(() => {
@@ -126,7 +134,24 @@ export default function PeerBand({
   // Each half must be wider than the viewport so the -50% loop is seamless. With
   // a long client list one pass is already wide enough; triple only short lists.
   const half = clientMarks.length >= 12 ? clientMarks : [...clientMarks, ...clientMarks, ...clientMarks];
-  const active = quotes[i] ?? quotes[0];
+
+  const renderQuote = (q: PeerQuote) => (
+    <>
+      <blockquote className={styles.quote}>
+        {splitIntoLines(q.quote, 3).map((line, idx, arr) => (
+          <span className={styles.qline} key={idx}>
+            {idx === 0 ? "“" : ""}
+            {line}
+            {idx === arr.length - 1 ? "”" : ""}
+          </span>
+        ))}
+      </blockquote>
+      <figcaption className={styles.attribution}>
+        <span className={styles.author}>{q.authorName}</span>
+        <span className={styles.role}> – {q.authorTitle}</span>
+      </figcaption>
+    </>
+  );
 
   const renderMark = (m: ClientMark, key: string, hidden: boolean) =>
     m.url ? (
@@ -149,21 +174,17 @@ export default function PeerBand({
   return (
     <section ref={sectionRef} className="section-y page-x border-t border-line">
       <figure className={`${styles.quoteBlock} reveal`}>
-        {/* `key` remounts on each change so the rise animation replays */}
-        <div key={i} className={styles.quoteSwap}>
-          <blockquote className={styles.quote}>
-            {splitIntoLines(active.quote, 3).map((line, idx, arr) => (
-              <span className={styles.qline} key={idx}>
-                {idx === 0 ? "“" : ""}
-                {line}
-                {idx === arr.length - 1 ? "”" : ""}
-              </span>
-            ))}
-          </blockquote>
-          <figcaption className={styles.attribution}>
-            <span className={styles.author}>{active.authorName}</span>
-            <span className={styles.role}> – {active.authorTitle}</span>
-          </figcaption>
+        {/* Both quotes share the same grid cell: the outgoing one fades out
+            underneath while the incoming one (remounted via `key`) fades in. */}
+        <div className={styles.quoteStack}>
+          {prevI !== null ? (
+            <div key={`out-${prevI}`} className={styles.quoteOut} aria-hidden>
+              {renderQuote(quotes[prevI] ?? quotes[0])}
+            </div>
+          ) : null}
+          <div key={i} className={styles.quoteSwap}>
+            {renderQuote(quotes[i] ?? quotes[0])}
+          </div>
         </div>
       </figure>
 

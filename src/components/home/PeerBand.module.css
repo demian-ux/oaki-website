@@ -11,24 +11,45 @@
   display: block;
 }
 
-/* Each quote rises + fades in as it becomes active — the same reveal motion as
-   the first, replayed on every change via a remounting `key`. */
-.quoteSwap {
-  animation: peer-quote-rise 1800ms var(--motion-ease-out, cubic-bezier(0.16, 1, 0.3, 1));
+/* Quotes cross-fade in place: outgoing and incoming share the same grid cell,
+   one fading out under the other. No vertical movement. */
+.quoteStack {
+  display: grid;
 }
-@keyframes peer-quote-rise {
+.quoteSwap,
+.quoteOut {
+  grid-area: 1 / 1;
+}
+.quoteSwap {
+  animation: peer-quote-in 1600ms var(--motion-ease, ease) both;
+}
+.quoteOut {
+  animation: peer-quote-out 1600ms var(--motion-ease, ease) both;
+  pointer-events: none;
+}
+@keyframes peer-quote-in {
   from {
     opacity: 0;
-    transform: translateY(16px);
   }
   to {
     opacity: 1;
-    transform: none;
+  }
+}
+@keyframes peer-quote-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .quoteSwap {
+  .quoteSwap,
+  .quoteOut {
     animation: none;
+  }
+  .quoteOut {
+    opacity: 0;
   }
 }
 .quote {

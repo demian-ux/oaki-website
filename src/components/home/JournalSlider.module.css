@@ -96,16 +96,18 @@
   transform: translateX(
     calc(var(--edge) - var(--pos) * (var(--slide-w) + var(--gap)) + var(--drag) * 1px)
   );
-  transition: transform 760ms var(--motion-ease-out, cubic-bezier(0.16, 1, 0.3, 1));
+  transition: transform 1400ms var(--motion-ease-out, cubic-bezier(0.16, 1, 0.3, 1));
 }
 .track.noAnim,
-.track.noAnim .slide {
+.track.noAnim .slide,
+.track.noAnim .slide *,
+.track.noAnim .slide *::after {
   transition: none;
 }
 
 .slide {
   flex: 0 0 var(--slide-w);
-  transition: opacity 600ms var(--motion-ease, ease);
+  transition: opacity 1100ms var(--motion-ease, ease);
 }
 
 .frame {
@@ -127,7 +129,7 @@
   background: var(--color-gris, #f4f3f0);
   opacity: 0.5;
   pointer-events: none;
-  transition: opacity 600ms var(--motion-ease, ease);
+  transition: opacity 1100ms var(--motion-ease, ease);
 }
 .slide.active .frame::after {
   opacity: 0;
@@ -167,7 +169,7 @@
   text-transform: none;
   text-wrap: balance;
   color: #b9b6b0; /* dimmed by default */
-  transition: color 600ms var(--motion-ease, ease);
+  transition: color 1100ms var(--motion-ease, ease);
 }
 .slide.active .title {
   color: var(--color-ink, #222);
@@ -201,7 +203,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-muted, #67645d);
-  transition: color 600ms var(--motion-ease, ease);
+  transition: color 1100ms var(--motion-ease, ease);
 }
 .slide.active .metaText {
   color: var(--color-warm-deep, #7c6549);
