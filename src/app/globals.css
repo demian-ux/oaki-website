@@ -400,13 +400,11 @@ body:has([data-hero]) .site-header:not([data-nav-ready]) {
   opacity: 0;
   pointer-events: none;
 }
-/* No backdrop-filter here: re-blurring the moving backdrop on every scrolled
-   frame is the single most expensive thing a sticky bar can do. A slightly
-   more opaque paper white reads the same. The mega menu (page at rest) keeps
-   its blur below. */
 .site-header.glass {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.85);
   border-bottom: 1px solid var(--color-line);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+          backdrop-filter: blur(8px) saturate(120%);
 }
 .site-header.mega-open {
   background: rgba(255, 255, 255, 0.94);

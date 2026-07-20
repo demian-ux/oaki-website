@@ -5,6 +5,7 @@ import Footer from "@/components/global/Footer";
 import RevealOnScroll from "@/components/global/RevealOnScroll";
 import SmoothScroll from "@/components/global/SmoothScroll";
 import WarmupAssets from "@/components/global/WarmupAssets";
+import ScrollProfiler from "@/components/global/ScrollProfiler";
 import { HeroThemeProvider } from "@/components/global/HeroTheme";
 import { getAllProjects, getSiteSettings } from "@/lib/data";
 
@@ -29,6 +30,7 @@ export default async function SiteLayout({
       <main className="flex-1 pt-16 lg:pt-20">{children}</main>
       <SmoothScroll />
       <WarmupAssets />
+      <ScrollProfiler />
       <RevealOnScroll />
       <Footer />
       {isDraftMode && (
