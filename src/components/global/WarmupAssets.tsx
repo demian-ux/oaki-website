@@ -22,8 +22,31 @@ export default function WarmupAssets() {
       }
     };
 
+    // Promote each below-fold section to its own compositor layer so its
+    // tiles rasterize during idle GPU time (while the hero animation plays)
+    // instead of mid-first-scroll — the first pass through the page then
+    // composites pre-painted tiles. The hint stays on: dropping it later
+    // would force a re-raster back into the parent and re-create the jank.
+    // Skipped: the hero (already painted) and the pinned services deck
+    // (will-change:transform on an ancestor re-parents its position:fixed
+    // pin). Desktop only; the layer memory isn't worth it on mobile.
+    const prewarmLayers = () => {
+      if (!window.matchMedia("(min-width: 1024px)").matches) return;
+      const main = document.querySelector("main");
+      if (!main) return;
+      const roots = [...Array.from(main.children), document.querySelector("footer")];
+      for (const el of roots) {
+        if (!(el instanceof HTMLElement)) continue;
+        if (el.querySelector("[data-hero]") || el.hasAttribute("data-hero")) continue;
+        const cls = (el.className || "") + " ";
+        if (cls.includes("ServicesDeck") || el.querySelector('[class*="ServicesDeck"]')) continue;
+        el.style.willChange = "transform";
+      }
+    };
+
     const warm = () => {
       if (cancelled) return;
+      prewarmLayers();
       const imgs = Array.from(document.images);
       // Promote every pending lazy image at once so all fetches start now,
       // off-screen; the network layer prioritizes on its own.
