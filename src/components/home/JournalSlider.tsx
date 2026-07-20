@@ -18,7 +18,7 @@ import type { JournalArticle } from "@/lib/journal-mock";
 export default function JournalSlider({
   articles,
   heading = "What the render\ndoesn't show",
-  intro = "Notes on light, material, and the thinking behind our award winning work. Written by the people making it.",
+  intro = "Notes on light, material, and the thinking behind the work. Written by the people making it.",
   allHref = "/journal",
   intervalMs = 5500,
 }: {

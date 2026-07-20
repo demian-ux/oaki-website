@@ -423,6 +423,8 @@
 /* White chrome over the scrim. Unlayered, so these beat Tailwind's
    text-muted / text-ink / bg-ink utilities inside the inverted header. */
 .site-header.inverted a { color: #fff; }
+/* The quick-copy email is a <button>, not an <a>, so whiten it explicitly. */
+.site-header.inverted .nav-copy-email { color: #fff; }
 .site-header.inverted .text-muted { color: rgba(255, 255, 255, 0.78); }
 .site-header.inverted .text-ink { color: #fff; }
 .site-header.inverted .nav-caret { color: #fff; }
@@ -522,9 +524,12 @@
   gap: 16px;
   padding: 14px 0;
   border-top: 1px solid var(--color-line);
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  letter-spacing: -0.01em;
+  /* Current site voice — Neue Montreal caps (navbar / footer / journal links) */
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--color-ink);
   position: relative;
   opacity: 0;
@@ -658,9 +663,12 @@
   display: inline-flex;
   align-items: baseline;
   gap: 12px;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: -0.02em;
+  /* Matches the journal slider's "All entries" link voice */
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--color-ink);
   position: relative;
 }
@@ -677,7 +685,7 @@
 .mega-cta-link:hover { color: var(--color-warm-deep); }
 .mega-cta-link:hover::after { right: 0; }
 .mega-cta-arrow {
-  font-size: 1.125rem;
+  font-size: 0.75rem;
   transition: transform 320ms var(--motion-ease);
 }
 .mega-cta-link:hover .mega-cta-arrow {
@@ -1144,6 +1152,39 @@
 .logotipo .dot { color: var(--color-warm); }
 .logotipo.inv { color: var(--color-paper); }
 .logotipo.inv .dot { color: var(--color-warm); }
+
+/* THE FOOTER WORD MARK — the logotipo blown up to fill the footer's full
+   width. Sized so "oaki." spans the page width while the glyph stays fully
+   visible: the line box uses a full line-height so the mark is never clipped
+   top or bottom, and any horizontal bleed is contained by the footer, not
+   cut through the letters. */
+.footer-mega {
+  overflow-x: clip; /* contain the word mark's width without a vertical clip */
+}
+.footer-wordmark {
+  display: block;
+  width: 100%;
+  padding-left: var(--spacing-page-x);
+  padding-right: var(--spacing-page-x);
+  /* Sit the mark flush at the very end of the page: just enough room to clear
+     the glyph's sub-baseline overshoot (~1.6vw) so it reads flush without
+     ever clipping the round bottoms. */
+  padding-bottom: 1.8vw;
+  margin-top: clamp(2.5rem, 5vw, 5rem);
+}
+.footer-wordmark .logotipo {
+  display: block;
+  font-size: 22.5vw; /* fills the page width edge-to-edge */
+  line-height: 0.82; /* trims dead space under the baseline without cutting the glyph */
+  letter-spacing: 0.021em;
+  white-space: nowrap;
+}
+@media (min-width: 1024px) {
+  .footer-wordmark {
+    padding-left: var(--spacing-page-x-lg);
+    padding-right: var(--spacing-page-x-lg);
+  }
+}
 
 /* THE STRIPE RULE — the sphere's stripes flattened into a divider: 3px
    bars, 12px period, 10px tall. Negro on paper; add .ocre on negro

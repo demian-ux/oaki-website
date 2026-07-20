@@ -20,7 +20,7 @@ export default async function AboutPage() {
     about.workWithItems && about.workWithItems.length > 0
       ? about.workWithItems
       : [
-          "Luxury Residential Architects",
+          "Residential Architects",
           "Interior Designers",
           "Hospitality Architects",
           "Developers",
@@ -99,7 +99,7 @@ export default async function AboutPage() {
             {about.ctaHeading ?? "Tell us what you are building."}
           </h2>
           <Button href="/contact" variant="primary" size="lg">
-            {about.ctaButtonLabel ?? "Begin the conversation"}
+            {about.ctaButtonLabel ?? "Start a project"}
           </Button>
         </div>
       </section>

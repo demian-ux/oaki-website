@@ -75,7 +75,7 @@ export default defineType({
       title: "Submit Button Label",
       type: "string",
       group: "form",
-      initialValue: "Begin the conversation",
+      initialValue: "Start a project",
     }),
     defineField({
       name: "submittingLabel",

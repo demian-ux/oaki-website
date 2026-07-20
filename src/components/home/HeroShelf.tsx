@@ -33,7 +33,12 @@ function Cover({ project, src }: { project: Project; src: string }) {
   );
 }
 
-export default function HeroShelf() {
+interface HeroShelfProps {
+  /** The one visible positioning line; fades in with the open state. */
+  statement?: string;
+}
+
+export default function HeroShelf({ statement }: HeroShelfProps) {
   const [ready, setReady] = useState(false);
   const [phase, setPhase] = useState<"ticker" | "open">("ticker");
   const [tick, setTick] = useState(0);
@@ -193,6 +198,13 @@ export default function HeroShelf() {
       <button type="button" className={`${styles.nav} ${styles.contact} ${open ? styles.navOpen : ""}`}>
         Contact
       </button>
+
+      {/* statement — the one line a stranger reads first */}
+      {statement && (
+        <div className={`${styles.subtitle} ${open ? styles.subtitleOpen : ""}`}>
+          <p className={styles.subtitleInner}>{statement}</p>
+        </div>
+      )}
 
       {/* the shelf */}
       <div className={styles.shelf}>

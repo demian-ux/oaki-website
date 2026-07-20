@@ -71,7 +71,7 @@ export default defineType({
       title: "Hero — Primary Button",
       type: "string",
       group: "hero",
-      initialValue: "Begin the conversation",
+      initialValue: "Start a project",
     }),
     defineField({
       name: "heroSecondaryCta",
@@ -308,7 +308,7 @@ export default defineType({
       title: "Final CTA — Button",
       type: "string",
       group: "cta",
-      initialValue: "Begin the conversation",
+      initialValue: "Start a project",
     }),
 
     // Deprecated free-text positioning statement

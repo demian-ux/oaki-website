@@ -211,7 +211,7 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
       : BUDGETS;
   const continueLabel = config?.continueLabel ?? "Continue →";
   const backLabel = config?.backLabel ?? "← Back";
-  const submitLabel = config?.submitLabel ?? "Begin the conversation";
+  const submitLabel = config?.submitLabel ?? "Start a project";
   const submittingLabel = config?.submittingLabel ?? "Sending…";
   const messagePrompt =
     config?.messagePrompt ??

@@ -64,7 +64,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
 
         <div className="mt-auto">
           <Button href="/contact" variant="outline" onClick={onClose}>
-            Begin the conversation
+            Start a project
           </Button>
         </div>
       </div>

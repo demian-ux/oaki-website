@@ -6,6 +6,8 @@ import { startTransition, useEffect, useRef, useState } from "react";
 import MobileMenu from "./MobileMenu";
 import SectionLabel from "./SectionLabel";
 import Logotipo from "./Logotipo";
+import CopyEmail from "./CopyEmail";
+import SanityImg from "./SanityImg";
 import { useHeroTheme } from "./HeroTheme";
 import type { Project } from "@/lib/types";
 
@@ -141,6 +143,7 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
                 </div>
               );
             })}
+            <CopyEmail className="coord nav-link-warm nav-copy-email hover:text-ink transition-colors duration-300" />
           </nav>
 
           {/* Mobile menu button */}
@@ -186,7 +189,10 @@ function CaseStudiesMegaMenu({
   onLeave: () => void;
   onClose: () => void;
 }) {
-  const featured = projects.filter((p) => p.featured).slice(0, 3);
+  // Prefer explicitly-featured books, but fall back to the most recent case
+  // studies so the column never renders empty when nothing is flagged featured.
+  const flagged = projects.filter((p) => p.featured);
+  const featured = (flagged.length > 0 ? flagged : projects).slice(0, 3);
   const recent = projects.slice(0, 5);
   const collections = Array.from(
     new Set(projects.map((p) => p.collectionLabel).filter(Boolean))
@@ -235,7 +241,14 @@ function CaseStudiesMegaMenu({
                   style={{ transitionDelay: `${120 + i * 60}ms` }}
                 >
                   <div className="mega-card-cover">
-                    <div className="cover-paint-mini" />
+                    <SanityImg
+                      image={p.coverImage}
+                      alt={p.title}
+                      fill
+                      sizes="220px"
+                      className="object-cover"
+                      fallback={<div className="cover-paint-mini" />}
+                    />
                     <div className="mega-card-hover">
                       <span className="text-label">Open Book →</span>
                     </div>

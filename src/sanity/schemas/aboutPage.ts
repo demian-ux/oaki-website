@@ -93,7 +93,7 @@ export default defineType({
       of: [{ type: "string" }],
       group: "workWith",
       initialValue: [
-        "Luxury Residential Architects",
+        "Residential Architects",
         "Interior Designers",
         "Hospitality Architects",
         "Developers",
@@ -114,7 +114,7 @@ export default defineType({
       title: "CTA — Button",
       type: "string",
       group: "cta",
-      initialValue: "Begin the conversation",
+      initialValue: "Start a project",
     }),
 
     // Legacy

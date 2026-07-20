@@ -130,7 +130,7 @@ export default async function ProcessPage() {
             {process.ctaBody ?? "Let us figure out what it is."}
           </p>
           <Button href="/contact" variant="primary" size="lg">
-            {process.ctaButtonLabel ?? "Begin the conversation"}
+            {process.ctaButtonLabel ?? "Start a project"}
           </Button>
         </div>
       </section>

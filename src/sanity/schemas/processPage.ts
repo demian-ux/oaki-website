@@ -126,7 +126,7 @@ export default defineType({
       title: "CTA — Button",
       type: "string",
       group: "cta",
-      initialValue: "Begin the conversation",
+      initialValue: "Start a project",
     }),
 
     // SEO

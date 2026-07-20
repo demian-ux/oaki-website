@@ -167,6 +167,22 @@ export default function PeerBand({
         </div>
       </figure>
 
+      {n > 1 ? (
+        <div className={styles.dots} role="tablist" aria-label="Testimonials">
+          {quotes.map((q, idx) => (
+            <button
+              key={idx}
+              type="button"
+              className={`${styles.dot} ${idx === i ? styles.dotActive : ""}`}
+              aria-label={`Show testimonial ${idx + 1}`}
+              aria-selected={idx === i}
+              role="tab"
+              onClick={() => setI(idx)}
+            />
+          ))}
+        </div>
+      ) : null}
+
       <div className={styles.trusted}>
         <p className={styles.eyebrow}>Trusted by</p>
         <div className={styles.marquee}>

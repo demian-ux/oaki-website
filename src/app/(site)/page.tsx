@@ -75,7 +75,12 @@ export default async function HomePage() {
   return (
     <>
       {/* 1. Hero — animated wordmark → drifting project-book shelf */}
-      <HeroShelf />
+      <HeroShelf
+        statement={
+          [home.heroLabel, home.heroTitle].filter(Boolean).join(". ").replace(/\.\s*\./g, ".") ||
+          "A studio building architectural narratives. Made for the pitch, the board, and the jury."
+        }
+      />
 
       {/* 2. Concept — full-screen declarative statement. */}
       <section className="min-h-screen flex items-center page-x border-t border-line">
