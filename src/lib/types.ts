@@ -52,7 +52,7 @@ export interface Project {
   coverImage?: SanityImage | null;
   heroMedia?: SanityImage | null;
   projectType?: string;
-  country: string;
+  country?: string;
   city: string;
   year: string;
   clientName: string;
@@ -61,6 +61,8 @@ export interface Project {
   featured: boolean;
   sortOrder?: number;
   // Detail-page fields
+  introText?: string;
+  resultText?: string;
   architect?: string;
   interiorDesigner?: string;
   developer?: string;

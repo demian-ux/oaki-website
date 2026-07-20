@@ -54,6 +54,14 @@ function PhaseHeader({ phase }: { phase: Phase }) {
           {phase.description}
         </p>
       )}
+      {phase.introText && (
+        <p
+          className="text-editorial text-muted mt-4 max-text"
+          style={{ whiteSpace: "pre-line" }}
+        >
+          {phase.introText}
+        </p>
+      )}
     </div>
   );
 }

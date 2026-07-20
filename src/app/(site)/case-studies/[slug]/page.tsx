@@ -5,6 +5,7 @@ import { getAllProjectSlugs, getAllProjects, getProjectBySlug, getNextProject } 
 import PhaseSection from "@/components/case-studies/PhaseSection";
 import CaseHero from "@/components/case-studies/CaseHero";
 import SectionLabel from "@/components/global/SectionLabel";
+import Button from "@/components/global/Button";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -43,9 +44,21 @@ export default async function CaseStudyPage({ params }: Props) {
       ? "Undisclosed"
       : null;
 
+  const displayLocation =
+    project.city && project.country
+      ? `${project.city}, ${project.country}`
+      : project.city || project.country || null;
+
+  const testimonial =
+    project.testimonial?.approved && project.testimonial.quote
+      ? project.testimonial
+      : null;
+
   return (
     <>
-      {/* Full-bleed render hero — carries only the navbar (v3.0 Case mode) */}
+      {/* Full-bleed render hero — carries only the navbar (v3.0 Case mode).
+          heroMedia = the flat cover art; coverImage = the BOOK mockup (menu &
+          library surfaces), so it only backfills when no hero is set. */}
       <CaseHero image={project.heroMedia ?? project.coverImage} alt={project.title} />
 
       {/* Ocre-drench binding — the Case title spread. ocre-600 ground, type
@@ -83,7 +96,7 @@ export default async function CaseStudyPage({ params }: Props) {
           >
             <div className="flex flex-col gap-5">
               {[
-                { label: "Location", value: project.city && project.country ? `${project.city}, ${project.country}` : project.city || project.country || null },
+                { label: "Location", value: displayLocation },
                 { label: "Type", value: project.projectType },
                 { label: "Client", value: displayClient },
                 { label: "Year", value: project.year },
@@ -108,17 +121,16 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Narrative intro */}
-      <section className="page-x section-y border-b border-line">
-        <div className="max-w-2xl">
-          <p className="text-quote reveal mb-6">
-            Before the image, there is the story.
-          </p>
-          <p className="text-editorial text-muted">
-            The project needed more than a set of views. It needed a clear atmosphere, a sense of place, and a visual rhythm that could help the client understand the life inside the architecture.
-          </p>
-        </div>
-      </section>
+      {/* Narrative intro — CMS copy only, no template prose */}
+      {project.introText && (
+        <section className="page-x section-y border-b border-line">
+          <div className="max-w-2xl">
+            <p className="text-quote reveal" style={{ whiteSpace: "pre-line" }}>
+              {project.introText}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* FASES sections */}
       {project.phases && project.phases.length > 0 && (
@@ -135,27 +147,34 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       )}
 
-      {/* Result */}
-      <section className="page-x section-y border-b border-line bg-soft">
-        <div className="max-w-2xl">
-          <p className="coord mb-6">What the narrative helped clarify.</p>
-          <p className="text-editorial text-muted">
-            The final image sequence gave the project a clear tone, a stronger sense of place, and a complete visual world for presentation, approval, and marketing.
-          </p>
-        </div>
-      </section>
+      {/* Result — CMS copy only */}
+      {project.resultText && (
+        <section className="page-x section-y border-b border-line bg-soft">
+          <div className="max-w-2xl">
+            <p className="coord mb-6">The result</p>
+            <p className="text-editorial text-muted" style={{ whiteSpace: "pre-line" }}>
+              {project.resultText}
+            </p>
+          </div>
+        </section>
+      )}
 
-      {/* Testimonial */}
-      <section className="page-x section-y border-b border-line">
-        <div className="max-w-xl">
-          <p className="text-quote reveal mb-8 leading-relaxed">
-            &ldquo;Oaki gave the project a voice before the building existed.&rdquo;
-          </p>
-          <p className="text-meta text-muted">
-            Founder, Undisclosed Architecture Studio
-          </p>
-        </div>
-      </section>
+      {/* Testimonial — only a real, approved quote from Sanity ever renders */}
+      {testimonial && (
+        <section className="page-x section-y border-b border-line">
+          <div className="max-w-xl">
+            <p className="text-quote reveal mb-8 leading-relaxed">
+              &ldquo;{testimonial.quote}&rdquo;
+            </p>
+            <p className="text-meta text-muted">
+              {testimonial.displayName ??
+                [testimonial.personName, testimonial.personTitle, testimonial.company]
+                  .filter(Boolean)
+                  .join(", ")}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Credits */}
       <section className="page-x py-16 border-b border-line">
@@ -168,8 +187,8 @@ export default async function CaseStudyPage({ params }: Props) {
               { label: "Visualization", value: "Oaki Studio" },
               { label: "Creative Direction", value: "Oaki Studio" },
               { label: "Year", value: project.year },
-              { label: "Location", value: `${project.city}, ${project.country}` },
-            ]
+              { label: "Location", value: displayLocation },
+            ].filter((credit) => credit.value)
           ).map((credit) => (
             <div key={credit.label}>
               <SectionLabel>{credit.label}</SectionLabel>
@@ -181,8 +200,20 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Next project */}
-      {nextProject && (
+      {/* CTA — the page should not dead-end after the story */}
+      <section className="page-x section-y text-center border-b border-line">
+        <div className="max-w-lg mx-auto">
+          <h2 className="text-mode-title text-volume reveal mb-8">
+            Tell us what you are building.
+          </h2>
+          <Button href="/contact" variant="primary" size="lg">
+            Start a project
+          </Button>
+        </div>
+      </section>
+
+      {/* Next project — hidden while the library has a single book */}
+      {nextProject && nextProject.slug !== slug && (
         <section className="page-x py-16">
           <p className="coord mb-3">Next Project Book</p>
           <Link

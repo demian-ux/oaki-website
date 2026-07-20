@@ -63,6 +63,8 @@ export const projectBySlugQuery = groq`
     interiorDesigner,
     developer,
     services,
+    introText,
+    resultText,
     seoTitle,
     seoDescription,
     openGraphImage{ ${imageFields} },
