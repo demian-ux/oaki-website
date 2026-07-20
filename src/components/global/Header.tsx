@@ -41,30 +41,24 @@ export default function Header({ projects = [], navLabels }: HeaderProps) {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    // Reveal the nav only once the hero section is fully scrolled past. Measure
-    // the hero's actual bottom (it is one full svh tall) rather than guessing a
-    // fraction of the viewport. Pages without a hero always show the nav.
-    const hero = document.querySelector<HTMLElement>("[data-hero]");
-    let heroBottom = 0;
-    const measure = () => {
-      heroBottom = hero ? hero.getBoundingClientRect().bottom + window.scrollY : 0;
-    };
+    // Reveal the nav only once the hero section is fully scrolled past.
+    // Query the hero on every check instead of capturing it once: with
+    // streamed server components the header can mount before the hero exists
+    // in the DOM, and a one-time null lookup would show the nav forever.
+    // A missing hero counts as "not past it" — hideForHero only applies on
+    // the home page, so inner pages still show the nav regardless.
     const handleScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 32);
-      setPastHero(hero ? y >= heroBottom : true);
+      const hero = document.querySelector<HTMLElement>("[data-hero]");
+      setPastHero(hero ? y >= hero.getBoundingClientRect().bottom + y : false);
     };
-    const onResize = () => {
-      measure();
-      handleScroll();
-    };
-    measure();
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", onResize, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener("resize", handleScroll);
     };
   }, [pathname]);
 
