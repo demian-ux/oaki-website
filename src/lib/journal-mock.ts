@@ -1,7 +1,10 @@
 // Mock journal articles for the homepage "From the Journal" section.
 // Placeholder content + local images so the section renders before the journal
-// launches. Swap this for a Sanity-backed fetch (getJournalEntries) when the
-// journal goes live; the JournalSlider only needs the JournalArticle shape.
+// launches. The Sanity-backed path lives in data.ts (getJournalPosts); these
+// mocks are its no-CMS fallback, mirroring placeholder-data.ts for projects.
+import type { JournalPost } from "./types";
+import type { PortableTextBlock } from "@portabletext/react";
+
 export type JournalArticle = {
   slug: string;
   category: string; // short label shown as the tag, e.g. "Craft"
@@ -64,3 +67,41 @@ export const journalArticlesMock: JournalArticle[] = [
     img: "/images/journal-stills-image.jpg",
   },
 ];
+
+// ── JournalPost-shaped mocks ─────────────────────────────────────────────
+// The same 5 entries in the Sanity shape, so the journal pages render in a
+// no-CMS environment. Bodies are the excerpts as a single paragraph — enough
+// to exercise the template, obviously placeholder in review.
+
+const isoDates: Record<string, string> = {
+  "why-we-model-the-light-first": "2026-06-15",
+  "the-case-against-the-flythrough": "2026-05-15",
+  "what-concrete-wants-to-be": "2026-04-15",
+  "the-work-before-the-work": "2026-03-15",
+  "an-image-you-look-at-twice": "2026-02-15",
+};
+
+function paragraph(text: string, key: string): PortableTextBlock {
+  return {
+    _type: "block",
+    _key: `${key}-p1`,
+    style: "normal",
+    markDefs: [],
+    children: [{ _type: "span", _key: `${key}-s1`, text, marks: [] }],
+  };
+}
+
+export const journalPostsMock: JournalPost[] = journalArticlesMock.map((a) => ({
+  _id: `journalPost-${a.slug}`,
+  title: a.title,
+  slug: a.slug,
+  category: a.category,
+  excerpt: a.excerpt,
+  coverImage: null,
+  img: a.img,
+  author: null,
+  date: isoDates[a.slug],
+  readMins: a.readMins,
+  body: [paragraph(a.excerpt, a.slug)],
+  project: null,
+}));

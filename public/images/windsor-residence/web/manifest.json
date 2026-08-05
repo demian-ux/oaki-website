@@ -1,0 +1,671 @@
+{
+  "project": "windsor-residence",
+  "images": [
+    {
+      "name": "View 01_Facade_a05",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 3008,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/windsor-residence/web/View 01_Facade_a05-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/windsor-residence/web/View 01_Facade_a05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/windsor-residence/web/View 01_Facade_a05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/windsor-residence/web/View 01_Facade_a05-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/windsor-residence/web/View 01_Facade_a05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/windsor-residence/web/View 01_Facade_a05-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02",
+      "set": null,
+      "naturalWidth": 5000,
+      "naturalHeight": 3334,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/windsor-residence/web/View 02-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 02-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 02-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/windsor-residence/web/View 02-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 02-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 02-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03",
+      "set": null,
+      "naturalWidth": 5000,
+      "naturalHeight": 3334,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/windsor-residence/web/View 03-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 03-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 03-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/windsor-residence/web/View 03-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 03-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 03-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_Lounge",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1667,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 04_Lounge-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 04_Lounge-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 04_Lounge-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 04_Lounge-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04",
+      "set": null,
+      "naturalWidth": 5000,
+      "naturalHeight": 3334,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/windsor-residence/web/View 04-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 04-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 04-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/windsor-residence/web/View 04-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 04-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 04-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05_A",
+      "set": null,
+      "naturalWidth": 5000,
+      "naturalHeight": 3334,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/windsor-residence/web/View 05_A-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 05_A-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 05_A-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/windsor-residence/web/View 05_A-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 05_A-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 05_A-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05_B",
+      "set": null,
+      "naturalWidth": 5000,
+      "naturalHeight": 3334,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/windsor-residence/web/View 05_B-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 05_B-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 05_B-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/windsor-residence/web/View 05_B-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 05_B-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 05_B-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 06",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1667,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 06-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 06-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 06-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 06-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 07",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1875,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1440,
+          "src": "/images/windsor-residence/web/View 07-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 720,
+          "src": "/images/windsor-residence/web/View 07-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1440,
+          "src": "/images/windsor-residence/web/View 07-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 720,
+          "src": "/images/windsor-residence/web/View 07-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 14_Kitchen",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1765,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/windsor-residence/web/View 14_Kitchen-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/windsor-residence/web/View 14_Kitchen-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/windsor-residence/web/View 14_Kitchen-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/windsor-residence/web/View 14_Kitchen-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 15B_Stair",
+      "set": null,
+      "naturalWidth": 1768,
+      "naturalHeight": 2500,
+      "widths": [
+        960
+      ],
+      "avif": [
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/windsor-residence/web/View 15B_Stair-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/windsor-residence/web/View 15B_Stair-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 16_Salon",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2667,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2560,
+          "src": "/images/windsor-residence/web/View 16_Salon-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 16_Salon-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 16_Salon-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2560,
+          "src": "/images/windsor-residence/web/View 16_Salon-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/windsor-residence/web/View 16_Salon-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/windsor-residence/web/View 16_Salon-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 17_FamilyRoom",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1764,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/windsor-residence/web/View 17_FamilyRoom-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/windsor-residence/web/View 17_FamilyRoom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/windsor-residence/web/View 17_FamilyRoom-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/windsor-residence/web/View 17_FamilyRoom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 20_Gym",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1764,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/windsor-residence/web/View 20_Gym-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/windsor-residence/web/View 20_Gym-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/windsor-residence/web/View 20_Gym-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/windsor-residence/web/View 20_Gym-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 23_Summer Kitchen",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1764,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/windsor-residence/web/View 23_Summer Kitchen-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/windsor-residence/web/View 23_Summer Kitchen-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/windsor-residence/web/View 23_Summer Kitchen-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/windsor-residence/web/View 23_Summer Kitchen-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View Extra",
+      "set": null,
+      "naturalWidth": 5000,
+      "naturalHeight": 2146,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 1648,
+          "src": "/images/windsor-residence/web/View Extra-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 824,
+          "src": "/images/windsor-residence/web/View Extra-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 412,
+          "src": "/images/windsor-residence/web/View Extra-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 1648,
+          "src": "/images/windsor-residence/web/View Extra-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 824,
+          "src": "/images/windsor-residence/web/View Extra-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 412,
+          "src": "/images/windsor-residence/web/View Extra-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View01",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 3008,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/windsor-residence/web/View01-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/windsor-residence/web/View01-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/windsor-residence/web/View01-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/windsor-residence/web/View01-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/windsor-residence/web/View01-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/windsor-residence/web/View01-960.webp"
+        }
+      ]
+    }
+  ]
+}

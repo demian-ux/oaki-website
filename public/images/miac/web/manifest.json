@@ -1,0 +1,243 @@
+{
+  "project": "miac",
+  "images": [
+    {
+      "name": "Close up activity 01",
+      "set": null,
+      "naturalWidth": 3456,
+      "naturalHeight": 4888,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/miac/web/Close up activity 01-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/miac/web/Close up activity 01-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/miac/web/Close up activity 01-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/miac/web/Close up activity 01-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Close up detail mtl",
+      "set": null,
+      "naturalWidth": 3125,
+      "naturalHeight": 3125,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/miac/web/Close up detail mtl-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/miac/web/Close up detail mtl-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/miac/web/Close up detail mtl-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/miac/web/Close up detail mtl-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Main Entry door",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1694,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/miac/web/Main Entry door-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/miac/web/Main Entry door-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/miac/web/Main Entry door-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/miac/web/Main Entry door-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Sidewalk seating area",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 3536,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/miac/web/Sidewalk seating area-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/miac/web/Sidewalk seating area-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/miac/web/Sidewalk seating area-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/miac/web/Sidewalk seating area-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 01_a04",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1563,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1200,
+          "src": "/images/miac/web/View 01_a04-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 600,
+          "src": "/images/miac/web/View 01_a04-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1200,
+          "src": "/images/miac/web/View 01_a04-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 600,
+          "src": "/images/miac/web/View 01_a04-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02_a03",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1563,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1200,
+          "src": "/images/miac/web/View 02_a03-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 600,
+          "src": "/images/miac/web/View 02_a03-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1200,
+          "src": "/images/miac/web/View 02_a03-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 600,
+          "src": "/images/miac/web/View 02_a03-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_a03",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1563,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1200,
+          "src": "/images/miac/web/View 03_a03-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 600,
+          "src": "/images/miac/web/View 03_a03-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1200,
+          "src": "/images/miac/web/View 03_a03-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 600,
+          "src": "/images/miac/web/View 03_a03-960.webp"
+        }
+      ]
+    }
+  ]
+}

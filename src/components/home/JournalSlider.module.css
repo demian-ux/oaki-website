@@ -5,8 +5,11 @@
   --edge: var(--spacing-page-x);
   --slide-w: min(60vw, 1040px);
   --gap: clamp(20px, 2.5vw, 40px);
+  /* Dimmed resting tint for inactive slide titles — decorative, sub-AA on
+     purpose; the active slide transitions to full ink. */
+  --title-dim: #b9b6b0;
   background: var(--color-gris, #f4f3f0);
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -115,7 +118,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #e7e4df;
+  background: var(--color-line, #e8e5df);
 }
 .img {
   object-fit: cover; /* full colour — no B&W treatment */
@@ -168,7 +171,7 @@
   letter-spacing: -0.015em;
   text-transform: none;
   text-wrap: balance;
-  color: #b9b6b0; /* dimmed by default */
+  color: var(--title-dim); /* dimmed by default */
   transition: color 1100ms var(--motion-ease, ease);
 }
 .slide.active .title {

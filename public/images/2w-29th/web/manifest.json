@@ -1,0 +1,356 @@
+{
+  "project": "2w-29th",
+  "images": [
+    {
+      "name": "Bedroom",
+      "set": null,
+      "naturalWidth": 2121,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/2w-29th/web/Bedroom-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/2w-29th/web/Bedroom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/2w-29th/web/Bedroom-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/2w-29th/web/Bedroom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "guccibath",
+      "set": null,
+      "naturalWidth": 2121,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/2w-29th/web/guccibath-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/2w-29th/web/guccibath-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/2w-29th/web/guccibath-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/2w-29th/web/guccibath-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Kitchen",
+      "set": null,
+      "naturalWidth": 2490,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/2w-29th/web/Kitchen-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/2w-29th/web/Kitchen-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/2w-29th/web/Kitchen-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/2w-29th/web/Kitchen-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Living",
+      "set": null,
+      "naturalWidth": 2490,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/2w-29th/web/Living-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/2w-29th/web/Living-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/2w-29th/web/Living-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/2w-29th/web/Living-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Lounge terrace",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/2w-29th/web/Lounge terrace-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/2w-29th/web/Lounge terrace-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/2w-29th/web/Lounge terrace-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/2w-29th/web/Lounge terrace-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/2w-29th/web/Lounge terrace-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/2w-29th/web/Lounge terrace-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "main airea",
+      "set": null,
+      "naturalWidth": 3320,
+      "naturalHeight": 1876,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/2w-29th/web/main airea-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/2w-29th/web/main airea-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/2w-29th/web/main airea-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/2w-29th/web/main airea-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Main Bathroom",
+      "set": null,
+      "naturalWidth": 2121,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/2w-29th/web/Main Bathroom-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/2w-29th/web/Main Bathroom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/2w-29th/web/Main Bathroom-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/2w-29th/web/Main Bathroom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Stair",
+      "set": null,
+      "naturalWidth": 3320,
+      "naturalHeight": 1876,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/2w-29th/web/Stair-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/2w-29th/web/Stair-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/2w-29th/web/Stair-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/2w-29th/web/Stair-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "steamroom",
+      "set": null,
+      "naturalWidth": 2490,
+      "naturalHeight": 3522,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/2w-29th/web/steamroom-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/2w-29th/web/steamroom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/2w-29th/web/steamroom-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/2w-29th/web/steamroom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 01_a03",
+      "set": null,
+      "naturalWidth": 3320,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/2w-29th/web/View 01_a03-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/2w-29th/web/View 01_a03-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/2w-29th/web/View 01_a03-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/2w-29th/web/View 01_a03-960.webp"
+        }
+      ]
+    }
+  ]
+}

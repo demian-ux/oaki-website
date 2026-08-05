@@ -1,0 +1,230 @@
+{
+  "project": "cazouls-les-bezier",
+  "images": [
+    {
+      "name": "View 01",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2819,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2706,
+          "src": "/images/cazouls-les-bezier/web/View 01-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/cazouls-les-bezier/web/View 01-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/cazouls-les-bezier/web/View 01-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2706,
+          "src": "/images/cazouls-les-bezier/web/View 01-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/cazouls-les-bezier/web/View 01-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/cazouls-les-bezier/web/View 01-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2819,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2706,
+          "src": "/images/cazouls-les-bezier/web/View 02-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/cazouls-les-bezier/web/View 02-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/cazouls-les-bezier/web/View 02-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2706,
+          "src": "/images/cazouls-les-bezier/web/View 02-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/cazouls-les-bezier/web/View 02-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/cazouls-les-bezier/web/View 02-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03",
+      "set": null,
+      "naturalWidth": 4032,
+      "naturalHeight": 2268,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2160,
+          "src": "/images/cazouls-les-bezier/web/View 03-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/cazouls-les-bezier/web/View 03-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/cazouls-les-bezier/web/View 03-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2160,
+          "src": "/images/cazouls-les-bezier/web/View 03-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/cazouls-les-bezier/web/View 03-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/cazouls-les-bezier/web/View 03-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2820,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2707,
+          "src": "/images/cazouls-les-bezier/web/View 04-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1354,
+          "src": "/images/cazouls-les-bezier/web/View 04-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/cazouls-les-bezier/web/View 04-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2707,
+          "src": "/images/cazouls-les-bezier/web/View 04-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1354,
+          "src": "/images/cazouls-les-bezier/web/View 04-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/cazouls-les-bezier/web/View 04-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2819,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2706,
+          "src": "/images/cazouls-les-bezier/web/View 05-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/cazouls-les-bezier/web/View 05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/cazouls-les-bezier/web/View 05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2706,
+          "src": "/images/cazouls-les-bezier/web/View 05-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/cazouls-les-bezier/web/View 05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/cazouls-les-bezier/web/View 05-960.webp"
+        }
+      ]
+    }
+  ]
+}

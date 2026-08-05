@@ -1,0 +1,219 @@
+{
+  "project": "oak-house",
+  "images": [
+    {
+      "name": "View 01_Facade_a05",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2669,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/View 01_Facade_a05-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/View 01_Facade_a05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/View 01_Facade_a05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/View 01_Facade_a05-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/View 01_Facade_a05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/View 01_Facade_a05-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02_Interior_a05",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2669,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/View 02_Interior_a05-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/View 02_Interior_a05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/View 02_Interior_a05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/View 02_Interior_a05-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/View 02_Interior_a05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/View 02_Interior_a05-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_Interior_a05",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2669,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/View 03_Interior_a05-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/View 03_Interior_a05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/View 03_Interior_a05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/View 03_Interior_a05-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/View 03_Interior_a05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/View 03_Interior_a05-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_a01",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2669,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/View 04_a01-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/View 04_a01-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/View 04_a01-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/View 04_a01-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/View 04_a01-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/View 04_a01-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05_a01",
+      "set": null,
+      "naturalWidth": 3002,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2558,
+          "src": "/images/oak-house/web/View 05_a01-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1279,
+          "src": "/images/oak-house/web/View 05_a01-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2558,
+          "src": "/images/oak-house/web/View 05_a01-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1279,
+          "src": "/images/oak-house/web/View 05_a01-960.webp"
+        }
+      ]
+    }
+  ]
+}

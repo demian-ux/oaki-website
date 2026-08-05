@@ -1,0 +1,401 @@
+{
+  "project": "icrave-southwest",
+  "images": [
+    {
+      "name": "View 01_Dining",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1697,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1086,
+          "src": "/images/icrave-southwest/web/View 01_Dining-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/icrave-southwest/web/View 01_Dining-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1086,
+          "src": "/images/icrave-southwest/web/View 01_Dining-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/icrave-southwest/web/View 01_Dining-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02_Family",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1688,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-southwest/web/View 02_Family-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-southwest/web/View 02_Family-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-southwest/web/View 02_Family-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-southwest/web/View 02_Family-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_Productivity",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1688,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-southwest/web/View 03_Productivity-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-southwest/web/View 03_Productivity-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-southwest/web/View 03_Productivity-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-southwest/web/View 03_Productivity-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_Restroom",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1688,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-southwest/web/View 04_Restroom-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-southwest/web/View 04_Restroom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-southwest/web/View 04_Restroom-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-southwest/web/View 04_Restroom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05_DenArea",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1943,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1244,
+          "src": "/images/icrave-southwest/web/View 05_DenArea-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 622,
+          "src": "/images/icrave-southwest/web/View 05_DenArea-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1244,
+          "src": "/images/icrave-southwest/web/View 05_DenArea-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 622,
+          "src": "/images/icrave-southwest/web/View 05_DenArea-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 06_DenArea",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1942,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1243,
+          "src": "/images/icrave-southwest/web/View 06_DenArea-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 621,
+          "src": "/images/icrave-southwest/web/View 06_DenArea-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1243,
+          "src": "/images/icrave-southwest/web/View 06_DenArea-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 621,
+          "src": "/images/icrave-southwest/web/View 06_DenArea-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 07_A",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2589,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2485,
+          "src": "/images/icrave-southwest/web/View 07_A-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1243,
+          "src": "/images/icrave-southwest/web/View 07_A-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 621,
+          "src": "/images/icrave-southwest/web/View 07_A-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2485,
+          "src": "/images/icrave-southwest/web/View 07_A-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1243,
+          "src": "/images/icrave-southwest/web/View 07_A-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 621,
+          "src": "/images/icrave-southwest/web/View 07_A-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 08_Dining Beverage",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1697,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1086,
+          "src": "/images/icrave-southwest/web/View 08_Dining Beverage-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/icrave-southwest/web/View 08_Dining Beverage-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1086,
+          "src": "/images/icrave-southwest/web/View 08_Dining Beverage-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/icrave-southwest/web/View 08_Dining Beverage-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 09_BNA",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2587,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2484,
+          "src": "/images/icrave-southwest/web/View 09_BNA-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1242,
+          "src": "/images/icrave-southwest/web/View 09_BNA-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 621,
+          "src": "/images/icrave-southwest/web/View 09_BNA-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2484,
+          "src": "/images/icrave-southwest/web/View 09_BNA-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1242,
+          "src": "/images/icrave-southwest/web/View 09_BNA-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 621,
+          "src": "/images/icrave-southwest/web/View 09_BNA-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 10_Aus",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1943,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1244,
+          "src": "/images/icrave-southwest/web/View 10_Aus-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 622,
+          "src": "/images/icrave-southwest/web/View 10_Aus-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1244,
+          "src": "/images/icrave-southwest/web/View 10_Aus-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 622,
+          "src": "/images/icrave-southwest/web/View 10_Aus-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 11_flight concierge desk",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1688,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-southwest/web/View 11_flight concierge desk-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-southwest/web/View 11_flight concierge desk-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-southwest/web/View 11_flight concierge desk-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-southwest/web/View 11_flight concierge desk-960.webp"
+        }
+      ]
+    }
+  ]
+}

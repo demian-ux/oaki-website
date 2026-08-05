@@ -1,11 +1,13 @@
 import { draftMode } from "next/headers";
 import {
+  type JournalPost,
   type Project,
   type SanityImage,
   type SiteSettings,
   type TeamMember,
 } from "./types";
 import { placeholderProjects } from "./placeholder-data";
+import { journalPostsMock } from "./journal-mock";
 
 const hasSanityConfig =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
@@ -92,6 +94,56 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
     { _id: "tm-03", name: "Team Member", role: "CGI Artist", order: 3 },
     { _id: "tm-04", name: "Team Member", role: "Production", order: 4 },
   ];
+}
+
+// ── Journal ──────────────────────────────────────────────
+// Sanity when configured, journalPostsMock otherwise. readMins comes from a
+// GROQ expression over the body — normalize it to ≥1 so a short post never
+// shows "0 min read".
+
+function normalizeJournalPost(post: JournalPost): JournalPost {
+  return { ...post, readMins: Math.max(1, Math.round(post.readMins ?? 1)) };
+}
+
+export async function getJournalPosts(): Promise<JournalPost[]> {
+  if (hasSanityConfig) {
+    const { allJournalPostsQuery } = await import("@/sanity/queries");
+    const data = await getSanityData<JournalPost[]>(allJournalPostsQuery);
+    if (data && data.length > 0) return data.map(normalizeJournalPost);
+    // Sanity is live: an empty journal is an empty journal, not a reason to
+    // show placeholder entries whose links resolve to mock-only content.
+    if (data) return [];
+  }
+  return journalPostsMock;
+}
+
+export async function getJournalPostBySlug(slug: string): Promise<JournalPost | null> {
+  if (hasSanityConfig) {
+    const { journalPostBySlugQuery } = await import("@/sanity/queries");
+    const data = await getSanityData<JournalPost>(journalPostBySlugQuery, { slug });
+    if (data) return normalizeJournalPost(data);
+    return null;
+  }
+  return journalPostsMock.find((p) => p.slug === slug) ?? null;
+}
+
+// Private client preview: fetches regardless of the published flag. Sanity
+// only — mock entries have no private-review use. Callers sit behind an
+// unguessable token and mark themselves noindex.
+export async function getJournalPostForPreview(slug: string): Promise<JournalPost | null> {
+  if (!hasSanityConfig) return null;
+  const { journalPostPreviewBySlugQuery } = await import("@/sanity/queries");
+  const data = await getSanityData<JournalPost>(journalPostPreviewBySlugQuery, { slug });
+  return data ? normalizeJournalPost(data) : null;
+}
+
+export async function getAllJournalSlugs(): Promise<string[]> {
+  if (hasSanityConfig) {
+    const { allJournalSlugsQuery } = await import("@/sanity/queries");
+    const data = await getSanityData<{ slug: string }[]>(allJournalSlugsQuery);
+    return (data ?? []).map((d) => d.slug);
+  }
+  return journalPostsMock.map((p) => p.slug);
 }
 
 export function getNextProject(currentSlug: string, projects: Project[]): Project | null {

@@ -1,3 +1,5 @@
+import type { PortableTextBlock } from "@portabletext/react";
+
 export type ClientVisibility = "Public" | "Undisclosed" | "Hidden";
 
 export type LayoutType =
@@ -95,6 +97,34 @@ export interface TeamMember {
   shortBio?: string;
   longBio?: string;
   order?: number;
+}
+
+export interface JournalPost {
+  _id: string;
+  title: string;
+  slug: string;
+  category?: string;
+  /** One sentence under the headline: what the project is and where. */
+  dek?: string;
+  excerpt?: string;
+  /** Which render is the intended hero while the image is pending; placeholder label. */
+  heroNote?: string;
+  /** Fixed-format credit block, rendered in order. */
+  credits?: { _key?: string; label: string; value: string }[];
+  /** Source line: primary sources for the story. */
+  sourceLinks?: { _key?: string; label: string; url: string }[];
+  coverImage?: SanityImage | null;
+  /** Local /public image path — fallback for mock entries with no Sanity asset. */
+  img?: string;
+  author?: { name: string; role?: string; portrait?: SanityImage | null } | null;
+  /** ISO date from Sanity, e.g. "2026-07-29". Format for display with formatJournalDate. */
+  date?: string;
+  /** Computed in GROQ from body length; ≥1 after normalization in the data layer. */
+  readMins?: number;
+  body?: PortableTextBlock[];
+  project?: { title: string; slug: string } | null;
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export interface SiteSettings {

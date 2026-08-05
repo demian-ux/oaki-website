@@ -1,10 +1,12 @@
-import { getHomePage } from "@/lib/data";
+import { getHomePage, getJournalPosts } from "@/lib/data";
 import Button from "@/components/global/Button";
 import HeroShelf from "@/components/home/HeroShelf";
 import JournalSlider from "@/components/home/JournalSlider";
 import PeerBand from "@/components/home/PeerBand";
 import ServicesDeck from "@/components/home/ServicesDeck";
-import { journalArticlesMock } from "@/lib/journal-mock";
+import { journalArticlesMock, type JournalArticle } from "@/lib/journal-mock";
+import { formatJournalDate } from "@/lib/format";
+import { urlFor } from "@/sanity/client";
 
 export { generateMetadata } from "./home-metadata";
 
@@ -70,7 +72,24 @@ const additionalPeerQuotes = [
 ];
 
 export default async function HomePage() {
-  const home = await getHomePage();
+  const [home, journalPosts] = await Promise.all([getHomePage(), getJournalPosts()]);
+
+  // Map Sanity posts into the shape the (untouched) slider consumes. Entries
+  // with no image can't ride the carousel; while the journal has no real
+  // posts the mock set keeps the section alive, exactly as before.
+  const journalArticles: JournalArticle[] = journalPosts
+    .map((post) => ({
+      slug: post.slug,
+      category: post.category ?? "Journal",
+      title: post.title,
+      excerpt: post.excerpt ?? "",
+      date: formatJournalDate(post.date),
+      readMins: post.readMins ?? 1,
+      img: post.coverImage?.asset
+        ? urlFor(post.coverImage).width(1600).auto("format").url()
+        : post.img ?? "",
+    }))
+    .filter((a) => a.img !== "");
 
   return (
     <>
@@ -97,7 +116,9 @@ export default async function HomePage() {
       </section>
 
       {/* 3. Journal — editorial peek carousel of recent entries. */}
-      <JournalSlider articles={journalArticlesMock} />
+      <JournalSlider
+        articles={journalArticles.length > 0 ? journalArticles : journalArticlesMock}
+      />
 
       {/* 4. Peer Band — proof follows the claim. */}
       <PeerBand

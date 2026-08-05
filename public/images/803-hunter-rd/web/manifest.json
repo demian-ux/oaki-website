@@ -1,0 +1,423 @@
+{
+  "project": "803-hunter-rd",
+  "images": [
+    {
+      "name": "View 01_Exterior",
+      "set": null,
+      "naturalWidth": 10000,
+      "naturalHeight": 7064,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2713,
+          "src": "/images/803-hunter-rd/web/View 01_Exterior-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/803-hunter-rd/web/View 01_Exterior-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/803-hunter-rd/web/View 01_Exterior-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2713,
+          "src": "/images/803-hunter-rd/web/View 01_Exterior-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/803-hunter-rd/web/View 01_Exterior-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/803-hunter-rd/web/View 01_Exterior-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02_Exterior",
+      "set": null,
+      "naturalWidth": 2250,
+      "naturalHeight": 1588,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/803-hunter-rd/web/View 02_Exterior-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/803-hunter-rd/web/View 02_Exterior-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/803-hunter-rd/web/View 02_Exterior-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/803-hunter-rd/web/View 02_Exterior-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_Living",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2250,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2160,
+          "src": "/images/803-hunter-rd/web/View 03_Living-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/803-hunter-rd/web/View 03_Living-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/803-hunter-rd/web/View 03_Living-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2160,
+          "src": "/images/803-hunter-rd/web/View 03_Living-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/803-hunter-rd/web/View 03_Living-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/803-hunter-rd/web/View 03_Living-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_Kitchen",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2250,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2160,
+          "src": "/images/803-hunter-rd/web/View 04_Kitchen-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/803-hunter-rd/web/View 04_Kitchen-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/803-hunter-rd/web/View 04_Kitchen-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2160,
+          "src": "/images/803-hunter-rd/web/View 04_Kitchen-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/803-hunter-rd/web/View 04_Kitchen-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/803-hunter-rd/web/View 04_Kitchen-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05_Bath",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2824,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/803-hunter-rd/web/View 05_Bath-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/803-hunter-rd/web/View 05_Bath-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/803-hunter-rd/web/View 05_Bath-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/803-hunter-rd/web/View 05_Bath-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/803-hunter-rd/web/View 05_Bath-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/803-hunter-rd/web/View 05_Bath-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 06_Bath",
+      "set": null,
+      "naturalWidth": 3602,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2132,
+          "src": "/images/803-hunter-rd/web/View 06_Bath-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1066,
+          "src": "/images/803-hunter-rd/web/View 06_Bath-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2132,
+          "src": "/images/803-hunter-rd/web/View 06_Bath-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1066,
+          "src": "/images/803-hunter-rd/web/View 06_Bath-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 07",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2113,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/803-hunter-rd/web/View 07-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/803-hunter-rd/web/View 07-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/803-hunter-rd/web/View 07-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/803-hunter-rd/web/View 07-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 08",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1761,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/803-hunter-rd/web/View 08-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/803-hunter-rd/web/View 08-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/803-hunter-rd/web/View 08-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/803-hunter-rd/web/View 08-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 09",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1761,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/803-hunter-rd/web/View 09-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/803-hunter-rd/web/View 09-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/803-hunter-rd/web/View 09-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/803-hunter-rd/web/View 09-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 10",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2110,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1350,
+          "src": "/images/803-hunter-rd/web/View 10-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 675,
+          "src": "/images/803-hunter-rd/web/View 10-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1350,
+          "src": "/images/803-hunter-rd/web/View 10-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 675,
+          "src": "/images/803-hunter-rd/web/View 10-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 11",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2114,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/803-hunter-rd/web/View 11-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/803-hunter-rd/web/View 11-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/803-hunter-rd/web/View 11-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/803-hunter-rd/web/View 11-960.webp"
+        }
+      ]
+    }
+  ]
+}

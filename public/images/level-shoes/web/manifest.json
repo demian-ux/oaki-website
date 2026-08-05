@@ -1,0 +1,345 @@
+{
+  "project": "level-shoes",
+  "images": [
+    {
+      "name": "View 01",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2120,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1357,
+          "src": "/images/level-shoes/web/View 01-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/level-shoes/web/View 01-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1357,
+          "src": "/images/level-shoes/web/View 01-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/level-shoes/web/View 01-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2120,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1357,
+          "src": "/images/level-shoes/web/View 02-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/level-shoes/web/View 02-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1357,
+          "src": "/images/level-shoes/web/View 02-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/level-shoes/web/View 02-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_Bar",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2114,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/level-shoes/web/View 03_Bar-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 03_Bar-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/level-shoes/web/View 03_Bar-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 03_Bar-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_Mens Area",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2114,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/level-shoes/web/View 04_Mens Area-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 04_Mens Area-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/level-shoes/web/View 04_Mens Area-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 04_Mens Area-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05_Personal",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2121,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1357,
+          "src": "/images/level-shoes/web/View 05_Personal-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 679,
+          "src": "/images/level-shoes/web/View 05_Personal-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1357,
+          "src": "/images/level-shoes/web/View 05_Personal-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 679,
+          "src": "/images/level-shoes/web/View 05_Personal-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 06_Women COntempo",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2114,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/level-shoes/web/View 06_Women COntempo-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 06_Women COntempo-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/level-shoes/web/View 06_Women COntempo-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 06_Women COntempo-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 07",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2112,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/level-shoes/web/View 07-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 07-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/level-shoes/web/View 07-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 07-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 08_Whitespace",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2113,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/level-shoes/web/View 08_Whitespace-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 08_Whitespace-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/level-shoes/web/View 08_Whitespace-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 08_Whitespace-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 09_Pool",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2113,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/level-shoes/web/View 09_Pool-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 09_Pool-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/level-shoes/web/View 09_Pool-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 09_Pool-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 10_Cobbler",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2113,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/level-shoes/web/View 10_Cobbler-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 10_Cobbler-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/level-shoes/web/View 10_Cobbler-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/level-shoes/web/View 10_Cobbler-960.webp"
+        }
+      ]
+    }
+  ]
+}

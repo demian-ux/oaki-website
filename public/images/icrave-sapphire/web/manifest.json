@@ -1,0 +1,185 @@
+{
+  "project": "icrave-sapphire",
+  "images": [
+    {
+      "name": "View 01_Entrance",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2251,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2161,
+          "src": "/images/icrave-sapphire/web/View 01_Entrance-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-sapphire/web/View 01_Entrance-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-sapphire/web/View 01_Entrance-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2161,
+          "src": "/images/icrave-sapphire/web/View 01_Entrance-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-sapphire/web/View 01_Entrance-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-sapphire/web/View 01_Entrance-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02_Lounge",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2251,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2161,
+          "src": "/images/icrave-sapphire/web/View 02_Lounge-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-sapphire/web/View 02_Lounge-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-sapphire/web/View 02_Lounge-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2161,
+          "src": "/images/icrave-sapphire/web/View 02_Lounge-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/icrave-sapphire/web/View 02_Lounge-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/icrave-sapphire/web/View 02_Lounge-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_Bar",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/icrave-sapphire/web/View 03_Bar-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/icrave-sapphire/web/View 03_Bar-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/icrave-sapphire/web/View 03_Bar-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/icrave-sapphire/web/View 03_Bar-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/icrave-sapphire/web/View 03_Bar-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/icrave-sapphire/web/View 03_Bar-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_La ventanita",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/icrave-sapphire/web/View 04_La ventanita-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/icrave-sapphire/web/View 04_La ventanita-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/icrave-sapphire/web/View 04_La ventanita-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/icrave-sapphire/web/View 04_La ventanita-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/icrave-sapphire/web/View 04_La ventanita-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/icrave-sapphire/web/View 04_La ventanita-960.webp"
+        }
+      ]
+    }
+  ]
+}

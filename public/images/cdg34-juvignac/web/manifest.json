@@ -1,0 +1,140 @@
+{
+  "project": "cdg34-juvignac",
+  "images": [
+    {
+      "name": "View 01_A",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2817,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2704,
+          "src": "/images/cdg34-juvignac/web/View 01_A-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/cdg34-juvignac/web/View 01_A-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/cdg34-juvignac/web/View 01_A-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2704,
+          "src": "/images/cdg34-juvignac/web/View 01_A-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/cdg34-juvignac/web/View 01_A-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/cdg34-juvignac/web/View 01_A-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02_A",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2000,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 1920,
+          "src": "/images/cdg34-juvignac/web/View 02_A-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 960,
+          "src": "/images/cdg34-juvignac/web/View 02_A-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 480,
+          "src": "/images/cdg34-juvignac/web/View 02_A-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 1920,
+          "src": "/images/cdg34-juvignac/web/View 02_A-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 960,
+          "src": "/images/cdg34-juvignac/web/View 02_A-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 480,
+          "src": "/images/cdg34-juvignac/web/View 02_A-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_A",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2817,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2704,
+          "src": "/images/cdg34-juvignac/web/View 03_A-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/cdg34-juvignac/web/View 03_A-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/cdg34-juvignac/web/View 03_A-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2704,
+          "src": "/images/cdg34-juvignac/web/View 03_A-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/cdg34-juvignac/web/View 03_A-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/cdg34-juvignac/web/View 03_A-960.webp"
+        }
+      ]
+    }
+  ]
+}

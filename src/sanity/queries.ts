@@ -216,29 +216,66 @@ export const teamMembersQuery = groq`
   }
 `;
 
+// Read time derived from the body, never stored: chars/5 ≈ words, 200 wpm.
+// The data layer clamps the result to ≥1.
+const journalReadMins = groq`
+  "readMins": round(length(pt::text(body)) / 5 / 200)
+`;
+
 export const allJournalPostsQuery = groq`
   *[_type == "journalPost" && published == true] | order(date desc) {
     _id,
     title,
     "slug": slug.current,
+    category,
     excerpt,
     coverImage{ ${imageFields} },
     "author": author->{ name, role },
-    date
+    date,
+    ${journalReadMins},
+    "project": project->{ title, "slug": slug.current }
   }
+`;
+
+const journalPostFullFields = groq`
+  _id,
+  title,
+  "slug": slug.current,
+  category,
+  dek,
+  excerpt,
+  heroNote,
+  credits[]{ _key, label, value },
+  sourceLinks[]{ _key, label, url },
+  coverImage{ ${imageFields} },
+  "author": author->{ name, role, portrait{ ${imageFields} } },
+  date,
+  ${journalReadMins},
+  "project": project->{ title, "slug": slug.current },
+  body[]{
+    ...,
+    _type == "image" => { ${imageFields} }
+  },
+  seoTitle,
+  seoDescription
 `;
 
 export const journalPostBySlugQuery = groq`
   *[_type == "journalPost" && slug.current == $slug && published == true][0] {
-    _id,
-    title,
-    "slug": slug.current,
-    excerpt,
-    coverImage{ ${imageFields} },
-    "author": author->{ name, role, portrait{ ${imageFields} } },
-    date,
-    body,
-    seoTitle,
-    seoDescription
+    ${journalPostFullFields}
   }
+`;
+
+// Private preview: ignores the published flag on purpose. Only reachable
+// through token-gated, noindexed /journal/preview/<token> routes.
+export const journalPostPreviewBySlugQuery = groq`
+  *[_type == "journalPost" && slug.current == $slug][0] {
+    ${journalPostFullFields}
+  }
+`;
+
+// Unlike projects, journal slugs are published-filtered so unpublished
+// entries never prerender.
+export const allJournalSlugsQuery = groq`
+  *[_type == "journalPost" && published == true] { "slug": slug.current }
 `;

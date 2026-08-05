@@ -20,6 +20,13 @@
 # production
 /build
 
+# image library masters — 4K originals stay out of git; web derivatives
+# (public/images/<project>/web/) are generated but committed so Vercel
+# serves them
+/images/*/original/**
+!/images/*/original/**/
+!/images/*/original/**/.gitkeep
+
 # misc
 .DS_Store
 *.pem
@@ -39,3 +46,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/.next-alt/

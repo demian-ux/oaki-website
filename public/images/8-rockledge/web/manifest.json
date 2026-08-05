@@ -1,0 +1,73 @@
+{
+  "project": "8-rockledge",
+  "images": [
+    {
+      "name": "View 01",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2113,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/8-rockledge/web/View 01-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/8-rockledge/web/View 01-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/8-rockledge/web/View 01-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/8-rockledge/web/View 01-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2113,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/8-rockledge/web/View 02-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/8-rockledge/web/View 02-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1352,
+          "src": "/images/8-rockledge/web/View 02-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/8-rockledge/web/View 02-960.webp"
+        }
+      ]
+    }
+  ]
+}

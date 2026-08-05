@@ -26,6 +26,7 @@ export default async function SiteLayout({
         projects={projects}
         ctaLabel={settings.headerCtaLabel}
         navLabels={settings.navLabels}
+        showJournal={settings.showJournal}
       />
       <main className="flex-1 pt-16 lg:pt-20">{children}</main>
       <SmoothScroll />

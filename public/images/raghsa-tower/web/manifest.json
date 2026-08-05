@@ -1,0 +1,277 @@
+{
+  "project": "raghsa-tower",
+  "images": [
+    {
+      "name": "View 01_Exterior Richieri",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2121,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1357,
+          "src": "/images/raghsa-tower/web/View 01_Exterior Richieri-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 679,
+          "src": "/images/raghsa-tower/web/View 01_Exterior Richieri-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1357,
+          "src": "/images/raghsa-tower/web/View 01_Exterior Richieri-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 679,
+          "src": "/images/raghsa-tower/web/View 01_Exterior Richieri-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02_Exterior_Libertador",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2002,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/raghsa-tower/web/View 02_Exterior_Libertador-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/raghsa-tower/web/View 02_Exterior_Libertador-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/raghsa-tower/web/View 02_Exterior_Libertador-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/raghsa-tower/web/View 02_Exterior_Libertador-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_Interior lobby",
+      "set": null,
+      "naturalWidth": 2730,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2110,
+          "src": "/images/raghsa-tower/web/View 03_Interior lobby-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1055,
+          "src": "/images/raghsa-tower/web/View 03_Interior lobby-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2110,
+          "src": "/images/raghsa-tower/web/View 03_Interior lobby-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1055,
+          "src": "/images/raghsa-tower/web/View 03_Interior lobby-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_Escalones",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/raghsa-tower/web/View 04_Escalones-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/raghsa-tower/web/View 04_Escalones-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/raghsa-tower/web/View 04_Escalones-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/raghsa-tower/web/View 04_Escalones-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05_Lobby Elevado",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1694,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/raghsa-tower/web/View 05_Lobby Elevado-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/raghsa-tower/web/View 05_Lobby Elevado-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/raghsa-tower/web/View 05_Lobby Elevado-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/raghsa-tower/web/View 05_Lobby Elevado-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 06_Lobby Elevado",
+      "set": null,
+      "naturalWidth": 2730,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2110,
+          "src": "/images/raghsa-tower/web/View 06_Lobby Elevado-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1055,
+          "src": "/images/raghsa-tower/web/View 06_Lobby Elevado-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2110,
+          "src": "/images/raghsa-tower/web/View 06_Lobby Elevado-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1055,
+          "src": "/images/raghsa-tower/web/View 06_Lobby Elevado-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 07_Exterior_Lobby_01",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/raghsa-tower/web/View 07_Exterior_Lobby_01-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/raghsa-tower/web/View 07_Exterior_Lobby_01-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/raghsa-tower/web/View 07_Exterior_Lobby_01-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/raghsa-tower/web/View 07_Exterior_Lobby_01-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 07_Exterior_Lobby_02",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/raghsa-tower/web/View 07_Exterior_Lobby_02-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/raghsa-tower/web/View 07_Exterior_Lobby_02-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/raghsa-tower/web/View 07_Exterior_Lobby_02-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/raghsa-tower/web/View 07_Exterior_Lobby_02-960.webp"
+        }
+      ]
+    }
+  ]
+}

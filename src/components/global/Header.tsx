@@ -17,6 +17,8 @@ const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : use
 interface HeaderProps {
   projects?: Project[];
   ctaLabel?: string;
+  /** Site-settings toggle: when true, Journal joins the nav after About. */
+  showJournal?: boolean;
   navLabels?: {
     caseStudies?: string;
     process?: string;
@@ -25,13 +27,15 @@ interface HeaderProps {
   };
 }
 
-export default function Header({ projects = [], navLabels }: HeaderProps) {
+export default function Header({ projects = [], navLabels, showJournal = false }: HeaderProps) {
   // The three sections — same set the home hero presents (§02). The nav bar
   // emerges from that masthead, so it carries the same items + mono voice.
+  // Journal is content-gated: it appears once the Studio toggle is flipped.
   const navLinks = [
     { label: navLabels?.caseStudies ?? "Case Studies", href: "/case-studies" },
     { label: navLabels?.process ?? "Process", href: "/process" },
     { label: navLabels?.about ?? "About", href: "/about" },
+    ...(showJournal ? [{ label: "Journal", href: "/journal" }] : []),
     { label: navLabels?.contact ?? "Contact", href: "/contact" },
   ];
   const mobileLinks = navLinks;

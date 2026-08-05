@@ -1,0 +1,230 @@
+{
+  "project": "bay-house",
+  "images": [
+    {
+      "name": "View 01_a05",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/bay-house/web/View 01_a05-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/bay-house/web/View 01_a05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/bay-house/web/View 01_a05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/bay-house/web/View 01_a05-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/bay-house/web/View 01_a05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/bay-house/web/View 01_a05-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02_a05",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/bay-house/web/View 02_a05-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/bay-house/web/View 02_a05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/bay-house/web/View 02_a05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/bay-house/web/View 02_a05-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/bay-house/web/View 02_a05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/bay-house/web/View 02_a05-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_a05",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/bay-house/web/View 03_a05-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/bay-house/web/View 03_a05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/bay-house/web/View 03_a05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/bay-house/web/View 03_a05-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/bay-house/web/View 03_a05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/bay-house/web/View 03_a05-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_a05",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/bay-house/web/View 04_a05-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/bay-house/web/View 04_a05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/bay-house/web/View 04_a05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/bay-house/web/View 04_a05-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/bay-house/web/View 04_a05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/bay-house/web/View 04_a05-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 06_a03",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/bay-house/web/View 06_a03-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/bay-house/web/View 06_a03-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/bay-house/web/View 06_a03-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/bay-house/web/View 06_a03-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/bay-house/web/View 06_a03-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/bay-house/web/View 06_a03-960.webp"
+        }
+      ]
+    }
+  ]
+}
