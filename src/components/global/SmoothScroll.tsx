@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,6 +22,28 @@ export function getLenis(): Lenis | null {
  * native scroll and GSAP scroll-triggers still resolve against it.
  */
 export default function SmoothScroll() {
+  const pathname = usePathname();
+
+  // A reload should start at the top with the hero opening playing, not drop
+  // you back where you left off mid-page. Next's App Router never touches
+  // history.scrollRestoration, so opting out of the browser's restore is not
+  // fighting it; Link-driven navigation keeps its own scroll handling. This
+  // effect is declared first so the reset lands before Lenis reads the
+  // starting scroll position below.
+  useEffect(() => {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    // covers the case where the browser already restored before hydration
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
+
+  // Next resets window scroll on navigation, but Lenis keeps its internal
+  // scroll state and would write the old position back on the next frame.
+  // Reset it in the same moment. Keyed on pathname only, so same-page
+  // anchor jumps are left alone.
+  useEffect(() => {
+    lenisInstance?.scrollTo(0, { immediate: true, force: true });
+  }, [pathname]);
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 

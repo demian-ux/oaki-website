@@ -29,14 +29,15 @@ export default async function AboutPage() {
   return (
     <>
       {/* Hero — Studio voice: mono eyebrow, display statement, ocre rule */}
-      <section className="page-x pt-28 pb-20 lg:pt-36 lg:pb-28 border-b border-line">
+      <section className="page-x pt-24 pb-20 lg:pt-32 lg:pb-28 border-b border-line">
         <p className="coord mb-6">
           {about.heroLabel ?? "About the Studio"}
         </p>
         <h1 className="text-statement text-volume reveal mb-8 max-w-4xl">
-          {about.heroTitle ?? "We build the image world around architecture that doesn't exist yet."}
+          {(about.heroTitle ?? "We build the image world around architecture that doesn't exist yet").replace(/\.$/, "")}
+          <span className="dot">.</span>
         </h1>
-        <span className="ocre-rule mb-9" />
+        <StripeRule className="mb-8" />
         <p className="text-lede text-muted max-text">
           {about.heroText ??
             "Oaki Studio works with architects, designers, and developers to make projects feel real before they are."}
@@ -47,9 +48,10 @@ export default async function AboutPage() {
       <section className="page-x section-y border-b border-line">
         <div className="lg:grid lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="text-mode-title text-volume reveal mb-10">
-              {about.statementHeading ?? "A building can be correct and still fail to move anyone."}
-            </p>
+            <h2 className="text-mode-title text-volume reveal mb-10">
+              {(about.statementHeading ?? "A building can be correct and still fail to move anyone").replace(/\.$/, "")}
+              <span className="dot">.</span>
+            </h2>
             <p className="text-lede text-muted mb-6" style={{ maxWidth: "60ch" }}>
               {about.statementParagraph1 ??
                 about.studioStatement ??
@@ -96,7 +98,8 @@ export default async function AboutPage() {
       <section className="page-x section-y text-center">
         <div className="max-w-lg mx-auto">
           <h2 className="text-mode-title text-volume reveal mb-8">
-            {about.ctaHeading ?? "Tell us what you are building."}
+            {(about.ctaHeading ?? "Tell us what you’re building").replace(/\.$/, "")}
+            <span className="dot">.</span>
           </h2>
           <Button href="/contact" variant="primary" size="lg">
             {about.ctaButtonLabel ?? "Start a project"}

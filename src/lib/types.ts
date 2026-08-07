@@ -62,6 +62,12 @@ export interface Project {
   mainGoal: string;
   featured: boolean;
   sortOrder?: number;
+  /** Case study hosted outside the site (e.g. the Ponce portfolio) — the card links here instead of /case-studies/[slug]. */
+  externalUrl?: string;
+  /** Local /public cover path for external cases with no Sanity asset. Rendered at natural ratio, never cropped. */
+  coverSrc?: string;
+  /** Intrinsic pixel size of coverSrc, so the card reserves the right ratio. */
+  coverSize?: { width: number; height: number };
   // Detail-page fields
   introText?: string;
   resultText?: string;

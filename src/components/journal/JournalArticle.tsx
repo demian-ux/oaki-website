@@ -44,20 +44,10 @@ export default async function JournalArticle({ post }: { post: JournalPost }) {
       <section className="page-x pt-16 pb-8 lg:pt-24 lg:pb-12">
         <div className="mx-auto" style={{ maxWidth: MEASURE }}>
           <p className="coord reveal mb-8">{metaLine}</p>
-          <h1
-            className="reveal"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(2.125rem, 5.5vw, 4.5rem)",
-              lineHeight: 0.92,
-              letterSpacing: "-0.01em",
-              textTransform: "none",
-              textWrap: "balance",
-            }}
-          >
+          <h1 className="text-article-title reveal">
             {titleText}
             {titleDot && (
-              <span aria-hidden style={{ color: "var(--color-warm-500)", marginLeft: "-0.05em" }}>
+              <span aria-hidden className="dot" style={{ marginLeft: "-0.05em" }}>
                 .
               </span>
             )}
@@ -73,43 +63,45 @@ export default async function JournalArticle({ post }: { post: JournalPost }) {
         </div>
       </section>
 
-      {/* Hero — full bleed, natural ratio, never cropped, negro figure tag.
+      {/* Hero — natural ratio, never cropped, capped to the viewport and
+          centered with air around it (Mir-style, replaces the full bleed).
           While the render is pending, a labeled slot holds its place so the
           review page reads complete. */}
-      <section className="pt-4 lg:pt-8">
+      <section className="page-x pt-4 lg:pt-8">
         {local.hero || hasHero ? (
-          <div className="relative">
+          <div className="relative w-fit max-w-full mx-auto">
             {local.hero ? (
               <JournalPicture
                 image={local.hero}
                 alt={post.title}
-                sizes="100vw"
+                sizes="(min-width: 1536px) 1400px, 100vw"
                 priority
+                contain
               />
             ) : (
               <JournalCover
                 coverImage={post.coverImage}
                 img={post.img}
                 alt={post.coverImage?.alt ?? post.title}
-                sizes="100vw"
+                sizes="(min-width: 1536px) 1400px, 100vw"
                 priority
+                className="mx-auto"
+                style={{ width: "auto", maxWidth: "100%", maxHeight: "82vh" }}
               />
             )}
-            <span className="tag-negro absolute bottom-0 left-8 lg:left-12">
+            <span className="tag-negro absolute bottom-0 left-0">
               Fig. {String(fig++).padStart(2, "0")}
               {post.coverImage?.alt ? ` · ${post.coverImage.alt}` : ""}
             </span>
           </div>
         ) : (
-          <div className="page-x">
-            <div
-              className="flex items-center justify-center border border-line"
-              style={{ aspectRatio: "3 / 2", background: "var(--color-gris)" }}
-            >
-              <p className="text-meta text-muted max-w-md text-center px-6">
-                Hero image to come{post.heroNote ? `: ${post.heroNote}` : ""}
-              </p>
-            </div>
+          <div
+            className="flex items-center justify-center border border-line"
+            style={{ aspectRatio: "3 / 2", background: "var(--color-gris)" }}
+          >
+            <p className="text-meta text-muted max-w-md text-center px-6">
+              Hero image to come{post.heroNote ? `: ${post.heroNote}` : ""}
+            </p>
           </div>
         )}
       </section>
@@ -131,13 +123,13 @@ export default async function JournalArticle({ post }: { post: JournalPost }) {
           <div
             className={
               local.supports.length === 2
-                ? "mx-auto grid grid-cols-1 sm:grid-cols-2 items-start gap-6"
-                : "mx-auto flex flex-col gap-12"
+                ? "mx-auto grid grid-cols-1 sm:grid-cols-2 items-center gap-8 lg:gap-12"
+                : "mx-auto flex flex-col gap-16 lg:gap-24"
             }
             style={{ maxWidth: 1100 }}
           >
             {local.supports.map((img) => (
-              <div key={img.name} className="relative frame-plate">
+              <div key={img.name} className="relative frame-plate w-fit max-w-full mx-auto">
                 <JournalPicture
                   image={img}
                   alt={post.title}
@@ -146,6 +138,7 @@ export default async function JournalArticle({ post }: { post: JournalPost }) {
                       ? "(min-width: 640px) 550px, 100vw"
                       : "(min-width: 1280px) 1100px, 100vw"
                   }
+                  contain
                 />
                 <span className="tag-negro absolute left-0 bottom-0">
                   Fig. {String(fig++).padStart(2, "0")}

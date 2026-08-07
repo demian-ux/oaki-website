@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { type Project } from "@/lib/types";
 import SanityImg from "@/components/global/SanityImg";
@@ -56,6 +57,8 @@ function PlaceholderCover({ title }: { title: string }) {
 }
 
 export default function BookCard({ project }: BookCardProps) {
+  const external = Boolean(project.externalUrl);
+  const href = project.externalUrl ?? `/case-studies/${project.slug}`;
   const displayClient =
     project.clientVisibility === "Public"
       ? project.clientName
@@ -71,21 +74,35 @@ export default function BookCard({ project }: BookCardProps) {
 
   return (
     <Link
-      href={`/case-studies/${project.slug}`}
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener" : undefined}
       className="group block"
       aria-label={`Open case study: ${project.title}`}
     >
       {/* Book cover — plate frame with the §07 corner-tick + desaturate on hover */}
       <div className="anim-tick relative mb-5">
-        <div className="relative aspect-[3/4] overflow-hidden">
-          <SanityImg
-            image={project.coverImage}
-            alt={project.title}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover"
-            fallback={<PlaceholderCover title={project.title} />}
-          />
+        <div className={`relative overflow-hidden ${project.coverSrc ? "" : "aspect-[3/4]"}`}>
+          {project.coverSrc ? (
+            // External cases carry a local render — natural ratio, never cropped.
+            <Image
+              src={project.coverSrc}
+              alt={project.title}
+              width={project.coverSize?.width ?? 1600}
+              height={project.coverSize?.height ?? 1200}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="w-full h-auto"
+            />
+          ) : (
+            <SanityImg
+              image={project.coverImage}
+              alt={project.title}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover"
+              fallback={<PlaceholderCover title={project.title} />}
+            />
+          )}
 
           {/* Hover label */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

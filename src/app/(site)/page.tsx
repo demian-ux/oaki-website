@@ -6,6 +6,7 @@ import PeerBand from "@/components/home/PeerBand";
 import ServicesDeck from "@/components/home/ServicesDeck";
 import { journalArticlesMock, type JournalArticle } from "@/lib/journal-mock";
 import { formatJournalDate } from "@/lib/format";
+import { getJournalLocalImages } from "@/lib/journal-images";
 import { urlFor } from "@/sanity/client";
 
 export { generateMetadata } from "./home-metadata";
@@ -74,48 +75,81 @@ const additionalPeerQuotes = [
 export default async function HomePage() {
   const [home, journalPosts] = await Promise.all([getHomePage(), getJournalPosts()]);
 
-  // Map Sanity posts into the shape the (untouched) slider consumes. Entries
-  // with no image can't ride the carousel; while the journal has no real
-  // posts the mock set keeps the section alive, exactly as before.
+  // Map Sanity posts into the shape the (untouched) slider consumes. Image
+  // fallback chain matches the article template: Sanity cover → image-library
+  // hero → local mock path. Entries with no image can't ride the carousel;
+  // while none qualify the mock set keeps the section alive, exactly as before.
   const journalArticles: JournalArticle[] = journalPosts
-    .map((post) => ({
-      slug: post.slug,
-      category: post.category ?? "Journal",
-      title: post.title,
-      excerpt: post.excerpt ?? "",
-      date: formatJournalDate(post.date),
-      readMins: post.readMins ?? 1,
-      img: post.coverImage?.asset
-        ? urlFor(post.coverImage).width(1600).auto("format").url()
-        : post.img ?? "",
-    }))
-    .filter((a) => a.img !== "");
+    .map((post) => {
+      const libHero = getJournalLocalImages(post.slug).hero;
+      const libSrc = libHero
+        ? [...libHero.webp].sort((a, b) => b.width - a.width)[0]?.src ?? ""
+        : "";
+      return {
+        slug: post.slug,
+        category: post.category ?? "Journal",
+        title: post.title,
+        excerpt: post.excerpt ?? "",
+        date: formatJournalDate(post.date),
+        readMins: post.readMins ?? 1,
+        img: post.coverImage?.asset
+          ? urlFor(post.coverImage).width(1600).auto("format").url()
+          : libSrc || (post.img ?? ""),
+      };
+    })
+    .filter((a) => a.img !== "")
+    .slice(0, 6);
 
   return (
     <>
       {/* 1. Hero — animated wordmark → drifting project-book shelf */}
-      <HeroShelf
-        statement={
-          [home.heroLabel, home.heroTitle].filter(Boolean).join(". ").replace(/\.\s*\./g, ".") ||
-          "A studio building architectural narratives. Made for the pitch, the board, and the jury."
-        }
-      />
+      {/* Tagline is hardcoded on purpose: it renders regardless of what
+          heroLabel / heroTitle hold in Sanity. */}
+      <HeroShelf statement="Architecture, shown before it's built." />
 
-      {/* 2. Concept — full-screen declarative statement. */}
-      <section className="min-h-screen flex items-center page-x border-t border-line">
-        <div className="w-full">
-          <h2 className="text-statement text-volume reveal mb-2">
-            {(home.conceptHeading ?? "We show your project before it exists").replace(/\.$/, "")}
-            <span className="dot">.</span>
-          </h2>
-          <p className="text-lede text-muted max-w-3xl">
-            {home.conceptBody ??
-              "Stills, film, and narrative, composed as one. Not a deliverable, the version of your project people fall for at the pitch and remember long after."}
+      {/* 2. Manifesto — the quiet statement of what the studio is. Replaces the
+          bare h-14 spacer that used to keep the grey journal ground off the
+          hero: the air is now the section's own, so the separation is
+          deliberate rather than a shim. Copy is hardcoded on purpose.
+
+          The padding is load-bearing, not decoration. At exactly 50vh the
+          section is (100vh + text height) tall, which already guarantees the
+          paragraph can sit alone: centre it and each neighbour clears the
+          frame by half the text block. The +4rem buys margin on top of that
+          guarantee — it widens the band of scroll positions where nothing
+          else is on screen from ~140px to ~270px, so the moment survives a
+          bit of Lenis overshoot instead of only existing at one exact offset.
+          Clearance is (textHeight / 2 + 4rem) at every viewport height, so
+          this cannot go negative. Do not trade it down for a smaller gap. */}
+      <section aria-label="Studio manifesto" className="page-x py-[calc(50vh+4rem)]">
+        {/* Same centred column as the journal article body (JournalArticle.tsx
+            MEASURE = 820), nudged 40px wider. 820 is the article measure, but
+            justifying THIS copy at 820 stretched the first line's word spaces
+            to 2.5x normal — a visible gappy line. Measured across 560-900px,
+            860 is where this paragraph justifies evenly: worst line 1.28x
+            natural spacing, and all lines within 1.17-1.28x so no single line
+            reads loose. Retune if the copy changes. */}
+        <div className="mx-auto" style={{ maxWidth: 860 }}>
+          {/* .text-body is the journal article's own body class, and unlike
+              .text-lede its font-size is a fixed 1.25rem rather than a fluid
+              clamp. That matters here: a fluid size reshuffles the line breaks
+              at every viewport width, so a justified block that is tuned at
+              one width goes gappy at the next. Fixed size + fixed column = the
+              same four lines, and the same spacing, at every width >= lg.
+
+              Justified only from lg up. Below that the column is squeezed by
+              the page gutters instead of the 860 cap, and short lines justify
+              horribly: at 375px the worst line stretched to 4.2x normal word
+              spacing. Narrow screens get ordinary left-ranged text. */}
+          <p className="text-body text-muted reveal leading-[1.75] hyphens-auto text-left lg:text-justify">
+            {"We are an architectural visualization studio working with architects, interior designers, and developers across the USA and Europe. Every project is treated as an editorial story: stills, film, and narrative built as one world. We don't need the brief spoon-fed. Give us what you have and we will make the images that carry your project into the room where everything is decided."}
           </p>
         </div>
       </section>
 
-      {/* 3. Journal — editorial peek carousel of recent entries. */}
+      {/* 3. Journal — editorial peek carousel of recent entries.
+          (The old full-screen Concept statement lived here; the hero tagline
+          now carries that claim, so the section was removed.) */}
       <JournalSlider
         articles={journalArticles.length > 0 ? journalArticles : journalArticlesMock}
       />
@@ -137,7 +171,7 @@ export default async function HomePage() {
       {/* 5. Services — horizontal slide deck: Concept, Proof, Campaign. */}
       <ServicesDeck />
 
-      {/* 5. About — the trust spine: same team, every project. */}
+      {/* 6. About — the trust spine: same team, every project. */}
       <section className="section-y page-x border-t border-line">
         <div className="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
           <div>
@@ -158,7 +192,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 6. Contact — remove friction, foster connection. */}
+      {/* 7. Contact — remove friction, foster connection. */}
       <section className="section-y page-x border-t border-line text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-statement text-volume reveal mb-6">

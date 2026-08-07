@@ -17,8 +17,8 @@ import type { JournalArticle } from "@/lib/journal-mock";
  */
 export default function JournalSlider({
   articles,
-  heading = "What the render\ndoesn't show",
-  intro = "Notes on light, material, and the thinking behind the work. Written by the people making it.",
+  heading = "The work, after the meeting",
+  intro = "Most renders retire when the pitch ends. These went on: awards, openings, front pages.",
   allHref = "/journal",
   intervalMs = 5500,
 }: {
@@ -183,11 +183,14 @@ export default function JournalSlider({
                 data-idx={i}
               >
                 <div className={styles.frame}>
+                  {/* Deliberate exception to the studio's no-crop rule, this
+                      section only: the carousel reads as a row of equal cards,
+                      so the frame is a fixed ratio and the render covers it. */}
                   <Image
                     src={a.img}
                     alt={a.title}
                     fill
-                    sizes="60vw"
+                    sizes="(max-width: 768px) 84vw, 46vw"
                     className={styles.img}
                     draggable={false}
                     priority={i === pos}

@@ -34,8 +34,8 @@ export default function FilterBar({
   filteredCount,
 }: FilterBarProps) {
   const types = ["All", ...Array.from(new Set(projects.map((p) => p.projectType ?? "").filter(Boolean))).sort()];
-  const cities = ["All Locations", ...Array.from(new Set(projects.map((p) => p.city))).sort()];
-  const goals = ["All Goals", ...Array.from(new Set(projects.map((p) => p.mainGoal))).sort()];
+  const cities = ["All Locations", ...Array.from(new Set(projects.map((p) => p.city).filter(Boolean))).sort()];
+  const goals = ["All Goals", ...Array.from(new Set(projects.map((p) => p.mainGoal).filter(Boolean))).sort()];
 
   return (
     <div className="border-b border-line page-x py-4">

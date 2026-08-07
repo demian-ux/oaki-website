@@ -34,15 +34,10 @@ export default function JournalNextRead({
         </p>
         <div className="flex flex-wrap items-center justify-between gap-6">
           <h2
-            className="m-0"
+            className="text-article-title m-0"
             style={{
-              fontFamily: "var(--font-display)",
               fontSize: "clamp(1.75rem, 4.5vw, 3.75rem)",
-              lineHeight: 0.92,
-              letterSpacing: "-0.01em",
-              textTransform: "none",
               color: "var(--color-gris)",
-              textWrap: "balance",
             }}
           >
             {title}

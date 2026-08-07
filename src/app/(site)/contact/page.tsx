@@ -21,7 +21,8 @@ export default async function ContactPage() {
       <section className="page-x pt-24 pb-20 lg:pt-32 lg:pb-28 border-b border-line">
         <p className="coord mb-6">{contact.heroLabel ?? "Start a project"}</p>
         <h1 className="text-statement text-volume reveal mb-8 max-w-2xl">
-          {contact.heroTitle ?? "Tell us what you are building."}
+          {(contact.heroTitle ?? "Tell us what you’re building").replace(/\.$/, "")}
+          <span className="dot">.</span>
         </h1>
         <StripeRule className="mb-8" />
         <p className="text-lede text-muted max-text">

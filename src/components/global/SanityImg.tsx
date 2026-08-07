@@ -13,6 +13,7 @@ interface SanityImgProps {
   priority?: boolean;
   quality?: number;
   fallback?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 export default function SanityImg({
@@ -26,6 +27,7 @@ export default function SanityImg({
   priority,
   quality = 85,
   fallback = null,
+  style,
 }: SanityImgProps) {
   if (!image?.asset) return <>{fallback}</>;
 
@@ -54,6 +56,7 @@ export default function SanityImg({
       height={height ?? 800}
       sizes={sizes}
       className={className}
+      style={style}
       priority={priority}
       quality={quality}
       placeholder={image.asset.metadata?.lqip ? "blur" : "empty"}

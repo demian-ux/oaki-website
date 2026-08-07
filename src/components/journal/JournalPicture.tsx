@@ -11,6 +11,9 @@ interface JournalPictureProps {
   sizes: string;
   priority?: boolean;
   className?: string;
+  /** Cap the image to the viewport (max-height 82vh, natural ratio, centered)
+   *  so tall frames keep air around them instead of overflowing the screen. */
+  contain?: boolean;
 }
 
 const srcSet = (sources: { src: string; width: number }[]) =>
@@ -22,6 +25,7 @@ export default function JournalPicture({
   sizes,
   priority,
   className,
+  contain,
 }: JournalPictureProps) {
   const largestWebp = image.webp[0];
   return (
@@ -37,7 +41,12 @@ export default function JournalPicture({
         loading={priority ? "eager" : "lazy"}
         decoding="async"
         {...(priority ? { fetchPriority: "high" as const } : {})}
-        className={`w-full h-auto ${className ?? ""}`}
+        className={`${contain ? "h-auto" : "w-full h-auto"} ${className ?? ""}`}
+        style={
+          contain
+            ? { width: "auto", maxWidth: "100%", maxHeight: "82vh", marginInline: "auto", display: "block" }
+            : undefined
+        }
       />
     </picture>
   );

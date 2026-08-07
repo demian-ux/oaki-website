@@ -52,14 +52,15 @@ export default async function ProcessPage() {
       {/* Hero — Process mode: a drawing-set masthead on a construction grid.
           Mono coordinate labels in ocre-700 structure-ink; sans body. */}
       <section className="process-grid border-b border-line">
-        <div className="page-x pt-24 pb-16 lg:pt-32 lg:pb-20">
+        <div className="page-x pt-24 pb-20 lg:pt-32 lg:pb-28">
           <div className="flex items-center justify-between mb-10">
             <p className="coord">DOC. 01 — PROCESS</p>
             <p className="coord" style={{ color: "var(--color-muted)" }}>OAKI STUDIO</p>
           </div>
           <p className="coord mb-6">{process.heroLabel ?? "How we work"}</p>
-          <h1 className="text-mode-title text-volume reveal mb-8 max-w-3xl">
-            {process.heroTitle ?? "Our process starts before the image."}
+          <h1 className="text-statement text-volume reveal mb-8 max-w-3xl">
+            {(process.heroTitle ?? "Our process starts before the image").replace(/\.$/, "")}
+            <span className="dot">.</span>
           </h1>
           <p className="text-lede text-muted max-text">
             {process.heroText ??
@@ -106,14 +107,15 @@ export default async function ProcessPage() {
       <section className="page-x section-y border-b border-line">
         <p className="coord mb-4">{process.fasesLabel ?? "The FASES Method"}</p>
         <h2 className="text-mode-title text-volume reveal mb-8 max-w-3xl">
-          {process.fasesHeading ?? "Every project book follows the same six-part structure."}
+          {(process.fasesHeading ?? "Every project book follows the same six-part structure").replace(/\.$/, "")}
+          <span className="dot">.</span>
         </h2>
         <StripeRule className="mb-12" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border border-line bg-line">
           {defaultPhases.map((phase) => (
             <div key={phase._id} className="p-8 bg-paper">
               <p className="coord mb-3">FASE {phase.phaseNumber}</p>
-              <p className="text-title mb-2">{phase.phaseTitle}</p>
+              <h3 className="text-title mb-2">{phase.phaseTitle}</h3>
               <p className="text-meta text-muted">{phase.whatItIs}</p>
             </div>
           ))}
@@ -124,7 +126,8 @@ export default async function ProcessPage() {
       <section className="page-x section-y border-t border-line text-center">
         <div className="max-w-lg mx-auto">
           <h2 className="text-mode-title text-volume reveal mb-6">
-            {process.ctaHeading ?? "Your images need to do a job."}
+            {(process.ctaHeading ?? "Your images need to do a job").replace(/\.$/, "")}
+            <span className="dot">.</span>
           </h2>
           <p className="text-lede text-muted mb-10">
             {process.ctaBody ?? "Let us figure out what it is."}

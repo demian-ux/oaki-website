@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllProjectSlugs, getAllProjects, getProjectBySlug, getNextProject } from "@/lib/data";
+import { getCaseDraft, listCaseDraftSlugs } from "@/lib/case-drafts";
+import CaseDraftView from "@/components/case-studies/CaseDraft";
 import PhaseSection from "@/components/case-studies/PhaseSection";
 import CaseHero from "@/components/case-studies/CaseHero";
 import SectionLabel from "@/components/global/SectionLabel";
@@ -13,11 +15,14 @@ interface Props {
 
 export async function generateStaticParams() {
   const slugs = await getAllProjectSlugs();
-  return slugs.map((slug) => ({ slug }));
+  const all = new Set([...slugs, ...listCaseDraftSlugs()]);
+  return [...all].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const draft = getCaseDraft(slug);
+  if (draft) return { title: draft.title, description: draft.subtitle };
   const project = await getProjectBySlug(slug);
   if (!project) return {};
   return {
@@ -28,6 +33,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
+
+  // Repo case studies (content/cases) take precedence: they carry the full
+  // image arc from the library, where the Sanity projects so far hold only
+  // a cover. The Sanity phase template remains the fallback.
+  const draft = getCaseDraft(slug);
+  if (draft) {
+    return (
+      <>
+        <section className="page-x pt-16">
+          <Link
+            href="/case-studies"
+            className="coord nav-link-warm inline-block hover:text-ink transition-colors duration-300"
+          >
+            ← Project Books
+          </Link>
+        </section>
+        <CaseDraftView draft={draft} />
+      </>
+    );
+  }
+
   const [project, allProjects] = await Promise.all([
     getProjectBySlug(slug),
     getAllProjects(),
@@ -204,7 +230,7 @@ export default async function CaseStudyPage({ params }: Props) {
       <section className="page-x section-y text-center border-b border-line">
         <div className="max-w-lg mx-auto">
           <h2 className="text-mode-title text-volume reveal mb-8">
-            Tell us what you are building.
+            Tell us what you’re building<span className="dot">.</span>
           </h2>
           <Button href="/contact" variant="primary" size="lg">
             Start a project

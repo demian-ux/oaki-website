@@ -12,13 +12,16 @@ const MEASURE = 820;
 
 function Slot({ slot, priority = false }: { slot: CaseImageSlot; priority?: boolean }) {
   if (slot.image) {
+    // w-fit + contain: the plate hugs the image at its natural ratio, capped
+    // to the viewport, centered in the column with air around it (Mir-style).
     return (
-      <div className="relative frame-plate">
+      <div className="relative frame-plate w-fit max-w-full mx-auto">
         <JournalPicture
           image={slot.image}
           alt={slot.label}
           sizes="(min-width: 1280px) 1100px, 100vw"
           priority={priority}
+          contain
         />
         <span className="tag-negro absolute left-0 bottom-0">
           {String(slot.n).padStart(2, "0")} · {slot.label}
@@ -44,12 +47,12 @@ function Slot({ slot, priority = false }: { slot: CaseImageSlot; priority?: bool
 function Slots({ slots, pair = false }: { slots: CaseImageSlot[]; pair?: boolean }) {
   if (slots.length === 0) return null;
   return (
-    <section className="page-x py-8 lg:py-12">
+    <section className="page-x py-10 lg:py-16">
       <div
         className={
           pair && slots.length === 2
-            ? "mx-auto grid grid-cols-1 sm:grid-cols-2 items-start gap-6"
-            : "mx-auto flex flex-col gap-12"
+            ? "mx-auto grid grid-cols-1 sm:grid-cols-2 items-center gap-8 lg:gap-12"
+            : "mx-auto flex flex-col gap-16 lg:gap-24"
         }
         style={{ maxWidth: 1100 }}
       >
@@ -108,19 +111,9 @@ export default function CaseDraftView({ draft }: { draft: CaseDraft }) {
       <section className="page-x pt-16 pb-8 lg:pt-24 lg:pb-12">
         <div className="mx-auto" style={{ maxWidth: MEASURE }}>
           <p className="coord reveal mb-8">{metaLine}</p>
-          <h1
-            className="reveal"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(2.125rem, 5.5vw, 4.5rem)",
-              lineHeight: 0.92,
-              letterSpacing: "-0.01em",
-              textTransform: "none",
-              textWrap: "balance",
-            }}
-          >
+          <h1 className="text-article-title reveal">
             {draft.title}
-            <span aria-hidden style={{ color: "var(--color-warm-500)", marginLeft: "-0.05em" }}>
+            <span aria-hidden className="dot" style={{ marginLeft: "-0.05em" }}>
               .
             </span>
           </h1>
@@ -132,26 +125,24 @@ export default function CaseDraftView({ draft }: { draft: CaseDraft }) {
         </div>
       </section>
 
-      {/* 01 · hero */}
-      <section className="pt-4 lg:pt-8">
+      {/* 01 · hero — contained like the body plates: natural ratio, capped to
+          the viewport, air around it instead of full bleed. */}
+      <section className="page-x pt-4 lg:pt-8">
         {draft.slots[0]?.image ? (
-          <div className="relative">
+          <div className="relative w-fit max-w-full mx-auto">
             <JournalPicture
               image={draft.slots[0].image}
               alt={draft.slots[0].label}
-              sizes="100vw"
+              sizes="(min-width: 1536px) 1400px, 100vw"
               priority
+              contain
             />
-            <span className="tag-negro absolute bottom-0 left-8 lg:left-12">
+            <span className="tag-negro absolute bottom-0 left-0">
               01 · {draft.slots[0].label}
             </span>
           </div>
         ) : (
-          draft.slots[0] && (
-            <div className="page-x">
-              <Slot slot={draft.slots[0]} priority />
-            </div>
-          )
+          draft.slots[0] && <Slot slot={draft.slots[0]} priority />
         )}
       </section>
 

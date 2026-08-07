@@ -100,7 +100,7 @@ export default async function JournalPostPage({ params }: Props) {
       <section className="page-x section-y text-center border-t border-line">
         <div className="max-w-lg mx-auto">
           <h2 className="text-mode-title text-volume reveal mb-8">
-            Tell us what you are building.
+            Tell us what you’re building<span className="dot">.</span>
           </h2>
           <Button href="/contact" variant="primary" size="lg">
             Start a project

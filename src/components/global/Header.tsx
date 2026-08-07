@@ -9,6 +9,8 @@ import Logotipo from "./Logotipo";
 import CopyEmail from "./CopyEmail";
 import SanityImg from "./SanityImg";
 import { useHeroTheme } from "./HeroTheme";
+import { getLenis } from "./SmoothScroll";
+import { HERO_REPLAY_EVENT } from "@/lib/hero-replay";
 import type { Project } from "@/lib/types";
 
 // Avoid the SSR "useLayoutEffect does nothing on the server" warning.
@@ -112,6 +114,27 @@ export default function Header({ projects = [], navLabels, showJournal = false }
     });
   }, [pathname]);
 
+  // Logotipo on the home route: <Link href="/"> is a no-op there, so take the
+  // click over and "start again" instead — jump to the top and play the hero
+  // opening from zero. Every other route keeps the plain navigation.
+  // The route is read from the DOM at click time (post-hydration), not from
+  // render state: the layout is prerendered without a concrete pathname.
+  const onLogotipoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // let cmd/ctrl/shift/alt-click and middle-click open a tab as usual
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (window.location.pathname !== "/") return;
+    if (!document.querySelector("[data-hero]")) return;
+    e.preventDefault();
+    // Immediate, not smooth-scrolled: the opening is the thing being replayed,
+    // and a second of travel would start it halfway down the page.
+    // Both calls are needed. Lenis only applies scrollTo on its next rAF tick
+    // (and holds its own internal position, which it would otherwise write
+    // back over ours), so tell Lenis where we are AND move the document now.
+    getLenis()?.scrollTo(0, { immediate: true, force: true });
+    window.scrollTo({ top: 0, behavior: "instant" });
+    window.dispatchEvent(new CustomEvent(HERO_REPLAY_EVENT));
+  };
+
   const openMega = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setMegaOpen(true);
@@ -155,7 +178,12 @@ export default function Header({ projects = [], navLabels, showJournal = false }
       >
         <div className="pl-8 lg:pl-12 pr-7 flex items-center justify-between h-16 lg:h-20 relative">
           {/* Logotipo — the word mark (Brand Guidelines 4.1 §01) */}
-          <Link href="/" aria-label="Oaki Studio, Home" className="inline-flex items-center">
+          <Link
+            href="/"
+            aria-label="Oaki Studio, Home"
+            className="inline-flex items-center"
+            onClick={onLogotipoClick}
+          >
             <Logotipo
               inverted={inverted}
               style={{ fontSize: "clamp(22px, 2.3vw, 30px)" }}

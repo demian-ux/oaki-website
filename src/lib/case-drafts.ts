@@ -1,6 +1,7 @@
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { getProjectImages, type JournalImage } from "./journal-images";
+import type { Project } from "./types";
 
 // Case-study DRAFTS: repo-only content under content/cases/*.md, rendered
 // exclusively through the private token previews so Demi reviews prose in
@@ -76,6 +77,50 @@ function numbered(fm: Record<string, string>, prefix: string): string[] {
   const out: string[] = [];
   for (let i = 1; fm[`${prefix}${i}`]; i++) out.push(fm[`${prefix}${i}`]);
   return out;
+}
+
+/** Repo case studies as library cards, hero = first resolved image slot.
+ *  Drafts with no library images yet (e.g. Alderbrook, which also carries
+ *  review conditions) stay preview-only and are not listed. */
+export function getCaseDraftCards(): Project[] {
+  return listCaseDraftSlugs()
+    .map((slug) => getCaseDraft(slug))
+    .filter((d): d is CaseDraft => d !== null)
+    .filter((d) => d.slots.some((s) => s.image))
+    .map((d) => {
+      const hero = d.slots.find((s) => s.image)?.image ?? null;
+      const largest = hero ? [...hero.webp].sort((a, b) => b.width - a.width)[0] : null;
+      const [city = "", country = ""] = (d.location ?? "").split(",").map((s) => s.trim());
+      return {
+        _id: `case-draft-${d.slug}`,
+        title: d.title,
+        slug: d.slug,
+        collectionLabel: d.collection ?? "",
+        subtitle: d.subtitle ?? "",
+        city: city.startsWith("PENDING") ? "" : city,
+        country: country || undefined,
+        year: d.year ?? "",
+        clientName: d.client ?? "",
+        clientVisibility: "Hidden" as const,
+        projectType: d.type,
+        mainGoal: "",
+        featured: false,
+        coverSrc: largest?.src,
+        coverSize: hero
+          ? { width: hero.naturalWidth, height: hero.naturalHeight }
+          : undefined,
+      };
+    });
+}
+
+/** All repo case-study slugs (content/cases/*.md). */
+export function listCaseDraftSlugs(): string[] {
+  const dir = resolve(process.cwd(), "content", "cases");
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => f.endsWith(".md"))
+    .map((f) => f.replace(/\.md$/, ""))
+    .sort();
 }
 
 export function getCaseDraft(slug: string): CaseDraft | null {

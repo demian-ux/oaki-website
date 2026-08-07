@@ -22,6 +22,13 @@
 .heroReady {
   opacity: 1;
 }
+/* One frame of a replay: snap every entrance element straight back to its
+   ticker state instead of letting it animate backwards out of the open state
+   first. Dropped again after ~1 frame, so the opening itself still animates. */
+.snapReset,
+.snapReset * {
+  transition: none !important;
+}
 
 /* ── the wordmark / logotipo ───────────────────────────────────────── */
 .wm {
@@ -87,32 +94,89 @@
   right: 28px;
 }
 
-/* ── subtitle — SangBleu, the editorial serif, to set it apart from the
-   sans/mono system; sits as a footer line at the bottom of the hero ── */
-/* subtitle — SangBleu Light footer line at the bottom of the hero */
+/* ── subtitle / tagline ────────────────────────────────────────────────
+   Footer line at the bottom of the hero. Types itself out once every other
+   hero element has finished its entrance transition.
+   Treatment = the statement headings (.text-statement + .text-volume in
+   globals.css): Inktrap Ultrabold, uppercase, closed up. Scale = the
+   pull-quote clamp from .text-quote. Closes on the ocre brand dot, the
+   same accent the section headings carry.
+   No entrance transition of its own: the typing IS the reveal, which also
+   keeps it out of the getAnimations() set the typewriter waits on.  ── */
 .subtitle {
   position: absolute;
   bottom: 34px;
   left: 0;
   right: 0;
+  padding: 0 24px;
   text-align: center;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 650ms ease 720ms, transform 650ms var(--ease) 720ms;
   z-index: 3;
   pointer-events: none;
 }
 .subtitleInner {
-  color: var(--color-muted, #67645d);
-  font-family: var(--font-display);   /* Neue Machina Plain, like the titles */
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
+  margin: 0 auto;
+  color: var(--color-ink, #222);
+  /* family/weight/case/tracking/leading from .text-statement + .text-volume */
+  font-family: var(--font-display-volume), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  /* deliberately NOT text-wrap: balance (which .text-statement carries):
+     balance would break the partial typed string at different points than
+     the full ghost string, so the line would jump around while typing */
+  text-wrap: normal;
+  /* size from .text-quote */
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
-.subtitleOpen {
-  opacity: 1;
-  transform: translateY(0);
+/* the ghost reserves the full final line box so nothing shifts as it types;
+   the typed copy is overlaid on top of it */
+.typeBox {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  text-align: left;
+}
+.ghost {
+  visibility: hidden;
+}
+.typed {
+  position: absolute;
+  inset: 0;
+}
+/* The caret's own box is ZERO height and baseline-aligned, so it cannot grow
+   the line box. This matters: .subtitleInner runs line-height 0.92, tighter
+   than the font's content area, so any caret taller than the strut pushed the
+   whole line's baseline down while typing and let it snap back up the instant
+   the caret was removed. The visible bar is painted by an out-of-flow
+   pseudo-element instead, which has no effect on layout at all. */
+.caret {
+  display: inline-block;
+  position: relative;
+  width: 1px;
+  height: 0;
+  margin-left: 0.08em;
+  vertical-align: baseline;
+  animation: heroCaretBlink 820ms steps(1, end) infinite;
+}
+.caret::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.04em;
+  width: 1px;
+  height: 0.76em;   /* ≈ the cap height of the uppercase setting */
+  background: currentColor;
+}
+@keyframes heroCaretBlink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 .heroNav {
   position: absolute;
@@ -165,6 +229,18 @@
   margin-right: clamp(22px, 2.4vw, 46px);
   transition: transform 1050ms var(--ease), opacity 850ms var(--ease);
 }
+.itemLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.itemLink:hover .cover img {
+  filter: contrast(1.05);
+}
+.itemLink:focus-visible {
+  outline: 1px solid var(--color-warm);
+  outline-offset: 4px;
+}
 .cover {
   position: relative;
   width: 100%;
@@ -172,7 +248,8 @@
   background: var(--color-soft, #f4f2ee);
   overflow: hidden;
 }
-.cover img {
+.cover img,
+.cover video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -254,5 +331,10 @@
   .cap,
   .nav {
     transition-duration: 0.01ms !important;
+  }
+  /* the tagline renders in full immediately; no caret to blink */
+  .caret {
+    animation: none;
+    display: none;
   }
 }

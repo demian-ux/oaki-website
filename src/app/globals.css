@@ -1080,6 +1080,18 @@ body:has([data-hero]) .site-header:not([data-nav-ready]) {
   text-wrap: balance;
 }
 
+/* The Article headline — journal articles, case drafts, the next-read band.
+   Neue Machina Plain, sentence case, the ocre period via .dot. */
+.text-article-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.125rem, 5.5vw, 4.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  text-wrap: balance;
+}
+.text-article-title .dot { color: var(--color-warm); }
+
 /* Sans lede — body copy for Studio + Process (SangBleu is retired to Case
    in v3.0, so editorial body on those surfaces is Neue Montreal). */
 .text-lede {

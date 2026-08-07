@@ -10,6 +10,7 @@ interface JournalCoverProps {
   sizes?: string;
   priority?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 // Journal covers are renders: they display at their natural aspect ratio,
@@ -22,7 +23,9 @@ export default function JournalCover({
   sizes,
   priority,
   className,
+  style,
 }: JournalCoverProps) {
+  const sizeClass = style ? "h-auto" : "w-full h-auto";
   if (coverImage?.asset) {
     const dims = coverImage.asset.metadata?.dimensions;
     return (
@@ -33,7 +36,8 @@ export default function JournalCover({
         height={dims?.height ?? 1000}
         sizes={sizes}
         priority={priority}
-        className={`w-full h-auto ${className ?? ""}`}
+        className={`${sizeClass} ${className ?? ""}`}
+        style={style}
       />
     );
   }
@@ -46,7 +50,8 @@ export default function JournalCover({
         height={1000}
         sizes={sizes}
         priority={priority}
-        className={`w-full h-auto ${className ?? ""}`}
+        className={`${sizeClass} ${className ?? ""}`}
+        style={style}
       />
     );
   }
