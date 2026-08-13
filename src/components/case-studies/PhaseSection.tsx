@@ -202,12 +202,15 @@ function VideoLayout({ phase }: { phase: Phase }) {
   return (
     <div>
       <PhaseHeader phase={phase} />
-      {/* Render in an ocre frame — full-colour, never tinted (v3.0 Case) */}
+      {/* Render in an ocre frame — full-colour, never tinted (v3.0 Case).
+          Film follows the no-crop rule too: natural ratio, capped to ~82vh,
+          centered — never object-fit cover, never full-monitor. */}
       <div className="bg-warm p-1.5 lg:p-2">
-        <div className="relative aspect-video overflow-hidden">
-          {phase.video ? (
+        {phase.video ? (
+          <div className="flex justify-center bg-ink">
             <video
-              className="absolute inset-0 h-full w-full object-cover"
+              className="block h-auto"
+              style={{ maxWidth: "100%", maxHeight: "82vh", width: "auto" }}
               autoPlay
               muted
               loop
@@ -217,10 +220,12 @@ function VideoLayout({ phase }: { phase: Phase }) {
             >
               <source src={phase.video} type="video/mp4" />
             </video>
-          ) : (
+          </div>
+        ) : (
+          <div className="relative aspect-video overflow-hidden">
             <PhasePlaceholderImage label={`${phase.phaseTitle} — Video`} />
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
