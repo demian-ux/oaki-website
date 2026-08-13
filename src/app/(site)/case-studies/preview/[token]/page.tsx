@@ -43,55 +43,9 @@ export default async function CasePreviewPage({ params }: Props) {
         </p>
       </section>
 
-      {/* Review header — internal: the argument, flags, and open gaps.
-          This block is for Demi's review and is removed when the case
-          study graduates to its public page. */}
-      {(draft.argument || draft.flags.length > 0 || draft.gaps.length > 0) && (
-        <section className="page-x pt-8">
-          <div
-            className="mx-auto px-5 py-4"
-            style={{ maxWidth: 820, border: "1px solid var(--color-line)", background: "var(--color-soft)" }}
-          >
-            {draft.argument && (
-              <>
-                <p className="coord mb-2">The argument</p>
-                <p className="text-meta mb-4" style={{ color: "var(--color-ink)" }}>
-                  {draft.argument}
-                </p>
-              </>
-            )}
-            {draft.flags.length > 0 && (
-              <>
-                <p className="coord mb-2" style={{ color: "var(--color-error)" }}>
-                  Flags
-                </p>
-                <ul className="mb-4" style={{ margin: 0, paddingLeft: "1rem" }}>
-                  {draft.flags.map((f, i) => (
-                    <li key={i} className="text-meta mb-1">
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-            {draft.gaps.length > 0 && (
-              <>
-                <p className="coord mb-2" style={{ color: "var(--color-warm-deep)" }}>
-                  Open gaps
-                </p>
-                <ul style={{ margin: 0, paddingLeft: "1rem" }}>
-                  {draft.gaps.map((g, i) => (
-                    <li key={i} className="text-meta mb-1">
-                      {g}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </div>
-        </section>
-      )}
-
+      {/* The internal review header (argument / flags / gaps) used to render
+          here; removed 2026-08-13 — these token links are now shared with
+          clients, so the preview shows the page as it will publish. */}
       <CaseDraftView draft={draft} showGaps />
     </>
   );
