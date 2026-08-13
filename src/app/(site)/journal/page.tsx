@@ -2,51 +2,36 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getJournalPosts } from "@/lib/data";
 import { formatJournalDate } from "@/lib/format";
+import { getJournalLocalImages } from "@/lib/journal-images";
 import JournalCover from "@/components/journal/JournalCover";
 
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Notes on light, material, and the work before the work. Written by the people making it.",
+    "Our work, after your meeting. Most renders retire when the pitch ends. These went on: awards, openings, front pages.",
 };
 
 export default async function JournalPage() {
   const posts = await getJournalPosts();
 
-  const years = posts
-    .map((p) => (p.date ? new Date(p.date).getUTCFullYear() : NaN))
-    .filter((y) => !Number.isNaN(y));
-  const sinceYear = years.length > 0 ? Math.min(...years) : null;
-  const countLabel = [
-    `${String(posts.length).padStart(3, "0")} ${posts.length === 1 ? "entry" : "entries"}`,
-    sinceYear !== null && `since ${sinceYear}`,
-  ]
-    .filter(Boolean)
-    .join(" · ");
+  const countLabel = `${String(posts.length).padStart(3, "0")} ${posts.length === 1 ? "entry" : "entries"}`;
 
   return (
     <>
-      {/* Index hero — title + running count */}
+      {/* Index hero — same register as the homepage sections: coord label,
+          .text-statement/.text-volume heading closing on the ocre dot,
+          .text-lede intro. */}
       <section className="page-x pt-24 lg:pt-32 pb-10 lg:pb-14">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
-          <p className="coord" style={{ color: "var(--color-warm-deep)" }}>
-            Journal
-          </p>
+          <p className="coord">Journal</p>
           {posts.length > 0 && <p className="coord text-muted">{countLabel}</p>}
         </div>
-        <h1
-          className="text-volume reveal mt-4"
-          style={{
-            fontSize: "clamp(3rem, 10vw, 9.375rem)",
-            lineHeight: 0.86,
-          }}
-        >
-          Field notes
-          <span className="dot" style={{ marginLeft: "-0.05em" }}>.</span>
+        <h1 className="text-statement text-volume reveal mt-6">
+          Our work, after your meeting<span className="dot">.</span>
         </h1>
         <p className="text-lede text-muted mt-8 lg:mt-10 max-w-[50ch]">
-          Notes on light, material, and the work before the work, written by
-          the people making it.
+          Most renders retire when the pitch ends. These went on: awards,
+          openings, front pages.
         </p>
       </section>
 
@@ -59,7 +44,14 @@ export default async function JournalPage() {
         <section className="page-x pb-16 lg:pb-28">
           <div className="border-t-2 border-ink">
             {posts.map((post) => {
-              const hasCover = Boolean(post.coverImage?.asset || post.img);
+              // Thumbnail fallback chain, identical to the home slider:
+              // Sanity cover → image-library hero → local mock path.
+              const libHero = getJournalLocalImages(post.slug).hero;
+              const libSrc = libHero
+                ? [...libHero.webp].sort((a, b) => b.width - a.width)[0]?.src ?? ""
+                : "";
+              const thumbImg = libSrc || post.img;
+              const hasCover = Boolean(post.coverImage?.asset || thumbImg);
               return (
               <Link
                 key={post._id}
@@ -75,28 +67,29 @@ export default async function JournalPage() {
                   <div className="transition-[filter] duration-300 group-hover:contrast-105">
                     <JournalCover
                       coverImage={post.coverImage}
-                      img={post.img}
+                      img={thumbImg}
                       alt={post.title}
                       sizes="132px"
                     />
                   </div>
                 )}
                 <div>
-                  <p
-                    className="coord mb-2.5"
-                    style={{ color: "var(--color-warm-deep)" }}
-                  >
+                  <p className="coord mb-2.5">
                     {[post.category, formatJournalDate(post.date), `${post.readMins ?? 1} min`]
                       .filter(Boolean)
                       .join(" · ")}
                   </p>
+                  {/* Title = the home slider's caption serif (.text-quote
+                      treatment): SangBleu 300, mixed case, tight leading. */}
                   <h2
-                    className="group-hover:text-warm-deep transition-colors duration-300"
+                    className="font-serif group-hover:text-warm-deep transition-colors duration-300"
                     style={{
-                      fontSize: "clamp(1.25rem, 2.6vw, 2.125rem)",
-                      lineHeight: 1.05,
+                      fontWeight: 300,
+                      fontSize: "clamp(1.125rem, 1.7vw, 1.5rem)",
+                      lineHeight: 1.2,
                       letterSpacing: "-0.015em",
                       textTransform: "none",
+                      textWrap: "balance",
                     }}
                   >
                     {post.title}
@@ -109,11 +102,10 @@ export default async function JournalPage() {
                 </div>
                 <span
                   aria-hidden
-                  className="justify-self-end"
+                  className="justify-self-end transition-transform duration-300 group-hover:translate-x-1"
                   style={{
-                    fontWeight: 800,
-                    fontSize: "clamp(1.25rem, 2vw, 1.875rem)",
-                    color: "var(--color-warm)",
+                    fontSize: "1.15rem",
+                    color: "var(--color-warm-deep)",
                   }}
                 >
                   →

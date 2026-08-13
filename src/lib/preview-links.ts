@@ -1,5 +1,5 @@
 // Private journal preview links: unguessable token → the post(s) that link
-// shows. Each client gets a link to exactly their article(s); the ICRAVE set
+// shows. Each client gets a link to exactly their article(s); the iCrave set
 // is one link with three articles for Andrew. Routes at
 // /journal/preview/<token> render noindex and never enter the sitemap.
 //
@@ -31,12 +31,12 @@ export const previewLinks: Record<string, PreviewLink> = {
   z8e5eqa2w5jv11krfa7g: { label: "8 Rockledge", slugs: ["8-rockledge-gardens"] },
   jt23nkswvqtq6ks4fgaw: { label: "Dixon House", slugs: ["dixon-house-gardens"] },
 
-  // ICRAVE set — one link for Andrew, three articles on one page
+  // iCrave set — one link for Andrew, three articles on one page
   h4z9sg5qe8e37kkg4vw7: {
-    label: "ICRAVE set",
+    label: "iCrave set",
     slugs: ["icrave-sapphire-lounges", "icrave-ballys-chicago", "icrave-southwest-lounges"],
   },
-  // Individual ICRAVE articles, if a single-article link is ever needed
+  // Individual iCrave articles, if a single-article link is ever needed
   "8xppv05k2jb8kvmb2bjt": { label: "Sapphire lounges", slugs: ["icrave-sapphire-lounges"] },
   "309h22kgvs497wpm2cxy": { label: "Bally's Chicago", slugs: ["icrave-ballys-chicago"] },
   prh9c8dk0kdmm9kftt9s: { label: "Southwest lounges", slugs: ["icrave-southwest-lounges"] },

@@ -35,7 +35,9 @@ export default function Header({ projects = [], navLabels, showJournal = false }
   // Journal is content-gated: it appears once the Studio toggle is flipped.
   const navLinks = [
     { label: navLabels?.caseStudies ?? "Case Studies", href: "/case-studies" },
-    { label: navLabels?.process ?? "Process", href: "/process" },
+    // Process hidden for the Sep 1 launch (route stays reachable by URL);
+    // restore this line when the page is ready.
+    // { label: navLabels?.process ?? "Process", href: "/process" },
     { label: navLabels?.about ?? "About", href: "/about" },
     ...(showJournal ? [{ label: "Journal", href: "/journal" }] : []),
     { label: navLabels?.contact ?? "Contact", href: "/contact" },
@@ -304,12 +306,14 @@ function CaseStudiesMegaMenu({
 
           {/* Column 2 — Featured */}
           <div>
-            <SectionLabel className="mega-label">Featured Books</SectionLabel>
+            <SectionLabel className="mega-label">Featured Case Studies</SectionLabel>
             <div className="mega-featured-grid">
               {featured.map((p, i) => (
                 <Link
                   key={p._id || p.slug}
-                  href={`/case-studies/${p.slug}`}
+                  href={p.externalUrl ?? `/case-studies/${p.slug}`}
+                  target={p.externalUrl ? "_blank" : undefined}
+                  rel={p.externalUrl ? "noopener" : undefined}
                   onClick={onClose}
                   className="mega-card"
                   style={{ transitionDelay: `${120 + i * 60}ms` }}
@@ -327,16 +331,6 @@ function CaseStudiesMegaMenu({
                       <span className="text-label">Open Book →</span>
                     </div>
                   </div>
-                  <div>
-                    <p className="text-label text-muted" style={{ marginBottom: 4 }}>
-                      {p.collectionLabel}
-                    </p>
-                    <p className="card-title">{p.title.toUpperCase()}</p>
-                    <p className="text-meta text-muted">
-                      {[p.city, p.country].filter(Boolean).join(", ")}
-                      {p.year ? ` · ${p.year}` : ""}
-                    </p>
-                  </div>
                 </Link>
               ))}
             </div>
@@ -349,7 +343,9 @@ function CaseStudiesMegaMenu({
               {recent.map((p, i) => (
                 <li key={p._id || p.slug}>
                   <Link
-                    href={`/case-studies/${p.slug}`}
+                    href={p.externalUrl ?? `/case-studies/${p.slug}`}
+                    target={p.externalUrl ? "_blank" : undefined}
+                    rel={p.externalUrl ? "noopener" : undefined}
                     onClick={onClose}
                     className="mega-recent-link"
                     style={{ transitionDelay: `${160 + i * 30}ms` }}

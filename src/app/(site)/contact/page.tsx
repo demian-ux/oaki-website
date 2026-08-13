@@ -32,10 +32,10 @@ export default async function ContactPage() {
         <p className="text-meta text-muted mt-6">
           Prefer email? Write to{" "}
           <a
-            href="mailto:demian@oaki.studio"
+            href="mailto:info@oaki.studio"
             className="underline underline-offset-4 hover:text-ink transition-colors duration-300"
           >
-            demian@oaki.studio
+            info@oaki.studio
           </a>
           {" "}and we will take it from there.
         </p>

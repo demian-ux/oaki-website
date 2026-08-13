@@ -78,7 +78,7 @@ export default async function ProcessPage() {
                 />
               ))}
             </span>
-            <span className="coord" style={{ color: "var(--color-muted)" }}>5 steps · 6 fases</span>
+            <span className="coord" style={{ color: "var(--color-muted)" }}>5 steps · 6 phases</span>
           </div>
         </div>
       </section>
@@ -103,9 +103,33 @@ export default async function ProcessPage() {
         </div>
       </section>
 
-      {/* FASES method — a drawing-set table: hairline grid, coordinate labels */}
+      {/* Working under pressure — the T2 block: the viz director auditing
+          capability before outsourcing overflow finds the operational answer
+          here. Approved copy (11-Aug-2026 ICP review), paste-as-is. */}
       <section className="page-x section-y border-b border-line">
-        <p className="coord mb-4">{process.fasesLabel ?? "The FASES Method"}</p>
+        <p className="coord mb-6">Working under pressure</p>
+        <h2 className="text-mode-title text-volume reveal mb-8 max-w-3xl">
+          The model is never finished. The deadline is<span className="dot">.</span>
+        </h2>
+        <p className="text-lede text-muted max-text mb-14">
+          We work with what you have. We fill in the gaps the model leaves, and
+          we deliver on the date we named.
+        </p>
+        <figure className="max-w-xl m-0">
+          <blockquote className="text-quote reveal mb-6 leading-relaxed">
+            &ldquo;You overcome any obstacle that we throw at your team with
+            the technical skills and ability to work to meet the
+            deliverables.&rdquo;
+          </blockquote>
+          <figcaption className="text-meta text-muted">
+            — Andrew Delgado, Technical Director of Visualization, Journey / iCrave
+          </figcaption>
+        </figure>
+      </section>
+
+      {/* Phases method — a drawing-set table: hairline grid, coordinate labels */}
+      <section className="page-x section-y border-b border-line">
+        <p className="coord mb-4">{process.fasesLabel ?? "The Phases Method"}</p>
         <h2 className="text-mode-title text-volume reveal mb-8 max-w-3xl">
           {(process.fasesHeading ?? "Every project book follows the same six-part structure").replace(/\.$/, "")}
           <span className="dot">.</span>
@@ -114,7 +138,7 @@ export default async function ProcessPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border border-line bg-line">
           {defaultPhases.map((phase) => (
             <div key={phase._id} className="p-8 bg-paper">
-              <p className="coord mb-3">FASE {phase.phaseNumber}</p>
+              <p className="coord mb-3">PHASE {phase.phaseNumber}</p>
               <h3 className="text-title mb-2">{phase.phaseTitle}</h3>
               <p className="text-meta text-muted">{phase.whatItIs}</p>
             </div>

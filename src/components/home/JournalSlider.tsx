@@ -17,7 +17,7 @@ import type { JournalArticle } from "@/lib/journal-mock";
  */
 export default function JournalSlider({
   articles,
-  heading = "The work, after the meeting",
+  heading = "Our work, after your meeting",
   intro = "Most renders retire when the pitch ends. These went on: awards, openings, front pages.",
   allHref = "/journal",
   intervalMs = 5500,

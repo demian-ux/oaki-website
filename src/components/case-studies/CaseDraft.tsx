@@ -65,6 +65,7 @@ function Slots({ slots, pair = false }: { slots: CaseImageSlot[]; pair?: boolean
 }
 
 function Prose({ heading, paragraphs }: { heading: string; paragraphs: string[] }) {
+  if (paragraphs.length === 0) return null;
   return (
     <section className="page-x py-10 lg:py-14">
       <div className="mx-auto" style={{ maxWidth: MEASURE }}>
@@ -93,12 +94,24 @@ function Prose({ heading, paragraphs }: { heading: string; paragraphs: string[] 
   );
 }
 
-export default function CaseDraftView({ draft }: { draft: CaseDraft }) {
+export default function CaseDraftView({
+  draft,
+  showGaps = false,
+}: {
+  draft: CaseDraft;
+  /** Token previews render [GAP …] markers so Demi reviews in place; the
+   *  public route never does — an unfilled section is hidden entirely. */
+  showGaps?: boolean;
+}) {
   const metaLine = [draft.collection, draft.location, draft.year]
     .filter((v) => v && v !== "GAP" && v !== "Undisclosed")
     .join(" · ");
-  const bySection = (name: string) =>
-    draft.sections.find((s) => s.heading.toLowerCase() === name);
+  const bySection = (name: string) => {
+    const sec = draft.sections.find((s) => s.heading.toLowerCase() === name);
+    if (!sec || showGaps) return sec;
+    const paragraphs = sec.paragraphs.filter((p) => !p.trimStart().startsWith("[GAP"));
+    return paragraphs.length > 0 ? { ...sec, paragraphs } : undefined;
+  };
   const setup = bySection("setup");
   const tension = bySection("tension");
   const approach = bySection("approach");
@@ -153,6 +166,30 @@ export default function CaseDraftView({ draft }: { draft: CaseDraft }) {
       {approach && <Prose heading="Approach" paragraphs={approach.paragraphs} />}
       <Slots slots={[...s(6), ...s(7)]} pair />
       <Slots slots={[...s(8), ...s(9)]} pair />
+
+      {/* The film — the moving layer, closing the walk before the outcome.
+          Muted loop; the poster stands in for reduced-motion and slow loads. */}
+      {draft.video && (
+        <section className="page-x py-10 lg:py-16">
+          <div className="relative frame-plate w-fit max-w-full mx-auto">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={draft.video.poster}
+              style={{ maxWidth: "100%", display: "block", maxHeight: "82svh" }}
+            >
+              <source src={draft.video.src} type="video/mp4" />
+            </video>
+            <span className="tag-negro absolute left-0 bottom-0">
+              Film · {draft.video.label}
+            </span>
+          </div>
+        </section>
+      )}
+
       {outcome && <Prose heading="Outcome" paragraphs={outcome.paragraphs} />}
       <Slots slots={s(10)} />
 

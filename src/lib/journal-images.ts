@@ -39,7 +39,9 @@ export const articleImageProject: Record<string, string> = {
   "cdg34-juvignac-competition-win": "cdg34-juvignac",
   "miac-aia-miami-2023": "miac",
   "sf-housing-aiasf-merit": "sf-housing-schemes",
-  "maison-rive-gauche-sale": "maison-rive-gauche",
+  // Maison Rive Gauche is Dillido's public name for the sale story — same
+  // house, same library folder.
+  "maison-rive-gauche-sale": "dillido-residence",
   "94-s-hibiscus-sale": "94-s-hibiscus",
   "icnyc-campaign": "icnyc",
   "level-shoes-bal-harbour": "level-shoes",

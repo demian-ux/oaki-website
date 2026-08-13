@@ -32,24 +32,29 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: "Oaki Studio <noreply@oaki.studio>",
         to: contactEmail,
-        subject: `New inquiry from ${data.name} — ${data.projectName}`,
+        subject: data.projectName
+          ? `New inquiry from ${data.name} — ${data.projectName}`
+          : `New inquiry from ${data.name}`,
         text: [
           `Name: ${data.name}`,
           `Email: ${data.email}`,
-          `Company: ${data.company ?? "—"}`,
-          `Role: ${data.role ?? "—"}`,
-          `Project: ${data.projectName}`,
-          `Location: ${data.projectLocation ?? "—"}`,
-          `Type: ${data.projectType ?? "—"}`,
-          `Stage: ${data.projectStage ?? "—"}`,
-          `Services: ${data.servicesNeeded.join(", ")}`,
-          `Goals: ${data.mainGoal.join(", ")}`,
-          `Timeline: ${data.timeline ?? "—"}`,
-          `Images: ${data.estimatedImages ?? "—"}`,
-          `Video: ${data.videoNeeds ?? "—"}`,
-          `Budget: ${data.budgetRange ?? "—"}`,
+          data.website && `Link: ${data.website}`,
+          data.company && `Company: ${data.company}`,
+          data.role && `Role: ${data.role}`,
+          data.projectName && `Project: ${data.projectName}`,
+          data.projectLocation && `Location: ${data.projectLocation}`,
+          data.projectType && `Type: ${data.projectType}`,
+          data.projectStage && `Stage: ${data.projectStage}`,
+          data.servicesNeeded?.length && `Services: ${data.servicesNeeded.join(", ")}`,
+          data.mainGoal?.length && `Goals: ${data.mainGoal.join(", ")}`,
+          data.timeline && `Timeline: ${data.timeline}`,
+          data.estimatedImages && `Images: ${data.estimatedImages}`,
+          data.videoNeeds && `Video: ${data.videoNeeds}`,
+          data.budgetRange && `Budget: ${data.budgetRange}`,
           `\nMessage:\n${data.message}`,
-        ].join("\n"),
+        ]
+          .filter(Boolean)
+          .join("\n"),
       });
     }
 

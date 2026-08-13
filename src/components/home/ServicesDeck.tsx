@@ -36,19 +36,19 @@ const SLIDES: Slide[] = [
   {
     word: "Concept",
     lede: "Sell the idea before it exists. Images that win the room: investors, boards, juries.",
-    image: "/images/03.jpg", // placeholder — moody, reads in B&W
+    image: "/images/services-comps/concept-sketch.jpg", // annotated hand sketch — already near-monochrome
     grade: "grayscale(1) contrast(1.03) brightness(1.02)",
   },
   {
     word: "Proof",
     lede: "Images precise enough to build from. The kind that still match the building years after it opens.",
-    image: "/images/07.jpg", // placeholder — warm, material
+    image: "/images/services-comps/proof-hero.jpg", // finished interior — warm light, teak and travertine
     grade: "saturate(0.5) sepia(0.16) contrast(1.03)",
   },
   {
     word: "Campaign",
     lede: "Take it to market. Film, book, and social, composed as one story. Not a folder of jpegs.",
-    image: "/images/05.jpg", // placeholder — full color, lively (the payoff)
+    image: "/images/services-comps/edition-objects.jpg", // book, print and phone — full color, the payoff
     grade: "saturate(1.06)",
   },
 ];
@@ -419,7 +419,7 @@ export default function ServicesDeck() {
         <h2 className={`${styles.statement} deck-statement`}>
           From the first pitch
           <br />
-          to the launch.
+          to the launch<span className={styles.dot}>.</span>
         </h2>
 
         <div ref={frameRef} className={styles.frame}>
@@ -448,7 +448,6 @@ export default function ServicesDeck() {
                   </div>
                 </div>
                 <div data-text className={styles.panelText}>
-                  <span className={styles.index}>{String(i + 1).padStart(2, "0")}</span>
                   <h3 className={styles.word}>{s.word}</h3>
                   <p className={styles.lede}>{s.lede}</p>
                 </div>
@@ -471,7 +470,6 @@ export default function ServicesDeck() {
                 className={styles.label}
                 aria-label={`Go to slide ${i + 1}, ${s.word}`}
               >
-                <span className={styles.labelNum}>{String(i + 1).padStart(2, "0")}</span>
                 <span>{s.word}</span>
               </button>
             ))}

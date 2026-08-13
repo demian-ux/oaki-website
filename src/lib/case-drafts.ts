@@ -25,6 +25,12 @@ export interface CaseSection {
   paragraphs: string[];
 }
 
+export interface CaseVideo {
+  src: string;
+  poster?: string;
+  label: string;
+}
+
 export interface CaseDraft {
   title: string;
   slug: string;
@@ -41,6 +47,9 @@ export interface CaseDraft {
   flags: string[];
   slots: CaseImageSlot[];
   sections: CaseSection[];
+  /** Optional web-encoded animation (`video: <src> :: <label>` +
+   *  `videoPoster: <src>` in frontmatter), shown after the image walk. */
+  video?: CaseVideo;
 }
 
 function parseFrontmatter(raw: string): { fm: Record<string, string>; body: string } {
@@ -155,5 +164,10 @@ export function getCaseDraft(slug: string): CaseDraft | null {
     flags: numbered(fm, "flag"),
     slots,
     sections: parseSections(body),
+    video: (() => {
+      if (!fm.video) return undefined;
+      const [src, label = ""] = fm.video.split("::").map((s) => s.trim());
+      return { src, poster: fm.videoPoster || undefined, label: label || "The film" };
+    })(),
   };
 }

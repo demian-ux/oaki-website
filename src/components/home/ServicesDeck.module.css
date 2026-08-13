@@ -5,7 +5,7 @@
 
 .deck {
   position: relative;
-  background: var(--color-gris);
+  background: var(--color-paper);
   color: var(--color-ink);
 }
 
@@ -37,6 +37,9 @@
   line-height: 0.92;
   font-size: clamp(2rem, 4.6vw, 3.25rem); /* matches .text-statement */
   color: var(--color-ink);
+}
+.dot {
+  color: var(--color-warm);
 }
 
 /* ── The frame: clips the moving track ────────────────────────────────── */
@@ -88,19 +91,11 @@
   object-fit: cover;
 }
 
-/* text (index, word, lede — left) */
+/* text (word, lede — left) */
 .panelText {
   flex: 0 0 38%;
   max-width: 38%;
   will-change: transform, opacity;
-}
-.index {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  color: var(--color-warm-deep);
-  margin-bottom: clamp(12px, 2vh, 22px);
 }
 .word {
   margin: 0 0 clamp(16px, 2.4vh, 28px);
@@ -118,7 +113,7 @@
   font-family: var(--font-sans);
   font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
   line-height: 1.6;
-  color: var(--color-ink);
+  color: var(--color-muted);
 }
 
 /* ── Bottom progress nav (persistent) ─────────────────────────────────── */
@@ -186,12 +181,6 @@
   color: var(--color-ink);
   opacity: 1;
   font-weight: 600;
-}
-.labelNum {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.14em;
-  color: var(--color-warm-deep);
 }
 .label:focus-visible {
   outline: 2px solid var(--color-warm-deep);

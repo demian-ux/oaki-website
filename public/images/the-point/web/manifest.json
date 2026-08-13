@@ -1,0 +1,166 @@
+{
+  "project": "the-point",
+  "images": [
+    {
+      "name": "01-porte-cochere",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1778,
+      "widths": [
+        960
+      ],
+      "avif": [
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/the-point/web/01-porte-cochere-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/the-point/web/01-porte-cochere-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "02-lobby",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 904,
+      "widths": [
+        960
+      ],
+      "avif": [
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/the-point/web/02-lobby-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/the-point/web/02-lobby-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "03-pool",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 904,
+      "widths": [
+        960
+      ],
+      "avif": [
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/the-point/web/03-pool-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/the-point/web/03-pool-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "04-garden-bar",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1204,
+      "widths": [
+        960
+      ],
+      "avif": [
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/the-point/web/04-garden-bar-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/the-point/web/04-garden-bar-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "05-bronze",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1778,
+      "widths": [
+        960
+      ],
+      "avif": [
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/the-point/web/05-bronze-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/the-point/web/05-bronze-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "06-library",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1778,
+      "widths": [
+        960
+      ],
+      "avif": [
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/the-point/web/06-library-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/the-point/web/06-library-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "07-sea-terrace",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1204,
+      "widths": [
+        960
+      ],
+      "avif": [
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/the-point/web/07-sea-terrace-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/the-point/web/07-sea-terrace-960.webp"
+        }
+      ]
+    }
+  ]
+}

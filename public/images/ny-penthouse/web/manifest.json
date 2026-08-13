@@ -1,0 +1,502 @@
+{
+  "project": "ny-penthouse",
+  "images": [
+    {
+      "name": "Bar detail mrl",
+      "set": null,
+      "naturalWidth": 2490,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ny-penthouse/web/Bar detail mrl-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/ny-penthouse/web/Bar detail mrl-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ny-penthouse/web/Bar detail mrl-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/ny-penthouse/web/Bar detail mrl-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Bar front",
+      "set": null,
+      "naturalWidth": 3321,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ny-penthouse/web/Bar front-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1156,
+          "src": "/images/ny-penthouse/web/Bar front-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ny-penthouse/web/Bar front-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1156,
+          "src": "/images/ny-penthouse/web/Bar front-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Breakfast nook",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ny-penthouse/web/Breakfast nook-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ny-penthouse/web/Breakfast nook-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ny-penthouse/web/Breakfast nook-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ny-penthouse/web/Breakfast nook-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ny-penthouse/web/Breakfast nook-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ny-penthouse/web/Breakfast nook-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Dining",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/ny-penthouse/web/Dining-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/ny-penthouse/web/Dining-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/ny-penthouse/web/Dining-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/ny-penthouse/web/Dining-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Identity",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 1717,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 1648,
+          "src": "/images/ny-penthouse/web/Identity-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 824,
+          "src": "/images/ny-penthouse/web/Identity-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 412,
+          "src": "/images/ny-penthouse/web/Identity-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 1648,
+          "src": "/images/ny-penthouse/web/Identity-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 824,
+          "src": "/images/ny-penthouse/web/Identity-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 412,
+          "src": "/images/ny-penthouse/web/Identity-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Kitchen Library",
+      "set": null,
+      "naturalWidth": 2490,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ny-penthouse/web/Kitchen Library-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/ny-penthouse/web/Kitchen Library-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ny-penthouse/web/Kitchen Library-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/ny-penthouse/web/Kitchen Library-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Library",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/ny-penthouse/web/Library-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/ny-penthouse/web/Library-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/ny-penthouse/web/Library-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/ny-penthouse/web/Library-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Living From kitchen-gigapixel-standard v2-1x",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ny-penthouse/web/Living From kitchen-gigapixel-standard v2-1x-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ny-penthouse/web/Living From kitchen-gigapixel-standard v2-1x-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ny-penthouse/web/Living From kitchen-gigapixel-standard v2-1x-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ny-penthouse/web/Living From kitchen-gigapixel-standard v2-1x-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ny-penthouse/web/Living From kitchen-gigapixel-standard v2-1x-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ny-penthouse/web/Living From kitchen-gigapixel-standard v2-1x-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Living From kitchen",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ny-penthouse/web/Living From kitchen-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ny-penthouse/web/Living From kitchen-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ny-penthouse/web/Living From kitchen-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ny-penthouse/web/Living From kitchen-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ny-penthouse/web/Living From kitchen-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ny-penthouse/web/Living From kitchen-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Living Piano Stage",
+      "set": null,
+      "naturalWidth": 2490,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ny-penthouse/web/Living Piano Stage-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/ny-penthouse/web/Living Piano Stage-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ny-penthouse/web/Living Piano Stage-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/ny-penthouse/web/Living Piano Stage-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Living table",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/ny-penthouse/web/Living table-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/ny-penthouse/web/Living table-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/ny-penthouse/web/Living table-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/ny-penthouse/web/Living table-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "Main Area",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ny-penthouse/web/Main Area-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ny-penthouse/web/Main Area-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ny-penthouse/web/Main Area-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ny-penthouse/web/Main Area-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ny-penthouse/web/Main Area-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ny-penthouse/web/Main Area-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "terrace night pool2",
+      "set": null,
+      "naturalWidth": 2121,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/ny-penthouse/web/terrace night pool2-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/ny-penthouse/web/terrace night pool2-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/ny-penthouse/web/terrace night pool2-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/ny-penthouse/web/terrace night pool2-960.webp"
+        }
+      ]
+    }
+  ]
+}

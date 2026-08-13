@@ -92,7 +92,7 @@ export default async function CasePreviewPage({ params }: Props) {
         </section>
       )}
 
-      <CaseDraftView draft={draft} />
+      <CaseDraftView draft={draft} showGaps />
     </>
   );
 }

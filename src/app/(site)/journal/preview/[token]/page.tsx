@@ -6,7 +6,7 @@ import JournalArticle from "@/components/journal/JournalArticle";
 
 // Private client preview: unguessable token, renders unpublished posts,
 // noindex. One article per link, or the whole set for a grouped review
-// (the ICRAVE link shows Andrew all three on one page).
+// (the iCrave link shows Andrew all three on one page).
 
 interface Props {
   params: Promise<{ token: string }>;

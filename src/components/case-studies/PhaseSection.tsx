@@ -44,7 +44,7 @@ function PhaseHeader({ phase }: { phase: Phase }) {
     <div className="mb-12">
       <div className="flex items-baseline gap-4 mb-4">
         <span className="coord">
-          FASE {phase.phaseNumber}
+          PHASE {phase.phaseNumber}
         </span>
         <span className="coord" style={{ color: "var(--color-muted)" }}>{phase.layoutType}</span>
       </div>
@@ -190,6 +190,37 @@ function ContactSheetLayout({ phase }: { phase: Phase }) {
             />
           </div>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function VideoLayout({ phase }: { phase: Phase }) {
+  // Poster = the phase's main image when set, so reduced-motion and
+  // slow-connection users see the graded still instead of a black frame.
+  const poster = phase.mainImage?.asset?.url;
+  return (
+    <div>
+      <PhaseHeader phase={phase} />
+      {/* Render in an ocre frame — full-colour, never tinted (v3.0 Case) */}
+      <div className="bg-warm p-1.5 lg:p-2">
+        <div className="relative aspect-video overflow-hidden">
+          {phase.video ? (
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={poster}
+            >
+              <source src={phase.video} type="video/mp4" />
+            </video>
+          ) : (
+            <PhasePlaceholderImage label={`${phase.phaseTitle} — Video`} />
+          )}
+        </div>
       </div>
     </div>
   );

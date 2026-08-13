@@ -95,7 +95,7 @@ export default defineType({
       title: "FASES — Eyebrow",
       type: "string",
       group: "fases",
-      initialValue: "The FASES Method",
+      initialValue: "The Phases Method",
     }),
     defineField({
       name: "fasesHeading",

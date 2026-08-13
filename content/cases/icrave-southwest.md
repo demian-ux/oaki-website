@@ -4,10 +4,10 @@ slug: icrave-southwest
 collection: The Hospitality Collection
 audience: Brands making their first move into physical hospitality
 argument: PROPOSED (Demi defines at review). This case study proves oaki can render an identity shift before it exists, a concept plus its localizations, to brands whose biggest announcements run on images.
-subtitle: After 55 years without lounges, Southwest is building its first, designed with ICRAVE. oaki rendered the concept and its first cities.
+subtitle: After 55 years without lounges, Southwest is building its first, designed with iCrave. oaki rendered the concept and its first cities.
 location: Nashville, Denver, Austin
 type: Hospitality
-client: ICRAVE, part of Journey
+client: iCrave, part of Journey
 year: 2025–2026
 imageProject: icrave-southwest
 img1: View 01_Dining :: Arrival, the dining area, the hero frame
@@ -20,7 +20,7 @@ img7: View 11_flight concierge desk :: Detail, the flight concierge desk
 img8: View 09_BNA :: Moving through, the Nashville localization
 img9: View 10_Aus :: Moving through, the Austin localization
 img10: GAP :: Process, model-vs-final artifact, brief Diego
-credit1: Design :: ICRAVE, part of Journey
+credit1: Design :: iCrave, part of Journey
 credit2: Client :: Southwest Airlines with Chase
 credit3: Year :: 2025–2026
 credit4: Visualization :: Oaki Studio
@@ -30,7 +30,7 @@ flag1: CLEARANCE, HARD GATE, Demi ruled that not even the private preview link i
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
 ## Setup
-In July 2026 Southwest's CEO confirmed what the industry suspected: after 55 years of open seating and no lounges, the airline is building its first, co-branded with Chase, with Nashville, Denver, Austin, Dallas, and Honolulu in the pipeline and a flagship of some 30,000 square feet at Nashville. It is the biggest identity shift in the airline's history. ICRAVE designs the program.
+In July 2026 Southwest's CEO confirmed what the industry suspected: after 55 years of open seating and no lounges, the airline is building its first, co-branded with Chase, with Nashville, Denver, Austin, Dallas, and Honolulu in the pipeline and a flagship of some 30,000 square feet at Nashville. It is the biggest identity shift in the airline's history. iCrave designs the program.
 
 oaki produced the concept renderings in 2025, and the localized sets for Nashville, Denver, and Austin in 2026.
 

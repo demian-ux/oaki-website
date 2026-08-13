@@ -8,17 +8,28 @@ import WarmupAssets from "@/components/global/WarmupAssets";
 import ScrollProfiler from "@/components/global/ScrollProfiler";
 import { HeroThemeProvider } from "@/components/global/HeroTheme";
 import { getAllProjects, getSiteSettings } from "@/lib/data";
+import { getCaseDraftCards } from "@/lib/case-drafts";
+import { ponceCases } from "@/lib/ponce-cases";
 
 export default async function SiteLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [{ isEnabled: isDraftMode }, projects, settings] = await Promise.all([
+  const [{ isEnabled: isDraftMode }, sanityProjects, settings] = await Promise.all([
     draftMode(),
     getAllProjects(),
     getSiteSettings(),
   ]);
+
+  // Same composition as the Case Studies library, so the header's mega menu
+  // (and its "N case studies" counter) always agrees with /case-studies.
+  const taken = new Set(sanityProjects.map((p) => p.slug));
+  const projects = [
+    ...sanityProjects,
+    ...getCaseDraftCards().filter((p) => !taken.has(p.slug)),
+    ...ponceCases,
+  ];
 
   return (
     <HeroThemeProvider>

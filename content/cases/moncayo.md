@@ -1,5 +1,5 @@
 ---
-title: Two Houses at Moncayo
+title: Moncayo
 slug: moncayo
 collection: The Residential Collection
 audience: Developers and architects of branded residential

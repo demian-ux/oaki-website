@@ -3,10 +3,10 @@ title: Rendering the Sapphire lounges
 slug: icrave-sapphire-lounges
 category: News
 date: 2026-08-05
-excerpt: ICRAVE designs airport lounges for Chase's Sapphire network. oaki has rendered them from New York to Miami to Chicago.
-dek: ICRAVE designs airport lounges for Chase's Sapphire network. oaki has rendered them from New York to Miami to Chicago.
+excerpt: iCrave designs airport lounges for Chase's Sapphire network. oaki has rendered them from New York to Miami to Chicago.
+dek: iCrave designs airport lounges for Chase's Sapphire network. oaki has rendered them from New York to Miami to Chicago.
 heroNote: a lounge render Andrew approves
-credit1: Design :: ICRAVE, part of Journey
+credit1: Design :: iCrave, part of Journey
 credit2: Client :: JPMorgan Chase
 credit3: Locations :: JFK, MIA, ORD
 credit4: Years :: 2024–2025
@@ -17,4 +17,4 @@ source3: [OMAAT on MIA](https://onemileatatime.com/news/chase-sapphire-lounge-mi
 ---
 The Sapphire Lounge network has become the standard airlines get measured against: the LaGuardia lounge was named the world's best third-party lounge and the best new US lounge of 2024. The next ones are already designed. Miami alone runs to 13,800 square feet, with a Cuban coffee window and a rum bar.
 
-oaki produced renderings for ICRAVE's lounge projects at JFK in 2024 and at Miami and O'Hare in 2025. Congratulations to Andrew Delgado and the ICRAVE team.
+oaki produced renderings for iCrave's lounge projects at JFK in 2024 and at Miami and O'Hare in 2025. Congratulations to Andrew Delgado and the iCrave team.

@@ -192,7 +192,7 @@ export default defineType({
         "AFT",
         "Object Territories",
         "Naos",
-        "Ceibo / Koqio",
+        "Ceïba",
       ],
     }),
     defineField({

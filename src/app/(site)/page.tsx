@@ -28,23 +28,20 @@ const clientMarks: { name: string; url?: string }[] = [
   { name: "Asifa Tirmizi", url: "https://www.tirmizi.co" },
   { name: "Aura Architecture", url: "https://www.aura-architecte.com" },
   { name: "BKS Partners", url: "https://www.bks-partner.de" },
+  { name: "Ceïba", url: "https://www.ceiba.us" }, // formerly Koqio — one name site-wide, matches the Dillido credit
   { name: "Cochet Pais", url: "https://www.cochetpais.com" },
   { name: "DNA Miami", url: "https://www.dna-arc.com" },
   { name: "Fornaris Pau", url: "https://fpadesigns.com" },
-  { name: "Garrett Singer", url: "https://www.garrettsinger.com" },
   { name: "Gregory Tuck", url: "https://www.gregorytuck.com" },
   { name: "iCrave", url: "https://icrave.com" },
   { name: "Inch" }, // unresolved — no official site confirmed
   { name: "Jessica Helgerson ID", url: "https://www.jhinteriordesign.com" },
   { name: "KoDA", url: "https://www.kodamiami.com" },
-  { name: "Koqio", url: "https://www.ceiba.us" }, // koqio.us now redirects to ceiba.us
   { name: "LandFluent", url: "https://landfluent.com" },
-  { name: "Lawrence Architects" }, // low confidence — candidate lawrencearchitects.com, unverified
+  { name: "Lawrence + Long" }, // public name confirmed by Demi (11-Aug-2026)
   { name: "MatiPavon" }, // only an Instagram profile found, no website
-  { name: "MdB3d", url: "https://mdb3d.nl" },
   { name: "Naos" }, // low confidence — candidate naos-architecture.fr, several French firms share the name
   { name: "Object Territories", url: "https://object-territories.com" },
-  { name: "Portia Fox", url: "https://portiafox.com" },
   { name: "Studio ST architects", url: "https://studio-st.com" },
   { name: "TBD Architecture", url: "https://www.tbddesignstudio.com" },
 ];
