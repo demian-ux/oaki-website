@@ -1,9 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { type ContactPageData } from "@/lib/data";
-import { contactSchema, MESSAGE_MAX } from "@/lib/contact-schema";
+import {
+  contactSchema,
+  MESSAGE_MAX,
+  ATTACHMENT_ACCEPT,
+  ATTACHMENT_MAX_FILES,
+  ATTACHMENT_MAX_TOTAL_BYTES,
+  attachmentsError,
+} from "@/lib/contact-schema";
 import Button from "@/components/global/Button";
 
 // One step, no wizard. The page copy promises "you don't need the brief
@@ -20,7 +27,7 @@ interface ContactFormProps {
   config?: ContactPageData;
 }
 
-type Field = "name" | "email" | "website" | "message";
+type Field = "name" | "email" | "website" | "message" | "files";
 type FieldErrors = Partial<Record<Field, string>>;
 
 const inputBase =
@@ -108,6 +115,26 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [files, setFiles] = useState<File[]>([]);
+  const [dragging, setDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Merge newly picked files into the list (same name + size = same file),
+  // then check the whole list against the shared limits.
+  const addFiles = (picked: FileList | File[]) => {
+    const next = [...files];
+    for (const f of Array.from(picked)) {
+      if (!next.some((g) => g.name === f.name && g.size === f.size)) next.push(f);
+    }
+    const problem = attachmentsError(next);
+    setFieldErrors((prev) => ({ ...prev, files: problem ?? undefined }));
+    if (!problem) setFiles(next);
+  };
+  const removeFile = (i: number) => {
+    const next = files.filter((_, idx) => idx !== i);
+    setFiles(next);
+    setFieldErrors((prev) => ({ ...prev, files: attachmentsError(next) ?? undefined }));
+  };
 
   const [form, setForm] = useState({
     name: "",
@@ -137,8 +164,10 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
       message: form.message.trim(),
     };
     const parsed = contactSchema.safeParse(payload);
-    if (!parsed.success) {
-      const errors = toFieldErrors(parsed.error.issues);
+    const fileProblem = attachmentsError(files);
+    if (!parsed.success || fileProblem) {
+      const errors: FieldErrors = parsed.success ? {} : toFieldErrors(parsed.error.issues);
+      if (fileProblem) errors.files = fileProblem;
       setFieldErrors(errors);
       const first = (["name", "email", "message", "website"] as Field[]).find((f) => errors[f]);
       if (first) document.getElementById(first)?.focus();
@@ -147,11 +176,10 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
 
     setSubmitting(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const body = new FormData();
+      for (const [k, v] of Object.entries(payload)) body.append(k, v);
+      for (const f of files) body.append("files", f, f.name);
+      const res = await fetch("/api/contact", { method: "POST", body });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         throw new Error(
@@ -253,6 +281,90 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
         placeholder="https://"
         error={fieldErrors.website}
       />
+
+      {/* Attachments, optional. A quiet drop zone in the form's own
+          hairline language; the list below it is the only feedback. */}
+      <div className="mt-12">
+        <label htmlFor="files" className="text-label text-muted block mb-2">
+          Attach files, if it helps (plans, references, a PDF)
+        </label>
+        <input
+          ref={fileInputRef}
+          id="files"
+          name="files"
+          type="file"
+          multiple
+          accept={ATTACHMENT_ACCEPT}
+          className="sr-only"
+          onChange={(e) => {
+            if (e.target.files) addFiles(e.target.files);
+            e.target.value = "";
+          }}
+        />
+        <button
+          type="button"
+          onClick={() => fileInputRef.current?.click()}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setDragging(true);
+          }}
+          onDragLeave={() => setDragging(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setDragging(false);
+            addFiles(e.dataTransfer.files);
+          }}
+          aria-describedby={fieldErrors.files ? "files-error" : "files-hint"}
+          className="w-full text-left py-5 px-5 border transition-colors duration-200 focus:outline-none focus:border-ink"
+          style={{
+            borderStyle: "dashed",
+            borderColor: fieldErrors.files
+              ? "var(--color-error)"
+              : dragging
+              ? "var(--color-ink)"
+              : "var(--color-line)",
+            background: dragging ? "var(--color-gris)" : "transparent",
+          }}
+        >
+          <span className="text-body text-ink block">
+            {dragging ? "Drop to add" : "Drop files here, or click to choose"}
+          </span>
+          <span id="files-hint" className="text-meta text-muted block mt-1">
+            Up to {ATTACHMENT_MAX_FILES} files, {ATTACHMENT_MAX_TOTAL_BYTES / 1024 / 1024} MB in
+            total. PDF, images, ZIP.
+          </span>
+        </button>
+        {files.length > 0 && (
+          <ul className="mt-3 divide-y divide-line border-b border-line">
+            {files.map((f, i) => (
+              <li
+                key={`${f.name}-${f.size}`}
+                className="flex items-baseline justify-between gap-6 py-2"
+              >
+                <span className="text-meta text-ink truncate">{f.name}</span>
+                <span className="flex items-baseline gap-4 shrink-0">
+                  <span className="text-meta text-muted tabular-nums">
+                    {f.size >= 1024 * 1024
+                      ? `${(f.size / 1024 / 1024).toFixed(1)} MB`
+                      : `${Math.max(1, Math.round(f.size / 1024))} KB`}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => removeFile(i)}
+                    aria-label={`Remove ${f.name}`}
+                    className="text-meta text-muted hover:text-ink transition-colors duration-200"
+                  >
+                    Remove
+                  </button>
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="mt-2">
+          <FieldError id="files-error" message={fieldErrors.files} />
+        </div>
+      </div>
 
       {/* Submit-level error (network, server) */}
       {error && (

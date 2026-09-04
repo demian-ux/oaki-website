@@ -32,6 +32,7 @@ export default defineType({
     defineField({ name: "videoNeeds",      title: "Video Needs",      type: "string",   readOnly: true }),
     defineField({ name: "budgetRange",     title: "Budget Range",     type: "string",   readOnly: true }),
     defineField({ name: "message",         title: "Message",          type: "text", rows: 6, readOnly: true }),
+    defineField({ name: "attachments",     title: "Attachments",      type: "array", of: [{ type: "string" }], readOnly: true, description: "Filenames sent with the note; the files themselves travel in the notification email." }),
     defineField({ name: "createdAt",       title: "Received",         type: "datetime", readOnly: true }),
   ],
   orderings: [

@@ -1,11 +1,37 @@
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
-import { contactSchema } from "@/lib/contact-schema";
+import { contactSchema, attachmentsError } from "@/lib/contact-schema";
+
+// The form posts multipart/form-data (fields + optional files). Plain JSON
+// is still accepted for older clients and scripted tests.
+async function readRequest(request: Request): Promise<{ fields: unknown; files: File[] }> {
+  const type = request.headers.get("content-type") ?? "";
+  if (!type.includes("multipart/form-data")) {
+    return { fields: await request.json(), files: [] };
+  }
+  const fd = await request.formData();
+  const fields: Record<string, string> = {};
+  const files: File[] = [];
+  for (const [key, value] of fd.entries()) {
+    if (value instanceof File) {
+      if (value.size > 0) files.push(value);
+    } else {
+      fields[key] = value;
+    }
+  }
+  return { fields, files };
+}
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const data = contactSchema.parse(body);
+    const { fields, files } = await readRequest(request);
+    const data = contactSchema.parse(fields);
+
+    const fileProblem = attachmentsError(files);
+    if (fileProblem) {
+      return NextResponse.json({ error: fileProblem }, { status: 400 });
+    }
+    const attachmentNames = files.map((f) => f.name);
 
     // Save to Sanity (only when configured)
     const sanityProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
@@ -18,6 +44,7 @@ export async function POST(request: Request) {
         ...data,
         servicesNeeded: data.servicesNeeded,
         mainGoal: data.mainGoal,
+        attachments: attachmentNames,
         createdAt: new Date().toISOString(),
         status: "New",
       });
@@ -30,11 +57,18 @@ export async function POST(request: Request) {
     if (resendKey && contactEmail) {
       const { Resend } = await import("resend");
       const resend = new Resend(resendKey);
+      const attachments = await Promise.all(
+        files.map(async (f) => ({
+          filename: f.name,
+          content: Buffer.from(await f.arrayBuffer()),
+        }))
+      );
       // Resend reports failures in the result, not by throwing: check it,
       // or a failed send would still answer { ok: true } to the form.
       const { error: sendError } = await resend.emails.send({
         from: "Oaki Studio <noreply@oaki.studio>",
         to: contactEmail,
+        replyTo: data.email,
         subject: data.projectName
           ? `New inquiry from ${data.name} — ${data.projectName}`
           : `New inquiry from ${data.name}`,
@@ -54,10 +88,12 @@ export async function POST(request: Request) {
           data.estimatedImages && `Images: ${data.estimatedImages}`,
           data.videoNeeds && `Video: ${data.videoNeeds}`,
           data.budgetRange && `Budget: ${data.budgetRange}`,
+          attachmentNames.length && `Attachments: ${attachmentNames.join(", ")}`,
           `\nMessage:\n${data.message}`,
         ]
           .filter(Boolean)
           .join("\n"),
+        attachments,
       });
       if (sendError) throw new Error(`Email failed: ${sendError.message}`);
     }
