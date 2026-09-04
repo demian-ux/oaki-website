@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { type ContactPageData } from "@/lib/data";
-import { contactSchema } from "@/lib/contact-schema";
+import { contactSchema, MESSAGE_MAX } from "@/lib/contact-schema";
 import Button from "@/components/global/Button";
 
 // One step, no wizard. The page copy promises "you don't need the brief
@@ -29,7 +29,7 @@ const inputBase =
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
   return (
-    <p id={id} role="alert" className="text-meta mt-2" style={{ color: "var(--color-error)" }}>
+    <p id={id} role="alert" className="text-meta" style={{ color: "var(--color-error)" }}>
       {message}
     </p>
   );
@@ -74,7 +74,9 @@ function TextInput({
         className={inputBase}
         style={error ? { borderColor: "var(--color-error)" } : undefined}
       />
-      <FieldError id={errorId} message={error} />
+      <div className="mt-2">
+        <FieldError id={errorId} message={error} />
+      </div>
     </div>
   );
 }
@@ -225,7 +227,21 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
           style={fieldErrors.message ? { borderColor: "var(--color-error)" } : undefined}
           placeholder="Tell us what you are building…"
         />
-        <FieldError id="message-error" message={fieldErrors.message} />
+        {/* Counter and error share one line: error left, count right. The
+            count turns to the error color once the cap is passed. */}
+        <div className="flex items-baseline justify-between gap-6 mt-2">
+          <FieldError id="message-error" message={fieldErrors.message} />
+          <p
+            className="text-meta ml-auto tabular-nums"
+            aria-live="polite"
+            style={{
+              color:
+                form.message.length > MESSAGE_MAX ? "var(--color-error)" : "var(--color-muted)",
+            }}
+          >
+            {form.message.length.toLocaleString("en-US")} / {MESSAGE_MAX.toLocaleString("en-US")}
+          </p>
+        </div>
       </div>
 
       <TextInput
