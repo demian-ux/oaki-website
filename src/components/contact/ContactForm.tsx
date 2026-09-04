@@ -12,6 +12,7 @@ import {
   attachmentsError,
 } from "@/lib/contact-schema";
 import Button from "@/components/global/Button";
+import { upload } from "@vercel/blob/client";
 
 // One step, no wizard. The page copy promises "you don't need the brief
 // finished. Send what you have" — so the form asks for exactly that: who you
@@ -117,6 +118,8 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [files, setFiles] = useState<File[]>([]);
   const [dragging, setDragging] = useState(false);
+  // 0..100 while files are going to the Blob store, null otherwise.
+  const [uploadPct, setUploadPct] = useState<number | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Merge newly picked files into the list (same name + size = same file),
@@ -176,10 +179,37 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
 
     setSubmitting(true);
     try {
-      const body = new FormData();
-      for (const [k, v] of Object.entries(payload)) body.append(k, v);
-      for (const f of files) body.append("files", f, f.name);
-      const res = await fetch("/api/contact", { method: "POST", body });
+      // Files go browser → Blob store directly; the form then sends only
+      // their references. Progress is tracked across all files together.
+      const total = files.reduce((n, f) => n + f.size, 0);
+      const loaded = files.map(() => 0);
+      const attachments = [];
+      for (const [i, f] of files.entries()) {
+        setUploadPct(0);
+        const blob = await upload(`contact/${f.name}`, f, {
+          access: "private",
+          handleUploadUrl: "/api/contact/upload",
+          contentType: f.type || "application/octet-stream",
+          multipart: f.size > 5 * 1024 * 1024,
+          onUploadProgress: (e) => {
+            loaded[i] = e.loaded;
+            setUploadPct(Math.round((loaded.reduce((a, b) => a + b, 0) / total) * 100));
+          },
+        });
+        attachments.push({
+          name: f.name,
+          size: f.size,
+          type: f.type,
+          pathname: blob.pathname,
+          url: blob.url,
+        });
+      }
+      setUploadPct(null);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...payload, attachments }),
+      });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         throw new Error(
@@ -195,6 +225,7 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
       );
     } finally {
       setSubmitting(false);
+      setUploadPct(null);
     }
   };
 
@@ -376,7 +407,11 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
       {/* Submit */}
       <div className="flex items-center justify-end mt-16 pt-8 border-t border-line">
         <Button type="submit" variant="primary" disabled={submitting}>
-          {submitting ? submittingLabel : submitLabel}
+          {uploadPct !== null
+            ? `Uploading files… ${uploadPct}%`
+            : submitting
+            ? submittingLabel
+            : submitLabel}
         </Button>
       </div>
     </form>

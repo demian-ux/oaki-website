@@ -3,11 +3,13 @@ import { z } from "zod";
 /** Message cap, shared by the form counter and the API. */
 export const MESSAGE_MAX = 5000;
 
-/** Attachments: shared limits for the form and the API. The total sits
- *  under the 4.5 MB request cap of the serverless route; bigger material
- *  goes through the link field. */
+/** Attachments: shared limits for the form, the upload token route and
+ *  the contact API. Files go straight from the browser to the private Blob
+ *  store, so the serverless request cap does not apply; the total stays
+ *  under Resend's 40 MB email limit. */
 export const ATTACHMENT_MAX_FILES = 3;
-export const ATTACHMENT_MAX_TOTAL_BYTES = 4 * 1024 * 1024;
+export const ATTACHMENT_MAX_TOTAL_BYTES = 25 * 1024 * 1024;
+export const ATTACHMENT_MAX_FILE_BYTES = ATTACHMENT_MAX_TOTAL_BYTES;
 export const ATTACHMENT_ACCEPT = ".pdf,.jpg,.jpeg,.png,.webp,.zip";
 export const ATTACHMENT_TYPES = new Set([
   "application/pdf",
@@ -19,6 +21,16 @@ export const ATTACHMENT_TYPES = new Set([
 ]);
 
 /** One plain-words message for a file list, or null when it is fine. */
+/** A file the browser has already put in the Blob store. */
+export const attachmentRefSchema = z.object({
+  name: z.string().min(1).max(255),
+  size: z.number().int().nonnegative(),
+  type: z.string(),
+  pathname: z.string().startsWith("contact/"),
+  url: z.string().url(),
+});
+export type AttachmentRef = z.infer<typeof attachmentRefSchema>;
+
 export function attachmentsError(files: { name: string; size: number; type: string }[]): string | null {
   if (files.length > ATTACHMENT_MAX_FILES) return `Up to ${ATTACHMENT_MAX_FILES} files, please`;
   const total = files.reduce((n, f) => n + f.size, 0);
@@ -41,6 +53,7 @@ export const contactSchema = z.object({
     .min(10, "Please share a bit more about your project")
     .max(MESSAGE_MAX, `Please keep it under ${MESSAGE_MAX.toLocaleString("en-US")} characters`),
   website: z.string().url("Please enter a valid URL").optional().or(z.literal("")),
+  attachments: z.array(attachmentRefSchema).max(ATTACHMENT_MAX_FILES).optional(),
 
   // Legacy fields (pre-collapse wizard) — accepted, never required.
   company: z.string().optional(),

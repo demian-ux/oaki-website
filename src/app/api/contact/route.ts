@@ -2,36 +2,37 @@ import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 import { contactSchema, attachmentsError } from "@/lib/contact-schema";
 
-// The form posts multipart/form-data (fields + optional files). Plain JSON
-// is still accepted for older clients and scripted tests.
-async function readRequest(request: Request): Promise<{ fields: unknown; files: File[] }> {
-  const type = request.headers.get("content-type") ?? "";
-  if (!type.includes("multipart/form-data")) {
-    return { fields: await request.json(), files: [] };
-  }
-  const fd = await request.formData();
-  const fields: Record<string, string> = {};
-  const files: File[] = [];
-  for (const [key, value] of fd.entries()) {
-    if (value instanceof File) {
-      if (value.size > 0) files.push(value);
-    } else {
-      fields[key] = value;
-    }
-  }
-  return { fields, files };
+// Attachments arrive as references to blobs the browser already uploaded
+// (see ./upload/route.ts). Read each one back from the private store and
+// hand it to Resend as a real attachment.
+async function loadAttachments(
+  refs: { name: string; pathname: string }[]
+): Promise<{ filename: string; content: Buffer }[]> {
+  if (refs.length === 0) return [];
+  const { get } = await import("@vercel/blob");
+  return Promise.all(
+    refs.map(async (ref) => {
+      const res = await get(ref.pathname, { access: "private", useCache: false });
+      if (!res || res.statusCode !== 200 || !res.stream) {
+        throw new Error(`Could not read the attachment ${ref.name}`);
+      }
+      const bytes = await new Response(res.stream).arrayBuffer();
+      return { filename: ref.name, content: Buffer.from(bytes) };
+    })
+  );
 }
 
 export async function POST(request: Request) {
   try {
-    const { fields, files } = await readRequest(request);
-    const data = contactSchema.parse(fields);
+    const body = await request.json();
+    const data = contactSchema.parse(body);
+    const refs = data.attachments ?? [];
 
-    const fileProblem = attachmentsError(files);
+    const fileProblem = attachmentsError(refs);
     if (fileProblem) {
       return NextResponse.json({ error: fileProblem }, { status: 400 });
     }
-    const attachmentNames = files.map((f) => f.name);
+    const attachmentNames = refs.map((f) => f.name);
 
     // Save to Sanity (only when configured)
     const sanityProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
@@ -44,7 +45,9 @@ export async function POST(request: Request) {
         ...data,
         servicesNeeded: data.servicesNeeded,
         mainGoal: data.mainGoal,
-        attachments: attachmentNames,
+        // Name plus the private blob path, so a file can be pulled from the
+        // store later even if the email is gone.
+        attachments: refs.map((f) => `${f.name} · ${f.pathname}`),
         createdAt: new Date().toISOString(),
         status: "New",
       });
@@ -57,12 +60,7 @@ export async function POST(request: Request) {
     if (resendKey && contactEmail) {
       const { Resend } = await import("resend");
       const resend = new Resend(resendKey);
-      const attachments = await Promise.all(
-        files.map(async (f) => ({
-          filename: f.name,
-          content: Buffer.from(await f.arrayBuffer()),
-        }))
-      );
+      const attachments = await loadAttachments(refs);
       // Resend reports failures in the result, not by throwing: check it,
       // or a failed send would still answer { ok: true } to the form.
       const { error: sendError } = await resend.emails.send({
