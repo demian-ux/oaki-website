@@ -79,6 +79,7 @@
   background: none;
   border: 0;
   cursor: pointer;
+  text-decoration: none;
 }
 .nav:hover {
   color: var(--color-ink, #222);

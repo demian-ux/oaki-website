@@ -385,9 +385,9 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
       </div>
 
       {/* CONTACT (top-right) — section links live in the nav bar */}
-      <button type="button" className={`${styles.nav} ${styles.contact} ${open ? styles.navOpen : ""}`}>
+      <Link href="/contact" className={`${styles.nav} ${styles.contact} ${open ? styles.navOpen : ""}`}>
         Contact
-      </button>
+      </Link>
 
       {/* statement — the one line a stranger reads first. Footer line of the
           hero, typed out after the rest of it has settled, closing on the
