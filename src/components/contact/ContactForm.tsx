@@ -98,7 +98,7 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
   const submittingLabel = config?.submittingLabel ?? "Sending…";
   const messagePrompt =
     config?.messagePrompt ??
-    "Share the project, the ambition, and what the images need to achieve.";
+    "Share a bit about your project";
   const thankYouHeading =
     config?.thankYouHeading ?? "Thank you. We received your note.";
   const successMessage =

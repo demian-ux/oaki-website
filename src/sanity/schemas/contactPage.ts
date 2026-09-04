@@ -90,8 +90,7 @@ export default defineType({
       type: "text",
       rows: 2,
       group: "form",
-      initialValue:
-        "Share the project, the ambition, and what the images need to achieve.",
+      initialValue: "Share a bit about your project",
     }),
 
     // Field options
@@ -191,8 +190,19 @@ export default defineType({
     }),
 
     // SEO
-    defineField({ name: "seoTitle", title: "SEO Title", type: "string", group: "seo" }),
-    defineField({ name: "seoDescription", title: "SEO Description", type: "text", rows: 2, group: "seo" }),
+    defineField({
+      name: "seoTitle",
+      title: "SEO Title",
+      type: "string",
+      group: "seo",
+    }),
+    defineField({
+      name: "seoDescription",
+      title: "SEO Description",
+      type: "text",
+      rows: 2,
+      group: "seo",
+    }),
   ],
   preview: { prepare: () => ({ title: "Contact Page" }) },
 });

@@ -45,7 +45,9 @@ const apiVersion = env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-01-01";
 const token = env.SANITY_API_WRITE_TOKEN;
 
 if (!projectId || !token) {
-  console.error("Missing NEXT_PUBLIC_SANITY_PROJECT_ID or SANITY_API_WRITE_TOKEN in .env.local");
+  console.error(
+    "Missing NEXT_PUBLIC_SANITY_PROJECT_ID or SANITY_API_WRITE_TOKEN in .env.local",
+  );
   process.exit(1);
 }
 
@@ -66,7 +68,8 @@ const docs = [
     featuredHeading: "Each one a book of its own.",
     featuredViewAllLabel: "View the Library →",
     // Process lead-in
-    positioningHeading: "Most studios start with a rough draft. We start with the story.",
+    positioningHeading:
+      "Most studios start with a rough draft. We start with the story.",
     positioningParagraph1:
       "Our role is to understand the project, find its tone, and build the visual world that makes others want to be part of it before the first brick is laid.",
     positioningParagraph2: "", // intentionally empty — old pulse line removed
@@ -78,7 +81,8 @@ const docs = [
     peerBandQuote:
       "You overcome any obstacle that we throw at your team with the technical skills and ability to work to meet the deliverables.",
     peerBandAuthorName: "Andrew Delgado",
-    peerBandAuthorTitle: "Technical Director of Visualization, Journey / iCrave",
+    peerBandAuthorTitle:
+      "Technical Director of Visualization, Journey / iCrave",
     clientMarks: [
       "Koda",
       "Journey / iCrave",
@@ -116,7 +120,8 @@ const docs = [
       "We build the image world around architecture that doesn't exist yet.",
     heroText:
       "Oaki Studio works with architects, designers, and developers to make projects feel real before they are.",
-    statementHeading: "A building can be correct and still fail to move anyone.",
+    statementHeading:
+      "A building can be correct and still fail to move anyone.",
     statementParagraph1:
       "We close that gap. Our work makes people want to live in a project before the first brick is laid.",
     statementParagraph2:
@@ -140,11 +145,36 @@ const docs = [
     heroText:
       "We read the project, find its tone, and build the image world that lets others see what you see.",
     steps: [
-      { _key: "s1", number: "01", title: "Read the project", body: "We study the brief, the site, the audience, and what the project is trying to prove. We ask the questions the images will have to answer." },
-      { _key: "s2", number: "02", title: "Find the narrative", body: "We define the feeling. What should someone experience when they first see this project? That answer drives every image we make." },
-      { _key: "s3", number: "03", title: "Build the visual language", body: "We build the reference world: mood, material, light, color, rhythm. The complete atmosphere of the project before a single frame is rendered." },
-      { _key: "s4", number: "04", title: "Craft the image sequence", body: "We create every view, detail, and moment that tells the story. Nothing is generic. Nothing is accidental." },
-      { _key: "s5", number: "05", title: "Prepare the project for use", body: "We deliver images built to work. For your pitch deck. Your sales launch. Your competition submission. Not just a folder of files." },
+      {
+        _key: "s1",
+        number: "01",
+        title: "Read the project",
+        body: "We study the brief, the site, the audience, and what the project is trying to prove. We ask the questions the images will have to answer.",
+      },
+      {
+        _key: "s2",
+        number: "02",
+        title: "Find the narrative",
+        body: "We define the feeling. What should someone experience when they first see this project? That answer drives every image we make.",
+      },
+      {
+        _key: "s3",
+        number: "03",
+        title: "Build the visual language",
+        body: "We build the reference world: mood, material, light, color, rhythm. The complete atmosphere of the project before a single frame is rendered.",
+      },
+      {
+        _key: "s4",
+        number: "04",
+        title: "Craft the image sequence",
+        body: "We create every view, detail, and moment that tells the story. Nothing is generic. Nothing is accidental.",
+      },
+      {
+        _key: "s5",
+        number: "05",
+        title: "Prepare the project for use",
+        body: "We deliver images built to work. For your pitch deck. Your sales launch. Your competition submission. Not just a folder of files.",
+      },
     ],
     fasesLabel: "The FASES Method",
     fasesHeading: "Every project book follows the same six-part structure.",
@@ -171,8 +201,7 @@ const docs = [
     backLabel: "← Back",
     submitLabel: "Begin the conversation",
     submittingLabel: "Sending…",
-    messagePrompt:
-      "Share the project, the ambition, and what the images need to achieve.",
+    messagePrompt: "Share a bit about your project",
     services: [
       "Still images",
       "Film / animation",
