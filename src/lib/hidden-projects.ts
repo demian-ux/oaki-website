@@ -8,6 +8,8 @@ export const HIDDEN_PROJECT_SLUGS = new Set([
   "icrave-ballys-chicago",
   "icrave-sapphire",
   "icrave-southwest",
+  // Dixon House (San Marino Island): awaiting client approval
+  "dixon-house",
 ]);
 
 // Journal articles about those projects, hidden from the public journal
@@ -17,4 +19,5 @@ export const HIDDEN_JOURNAL_SLUGS = new Set([
   "icrave-ballys-chicago",
   "icrave-sapphire-lounges",
   "icrave-southwest-lounges",
+  "dixon-house-gardens",
 ]);

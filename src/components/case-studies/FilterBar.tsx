@@ -2,40 +2,38 @@
 
 import { type Project } from "@/lib/types";
 import SectionLabel from "@/components/global/SectionLabel";
+import { COLLECTIONS, collectionsFor } from "@/lib/project-taxonomy";
 
-type SortKey = "featured" | "newest" | "location" | "type";
+type SortKey = "featured" | "newest" | "location" | "collection";
 
 interface FilterBarProps {
   projects: Project[];
-  activeType: string;
+  activeCollection: string;
   activeCity: string;
-  activeGoal: string;
   activeSort: SortKey;
-  onTypeChange: (v: string) => void;
+  onCollectionChange: (v: string) => void;
   onCityChange: (v: string) => void;
-  onGoalChange: (v: string) => void;
   onSortChange: (v: SortKey) => void;
   filteredCount: number;
 }
 
 const SELECT_BASE =
-  "text-meta bg-paper border border-line px-3 py-2 pr-8 appearance-none cursor-pointer hover:border-ink transition-colors duration-200 focus:outline-none focus:border-ink";
+  "filter-select bg-paper border border-line px-3 py-2 pr-8 appearance-none cursor-pointer hover:border-ink transition-colors duration-200 focus:outline-none focus:border-ink";
 
 export default function FilterBar({
   projects,
-  activeType,
+  activeCollection,
   activeCity,
-  activeGoal,
   activeSort,
-  onTypeChange,
+  onCollectionChange,
   onCityChange,
-  onGoalChange,
   onSortChange,
   filteredCount,
 }: FilterBarProps) {
-  const types = ["All", ...Array.from(new Set(projects.map((p) => p.projectType ?? "").filter(Boolean))).sort()];
+  // Only collections that have at least one project, in canonical order.
+  const present = new Set(projects.flatMap((p) => p.collections ?? collectionsFor(p)));
+  const collections = ["All Collections", ...COLLECTIONS.filter((c) => present.has(c))];
   const cities = ["All Locations", ...Array.from(new Set(projects.map((p) => p.city).filter(Boolean))).sort()];
-  const goals = ["All Goals", ...Array.from(new Set(projects.map((p) => p.mainGoal).filter(Boolean))).sort()];
 
   return (
     <div className="border-b border-line page-x py-4">
@@ -46,13 +44,13 @@ export default function FilterBar({
           <div className="relative">
             <select
               className={SELECT_BASE}
-              value={activeType}
-              onChange={(e) => onTypeChange(e.target.value)}
-              aria-label="Filter by type"
+              value={activeCollection}
+              onChange={(e) => onCollectionChange(e.target.value)}
+              aria-label="Filter by collection"
             >
-              {types.map((t) => (
-                <option key={t} value={t}>
-                  {t}
+              {collections.map((c) => (
+                <option key={c} value={c}>
+                  {c}
                 </option>
               ))}
             </select>
@@ -72,21 +70,6 @@ export default function FilterBar({
               ))}
             </select>
           </div>
-
-          <div className="relative">
-            <select
-              className={SELECT_BASE}
-              value={activeGoal}
-              onChange={(e) => onGoalChange(e.target.value)}
-              aria-label="Filter by goal"
-            >
-              {goals.map((g) => (
-                <option key={g} value={g}>
-                  {g}
-                </option>
-              ))}
-            </select>
-          </div>
         </div>
 
         <div className="flex items-center gap-4">
@@ -100,7 +83,7 @@ export default function FilterBar({
               <option value="featured">Featured</option>
               <option value="newest">Newest</option>
               <option value="location">Location</option>
-              <option value="type">Project Type</option>
+              <option value="collection">Collection</option>
             </select>
           </div>
 

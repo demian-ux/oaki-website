@@ -49,6 +49,8 @@ export interface Project {
   title: string;
   slug: string;
   collectionLabel: string;
+  /** All collections the project belongs to, primary first. See project-taxonomy. */
+  collections?: string[];
   subtitle: string;
   shortDescription?: string;
   coverImage?: SanityImage | null;

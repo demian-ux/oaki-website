@@ -296,6 +296,18 @@
   }
 }
 
+/* Library filter selects: SangBleu Light, the mega menu's collection
+   voice, so the dropdowns read with the rest of the site. The option
+   list inherits the select's font in the browsers that let it. */
+.filter-select,
+.filter-select option {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 300;
+  font-size: 0.9375rem;
+  letter-spacing: 0.005em;
+  color: var(--color-ink);
+}
+
 /* ════════════════════════════════════════════════════════════════════
    BUTTONS — flat, square, border-driven (v3.0: glassmorphism declined).
    No backdrop blur, no shadow, no glow, no scale-on-press. Hover changes

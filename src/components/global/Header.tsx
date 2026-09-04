@@ -10,6 +10,7 @@ import CopyEmail from "./CopyEmail";
 import SanityImg from "./SanityImg";
 import BookCover from "@/components/case-studies/BookCover";
 import { collectionDisplay } from "@/lib/collection-label";
+import { COLLECTIONS, collectionsFor } from "@/lib/project-taxonomy";
 import { useHeroTheme } from "./HeroTheme";
 import { getLenis } from "./SmoothScroll";
 import { HERO_REPLAY_EVENT } from "@/lib/hero-replay";
@@ -274,13 +275,11 @@ function CaseStudiesMegaMenu({
   const flagged = projects.filter((p) => p.featured);
   const featured = (flagged.length > 0 ? flagged : projects).slice(0, 3);
   const recent = projects.slice(0, 5);
-  const collections = Array.from(
-    new Set(
-      projects
-        .map((p) => collectionDisplay(p.collectionLabel))
-        .filter((c): c is string => Boolean(c))
-    )
-  ) as string[];
+  const present = new Set(projects.flatMap((p) => p.collections ?? collectionsFor(p)));
+  const collections = COLLECTIONS.filter((c) => present.has(c)).map((c) => ({
+    key: c,
+    label: collectionDisplay(`${c} Collection`) as string,
+  }));
 
   return (
     <div
@@ -296,15 +295,15 @@ function CaseStudiesMegaMenu({
             <SectionLabel className="mega-label">By Collection</SectionLabel>
             <ul className="mega-list">
               {collections.map((c, i) => (
-                <li key={c}>
+                <li key={c.key}>
                   <Link
-                    href="/case-studies"
+                    href={`/case-studies?collection=${encodeURIComponent(c.key)}`}
                     onClick={onClose}
                     className="mega-link"
                     style={{ transitionDelay: `${60 + i * 30}ms` }}
                   >
                     <span className="mega-link-num">{String(i + 1).padStart(2, "0")}</span>
-                    <span>{c}</span>
+                    <span>{c.label}</span>
                     <span className="mega-link-arrow" aria-hidden="true">→</span>
                   </Link>
                 </li>

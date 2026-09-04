@@ -9,6 +9,7 @@ import {
 import { placeholderProjects } from "./placeholder-data";
 import { journalPostsMock } from "./journal-mock";
 import { HIDDEN_JOURNAL_SLUGS } from "./hidden-projects";
+import { applyTaxonomy } from "./project-taxonomy";
 
 const hasSanityConfig =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
@@ -49,7 +50,7 @@ const coverOverrides: Record<string, { coverSrc: string; title?: string }> = {
 
 const withCoverOverrides = (projects: Project[]): Project[] =>
   projects.map((p) =>
-    coverOverrides[p.slug] ? { ...p, ...coverOverrides[p.slug] } : p
+    applyTaxonomy(coverOverrides[p.slug] ? { ...p, ...coverOverrides[p.slug] } : p)
   );
 
 export async function getAllProjects(): Promise<Project[]> {
@@ -65,18 +66,19 @@ export async function getFeaturedProjects(): Promise<Project[]> {
   if (hasSanityConfig) {
     const { featuredProjectsQuery } = await import("@/sanity/queries");
     const data = await getSanityData<Project[]>(featuredProjectsQuery);
-    if (data && data.length > 0) return data;
+    if (data && data.length > 0) return withCoverOverrides(data);
   }
-  return placeholderProjects.filter((p) => p.featured);
+  return withCoverOverrides(placeholderProjects.filter((p) => p.featured));
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
   if (hasSanityConfig) {
     const { projectBySlugQuery } = await import("@/sanity/queries");
     const data = await getSanityData<Project>(projectBySlugQuery, { slug });
-    if (data) return data;
+    if (data) return withCoverOverrides([data])[0];
   }
-  return placeholderProjects.find((p) => p.slug === slug) ?? null;
+  const local = placeholderProjects.find((p) => p.slug === slug);
+  return local ? withCoverOverrides([local])[0] : null;
 }
 
 export async function getAllProjectSlugs(): Promise<string[]> {
