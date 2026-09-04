@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { type ContactPageData } from "@/lib/data";
+import { contactSchema } from "@/lib/contact-schema";
 import Button from "@/components/global/Button";
 
 // One step, no wizard. The page copy promises "you don't need the brief
@@ -10,13 +11,29 @@ import Button from "@/components/global/Button";
 // are, how to reach you, what you're building, and an optional link to
 // whatever exists (plans, references, a folder). Every extra step is friction
 // the copy promises not to have.
+//
+// Validation runs client-side with the same schema the API uses, so a slip
+// shows up under the field it belongs to, in plain words, before anything is
+// sent. The API's own message is the fallback for anything else.
 
 interface ContactFormProps {
   config?: ContactPageData;
 }
 
+type Field = "name" | "email" | "website" | "message";
+type FieldErrors = Partial<Record<Field, string>>;
+
 const inputBase =
-  "w-full border-b border-line bg-transparent py-3 text-body text-ink focus:outline-none focus:border-ink transition-colors duration-200 placeholder:text-muted";
+  "w-full border-b bg-transparent py-3 text-body text-ink focus:outline-none focus:border-ink transition-colors duration-200 placeholder:text-muted";
+
+function FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) return null;
+  return (
+    <p id={id} role="alert" className="text-meta mt-2" style={{ color: "var(--color-error)" }}>
+      {message}
+    </p>
+  );
+}
 
 function TextInput({
   label,
@@ -26,6 +43,7 @@ function TextInput({
   type = "text",
   required = false,
   placeholder = "",
+  error,
 }: {
   label: string;
   name: string;
@@ -34,7 +52,9 @@ function TextInput({
   type?: string;
   required?: boolean;
   placeholder?: string;
+  error?: string;
 }) {
+  const errorId = `${name}-error`;
   return (
     <div>
       <label htmlFor={name} className="text-label text-muted block mb-2">
@@ -49,14 +69,30 @@ function TextInput({
         onChange={(e) => onChange(e.target.value)}
         required={required}
         placeholder={placeholder}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? errorId : undefined}
         className={inputBase}
+        style={error ? { borderColor: "var(--color-error)" } : undefined}
       />
+      <FieldError id={errorId} message={error} />
     </div>
   );
 }
 
+/** Zod issues → one plain message per field (the first issue wins). */
+function toFieldErrors(issues: { path: PropertyKey[]; message: string }[]): FieldErrors {
+  const out: FieldErrors = {};
+  for (const issue of issues) {
+    const field = issue.path[0];
+    if (typeof field === "string" && !(field in out)) {
+      out[field as Field] = issue.message;
+    }
+  }
+  return out;
+}
+
 export default function ContactForm({ config }: ContactFormProps = {}) {
-  const submitLabel = config?.submitLabel ?? "Start a project";
+  const submitLabel = config?.submitLabel ?? "Send";
   const submittingLabel = config?.submittingLabel ?? "Sending…";
   const messagePrompt =
     config?.messagePrompt ??
@@ -69,6 +105,7 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   const [form, setForm] = useState({
     name: "",
@@ -77,26 +114,55 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
     message: "",
   });
 
-  const set = (field: keyof typeof form, value: string) =>
+  const set = (field: Field, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
+    // A field being edited drops its error immediately; the next submit
+    // re-checks everything.
+    if (fieldErrors[field]) {
+      setFieldErrors((prev) => ({ ...prev, [field]: undefined }));
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitting(true);
     setError("");
+
+    // Trim before checking so a name that is only spaces does not pass.
+    const payload = {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      website: form.website.trim(),
+      message: form.message.trim(),
+    };
+    const parsed = contactSchema.safeParse(payload);
+    if (!parsed.success) {
+      const errors = toFieldErrors(parsed.error.issues);
+      setFieldErrors(errors);
+      const first = (["name", "email", "message", "website"] as Field[]).find((f) => errors[f]);
+      if (first) document.getElementById(first)?.focus();
+      return;
+    }
+
+    setSubmitting(true);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error ?? "Submission failed");
+        const data = await res.json().catch(() => ({}));
+        throw new Error(
+          typeof data.error === "string" ? data.error : "We could not send your note. Please try again."
+        );
       }
       setSubmitted(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "We could not send your note. Please try again, or write to info@oaki.studio."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -122,8 +188,23 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
   return (
     <form onSubmit={handleSubmit} noValidate>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
-        <TextInput label="Name" name="name" value={form.name} onChange={(v) => set("name", v)} required />
-        <TextInput label="Email" name="email" type="email" value={form.email} onChange={(v) => set("email", v)} required />
+        <TextInput
+          label="Name"
+          name="name"
+          value={form.name}
+          onChange={(v) => set("name", v)}
+          required
+          error={fieldErrors.name}
+        />
+        <TextInput
+          label="Email"
+          name="email"
+          type="email"
+          value={form.email}
+          onChange={(v) => set("email", v)}
+          required
+          error={fieldErrors.email}
+        />
       </div>
 
       <div className="mb-12">
@@ -138,9 +219,13 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
           onChange={(e) => set("message", e.target.value)}
           rows={8}
           required
-          className="w-full border-b border-line bg-transparent py-3 text-body text-ink focus:outline-none focus:border-ink transition-colors duration-200 resize-none placeholder:text-muted"
+          aria-invalid={fieldErrors.message ? true : undefined}
+          aria-describedby={fieldErrors.message ? "message-error" : undefined}
+          className={`${inputBase} resize-none`}
+          style={fieldErrors.message ? { borderColor: "var(--color-error)" } : undefined}
           placeholder="Tell us what you are building…"
         />
+        <FieldError id="message-error" message={fieldErrors.message} />
       </div>
 
       <TextInput
@@ -150,11 +235,12 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
         value={form.website}
         onChange={(v) => set("website", v)}
         placeholder="https://"
+        error={fieldErrors.website}
       />
 
-      {/* Error */}
+      {/* Submit-level error (network, server) */}
       {error && (
-        <p className="text-meta mt-4" style={{ color: "var(--color-error)" }}>
+        <p role="alert" className="text-meta mt-8" style={{ color: "var(--color-error)" }}>
           {error}
         </p>
       )}

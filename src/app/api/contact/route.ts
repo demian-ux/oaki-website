@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { ZodError } from "zod";
 import { contactSchema } from "@/lib/contact-schema";
 
 export async function POST(request: Request) {
@@ -63,6 +64,15 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
+    // Validation: answer with the first issue in plain words, never the raw
+    // issue list (the form shows this string as-is).
+    if (error instanceof ZodError) {
+      const first = error.issues[0];
+      return NextResponse.json(
+        { error: first?.message ?? "Please check the form and try again." },
+        { status: 400 }
+      );
+    }
     if (error instanceof Error) {
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
