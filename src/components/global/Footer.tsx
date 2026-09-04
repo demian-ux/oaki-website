@@ -4,9 +4,10 @@ import EmailLink from "./EmailLink";
 // The real site links (not the placeholder labels from the design mock).
 const navLinks = [
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Process", href: "/process" },
+  // Temporarily hidden — restore by uncommenting:
+  // { label: "Process", href: "/process" },
   { label: "Journal", href: "/journal" },
-  { label: "About", href: "/about" },
+  // { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -22,7 +23,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer-mega bg-paper">
+    <footer className="footer-mega" style={{ background: "var(--color-gris)" }}>
       <div className="page-x pt-20 lg:pt-28">
         {/* Link row — nav on the left, contact on the right */}
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">

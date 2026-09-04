@@ -48,7 +48,8 @@ export const articleImageProject: Record<string, string> = {
   "moncayo-puerto-rico": "moncayo",
   "bay-house-geiger-site": "bay-house",
   "8-rockledge-gardens": "8-rockledge",
-  "dixon-house-gardens": "dixon-house",
+  // The Dixon House grounds live in the san-marino library folder.
+  "dixon-house-gardens": "san-marino",
   "icrave-sapphire-lounges": "icrave-sapphire",
   "icrave-ballys-chicago": "icrave-ballys-chicago",
   "icrave-southwest-lounges": "icrave-southwest",
@@ -75,6 +76,11 @@ export const articleImagePicks: Record<
   "icrave-sapphire-lounges": { hero: "View 02_Lounge", supports: ["View 03_Bar", "View 04_La ventanita"] },
   "icrave-ballys-chicago": { hero: "View 01 -", supports: ["View 04"] },
   "icrave-southwest-lounges": { hero: "View 01_Dining", supports: ["View 05_DenArea"] },
+  // Picks 2026-09-04, from the four libraries Demi filled that day.
+  "94-s-hibiscus-sale": { hero: "View 07_a02", supports: ["View 06_Exterior Day_Final", "View 05_Exterior Day_Final"] },
+  "sf-housing-aiasf-merit": { hero: "View 01_a03", supports: ["View 02_a03", "View 03_fixed"] },
+  "prismatic-parasol-architizer": { hero: "View 01_Aerial", supports: ["View 04_Interior_Concert", "View 02_Aerial Village"] },
+  "dixon-house-gardens": { hero: "View 02 - Entry Stairs", supports: ["View 04 - Seawall", "View 06 - Waterfront"] },
 };
 
 export function getProjectImages(projectSlug: string): JournalImage[] {

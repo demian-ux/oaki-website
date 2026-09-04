@@ -235,6 +235,7 @@
     font-family: var(--font-sans);
     font-size: 1.25rem;
     line-height: 1.6;
+    letter-spacing: 0.02em; /* opens Neue Montreal at body size for readability */
   }
 
   .text-label {
@@ -586,6 +587,75 @@ body:has([data-hero]) .site-header:not([data-nav-ready]) {
   transform: translateX(0);
   color: var(--color-warm-deep);
 }
+/* THE BOOK COVER — template 1b: full-bleed render + typographic band with
+   the ocre seam. Sized in em off .book-cover's font-size so the mega menu
+   can shrink the whole cover with one override. */
+.book-cover {
+  display: block;
+  background: var(--color-soft);
+  font-size: 1rem;
+}
+.book-cover-image {
+  aspect-ratio: 4 / 5;
+  background: var(--color-gris);
+  border-bottom: 2px solid var(--color-warm); /* the ocre seam */
+  /* The render sits inset on the grey ground, like a plate on a book. */
+  padding: 1.5em 1.5em 1.25em;
+}
+.book-cover-plate {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: var(--color-soft);
+}
+.book-cover-band {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75em 1.25em 1.25em;
+  /* Fixed band height so every cover in a grid is the same size regardless
+     of how many lines the title wraps to (the reference's tall grey band). */
+  height: 14em;
+}
+/* Collection line — the hero shelf's Assouline register: SangBleu Light,
+   sentence case, dark grey. */
+.book-cover-collection {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 300;
+  font-size: 0.8125em;
+  letter-spacing: 0.005em;
+  color: var(--color-muted);
+  margin-bottom: 0.75em;
+}
+.book-cover-title {
+  /* Trial 2026-08-26: hero shelf title voice (Plain Light) on the covers. */
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.375em;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.book-cover-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-top: auto;
+}
+.book-cover-meta {
+  font-family: var(--font-mono);
+  font-size: 0.625em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-warm-deep);
+}
+.book-cover .book-cover-mark {
+  font-size: 0.8125em;
+}
+
 .mega-featured-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -604,6 +674,8 @@ body:has([data-hero]) .site-header:not([data-nav-ready]) {
   transform: translateY(0);
 }
 .mega-card.dim { opacity: 0.45; }
+/* The mega menu shows the same book cover at thumbnail scale. */
+.mega-card .book-cover { font-size: 0.625rem; }
 .mega-card-cover {
   position: relative;
   overflow: hidden;
@@ -1122,6 +1194,95 @@ body:has([data-hero]) .site-header:not([data-nav-ready]) {
   text-wrap: balance;
 }
 .text-article-title .dot { color: var(--color-warm); }
+
+/* The Case headline — case-study pages match the homepage volume voice:
+   Inktrap Ultrabold, uppercase, ink; ocre reserved for the period. */
+.text-case-title {
+  /* Trial 2026-08-26: the hero shelf's title voice — Neue Machina Plain
+     Light, uppercase — instead of Inktrap Ultrabold. */
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.125rem, 5.5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.text-case-title .dot { color: var(--color-warm); }
+
+/* Case meta line (collection · location · year) — the coord voice set in the
+   editorial serif, per the case template. */
+/* The case index mat — a white mount around each thumbnail (the Mir index
+   register): even margins, extra depth below, hairline edge. */
+.case-index-mat {
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  padding: 8% 8% 22%;
+}
+.case-index-mat img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+button.case-index-mat {
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+  text-align: inherit;
+}
+
+/* The index full-size viewer — negro ground, image at natural ratio capped
+   to the viewport, never cropped. */
+.case-index-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 34, 34, 0.96);
+  cursor: zoom-out;
+  padding: 3rem;
+}
+.case-index-lightbox picture { display: contents; }
+.case-index-lightbox-img {
+  width: auto !important;
+  max-width: 100% !important;
+  max-height: 100%;
+  object-fit: contain;
+}
+.case-index-lightbox-tag {
+  position: absolute;
+  left: 3rem;
+  bottom: 1.25rem;
+}
+.case-index-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-paper);
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 1rem;
+  cursor: pointer;
+}
+.case-index-lightbox-prev { left: 0.5rem; }
+.case-index-lightbox-next { right: 0.5rem; }
+.case-index-lightbox-close {
+  top: 1rem;
+  right: 1rem;
+  transform: none;
+  font-size: 1.75rem;
+}
+
+.coord.coord-serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 300;
+  /* Title Case as written, per the collection register — never all caps. */
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.8125rem;
+}
 
 /* Sans lede — body copy for Studio + Process (SangBleu is retired to Case
    in v3.0, so editorial body on those surfaces is Neue Montreal). */

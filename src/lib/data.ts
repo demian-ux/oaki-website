@@ -8,6 +8,7 @@ import {
 } from "./types";
 import { placeholderProjects } from "./placeholder-data";
 import { journalPostsMock } from "./journal-mock";
+import { HIDDEN_JOURNAL_SLUGS } from "./hidden-projects";
 
 const hasSanityConfig =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
@@ -33,13 +34,31 @@ async function getSanityData<T>(query: string, params?: Record<string, unknown>)
   }
 }
 
+/* Library covers for the Sanity projects whose old Sanity "book cover"
+   assets are retired (2026-08-26) — the card template now uses these
+   renders instead. The Sanity coverImage stays untouched as data. */
+const coverOverrides: Record<string, { coverSrc: string; title?: string }> = {
+  "raghsa-tower": { coverSrc: "/images/raghsa-tower/web/View%2002_Exterior_Libertador-1920.webp" },
+  "ny-penthouse": {
+    coverSrc: "/images/ny-penthouse/web/Living%20Piano%20Stage-1920.webp",
+    // Public name confirmed by Demi 2026-08-26 (matches the home shelf).
+    title: "Central Park West",
+  },
+  "windsor-residence": { coverSrc: "/images/windsor-residence/web/View%2006-1920.webp" },
+};
+
+const withCoverOverrides = (projects: Project[]): Project[] =>
+  projects.map((p) =>
+    coverOverrides[p.slug] ? { ...p, ...coverOverrides[p.slug] } : p
+  );
+
 export async function getAllProjects(): Promise<Project[]> {
   if (hasSanityConfig) {
     const { allProjectsQuery } = await import("@/sanity/queries");
     const data = await getSanityData<Project[]>(allProjectsQuery);
-    if (data && data.length > 0) return data;
+    if (data && data.length > 0) return withCoverOverrides(data);
   }
-  return placeholderProjects;
+  return withCoverOverrides(placeholderProjects);
 }
 
 export async function getFeaturedProjects(): Promise<Project[]> {
@@ -109,7 +128,10 @@ export async function getJournalPosts(): Promise<JournalPost[]> {
   if (hasSanityConfig) {
     const { allJournalPostsQuery } = await import("@/sanity/queries");
     const data = await getSanityData<JournalPost[]>(allJournalPostsQuery);
-    if (data && data.length > 0) return data.map(normalizeJournalPost);
+    if (data && data.length > 0)
+      return data
+        .filter((p) => !HIDDEN_JOURNAL_SLUGS.has(p.slug))
+        .map(normalizeJournalPost);
     // Sanity is live: an empty journal is an empty journal, not a reason to
     // show placeholder entries whose links resolve to mock-only content.
     if (data) return [];
@@ -118,6 +140,7 @@ export async function getJournalPosts(): Promise<JournalPost[]> {
 }
 
 export async function getJournalPostBySlug(slug: string): Promise<JournalPost | null> {
+  if (HIDDEN_JOURNAL_SLUGS.has(slug)) return null;
   if (hasSanityConfig) {
     const { journalPostBySlugQuery } = await import("@/sanity/queries");
     const data = await getSanityData<JournalPost>(journalPostBySlugQuery, { slug });
@@ -141,7 +164,9 @@ export async function getAllJournalSlugs(): Promise<string[]> {
   if (hasSanityConfig) {
     const { allJournalSlugsQuery } = await import("@/sanity/queries");
     const data = await getSanityData<{ slug: string }[]>(allJournalSlugsQuery);
-    return (data ?? []).map((d) => d.slug);
+    return (data ?? [])
+      .map((d) => d.slug)
+      .filter((s) => !HIDDEN_JOURNAL_SLUGS.has(s));
   }
   return journalPostsMock.map((p) => p.slug);
 }

@@ -10,16 +10,14 @@ type: Competition pavilion
 client: Object Territories
 year: 2025
 imageProject: prismatic-parasol
-img1: GAP :: Arrival, the competition hero frame that made the project
-img2: GAP :: Arrival, the canopy read against the village
-img3: GAP :: Moving through, approaching under the canopy
-img4: GAP :: Moving through, the gathering space beneath
-img5: GAP :: Moving through, the water edge
-img6: GAP :: Detail, the prismatic panels catching sun
-img7: GAP :: Detail, rain collection at work
-img8: GAP :: Life, the village using the pavilion
-img9: GAP :: Life, dusk frame
-img10: GAP :: Process, competition model state vs final frame
+img1: View 01_Aerial :: Arrival, the canopy in the valley, the competition hero frame
+img2: View 05_Entry :: Arrival, the tower and canopy from the path
+img3: View 03_Entry :: Moving through, approaching under the canopy edge
+img4: View 04_Interior_Concert :: Moving through, the gathering space beneath, in use
+img5: View 07_Tower :: Moving through, the lookout at the top, village and sea beyond
+img6: View 06_Section :: Detail, the section, how the canopy catches and the tower holds
+img7: View 02_Aerial Village :: Life, dusk over the village, the parasols lit
+img8: GAP :: Process, competition model state vs final frame
 credit1: Architect :: Object Territories
 credit2: Design team :: Michael Kokora, Marcus Carter, Miranda Lee
 credit3: Competition :: Land Art Generator Initiative 2025
@@ -28,7 +26,7 @@ credit5: Visualization :: Oaki Studio
 credit6: Published credit :: Demián Szklar and his team at Oaki Studio
 gap1: Intake pending, the brief as it arrived (model state, references, deadline) and what oaki filled in
 gap2: Intake pending, camera and light decisions with the why (the Criterio evidence)
-gap3: All ten images, library folder is empty, brief Diego from the competition set
+gap3: Slot 8, the process artifact, brief Diego
 flag1: Michael Kokora quote available ("The quality has held up from when we first received it to now."), confirm attribution permission before it renders
 ---
 ## Setup

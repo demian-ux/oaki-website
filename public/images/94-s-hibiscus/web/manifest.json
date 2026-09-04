@@ -1,0 +1,163 @@
+{
+  "project": "94-s-hibiscus",
+  "images": [
+    {
+      "name": "View 03_Vitas_kitchen_a05",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 2083,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1600,
+          "src": "/images/94-s-hibiscus/web/View 03_Vitas_kitchen_a05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 800,
+          "src": "/images/94-s-hibiscus/web/View 03_Vitas_kitchen_a05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1600,
+          "src": "/images/94-s-hibiscus/web/View 03_Vitas_kitchen_a05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 800,
+          "src": "/images/94-s-hibiscus/web/View 03_Vitas_kitchen_a05-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05_Exterior Day_Final",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 3008,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/94-s-hibiscus/web/View 05_Exterior Day_Final-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/94-s-hibiscus/web/View 05_Exterior Day_Final-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/94-s-hibiscus/web/View 05_Exterior Day_Final-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/94-s-hibiscus/web/View 05_Exterior Day_Final-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/94-s-hibiscus/web/View 05_Exterior Day_Final-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/94-s-hibiscus/web/View 05_Exterior Day_Final-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 06_Exterior Day_Final",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1880,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/94-s-hibiscus/web/View 06_Exterior Day_Final-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/94-s-hibiscus/web/View 06_Exterior Day_Final-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/94-s-hibiscus/web/View 06_Exterior Day_Final-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/94-s-hibiscus/web/View 06_Exterior Day_Final-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 07_a02",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 3008,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/94-s-hibiscus/web/View 07_a02-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/94-s-hibiscus/web/View 07_a02-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/94-s-hibiscus/web/View 07_a02-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/94-s-hibiscus/web/View 07_a02-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/94-s-hibiscus/web/View 07_a02-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/94-s-hibiscus/web/View 07_a02-960.webp"
+        }
+      ]
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import { getJournalPosts } from "@/lib/data";
 import { formatJournalDate } from "@/lib/format";
 import { getJournalLocalImages } from "@/lib/journal-images";
 import JournalCover from "@/components/journal/JournalCover";
+import PageHero from "@/components/global/PageHero";
 
 export const metadata: Metadata = {
   title: "Journal",
@@ -18,22 +19,12 @@ export default async function JournalPage() {
 
   return (
     <>
-      {/* Index hero — same register as the homepage sections: coord label,
-          .text-statement/.text-volume heading closing on the ocre dot,
-          .text-lede intro. */}
-      <section className="page-x pt-24 lg:pt-32 pb-10 lg:pb-14">
-        <div className="flex flex-wrap items-baseline justify-between gap-4">
-          <p className="coord">Journal</p>
-          {posts.length > 0 && <p className="coord text-muted">{countLabel}</p>}
-        </div>
-        <h1 className="text-statement text-volume reveal mt-6">
-          Our work, after your meeting<span className="dot">.</span>
-        </h1>
-        <p className="text-lede text-muted mt-8 lg:mt-10 max-w-[50ch]">
-          Most renders retire when the pitch ends. These went on: awards,
-          openings, front pages.
-        </p>
-      </section>
+      {/* Index hero — shared secondary-page design (PageHero). */}
+      <PageHero
+        title="Journal"
+        lede="Most renders retire when the pitch ends. These went on: awards, openings, front pages."
+        counter={posts.length > 0 ? countLabel : undefined}
+      />
 
       {/* Article list — wide rows: thumb, meta + excerpt, arrow */}
       {posts.length === 0 ? (

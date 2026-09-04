@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllProjectSlugs, getAllProjects, getProjectBySlug, getNextProject } from "@/lib/data";
 import { getCaseDraft, listCaseDraftSlugs } from "@/lib/case-drafts";
+import { HIDDEN_PROJECT_SLUGS } from "@/lib/hidden-projects";
 import CaseDraftView from "@/components/case-studies/CaseDraft";
 import PhaseSection from "@/components/case-studies/PhaseSection";
 import CaseHero from "@/components/case-studies/CaseHero";
@@ -16,11 +17,14 @@ interface Props {
 export async function generateStaticParams() {
   const slugs = await getAllProjectSlugs();
   const all = new Set([...slugs, ...listCaseDraftSlugs()]);
-  return [...all].map((slug) => ({ slug }));
+  return [...all]
+    .filter((slug) => !HIDDEN_PROJECT_SLUGS.has(slug))
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  if (HIDDEN_PROJECT_SLUGS.has(slug)) return {};
   const draft = getCaseDraft(slug);
   if (draft) return { title: draft.title, description: draft.subtitle };
   const project = await getProjectBySlug(slug);
@@ -33,6 +37,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
+
+  // Temporarily hidden projects 404 on the public route; their token
+  // previews under /case-studies/preview/ keep working.
+  if (HIDDEN_PROJECT_SLUGS.has(slug)) notFound();
 
   // Repo case studies (content/cases) take precedence: they carry the full
   // image arc from the library, where the Sanity projects so far hold only

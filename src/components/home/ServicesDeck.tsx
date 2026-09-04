@@ -448,7 +448,10 @@ export default function ServicesDeck() {
                   </div>
                 </div>
                 <div data-text className={styles.panelText}>
-                  <h3 className={styles.word}>{s.word}</h3>
+                  <h3 className={styles.word}>
+                    {s.word}
+                    <span className={styles.dot}>.</span>
+                  </h3>
                   <p className={styles.lede}>{s.lede}</p>
                 </div>
               </article>

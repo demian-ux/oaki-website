@@ -1,4 +1,6 @@
 import JournalPicture from "@/components/journal/JournalPicture";
+import CaseIndexGallery from "./CaseIndexGallery";
+import { collectionDisplay } from "@/lib/collection-label";
 import type { CaseDraft, CaseImageSlot } from "@/lib/case-drafts";
 
 // Draft-review renderer for the repo case studies (content/cases/*.md).
@@ -44,7 +46,10 @@ function Slot({ slot, priority = false }: { slot: CaseImageSlot; priority?: bool
   );
 }
 
-function Slots({ slots, pair = false }: { slots: CaseImageSlot[]; pair?: boolean }) {
+function Slots({ slots: all, pair = false }: { slots: CaseImageSlot[]; pair?: boolean }) {
+  // GAP slots are hidden everywhere (Demi, 2026-09-04): an unfilled slot
+  // leaves no placeholder frame, the arc simply closes up around it.
+  const slots = all.filter((s) => s.image);
   if (slots.length === 0) return null;
   return (
     <section className="page-x py-10 lg:py-16">
@@ -84,7 +89,7 @@ function Prose({ heading, paragraphs }: { heading: string; paragraphs: string[] 
               {p}
             </p>
           ) : (
-            <p key={i} className="text-body mb-5" style={{ maxWidth: "62ch" }}>
+            <p key={i} className="text-body text-muted mb-5" style={{ maxWidth: "62ch" }}>
               {p}
             </p>
           )
@@ -103,7 +108,7 @@ export default function CaseDraftView({
    *  public route never does — an unfilled section is hidden entirely. */
   showGaps?: boolean;
 }) {
-  const metaLine = [draft.collection, draft.location, draft.year]
+  const metaLine = [collectionDisplay(draft.collection), draft.location, draft.year]
     .filter((v) => v && v !== "GAP" && v !== "Undisclosed")
     .join(" · ");
   const bySection = (name: string) => {
@@ -123,8 +128,8 @@ export default function CaseDraftView({
       {/* Masthead */}
       <section className="page-x pt-16 pb-8 lg:pt-24 lg:pb-12">
         <div className="mx-auto" style={{ maxWidth: MEASURE }}>
-          <p className="coord reveal mb-8">{metaLine}</p>
-          <h1 className="text-article-title reveal">
+          <p className="coord coord-serif reveal mb-8">{metaLine}</p>
+          <h1 className="text-case-title reveal">
             {draft.title}
             <span aria-hidden className="dot" style={{ marginLeft: "-0.05em" }}>
               .
@@ -154,9 +159,7 @@ export default function CaseDraftView({
               01 · {draft.slots[0].label}
             </span>
           </div>
-        ) : (
-          draft.slots[0] && <Slot slot={draft.slots[0]} priority />
-        )}
+        ) : null}
       </section>
 
       {setup && <Prose heading="Setup" paragraphs={setup.paragraphs} />}
@@ -193,6 +196,17 @@ export default function CaseDraftView({
       {outcome && <Prose heading="Outcome" paragraphs={outcome.paragraphs} />}
       <Slots slots={s(10)} />
 
+      {/* Index — the full image library on white mats, Mir-style, closing
+          the book. Natural ratio, never cropped; the mat carries the air. */}
+      {draft.library.length > 0 && (
+        <section className="page-x py-12 lg:py-16">
+          <div className="mx-auto" style={{ maxWidth: 1100 }}>
+            <p className="coord mb-8">Index · {String(draft.library.length).padStart(3, "0")} images</p>
+            <CaseIndexGallery images={draft.library} />
+          </div>
+        </section>
+      )}
+
       {/* Credits — the 2px negro baseline */}
       {draft.credits.length > 0 && (
         <section className="page-x py-12 lg:py-16">
@@ -205,7 +219,7 @@ export default function CaseDraftView({
                   className="flex flex-col sm:flex-row sm:gap-6 py-2 border-b border-line last:border-b-0"
                 >
                   <dt className="text-meta sm:w-48 shrink-0">{c.label}</dt>
-                  <dd className="text-body">{c.value}</dd>
+                  <dd className="text-body text-muted">{c.value}</dd>
                 </div>
               ))}
             </dl>

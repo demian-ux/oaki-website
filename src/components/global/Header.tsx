@@ -8,6 +8,8 @@ import SectionLabel from "./SectionLabel";
 import Logotipo from "./Logotipo";
 import CopyEmail from "./CopyEmail";
 import SanityImg from "./SanityImg";
+import BookCover from "@/components/case-studies/BookCover";
+import { collectionDisplay } from "@/lib/collection-label";
 import { useHeroTheme } from "./HeroTheme";
 import { getLenis } from "./SmoothScroll";
 import { HERO_REPLAY_EVENT } from "@/lib/hero-replay";
@@ -38,7 +40,9 @@ export default function Header({ projects = [], navLabels, showJournal = false }
     // Process hidden for the Sep 1 launch (route stays reachable by URL);
     // restore this line when the page is ready.
     // { label: navLabels?.process ?? "Process", href: "/process" },
-    { label: navLabels?.about ?? "About", href: "/about" },
+    // About hidden for now (route returns 404 in about/page.tsx);
+    // restore this line when the page is ready.
+    // { label: navLabels?.about ?? "About", href: "/about" },
     ...(showJournal ? [{ label: "Journal", href: "/journal" }] : []),
     { label: navLabels?.contact ?? "Contact", href: "/contact" },
   ];
@@ -271,7 +275,11 @@ function CaseStudiesMegaMenu({
   const featured = (flagged.length > 0 ? flagged : projects).slice(0, 3);
   const recent = projects.slice(0, 5);
   const collections = Array.from(
-    new Set(projects.map((p) => p.collectionLabel).filter(Boolean))
+    new Set(
+      projects
+        .map((p) => collectionDisplay(p.collectionLabel))
+        .filter((c): c is string => Boolean(c))
+    )
   ) as string[];
 
   return (
@@ -318,19 +326,37 @@ function CaseStudiesMegaMenu({
                   className="mega-card"
                   style={{ transitionDelay: `${120 + i * 60}ms` }}
                 >
-                  <div className="mega-card-cover">
-                    <SanityImg
-                      image={p.coverImage}
-                      alt={p.title}
-                      fill
-                      sizes="220px"
-                      className="object-cover"
-                      fallback={<div className="cover-paint-mini" />}
-                    />
+                  <BookCover
+                    collection={p.collectionLabel}
+                    title={p.title}
+                    clientYear={[
+                      p.clientVisibility === "Public" ? p.clientName : null,
+                      p.year,
+                    ]
+                      .filter(Boolean)
+                      .join(" · ")}
+                  >
+                    {p.coverSrc ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={p.coverSrc}
+                        alt={p.title}
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    ) : (
+                      <SanityImg
+                        image={p.coverImage}
+                        alt={p.title}
+                        fill
+                        sizes="220px"
+                        className="object-cover"
+                        fallback={<div className="cover-paint-mini" />}
+                      />
+                    )}
                     <div className="mega-card-hover">
                       <span className="text-label">Open Book →</span>
                     </div>
-                  </div>
+                  </BookCover>
                 </Link>
               ))}
             </div>

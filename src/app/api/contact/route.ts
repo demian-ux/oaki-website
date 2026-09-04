@@ -29,7 +29,9 @@ export async function POST(request: Request) {
     if (resendKey && contactEmail) {
       const { Resend } = await import("resend");
       const resend = new Resend(resendKey);
-      await resend.emails.send({
+      // Resend reports failures in the result, not by throwing: check it,
+      // or a failed send would still answer { ok: true } to the form.
+      const { error: sendError } = await resend.emails.send({
         from: "Oaki Studio <noreply@oaki.studio>",
         to: contactEmail,
         subject: data.projectName
@@ -56,6 +58,7 @@ export async function POST(request: Request) {
           .filter(Boolean)
           .join("\n"),
       });
+      if (sendError) throw new Error(`Email failed: ${sendError.message}`);
     }
 
     return NextResponse.json({ ok: true });

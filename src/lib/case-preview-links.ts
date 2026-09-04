@@ -32,4 +32,7 @@ export const casePreviewLinks: Record<string, CasePreviewLink> = {
   "7n5omzq1psrfd4x9h0bl": { label: "Cazouls les Bézier", slug: "cazouls-les-bezier" },
   i16ij50oym7j41jnrdse: { label: "Dillido Residence", slug: "dillido-residence" },
   fdy9fcc3munh9uxlrupo: { label: "Windsor Residence", slug: "windsor-residence" },
+  m3xq81vkw7yrn5t2ojdc: { label: "K Villa", slug: "k-villa" },
+  b2wq7ndk4xm9rte0shcv: { label: "Carved Terrace Block", slug: "sf-housing-schemes" },
+  y6hd3pkz0qvl8snw2fjr: { label: "Dixon House", slug: "dixon-house" },
 };

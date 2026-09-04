@@ -187,7 +187,7 @@ export default defineType({
       group: "peerBand",
       description: "Horizontal row of client studio names.",
       initialValue: [
-        "KoDA",
+        "Koda",
         "Journey / iCrave",
         "AFT",
         "Object Territories",

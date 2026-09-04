@@ -1,0 +1,1156 @@
+{
+  "project": "k-villa",
+  "images": [
+    {
+      "name": "View 01_Formal Entrance",
+      "set": null,
+      "naturalWidth": 2829,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 01_Formal Entrance-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 01_Formal Entrance-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 01_Formal Entrance-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 01_Formal Entrance-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02_FormalDining",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 02_FormalDining-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 02_FormalDining-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 02_FormalDining-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 02_FormalDining-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 02_FormalDining-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 02_FormalDining-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_FormalLiving",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 03_FormalLiving-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 03_FormalLiving-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 03_FormalLiving-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 03_FormalLiving-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 03_FormalLiving-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 03_FormalLiving-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_FormalLiving Bar A",
+      "set": null,
+      "naturalWidth": 2828,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 04_FormalLiving Bar A-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 04_FormalLiving Bar A-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 04_FormalLiving Bar A-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 04_FormalLiving Bar A-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_FormalLiving Bar B",
+      "set": null,
+      "naturalWidth": 2828,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 04_FormalLiving Bar B-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 04_FormalLiving Bar B-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 04_FormalLiving Bar B-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 04_FormalLiving Bar B-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05_Formal Powder",
+      "set": null,
+      "naturalWidth": 2829,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 05_Formal Powder-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 05_Formal Powder-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 05_Formal Powder-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 05_Formal Powder-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 06_Office",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 06_Office-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 06_Office-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 06_Office-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 06_Office-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 06_Office-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 06_Office-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 07_FamilyLiving",
+      "set": null,
+      "naturalWidth": 2829,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 07_FamilyLiving-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 07_FamilyLiving-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 07_FamilyLiving-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 07_FamilyLiving-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 08_FamilyLiving",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2821,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2708,
+          "src": "/images/k-villa/web/View 08_FamilyLiving-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1354,
+          "src": "/images/k-villa/web/View 08_FamilyLiving-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 08_FamilyLiving-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2708,
+          "src": "/images/k-villa/web/View 08_FamilyLiving-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1354,
+          "src": "/images/k-villa/web/View 08_FamilyLiving-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 08_FamilyLiving-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 09_ShowKitchen",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 09_ShowKitchen-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 09_ShowKitchen-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 09_ShowKitchen-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 09_ShowKitchen-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 09_ShowKitchen-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 09_ShowKitchen-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 10_ShowKitchen",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 10_ShowKitchen-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 10_ShowKitchen-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 10_ShowKitchen-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 10_ShowKitchen-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 10_ShowKitchen-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 10_ShowKitchen-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 11_Family Entrance A",
+      "set": null,
+      "naturalWidth": 2828,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 11_Family Entrance A-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 11_Family Entrance A-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 11_Family Entrance A-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 11_Family Entrance A-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 11_Family Entrance B",
+      "set": null,
+      "naturalWidth": 2828,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 11_Family Entrance B-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 11_Family Entrance B-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 11_Family Entrance B-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 11_Family Entrance B-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 11_Family Entrance C",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2823,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2710,
+          "src": "/images/k-villa/web/View 11_Family Entrance C-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 11_Family Entrance C-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 11_Family Entrance C-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2710,
+          "src": "/images/k-villa/web/View 11_Family Entrance C-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 11_Family Entrance C-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 11_Family Entrance C-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 12_FamilyPowder",
+      "set": null,
+      "naturalWidth": 2829,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 12_FamilyPowder-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 12_FamilyPowder-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 12_FamilyPowder-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 12_FamilyPowder-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 13_StairCase",
+      "set": null,
+      "naturalWidth": 2829,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 13_StairCase-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 13_StairCase-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 13_StairCase-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 13_StairCase-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 14_Family Area",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2821,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2708,
+          "src": "/images/k-villa/web/View 14_Family Area-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1354,
+          "src": "/images/k-villa/web/View 14_Family Area-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 14_Family Area-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2708,
+          "src": "/images/k-villa/web/View 14_Family Area-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1354,
+          "src": "/images/k-villa/web/View 14_Family Area-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 14_Family Area-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 15_Master BedRoom",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 15_Master BedRoom-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 15_Master BedRoom-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 15_Master BedRoom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 15_Master BedRoom-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 15_Master BedRoom-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 15_Master BedRoom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 16_Master BedRoom",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2823,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2710,
+          "src": "/images/k-villa/web/View 16_Master BedRoom-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 16_Master BedRoom-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 16_Master BedRoom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2710,
+          "src": "/images/k-villa/web/View 16_Master BedRoom-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 16_Master BedRoom-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 16_Master BedRoom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 17_MasterDressing",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2824,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/k-villa/web/View 17_MasterDressing-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/k-villa/web/View 17_MasterDressing-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 17_MasterDressing-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/k-villa/web/View 17_MasterDressing-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/k-villa/web/View 17_MasterDressing-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 17_MasterDressing-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 18_Master Bath",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2823,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2710,
+          "src": "/images/k-villa/web/View 18_Master Bath-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 18_Master Bath-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 18_Master Bath-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2710,
+          "src": "/images/k-villa/web/View 18_Master Bath-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 18_Master Bath-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 18_Master Bath-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 19_GuestBedroom",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2823,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2710,
+          "src": "/images/k-villa/web/View 19_GuestBedroom-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 19_GuestBedroom-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 19_GuestBedroom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2710,
+          "src": "/images/k-villa/web/View 19_GuestBedroom-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 19_GuestBedroom-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 19_GuestBedroom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 20_Guest Ensuite",
+      "set": null,
+      "naturalWidth": 2800,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2743,
+          "src": "/images/k-villa/web/View 20_Guest Ensuite-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1371,
+          "src": "/images/k-villa/web/View 20_Guest Ensuite-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2743,
+          "src": "/images/k-villa/web/View 20_Guest Ensuite-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1371,
+          "src": "/images/k-villa/web/View 20_Guest Ensuite-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 21_Guest Dressing",
+      "set": null,
+      "naturalWidth": 2828,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 21_Guest Dressing-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 21_Guest Dressing-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 21_Guest Dressing-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 21_Guest Dressing-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 22_Cinema",
+      "set": null,
+      "naturalWidth": 2828,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 22_Cinema-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 22_Cinema-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2716,
+          "src": "/images/k-villa/web/View 22_Cinema-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1358,
+          "src": "/images/k-villa/web/View 22_Cinema-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 23_Roof GuestBedrrom",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 23_Roof GuestBedrrom-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 23_Roof GuestBedrrom-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 23_Roof GuestBedrrom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/k-villa/web/View 23_Roof GuestBedrrom-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/k-villa/web/View 23_Roof GuestBedrrom-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/k-villa/web/View 23_Roof GuestBedrrom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 24_Seating Area",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2824,
+      "widths": [
+        3840,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/k-villa/web/View 24_Seating Area-3840.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/k-villa/web/View 24_Seating Area-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 24_Seating Area-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/k-villa/web/View 24_Seating Area-3840.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/k-villa/web/View 24_Seating Area-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/k-villa/web/View 24_Seating Area-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 25_Gym",
+      "set": null,
+      "naturalWidth": 2829,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 25_Gym-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 25_Gym-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 25_Gym-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 25_Gym-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 26_FormalLiving",
+      "set": null,
+      "naturalWidth": 2829,
+      "naturalHeight": 4000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 26_FormalLiving-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 26_FormalLiving-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2715,
+          "src": "/images/k-villa/web/View 26_FormalLiving-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1357,
+          "src": "/images/k-villa/web/View 26_FormalLiving-960.webp"
+        }
+      ]
+    }
+  ]
+}

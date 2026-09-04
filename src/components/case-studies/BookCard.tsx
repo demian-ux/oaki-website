@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { type Project } from "@/lib/types";
 import SanityImg from "@/components/global/SanityImg";
-import SectionLabel from "@/components/global/SectionLabel";
+import BookCover from "./BookCover";
 
 interface BookCardProps {
   project: Project;
@@ -66,9 +66,6 @@ export default function BookCard({ project }: BookCardProps) {
       ? "Undisclosed"
       : null;
 
-  // Build location string from whichever pieces are present
-  const location = [project.city, project.country].filter(Boolean).join(", ");
-
   // Build the client/year line — only show separator if both pieces are present
   const clientYear = [displayClient, project.year].filter(Boolean).join(" · ");
 
@@ -80,18 +77,20 @@ export default function BookCard({ project }: BookCardProps) {
       className="group block"
       aria-label={`Open case study: ${project.title}`}
     >
-      {/* Book cover — plate frame with the §07 corner-tick + desaturate on hover */}
-      <div className="anim-tick relative mb-5">
-        <div className={`relative overflow-hidden ${project.coverSrc ? "" : "aspect-[3/4]"}`}>
+      {/* Book cover — template 1b: full-bleed render + typographic band */}
+      <div className="anim-tick relative">
+        <BookCover
+          collection={project.collectionLabel}
+          title={project.title}
+          clientYear={clientYear}
+        >
           {project.coverSrc ? (
-            // External cases carry a local render — natural ratio, never cropped.
             <Image
               src={project.coverSrc}
               alt={project.title}
-              width={project.coverSize?.width ?? 1600}
-              height={project.coverSize?.height ?? 1200}
+              fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="w-full h-auto"
+              className="object-cover"
             />
           ) : (
             <SanityImg
@@ -110,17 +109,7 @@ export default function BookCard({ project }: BookCardProps) {
               Open Case Study
             </span>
           </div>
-        </div>
-      </div>
-
-      {/* Card text */}
-      <div className="space-y-1.5">
-        {project.collectionLabel && (
-          <SectionLabel>{project.collectionLabel}</SectionLabel>
-        )}
-        <h3 className="card-title">{project.title.toUpperCase()}</h3>
-        {location && <p className="text-meta text-muted">{location}</p>}
-        {clientYear && <p className="text-meta text-muted">{clientYear}</p>}
+        </BookCover>
       </div>
     </Link>
   );

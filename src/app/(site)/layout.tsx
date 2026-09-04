@@ -10,6 +10,7 @@ import { HeroThemeProvider } from "@/components/global/HeroTheme";
 import { getAllProjects, getSiteSettings } from "@/lib/data";
 import { getCaseDraftCards } from "@/lib/case-drafts";
 import { ponceCases } from "@/lib/ponce-cases";
+import { HIDDEN_PROJECT_SLUGS } from "@/lib/hidden-projects";
 
 export default async function SiteLayout({
   children,
@@ -29,7 +30,7 @@ export default async function SiteLayout({
     ...sanityProjects,
     ...getCaseDraftCards().filter((p) => !taken.has(p.slug)),
     ...ponceCases,
-  ];
+  ].filter((p) => !HIDDEN_PROJECT_SLUGS.has(p.slug));
 
   return (
     <HeroThemeProvider>

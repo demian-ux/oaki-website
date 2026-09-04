@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { getAllProjects } from "@/lib/data";
 import { getCaseDraftCards } from "@/lib/case-drafts";
 import { ponceCases } from "@/lib/ponce-cases";
+import { HIDDEN_PROJECT_SLUGS } from "@/lib/hidden-projects";
 import CaseStudiesClient from "@/components/case-studies/CaseStudiesClient";
-import StripeRule from "@/components/global/StripeRule";
+import PageHero from "@/components/global/PageHero";
 
 export const metadata: Metadata = {
-  title: "Project Books",
+  title: "Case Studies",
   description:
     "Each project, told as a complete visual story. From first sketch to final image sequence.",
 };
@@ -17,20 +18,18 @@ export default async function CaseStudiesPage() {
   const sanityProjects = await getAllProjects();
   const taken = new Set(sanityProjects.map((p) => p.slug));
   const draftCards = getCaseDraftCards().filter((p) => !taken.has(p.slug));
-  const projects = [...sanityProjects, ...draftCards, ...ponceCases];
+  const projects = [...sanityProjects, ...draftCards, ...ponceCases].filter(
+    (p) => !HIDDEN_PROJECT_SLUGS.has(p.slug),
+  );
 
   return (
     <>
       {/* Hero */}
-      <section className="page-x pt-24 pb-20 lg:pt-32 lg:pb-28 border-b border-line">
-        <p className="coord mb-6">Library</p>
-        <h1 className="text-statement text-volume reveal mb-6">Project Books</h1>
-        <StripeRule className="mb-8" />
-        <p className="text-lede text-muted max-text">
-          Each project, told as a complete visual story.
-          From first sketch to final image sequence.
-        </p>
-      </section>
+      <PageHero
+        title="Case Studies"
+        lede="Each project, told as a complete visual story. From first sketch to final image sequence."
+        counter={`${projects.length} case studies`}
+      />
 
       {/* Filter + Grid */}
       <CaseStudiesClient projects={projects} />

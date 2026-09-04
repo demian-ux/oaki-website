@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { getProjectImages, type JournalImage } from "./journal-images";
+import { HIDDEN_PROJECT_SLUGS } from "./hidden-projects";
 import type { Project } from "./types";
 
 // Case-study DRAFTS: repo-only content under content/cases/*.md, rendered
@@ -50,6 +51,8 @@ export interface CaseDraft {
   /** Optional web-encoded animation (`video: <src> :: <label>` +
    *  `videoPoster: <src>` in frontmatter), shown after the image walk. */
   video?: CaseVideo;
+  /** The project's full image library, for the closing index grid. */
+  library: JournalImage[];
 }
 
 function parseFrontmatter(raw: string): { fm: Record<string, string>; body: string } {
@@ -93,6 +96,7 @@ function numbered(fm: Record<string, string>, prefix: string): string[] {
  *  review conditions) stay preview-only and are not listed. */
 export function getCaseDraftCards(): Project[] {
   return listCaseDraftSlugs()
+    .filter((slug) => !HIDDEN_PROJECT_SLUGS.has(slug))
     .map((slug) => getCaseDraft(slug))
     .filter((d): d is CaseDraft => d !== null)
     .filter((d) => d.slots.some((s) => s.image))
@@ -163,6 +167,7 @@ export function getCaseDraft(slug: string): CaseDraft | null {
     gaps: numbered(fm, "gap"),
     flags: numbered(fm, "flag"),
     slots,
+    library: images,
     sections: parseSections(body),
     video: (() => {
       if (!fm.video) return undefined;

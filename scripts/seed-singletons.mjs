@@ -80,7 +80,7 @@ const docs = [
     peerBandAuthorName: "Andrew Delgado",
     peerBandAuthorTitle: "Technical Director of Visualization, Journey / iCrave",
     clientMarks: [
-      "KoDA",
+      "Koda",
       "Journey / iCrave",
       "AFT",
       "Object Territories",

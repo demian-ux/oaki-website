@@ -27,19 +27,18 @@ const clientMarks: { name: string; url?: string }[] = [
   { name: "AFT arquitectos", url: "https://www.aftarquitectos.com.ar" },
   { name: "Asifa Tirmizi", url: "https://www.tirmizi.co" },
   { name: "Aura Architecture", url: "https://www.aura-architecte.com" },
-  { name: "BKS Partners", url: "https://www.bks-partner.de" },
+  { name: "BKS Partners", url: "https://bks-partner.de" },
   { name: "Ceïba", url: "https://www.ceiba.us" }, // formerly Koqio — one name site-wide, matches the Dillido credit
   { name: "Cochet Pais", url: "https://www.cochetpais.com" },
   { name: "DNA Miami", url: "https://www.dna-arc.com" },
   { name: "Fornaris Pau", url: "https://fpadesigns.com" },
   { name: "Gregory Tuck", url: "https://www.gregorytuck.com" },
   { name: "iCrave", url: "https://icrave.com" },
-  { name: "Inch" }, // unresolved — no official site confirmed
-  { name: "Jessica Helgerson ID", url: "https://www.jhinteriordesign.com" },
-  { name: "KoDA", url: "https://www.kodamiami.com" },
+  { name: "Inch", url: "https://inch.com.ar/inicio/" },
+  { name: "JHID", url: "https://www.jhinteriordesign.com" },
+  { name: "Koda", url: "https://www.kodamiami.com" },
   { name: "LandFluent", url: "https://landfluent.com" },
-  { name: "Lawrence + Long" }, // public name confirmed by Demi (11-Aug-2026)
-  { name: "MatiPavon" }, // only an Instagram profile found, no website
+  { name: "Lawrence + Long", url: "https://www.lawrenceandlong.com" },
   { name: "Naos" }, // low confidence — candidate naos-architecture.fr, several French firms share the name
   { name: "Object Territories", url: "https://object-territories.com" },
   { name: "Studio ST architects", url: "https://studio-st.com" },
@@ -138,7 +137,7 @@ export default async function HomePage() {
               the page gutters instead of the 860 cap, and short lines justify
               horribly: at 375px the worst line stretched to 4.2x normal word
               spacing. Narrow screens get ordinary left-ranged text. */}
-          <p className="text-body text-muted reveal leading-[1.75] hyphens-auto text-left lg:text-justify">
+          <p className="text-body text-muted reveal leading-[1.75] text-left lg:text-justify">
             {"We are an architectural visualization studio working with architects, interior designers, and developers across the USA and Europe. Every project is treated as an editorial story: stills, film, and narrative built as one world. We don't need the brief spoon-fed. Give us what you have and we will make the images that carry your project into the room where everything is decided."}
           </p>
         </div>
@@ -165,8 +164,9 @@ export default async function HomePage() {
         factStrip={home.factStrip ?? fallbackPeerBand.factStrip}
       />
 
-      {/* 5. Services — horizontal slide deck: Concept, Proof, Campaign. */}
-      <ServicesDeck />
+      {/* 5. Services — horizontal slide deck: Concept, Proof, Campaign.
+          Temporarily hidden — restore by uncommenting. */}
+      {/* <ServicesDeck /> */}
 
       {/* 6. About — the trust spine: same team, every project. */}
       <section className="section-y page-x border-t border-line">
@@ -181,11 +181,19 @@ export default async function HomePage() {
               {home.aboutBody ??
                 "oaki is built around one team, by choice. They carry every project from the first call to the final frame, principals included. Nothing gets lost between the people who understand your project and the people who build it."}
             </p>
+            {/* About page hidden for now — restore this button with it.
             <Button href="/about" variant="outline">
               {home.aboutButtonLabel ?? "About the studio"}
-            </Button>
+            </Button> */}
           </div>
-          <div className="hidden lg:block aspect-square mt-0 bg-line" />
+          {/* Team photo at natural ratio — never cropped. */}
+          <img
+            src="/images/about-us/web/meeting-1920.webp"
+            alt="The Oaki Studio team in a working session"
+            width={1920}
+            height={1280}
+            className="hidden lg:block w-full h-auto"
+          />
         </div>
       </section>
 

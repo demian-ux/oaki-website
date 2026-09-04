@@ -6,8 +6,10 @@
 // studies (content/cases/, 11-Aug-2026); only Goldman remains external.
 const PONCE_BASE = "https://1505-ponce-portfolio.vercel.app";
 
+// Goldman is temporarily hidden from the public site (see
+// src/lib/hidden-projects.ts) — restore by uncommenting the entry below.
 export const ponceCases: Project[] = [
-  {
+  /* {
     _id: "ponce-goldman",
     title: "Goldman, with Journey",
     slug: "goldman",
@@ -25,5 +27,5 @@ export const ponceCases: Project[] = [
     externalUrl: `${PONCE_BASE}/goldman.html`,
     coverSrc: "/images/ponce/goldman-cover.webp",
     coverSize: { width: 3200, height: 1800 },
-  },
+  }, */
 ];

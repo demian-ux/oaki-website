@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getAboutPage, getTeamMembers } from "@/lib/data";
+
+// Page hidden for now — flip to false to bring it back (and restore the
+// nav/footer links and the homepage button that point here).
+const ABOUT_HIDDEN = true;
 import Button from "@/components/global/Button";
 import StripeRule from "@/components/global/StripeRule";
+import PageHero from "@/components/global/PageHero";
 
 export async function generateMetadata(): Promise<Metadata> {
+  if (ABOUT_HIDDEN) return { title: "Not found" };
   const about = await getAboutPage();
   return {
     title: about.seoTitle ?? "About",
@@ -14,6 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AboutPage() {
+  if (ABOUT_HIDDEN) notFound();
   const [team, about] = await Promise.all([getTeamMembers(), getAboutPage()]);
 
   const workWith =
@@ -28,21 +36,13 @@ export default async function AboutPage() {
 
   return (
     <>
-      {/* Hero — Studio voice: mono eyebrow, display statement, ocre rule */}
-      <section className="page-x pt-24 pb-20 lg:pt-32 lg:pb-28 border-b border-line">
-        <p className="coord mb-6">
-          {about.heroLabel ?? "About the Studio"}
-        </p>
-        <h1 className="text-statement text-volume reveal mb-8 max-w-4xl">
-          {(about.heroTitle ?? "We build the image world around architecture that doesn't exist yet").replace(/\.$/, "")}
-          <span className="dot">.</span>
-        </h1>
-        <StripeRule className="mb-8" />
-        <p className="text-lede text-muted max-text">
-          {about.heroText ??
-            "Oaki Studio works with architects, designers, and developers to make projects feel real before they are."}
-        </p>
-      </section>
+      {/* Hero — shared secondary-page design (PageHero). */}
+      <PageHero
+        title="About Us"
+        lede={
+          "We work with architects, designers, and developers.\nWe make projects feel real before they are built."
+        }
+      />
 
       {/* Studio statement */}
       <section className="page-x section-y border-b border-line">
@@ -63,7 +63,14 @@ export default async function AboutPage() {
                 "Most studios run like render factories. We run like an editorial house. Every project gets a story, a tone, and an image world built around it."}
             </p>
           </div>
-          <div className="hidden lg:block aspect-[4/3] bg-soft" />
+          {/* Studio photo at natural ratio — never cropped. */}
+          <img
+            src="/images/about-us/web/studio-1920.webp"
+            alt="The Oaki Studio team at work"
+            width={1920}
+            height={1280}
+            className="hidden lg:block w-full h-auto"
+          />
         </div>
       </section>
 
@@ -72,9 +79,18 @@ export default async function AboutPage() {
         <p className="coord mb-4">{about.teamLabel ?? "The team"}</p>
         <StripeRule className="mb-14" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-14">
-          {team.map((member) => (
+          {team.map((member, i) => (
             <div key={member._id}>
-              <div className="aspect-[3/4] mb-5 bg-soft" />
+              {/* Team-shoot photos by grid position (about-us library),
+                  natural ratio — never cropped. Reorder here if a photo
+                  should sit under a different name. */}
+              <img
+                src={`/images/about-us/web/team-0${(i % 4) + 1}-1200.webp`}
+                alt={member.name}
+                width={1200}
+                height={800}
+                className="w-full h-auto mb-5"
+              />
               <p className="text-label text-ink mb-1">{member.name}</p>
               <p className="text-meta text-muted">{member.role}</p>
             </div>

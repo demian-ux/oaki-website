@@ -1,0 +1,243 @@
+{
+  "project": "prismatic-parasol",
+  "images": [
+    {
+      "name": "View 01_Aerial",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2256,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/prismatic-parasol/web/View 01_Aerial-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/prismatic-parasol/web/View 01_Aerial-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/prismatic-parasol/web/View 01_Aerial-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/prismatic-parasol/web/View 01_Aerial-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02_Aerial Village",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2262,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1448,
+          "src": "/images/prismatic-parasol/web/View 02_Aerial Village-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 724,
+          "src": "/images/prismatic-parasol/web/View 02_Aerial Village-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1448,
+          "src": "/images/prismatic-parasol/web/View 02_Aerial Village-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 724,
+          "src": "/images/prismatic-parasol/web/View 02_Aerial Village-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03_Entry",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2256,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/prismatic-parasol/web/View 03_Entry-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/prismatic-parasol/web/View 03_Entry-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/prismatic-parasol/web/View 03_Entry-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/prismatic-parasol/web/View 03_Entry-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04_Interior_Concert",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2256,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/prismatic-parasol/web/View 04_Interior_Concert-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/prismatic-parasol/web/View 04_Interior_Concert-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/prismatic-parasol/web/View 04_Interior_Concert-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/prismatic-parasol/web/View 04_Interior_Concert-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05_Entry",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2256,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/prismatic-parasol/web/View 05_Entry-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/prismatic-parasol/web/View 05_Entry-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/prismatic-parasol/web/View 05_Entry-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/prismatic-parasol/web/View 05_Entry-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 06_Section",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2327,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1489,
+          "src": "/images/prismatic-parasol/web/View 06_Section-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 745,
+          "src": "/images/prismatic-parasol/web/View 06_Section-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1489,
+          "src": "/images/prismatic-parasol/web/View 06_Section-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 745,
+          "src": "/images/prismatic-parasol/web/View 06_Section-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 07_Tower",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2252,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1441,
+          "src": "/images/prismatic-parasol/web/View 07_Tower-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 721,
+          "src": "/images/prismatic-parasol/web/View 07_Tower-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1441,
+          "src": "/images/prismatic-parasol/web/View 07_Tower-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 721,
+          "src": "/images/prismatic-parasol/web/View 07_Tower-960.webp"
+        }
+      ]
+    }
+  ]
+}

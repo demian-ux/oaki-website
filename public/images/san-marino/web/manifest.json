@@ -1,0 +1,277 @@
+{
+  "project": "san-marino",
+  "images": [
+    {
+      "name": "View 01 - Front Facade",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2255,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1443,
+          "src": "/images/san-marino/web/View 01 - Front Facade-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/san-marino/web/View 01 - Front Facade-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1443,
+          "src": "/images/san-marino/web/View 01 - Front Facade-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/san-marino/web/View 01 - Front Facade-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 02 - Entry Stairs",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2255,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1443,
+          "src": "/images/san-marino/web/View 02 - Entry Stairs-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/san-marino/web/View 02 - Entry Stairs-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1443,
+          "src": "/images/san-marino/web/View 02 - Entry Stairs-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/san-marino/web/View 02 - Entry Stairs-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 03 - Garden",
+      "set": null,
+      "naturalWidth": 2490,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/san-marino/web/View 03 - Garden-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/san-marino/web/View 03 - Garden-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/san-marino/web/View 03 - Garden-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/san-marino/web/View 03 - Garden-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 04 - Seawall",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 2256,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/san-marino/web/View 04 - Seawall-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/san-marino/web/View 04 - Seawall-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/san-marino/web/View 04 - Seawall-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/san-marino/web/View 04 - Seawall-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 05 - Outdoor",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1695,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/san-marino/web/View 05 - Outdoor-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/san-marino/web/View 05 - Outdoor-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/san-marino/web/View 05 - Outdoor-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/san-marino/web/View 05 - Outdoor-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 06 - Waterfront",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1695,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/san-marino/web/View 06 - Waterfront-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/san-marino/web/View 06 - Waterfront-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/san-marino/web/View 06 - Waterfront-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/san-marino/web/View 06 - Waterfront-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 07 - Outdoor",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1695,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/san-marino/web/View 07 - Outdoor-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/san-marino/web/View 07 - Outdoor-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/san-marino/web/View 07 - Outdoor-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/san-marino/web/View 07 - Outdoor-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 08 - Balcony",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1695,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/san-marino/web/View 08 - Balcony-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/san-marino/web/View 08 - Balcony-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/san-marino/web/View 08 - Balcony-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/san-marino/web/View 08 - Balcony-960.webp"
+        }
+      ]
+    }
+  ]
+}
