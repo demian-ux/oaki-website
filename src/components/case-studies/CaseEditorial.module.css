@@ -27,27 +27,15 @@
   height: auto;
 }
 
-/* 1. Hero: full width inside the site gutter, height from its own ratio. */
+/* 1. Hero: full bleed. The still or the loop runs edge to edge under the
+   navbar, height from its own ratio, no cap, nothing on top (Demi
+   2026-10-06: "que ocupen todo el ancho de pantalla"). */
 .hero {
-  padding-top: clamp(16px, 3.2vw, 48px);
+  padding: 0;
 }
 .hero > * {
-  max-width: calc(var(--r, 1.77) * var(--maxh));
-  margin-inline: auto;
-}
-/* A landscape loop as hero: centered in the viewport, smaller than a still
-   so it breathes, with extra air above and below. */
-.heroFilm {
-  padding-top: clamp(32px, 6vw, 96px);
-  padding-bottom: clamp(16px, 3vw, 48px);
-}
-.heroFilm > * {
-  max-width: calc(var(--r, 1.77) * 0.72 * var(--maxh) / 0.85);
-}
-@media (min-width: 821px) {
-  .heroFilm > * {
-    max-width: min(82%, calc(var(--r, 1.77) * 0.72 * var(--maxh) / 0.85));
-  }
+  width: 100%;
+  margin: 0;
 }
 
 /* 2. Title: left-aligned on the sheet's left edge. Voice = the site's

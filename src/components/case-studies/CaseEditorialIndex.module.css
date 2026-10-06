@@ -1,0 +1,75 @@
+/* Index band of the editorial case template (v3). Layout only; type
+   families come from the site classes (.font-serif, .coord). */
+
+.band {
+  background: var(--color-gris);
+  padding-top: clamp(48px, 6vw, 96px);
+  padding-bottom: clamp(48px, 6vw, 96px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.heading {
+  margin: 0 0 clamp(28px, 3.5vw, 56px);
+  text-align: center;
+  font-weight: 300;
+  font-size: 15px;
+  letter-spacing: 0.5em;
+  margin-right: -0.5em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(8px, 1vw, 14px);
+}
+
+/* One height for every thumbnail; width follows the ratio, never cropped. */
+.thumb {
+  all: unset;
+  box-sizing: border-box;
+  cursor: zoom-in;
+  display: block;
+  position: relative;
+  height: clamp(110px, 15vw, 240px);
+  max-width: 100%;
+  margin-bottom: 22px;
+}
+.thumb picture {
+  display: contents;
+}
+.thumb img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.thumb:hover img {
+  opacity: 0.82;
+}
+.thumb:focus-visible {
+  outline: 2px solid var(--color-warm-deep);
+  outline-offset: 3px;
+}
+
+.num {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 6px);
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.counter {
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  color: var(--color-paper);
+}

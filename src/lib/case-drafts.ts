@@ -78,6 +78,9 @@ export interface CaseEditorial {
   next: { slug: string; title: string } | null;
   /** Optional closing extras, only when the case file asks for them. */
   closingIndex: boolean;
+  /** `indexN: <set/master> :: <alt>`: the index set (template v3). When
+   *  absent and `closing` asks for index, the whole library is used. */
+  closingIndexImages: CaseEditorialImage[];
   closingBw: CaseEditorialImage | null;
 }
 
@@ -148,8 +151,14 @@ function numbered(fm: Record<string, string>, prefix: string): string[] {
  *  missing from the library (the row simply closes up around it). */
 function editorialImage(raw: string | undefined, images: JournalImage[]): CaseEditorialImage | null {
   if (!raw) return null;
-  const [name, alt = ""] = raw.split("::").map((s) => s.trim());
-  const image = images.find((i) => i.name === name);
+  const [ref, alt = ""] = raw.split("::").map((s) => s.trim());
+  // "index/01-foo" addresses a set subfolder; a bare name matches flat first.
+  const slash = ref.indexOf("/");
+  const set = slash > 0 ? ref.slice(0, slash) : null;
+  const name = slash > 0 ? ref.slice(slash + 1) : ref;
+  const image =
+    images.find((i) => i.name === name && (set ? i.set === set : i.set === null)) ??
+    (set ? undefined : images.find((i) => i.name === name));
   if (!image) return null;
   return { image, alt: alt || name, ratio: image.naturalWidth / image.naturalHeight };
 }
@@ -168,6 +177,7 @@ function editorialImage(raw: string | undefined, images: JournalImage[]): CaseEd
  *   interludeImage: <master> :: <alt>                     (+ body "## Interlude")
  *   next: <slug> :: <title>
  *   closing: next | next, index | next, bw: <master> :: <alt>
+ *   indexN: index/<master> :: <alt>                       (index set, v3)
  * Body: "## Intro" paragraphs (two), optional "## Interlude" paragraphs.
  */
 function parseEditorial(fm: Record<string, string>, body: string, images: JournalImage[]): CaseEditorial {
@@ -251,6 +261,9 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
         : undefined,
     next: nextRaw ? { slug: nextRaw[0], title: nextRaw[1] ?? nextRaw[0] } : null,
     closingIndex: closing.some((c) => c.toLowerCase() === "index"),
+    closingIndexImages: numbered(fm, "index")
+      .map((r) => editorialImage(r, images))
+      .filter((x): x is CaseEditorialImage => !!x),
     closingBw: bwSpec ? editorialImage(bwSpec.slice(3).trim(), images) : null,
   };
 }

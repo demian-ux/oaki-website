@@ -1,58 +1,58 @@
 ---
+template: editorial
 title: The Point
 slug: the-point
-collection: The Residential Collection
-audience: Design practices handing their interiors to an outside visualization team
-argument: This case study proves oaki can hold another designer's intent exact across a full interior program, and that the architect trusted the result enough to stake his own name on the studio years later. Copy migrated from the approved 1505 Ponce page (11-Aug-2026).
-subtitle: Thirteen interiors for a resort on the Black Sea coast, another designer's intent kept exact across every image.
-location: Sochi, Black Sea coast
-type: Resort interiors
+collection: Residential
+description: The Point, a coastal retreat on the Black Sea by Gregory Tuck Architecture, told by oaki as a day at the property.
+location: Sochi, Russia
+type: Residential
 client: Gregory Tuck Architecture
 year: 2024
 imageProject: the-point
-template: editorial
-description: Thirteen interiors for a resort on the Black Sea coast, another designer's intent kept exact across every image.
-hero: 02-lobby :: Arrival, the lobby
-introImage: 05-bronze :: Detail, the bronze
-sheet1: Architecture and interiors :: Gregory Tuck Architecture
-sheet2: Visualization :: Oaki Studio
-sheet3: Location :: Sochi, Black Sea coast
-sheet4: Collection :: Residential
-sheet5: Year :: 2024
-row1: 60% center | 01-porte-cochere :: Arrival, the porte cochere
-row2: full | 03-pool :: Moving through, the indoor pool
-row3: 60% center | 04-garden-bar :: Moving through, the colonnades garden bar
-row4: full | 07-sea-terrace :: Moving through, the sea terrace
-row5: 44% left | 06-library :: Detail, the library
-next: windsor-residence :: Windsor Residence
-closing: next
-img1: 01-porte-cochere :: Arrival, the porte cochere
-img2: 02-lobby :: Arrival, the lobby
-img3: 03-pool :: Moving through, the indoor pool
-img4: 04-garden-bar :: Moving through, the colonnades garden bar
-img5: 07-sea-terrace :: Moving through, the sea terrace
-img6: 05-bronze :: Detail, the bronze
-img7: 06-library :: Detail, the library
-credit1: Architecture and interiors :: Gregory Tuck Architecture
-credit2: Visualization :: Oaki Studio
-credit3: Location :: Sochi, Black Sea coast
-credit4: Year :: 2024
-flag1: Outcome wording adapted for the public site from the private 1505 Ponce page, the Cyprus project and its in-conversation status stay private, Demi confirm
-flag2: Only 1600px derivatives exist locally for this set, the library was built from them, swap in the 4K masters under images/the-point/original and re-run optimize-images when available
+hero: 01-colonnade-pool :: Colonnaded garden pool with fountain and palms
+introImage: 02-garden-court :: Garden court with green trellis walls and clipped trees
+sheet1: Client :: Gregory Tuck Architecture
+sheet2: Location :: Sochi, Russia
+sheet3: Collection :: Residential
+sheet4: Year :: 2024
+sheet5: Scope :: Interior and exterior stills
+sheet6: Visualization :: Oaki Studio
+row1: full | 03-fountain-detail :: Cherub fountain at the pool edge | 04-pool-pavilion :: Green pool pavilion reflected in the water
+row2: full | 05-bar :: Bartender at the bar in evening light | 06-bar-table :: Table set by the window in the bar | 07-club-lounge :: Club lounge with drinks on the table
+row3: full | 09-indoor-pool :: Indoor pool with guests in robes | 08-swimmer :: Swimmer in the indoor pool
+row4: full | 10-residence-living :: Residence living room with chandelier and arched windows
+row5: full | 11-balcony :: Balcony seen through the open doors | 12-drinks-tray :: Tray with decanter and glasses | 13-curtain :: Linen curtain in sunlight on the parquet
+row6: full | 14-salon :: Residence salon with fireplace | 15-coffee-table :: Coffee table objects in close view
+row7: full | 16-kitchen :: Kitchen with green cabinetry and marble sink | 17-library :: Oak-panelled library | 18-bathroom :: Marble bathroom with freestanding tub
+row8: full | 19-terrace :: Pergola terrace overlooking the sea
+row9: 40% center | 20-terrace-pool :: Terrace pool pergola at sunset
+row10: full | 21-porte-cochere-night :: Guests arriving at the porte-cochère at night
+index1: index/01-porte-cochere :: Porte-cochère
+index2: index/02-hall :: Entrance hall
+index3: index/03-indoor-pool :: Indoor pool
+index4: index/04-indoor-pool-side :: Indoor pool, side aisle
+index5: index/05-club-lounge :: Club lounge
+index6: index/06-bar :: Bar
+index7: index/07-salon :: Residence salon
+index8: index/08-bathroom :: Bathroom
+index9: index/09-residence-living :: Residence living room
+index10: index/10-kitchen :: Kitchen
+index11: index/11-library :: Library
+index12: index/12-pergola :: Pergola terrace
+index13: index/13-terrace-pool :: Terrace pool
+next: ny-penthouse :: Central Park West
+closing: index, next
+credit1: Client :: Gregory Tuck Architecture
+credit2: Location :: Sochi, Russia
+credit3: Year :: 2024
+credit4: Visualization :: Oaki Studio
+flag1: Label for Gregory Tuck Architecture in the sheet ("Client" or e.g. "Interior design"); Diego to confirm.
+flag2: Collection Residential (as on the site) or Hospitality; Diego to confirm.
+flag3: Scope "Interior and exterior stills"; Diego to confirm.
+flag4: Next project (Central Park West is the pack's placeholder); Diego to confirm.
+flag5: Pack 2026-10-06 replaced the previous 1600px set (7 Ponce derivatives) with 21 body + 13 index images; masters are 1600 to 2400 wide, 4K pending from Diego. Previous public wording kept Cyprus private.
 ---
 ## Intro
-A resort on the Black Sea, its interiors designed in Brooklyn by Gregory Tuck Architecture. Thirteen final images: the porte cochere, the colonnades bar, the rooms between. The job was to make the design visible before construction, exactly as drawn.
+Gregory Tuck Architecture envisioned The Point as a refined coastal retreat, bringing a sense of timeless hospitality to the Black Sea. Classical proportions, layered interiors and a strong relationship with landscape and water shape a sequence of spaces conceived for both social life and quiet retreat.
 
-We worked room by room with the architect, view by view, through his own markups. One lighting language across the set. Where a piece did not exist in any library, we modeled it: the chandeliers, the loungers, the furniture that carries the design. The design, exactly as intended.
-
-## Setup
-A resort on the Black Sea, its interiors designed in Brooklyn by Gregory Tuck Architecture. Thirteen final images: the porte cochere, the colonnades bar, the rooms between. The job was to make the design visible before construction, exactly as drawn.
-
-## Tension
-Interior programs at resort scale fail quietly. A dozen images by many hands stop reading as one place: the palette drifts, the light contradicts itself, and the world falls apart one frame at a time.
-
-## Approach
-We worked room by room with the architect, view by view, through his own markups. One lighting language across the set. Where a piece did not exist in any library, we modeled it: the chandeliers, the loungers, the furniture that carries the design. The design, exactly as intended.
-
-## Outcome
-Years after delivery, Gregory Tuck recommended oaki, unprompted, to a developer planning a new resort. An architect staking his own name on the studio, years later, is the outcome.
+Oaki built the visual narrative as a journey through the property over the course of a day. The imagery moves from the openness of the garden pool and bar into quieter, more intimate spaces, before ending at the arrival court at night. Guests, staff and subtle traces of use give the architecture a sense of life, allowing each image to feel like a moment within the same experience.

@@ -3,7 +3,7 @@ import {
   CaseEditorialGallery,
   CaseEditorialFigure,
 } from "./CaseEditorialLightbox";
-import CaseIndexGallery from "./CaseIndexGallery";
+import CaseEditorialIndex from "./CaseEditorialIndex";
 import type {
   CaseDraft,
   CaseEditorialImage,
@@ -146,7 +146,7 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
       <article className={s.root}>
         {/* 1. Hero: image today, a short muted loop when the case brings one. */}
         <div
-          className={`page-x ${s.hero} ${e.hero.type === "video" ? s.heroFilm : ""}`}
+          className={s.hero}
           style={{
             ["--r" as string]: e.hero.type === "image" ? e.hero.image.ratio : e.hero.ratio,
           }}
@@ -248,17 +248,24 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
             </div>
           </section>
         )}
-
-        {/* 6. Closing extras, only when the case asks */}
-        {e.closingIndex && draft.library.length > 0 && (
-          <section className={`page-x ${s.index}`}>
-            <CaseIndexGallery images={draft.library} />
-          </section>
-        )}
+        {/* 6. Closing: optional B&W closer, optional index set, then Next. */}
         {e.closingBw && (
           <section className={`page-x ${s.bw}`}>
             <Picture img={e.closingBw} gallery={gallery} sizes="100vw" />
           </section>
+        )}
+        {e.closingIndex && (
+          <CaseEditorialIndex
+            images={
+              e.closingIndexImages.length > 0
+                ? e.closingIndexImages
+                : draft.library.map((image) => ({
+                    image,
+                    alt: image.name,
+                    ratio: image.naturalWidth / image.naturalHeight,
+                  }))
+            }
+          />
         )}
 
         {/* Next project: always */}
