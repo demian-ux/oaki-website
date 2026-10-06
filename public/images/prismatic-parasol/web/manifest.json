@@ -7,10 +7,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2256,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/prismatic-parasol/web/View 01_Aerial-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -23,6 +29,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/prismatic-parasol/web/View 01_Aerial-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -41,10 +52,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2262,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1930,
+          "src": "/images/prismatic-parasol/web/View 02_Aerial Village-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1448,
@@ -57,6 +74,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1930,
+          "src": "/images/prismatic-parasol/web/View 02_Aerial Village-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1448,
@@ -75,10 +97,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2256,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/prismatic-parasol/web/View 03_Entry-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -91,6 +119,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/prismatic-parasol/web/View 03_Entry-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -109,10 +142,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2256,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/prismatic-parasol/web/View 04_Interior_Concert-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -125,6 +164,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/prismatic-parasol/web/View 04_Interior_Concert-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -143,10 +187,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2256,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/prismatic-parasol/web/View 05_Entry-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -159,6 +209,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/prismatic-parasol/web/View 05_Entry-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -177,10 +232,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2327,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1986,
+          "src": "/images/prismatic-parasol/web/View 06_Section-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1489,
@@ -193,6 +254,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1986,
+          "src": "/images/prismatic-parasol/web/View 06_Section-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1489,
@@ -211,10 +277,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2252,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1922,
+          "src": "/images/prismatic-parasol/web/View 07_Tower-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1441,
@@ -227,6 +299,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1922,
+          "src": "/images/prismatic-parasol/web/View 07_Tower-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1441,

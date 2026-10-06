@@ -7,10 +7,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2113,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1803,
+          "src": "/images/8-rockledge/web/View 01-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1352,
@@ -23,6 +29,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1803,
+          "src": "/images/8-rockledge/web/View 01-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1352,
@@ -41,10 +52,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2113,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1803,
+          "src": "/images/8-rockledge/web/View 02-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1352,
@@ -57,6 +74,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1803,
+          "src": "/images/8-rockledge/web/View 02-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1352,

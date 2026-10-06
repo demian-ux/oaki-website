@@ -8,6 +8,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -16,6 +17,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/dillido-residence/web/view-01-front-facade-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/dillido-residence/web/view-01-front-facade-2560.avif"
         },
         {
           "width": 1920,
@@ -35,6 +41,11 @@
           "src": "/images/dillido-residence/web/view-01-front-facade-3840.webp"
         },
         {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/dillido-residence/web/view-01-front-facade-2560.webp"
+        },
+        {
           "width": 1920,
           "height": 1444,
           "src": "/images/dillido-residence/web/view-01-front-facade-1920.webp"
@@ -52,10 +63,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3413,
+          "src": "/images/dillido-residence/web/view-02-entry-stairs-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2560,
@@ -68,6 +85,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3413,
+          "src": "/images/dillido-residence/web/view-02-entry-stairs-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2560,
@@ -87,6 +109,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -95,6 +118,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/dillido-residence/web/view-05-kitchen-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/dillido-residence/web/view-05-kitchen-2560.avif"
         },
         {
           "width": 1920,
@@ -112,6 +140,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/dillido-residence/web/view-05-kitchen-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/dillido-residence/web/view-05-kitchen-2560.webp"
         },
         {
           "width": 1920,
@@ -132,6 +165,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -140,6 +174,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/dillido-residence/web/view-07-a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/dillido-residence/web/view-07-a02-2560.avif"
         },
         {
           "width": 1920,
@@ -157,6 +196,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/dillido-residence/web/view-07-a02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/dillido-residence/web/view-07-a02-2560.webp"
         },
         {
           "width": 1920,
@@ -177,6 +221,7 @@
       "naturalHeight": 3007,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -185,6 +230,11 @@
           "width": 3840,
           "height": 2887,
           "src": "/images/dillido-residence/web/view-07-dining-room-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/dillido-residence/web/view-07-dining-room-2560.avif"
         },
         {
           "width": 1920,
@@ -202,6 +252,11 @@
           "width": 3840,
           "height": 2887,
           "src": "/images/dillido-residence/web/view-07-dining-room-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/dillido-residence/web/view-07-dining-room-2560.webp"
         },
         {
           "width": 1920,
@@ -222,6 +277,7 @@
       "naturalHeight": 3007,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -230,6 +286,11 @@
           "width": 3840,
           "height": 2887,
           "src": "/images/dillido-residence/web/view-07-living-room-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/dillido-residence/web/view-07-living-room-2560.avif"
         },
         {
           "width": 1920,
@@ -247,6 +308,11 @@
           "width": 3840,
           "height": 2887,
           "src": "/images/dillido-residence/web/view-07-living-room-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/dillido-residence/web/view-07-living-room-2560.webp"
         },
         {
           "width": 1920,
@@ -267,6 +333,7 @@
       "naturalHeight": 2000,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -275,6 +342,11 @@
           "width": 3840,
           "height": 1920,
           "src": "/images/dillido-residence/web/view-16-a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1280,
+          "src": "/images/dillido-residence/web/view-16-a03-2560.avif"
         },
         {
           "width": 1920,
@@ -292,6 +364,11 @@
           "width": 3840,
           "height": 1920,
           "src": "/images/dillido-residence/web/view-16-a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1280,
+          "src": "/images/dillido-residence/web/view-16-a03-2560.webp"
         },
         {
           "width": 1920,
@@ -312,6 +389,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -320,6 +398,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/dillido-residence/web/view-17-a05-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/dillido-residence/web/view-17-a05-2560.avif"
         },
         {
           "width": 1920,
@@ -339,6 +422,11 @@
           "src": "/images/dillido-residence/web/view-17-a05-3840.webp"
         },
         {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/dillido-residence/web/view-17-a05-2560.webp"
+        },
+        {
           "width": 1920,
           "height": 1444,
           "src": "/images/dillido-residence/web/view-17-a05-1920.webp"
@@ -356,10 +444,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3413,
+          "src": "/images/dillido-residence/web/view-20-dock-day-recovered-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2560,
@@ -372,6 +466,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3413,
+          "src": "/images/dillido-residence/web/view-20-dock-day-recovered-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2560,
@@ -390,10 +489,16 @@
       "naturalWidth": 3320,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/dillido-residence/web/view-23-a05-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -406,6 +511,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/dillido-residence/web/view-23-a05-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -425,6 +535,7 @@
       "naturalHeight": 3007,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -433,6 +544,11 @@
           "width": 3840,
           "height": 2887,
           "src": "/images/dillido-residence/web/view-27-her-bath-a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/dillido-residence/web/view-27-her-bath-a02-2560.avif"
         },
         {
           "width": 1920,
@@ -452,6 +568,11 @@
           "src": "/images/dillido-residence/web/view-27-her-bath-a02-3840.webp"
         },
         {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/dillido-residence/web/view-27-her-bath-a02-2560.webp"
+        },
+        {
           "width": 1920,
           "height": 1443,
           "src": "/images/dillido-residence/web/view-27-her-bath-a02-1920.webp"
@@ -469,10 +590,16 @@
       "naturalWidth": 3321,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3083,
+          "src": "/images/dillido-residence/web/view-28-teather-a06-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -485,6 +612,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3083,
+          "src": "/images/dillido-residence/web/view-28-teather-a06-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -537,10 +669,16 @@
       "naturalWidth": 3320,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/dillido-residence/web/view-32-kitchen-a03-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -553,6 +691,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/dillido-residence/web/view-32-kitchen-a03-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2313,

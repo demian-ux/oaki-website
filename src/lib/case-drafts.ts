@@ -46,6 +46,10 @@ export interface CaseEditorialImage {
 export type CaseEditorialRow =
   | { kind: "justified"; images: CaseEditorialImage[] }
   | { kind: "loose"; image: CaseEditorialImage; width: number; align: "left" | "center" | "right" }
+  /** `rowN: pair 27% 50% | <a> :: <alt> | <b> :: <alt>`: two images at
+   *  their own widths, centered on the page, centered on each other in
+   *  height, with a wide gap between them (template v2). */
+  | { kind: "pair"; images: [CaseEditorialImage, CaseEditorialImage]; widths: [number, number] }
   /** `rowN: film | <src> :: <poster src>`: a muted loop at full width. */
   | { kind: "film"; src: string; poster?: string };
 
@@ -147,6 +151,8 @@ function editorialImage(raw: string | undefined, images: JournalImage[]): CaseEd
  *   sheetN: <label> :: <value>
  *   rowN: full | <m1> :: <alt> | <m2> :: <alt> ...        (justified row)
  *   rowN: 40% left | <master> :: <alt>                    (loose image)
+ *   rowN: pair 27% 50% | <a> :: <alt> | <b> :: <alt>      (pair, v2)
+ *   rowN: film | <src> :: <poster src>                    (muted loop)
  *   interludeImage: <master> :: <alt>                     (+ body "## Interlude")
  *   next: <slug> :: <title>
  *   closing: next | next, index | next, bw: <master> :: <alt>
@@ -177,6 +183,15 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
     }
     const resolved = imgs.map((r) => editorialImage(r, images)).filter((x): x is CaseEditorialImage => !!x);
     if (resolved.length === 0) continue;
+    const pair = spec.match(/^pair\s+(\d+(?:\.\d+)?)%\s+(\d+(?:\.\d+)?)%$/i);
+    if (pair && resolved.length >= 2) {
+      rows.push({
+        kind: "pair",
+        images: [resolved[0], resolved[1]],
+        widths: [Number(pair[1]), Number(pair[2])],
+      });
+      continue;
+    }
     const loose = spec.match(/^(\d+(?:\.\d+)?)%\s*(left|center|right)?$/i);
     if (loose) {
       rows.push({
@@ -289,7 +304,7 @@ export function getCaseDraft(slug: string): CaseDraft | null {
     if (editorial.hero.type === "image") all.push(editorial.hero.image);
     else if (editorial.hero.poster) all.push(editorial.hero.poster);
     for (const r of editorial.rows) {
-      if (r.kind === "justified") all.push(...r.images);
+      if (r.kind === "justified" || r.kind === "pair") all.push(...r.images);
       else if (r.kind === "loose") all.push(r.image);
     }
     all.forEach((e, i) => slots.push({ n: i + 1, image: e.image, label: e.alt }));

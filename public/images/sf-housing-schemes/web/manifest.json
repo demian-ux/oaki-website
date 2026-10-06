@@ -8,6 +8,7 @@
       "naturalHeight": 2259,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -16,6 +17,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/sf-housing-schemes/web/View 01_a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/sf-housing-schemes/web/View 01_a03-2560.avif"
         },
         {
           "width": 1920,
@@ -33,6 +39,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/sf-housing-schemes/web/View 01_a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/sf-housing-schemes/web/View 01_a03-2560.webp"
         },
         {
           "width": 1920,
@@ -53,6 +64,7 @@
       "naturalHeight": 2259,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -61,6 +73,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/sf-housing-schemes/web/View 02_a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/sf-housing-schemes/web/View 02_a03-2560.avif"
         },
         {
           "width": 1920,
@@ -78,6 +95,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/sf-housing-schemes/web/View 02_a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/sf-housing-schemes/web/View 02_a03-2560.webp"
         },
         {
           "width": 1920,
@@ -98,6 +120,7 @@
       "naturalHeight": 3637,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -106,6 +129,11 @@
           "width": 3840,
           "height": 3492,
           "src": "/images/sf-housing-schemes/web/View 03_a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 2328,
+          "src": "/images/sf-housing-schemes/web/View 03_a03-2560.avif"
         },
         {
           "width": 1920,
@@ -123,6 +151,11 @@
           "width": 3840,
           "height": 3492,
           "src": "/images/sf-housing-schemes/web/View 03_a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 2328,
+          "src": "/images/sf-housing-schemes/web/View 03_a03-2560.webp"
         },
         {
           "width": 1920,
@@ -143,6 +176,7 @@
       "naturalHeight": 2259,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -151,6 +185,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/sf-housing-schemes/web/View 03_fixed-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/sf-housing-schemes/web/View 03_fixed-2560.avif"
         },
         {
           "width": 1920,
@@ -170,6 +209,11 @@
           "src": "/images/sf-housing-schemes/web/View 03_fixed-3840.webp"
         },
         {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/sf-housing-schemes/web/View 03_fixed-2560.webp"
+        },
+        {
           "width": 1920,
           "height": 1084,
           "src": "/images/sf-housing-schemes/web/View 03_fixed-1920.webp"
@@ -187,10 +231,16 @@
       "naturalWidth": 3600,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/sf-housing-schemes/web/View 04_a02-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -203,6 +253,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/sf-housing-schemes/web/View 04_a02-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2133,

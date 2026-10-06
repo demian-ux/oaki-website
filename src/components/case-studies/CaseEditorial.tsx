@@ -63,6 +63,25 @@ function Row({
       </div>
     );
   }
+  if (row.kind === "pair") {
+    return (
+      <div className={`${s.row} ${s.pair}`}>
+        {row.images.map((img, i) => (
+          <div
+            key={img.image.name}
+            className={s.pairItem}
+            style={{ ["--w" as string]: `${row.widths[i]}%` }}
+          >
+            <Picture
+              img={img}
+              gallery={gallery}
+              sizes={`(min-width: 821px) ${row.widths[i]}vw, 100vw`}
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
   if (row.kind === "loose") {
     const align =
       row.align === "center"
@@ -113,7 +132,7 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
   if (e.hero.type === "image") gallery.push(e.hero.image);
   if (e.introImage) gallery.push(e.introImage);
   for (const r of e.rows) {
-    if (r.kind === "justified") gallery.push(...r.images);
+    if (r.kind === "justified" || r.kind === "pair") gallery.push(...r.images);
     else if (r.kind === "loose") gallery.push(r.image);
   }
   if (e.interlude) gallery.push(e.interlude.image);

@@ -8,6 +8,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -16,6 +17,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/windsor-residence/web/View 01_Facade_a05-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/windsor-residence/web/View 01_Facade_a05-2560.avif"
         },
         {
           "width": 1920,
@@ -33,6 +39,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/windsor-residence/web/View 01_Facade_a05-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/windsor-residence/web/View 01_Facade_a05-2560.webp"
         },
         {
           "width": 1920,
@@ -53,6 +64,7 @@
       "naturalHeight": 3334,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -61,6 +73,11 @@
           "width": 3840,
           "height": 2561,
           "src": "/images/windsor-residence/web/View 02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 02-2560.avif"
         },
         {
           "width": 1920,
@@ -78,6 +95,11 @@
           "width": 3840,
           "height": 2561,
           "src": "/images/windsor-residence/web/View 02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 02-2560.webp"
         },
         {
           "width": 1920,
@@ -98,6 +120,7 @@
       "naturalHeight": 3334,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -106,6 +129,11 @@
           "width": 3840,
           "height": 2561,
           "src": "/images/windsor-residence/web/View 03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 03-2560.avif"
         },
         {
           "width": 1920,
@@ -123,6 +151,11 @@
           "width": 3840,
           "height": 2561,
           "src": "/images/windsor-residence/web/View 03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 03-2560.webp"
         },
         {
           "width": 1920,
@@ -177,6 +210,7 @@
       "naturalHeight": 3334,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -185,6 +219,11 @@
           "width": 3840,
           "height": 2561,
           "src": "/images/windsor-residence/web/View 04-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 04-2560.avif"
         },
         {
           "width": 1920,
@@ -202,6 +241,11 @@
           "width": 3840,
           "height": 2561,
           "src": "/images/windsor-residence/web/View 04-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 04-2560.webp"
         },
         {
           "width": 1920,
@@ -222,6 +266,7 @@
       "naturalHeight": 3334,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -230,6 +275,11 @@
           "width": 3840,
           "height": 2561,
           "src": "/images/windsor-residence/web/View 05_A-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 05_A-2560.avif"
         },
         {
           "width": 1920,
@@ -247,6 +297,11 @@
           "width": 3840,
           "height": 2561,
           "src": "/images/windsor-residence/web/View 05_A-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 05_A-2560.webp"
         },
         {
           "width": 1920,
@@ -267,6 +322,7 @@
       "naturalHeight": 3334,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -275,6 +331,11 @@
           "width": 3840,
           "height": 2561,
           "src": "/images/windsor-residence/web/View 05_B-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 05_B-2560.avif"
         },
         {
           "width": 1920,
@@ -292,6 +353,11 @@
           "width": 3840,
           "height": 2561,
           "src": "/images/windsor-residence/web/View 05_B-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 05_B-2560.webp"
         },
         {
           "width": 1920,
@@ -413,9 +479,15 @@
       "naturalWidth": 1768,
       "naturalHeight": 2500,
       "widths": [
+        1768,
         960
       ],
       "avif": [
+        {
+          "width": 1768,
+          "height": 2500,
+          "src": "/images/windsor-residence/web/View 15B_Stair-1768.avif"
+        },
         {
           "width": 960,
           "height": 1357,
@@ -423,6 +495,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 1768,
+          "height": 2500,
+          "src": "/images/windsor-residence/web/View 15B_Stair-1768.webp"
+        },
         {
           "width": 960,
           "height": 1357,
@@ -437,6 +514,7 @@
       "naturalHeight": 2667,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -445,6 +523,11 @@
           "width": 3840,
           "height": 2560,
           "src": "/images/windsor-residence/web/View 16_Salon-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 16_Salon-2560.avif"
         },
         {
           "width": 1920,
@@ -462,6 +545,11 @@
           "width": 3840,
           "height": 2560,
           "src": "/images/windsor-residence/web/View 16_Salon-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/windsor-residence/web/View 16_Salon-2560.webp"
         },
         {
           "width": 1920,
@@ -584,6 +672,7 @@
       "naturalHeight": 2146,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -592,6 +681,11 @@
           "width": 3840,
           "height": 1648,
           "src": "/images/windsor-residence/web/View Extra-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1099,
+          "src": "/images/windsor-residence/web/View Extra-2560.avif"
         },
         {
           "width": 1920,
@@ -609,6 +703,11 @@
           "width": 3840,
           "height": 1648,
           "src": "/images/windsor-residence/web/View Extra-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1099,
+          "src": "/images/windsor-residence/web/View Extra-2560.webp"
         },
         {
           "width": 1920,
@@ -629,6 +728,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -637,6 +737,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/windsor-residence/web/View01-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/windsor-residence/web/View01-2560.avif"
         },
         {
           "width": 1920,
@@ -654,6 +759,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/windsor-residence/web/View01-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/windsor-residence/web/View01-2560.webp"
         },
         {
           "width": 1920,

@@ -7,10 +7,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1695,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/icrave-ballys-chicago/web/View 01 --2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -23,6 +29,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/icrave-ballys-chicago/web/View 01 --2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -41,10 +52,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1694,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/icrave-ballys-chicago/web/View 02 --2560.avif"
+        },
         {
           "width": 1920,
           "height": 1084,
@@ -57,6 +74,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/icrave-ballys-chicago/web/View 02 --2560.webp"
+        },
         {
           "width": 1920,
           "height": 1084,
@@ -75,10 +97,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1695,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/icrave-ballys-chicago/web/View 03 --2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -91,6 +119,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/icrave-ballys-chicago/web/View 03 --2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -109,10 +142,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1694,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/icrave-ballys-chicago/web/View 04-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1084,
@@ -125,6 +164,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/icrave-ballys-chicago/web/View 04-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1084,
@@ -143,10 +187,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1694,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/icrave-ballys-chicago/web/View 05 --2560.avif"
+        },
         {
           "width": 1920,
           "height": 1084,
@@ -159,6 +209,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/icrave-ballys-chicago/web/View 05 --2560.webp"
+        },
         {
           "width": 1920,
           "height": 1084,

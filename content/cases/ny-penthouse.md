@@ -1,64 +1,41 @@
 ---
+template: editorial
 title: Central Park West
 slug: ny-penthouse
-collection: The Residential Collection
-audience: Architects who need a design approved from images
-argument: PROPOSED (Demi defines at review). This case study proves oaki's images can carry a design through the meeting that decides it, to architects whose clients approve from frames, not drawings.
-subtitle: Interiors rendered for the meeting that decides them. Two frames made to convince an owner became the complete set for a Manhattan penthouse.
-location: New York, Manhattan
-type: Residential
-client: TBD Architecture + Design
-year: "2024"
+collection: Residential
+description: A remodelled apartment above Central Park by Jessica Helgerson Interior Design with TBD Architecture + Design, visualized by oaki.
+location: Manhattan, New York
+type: Residential interior
+client: Jessica Helgerson Interior Design
+year: 2022
 imageProject: ny-penthouse
-template: editorial
-description: Interiors rendered for the meeting that decides them. Two frames made to convince an owner became the complete set for a Manhattan penthouse.
-hero: Living Piano Stage :: Arrival, the living room as a stage, the hero frame (the home shelf uses it)
-introImage: terrace night pool2 :: Arrival, the terrace after dark, the skyline standing in for the address
-sheet1: Architecture and interior design :: TBD Architecture + Design
-sheet2: Location :: New York, Manhattan
-sheet3: Collection :: Residential
-sheet4: Year :: 2024
-sheet5: Visualization :: Oaki Studio
-row1: full | Main Area :: Moving through, the main space in full
-row2: full | Dining :: Moving through, the dining room | Kitchen Library :: Moving through, kitchen into library | Bar front :: Detail, the bar
-row3: 44% left | Bar detail mrl :: Detail, the millwork matched to the sample
-row4: full | Breakfast nook :: Life, morning light in the breakfast nook
-row5: 44% left | Library :: Life, the library at rest
-next: oak-house :: Oak House
+hero: Living From kitchen :: Living room with grand piano framed by the library doorway, Central Park beyond
+introImage: Living Piano Stage2 :: Grand piano by the window against the evening skyline
+sheet1: Interior design :: Jessica Helgerson Interior Design
+sheet2: Architecture :: TBD Architecture + Design
+sheet3: Location :: Manhattan, New York
+sheet4: Collection :: Residential
+sheet5: Year :: 2022
+sheet6: Scope :: Interior stills
+sheet7: Visualization :: Oaki Studio
+row1: full | Main Area :: Living and dining room with park views
+row2: pair 27% 50% | Living table :: Stone coffee table in afternoon light | Dining :: Dining room looking through to the library
+row3: full | Identity :: Library shelves and the bar counter
+row4: pair 35% 42.2% | Bar front :: Walnut bar with brass ginkgo inlay | Library2 :: Library with rolling ladder and Central Park view
+row5: full | Breakfast nook :: Kitchen and breakfast table with bojagi window textiles
+row6: pair 46% 27% | Kitchen :: Kitchen with marble and brass range | Kitchen Library :: Shelving with ceramics
+next: manhattan-apartment :: Manhattan Penthouse
 closing: next
-img1: Living Piano Stage :: Arrival, the living room as a stage, the hero frame (the home shelf uses it)
-img2: terrace night pool2 :: Arrival, the terrace after dark, the skyline standing in for the address
-img3: Main Area :: Moving through, the main space in full
-img4: Dining :: Moving through, the dining room
-img5: Kitchen Library :: Moving through, kitchen into library
-img6: Bar front :: Detail, the bar
-img7: Bar detail mrl :: Detail, the millwork matched to the sample
-img8: Breakfast nook :: Life, morning light in the breakfast nook
-img9: Library :: Life, the library at rest
-img10: GAP :: Process, the two original approval frames or model-vs-final, brief Diego
-credit1: Architecture and interior design :: TBD Architecture + Design
-credit2: Location :: New York, Manhattan
-credit3: Year :: 2024
-credit4: Visualization :: Oaki Studio
-gap1: Process slot, the two original frames that won the commission would be the ideal artifact
-flag1: The Sanity phase copy keeps the address private ("the skyline standing in for an address we keep private") while the home shelf titles it Central Park West. Demi confirms the public name before ship.
-flag2: The argument line is a proposal, Demi defines the argument at review
+credit1: Interior design :: Jessica Helgerson Interior Design
+credit2: Architecture :: TBD Architecture + Design
+credit3: Location :: Manhattan, New York
+credit4: Year :: 2022
+credit5: Visualization :: Oaki Studio
+flag1: Scope "Interior stills" pending Diego.
+flag2: Intro texts written from the interior design studio's published description; pending Diego.
+flag3: Pack images mapped to the 4K library masters (pack 02 = Living Piano Stage2, 09 = Library2, 12 = Kitchen Library); the previous Sanity copy kept the street address private, Demi confirms the public name.
 ---
 ## Intro
-TBD Architecture + Design sent a model, drawings, and photos of the material samples on the studio desk. The commission began as two interiors, made so the owner could see the design.
+A full remodel of an apartment above Central Park, designed by Jessica Helgerson Interior Design with TBD Architecture + Design. The plan was reworked into a simpler, warmer sequence of rooms, and one detail of the original home set the language for the rest: the chrysanthemum on its doorknobs, carried into the ceiling roses, rugs, lighting and mosaic floors.
 
-The rooms read as used, not staged: morning light in the kitchen, the living room at golden hour, a bedroom at rest. That is what makes an approval meeting believe them. Gray millwork matched to the sample, stone chosen area by area, and the city doing the talking after dark, one frame on the terrace with the skyline standing in for the address.
-
-## Setup
-TBD Architecture + Design sent a model, drawings, and photos of the material samples on the studio desk. The commission began as two interiors, made so the owner could see the design.
-
-The owner saw it. Two frames became a commission for the complete interior set of a Manhattan penthouse, delivered in 2024.
-
-## Tension
-This set exists to get a design approved. A sample held in hand and a surface read at approval distance are not the same thing; the images had to fill that gap convincingly enough that the meeting could decide from them. When the main bathroom was redesigned mid-project, the frames were rebuilt to match by the next morning.
-
-## Approach
-The rooms read as used, not staged: morning light in the kitchen, the living room at golden hour, a bedroom at rest. That is what makes an approval meeting believe them. Gray millwork matched to the sample, stone chosen area by area, and the city doing the talking after dark, one frame on the terrace with the skyline standing in for the address.
-
-## Outcome
-The owner approved the design from the frames. What began as a two-image test became the project's complete visual record, ten stills delivered in 2024, and TBD has returned with a new project every year since.
+Oaki followed that thread through a single late afternoon. The images move from the piano room and dining table into the walnut library and its bar, where a brass inlay of falling ginkgo leaves catches the last light, and end in the kitchen behind bojagi textiles by Wonju Seo. Wide frames set each room against the park, and close ones stay with what was made by hand.

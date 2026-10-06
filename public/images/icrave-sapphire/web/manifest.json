@@ -8,6 +8,7 @@
       "naturalHeight": 2251,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -16,6 +17,11 @@
           "width": 3840,
           "height": 2161,
           "src": "/images/icrave-sapphire/web/View 01_Entrance-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1441,
+          "src": "/images/icrave-sapphire/web/View 01_Entrance-2560.avif"
         },
         {
           "width": 1920,
@@ -33,6 +39,11 @@
           "width": 3840,
           "height": 2161,
           "src": "/images/icrave-sapphire/web/View 01_Entrance-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1441,
+          "src": "/images/icrave-sapphire/web/View 01_Entrance-2560.webp"
         },
         {
           "width": 1920,
@@ -53,6 +64,7 @@
       "naturalHeight": 2251,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -61,6 +73,11 @@
           "width": 3840,
           "height": 2161,
           "src": "/images/icrave-sapphire/web/View 02_Lounge-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1441,
+          "src": "/images/icrave-sapphire/web/View 02_Lounge-2560.avif"
         },
         {
           "width": 1920,
@@ -78,6 +95,11 @@
           "width": 3840,
           "height": 2161,
           "src": "/images/icrave-sapphire/web/View 02_Lounge-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1441,
+          "src": "/images/icrave-sapphire/web/View 02_Lounge-2560.webp"
         },
         {
           "width": 1920,
@@ -98,6 +120,7 @@
       "naturalHeight": 2822,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -106,6 +129,11 @@
           "width": 3840,
           "height": 2709,
           "src": "/images/icrave-sapphire/web/View 03_Bar-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1806,
+          "src": "/images/icrave-sapphire/web/View 03_Bar-2560.avif"
         },
         {
           "width": 1920,
@@ -123,6 +151,11 @@
           "width": 3840,
           "height": 2709,
           "src": "/images/icrave-sapphire/web/View 03_Bar-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1806,
+          "src": "/images/icrave-sapphire/web/View 03_Bar-2560.webp"
         },
         {
           "width": 1920,
@@ -143,6 +176,7 @@
       "naturalHeight": 2822,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -151,6 +185,11 @@
           "width": 3840,
           "height": 2709,
           "src": "/images/icrave-sapphire/web/View 04_La ventanita-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1806,
+          "src": "/images/icrave-sapphire/web/View 04_La ventanita-2560.avif"
         },
         {
           "width": 1920,
@@ -168,6 +207,11 @@
           "width": 3840,
           "height": 2709,
           "src": "/images/icrave-sapphire/web/View 04_La ventanita-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1806,
+          "src": "/images/icrave-sapphire/web/View 04_La ventanita-2560.webp"
         },
         {
           "width": 1920,

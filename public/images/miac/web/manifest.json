@@ -7,10 +7,16 @@
       "naturalWidth": 3456,
       "naturalHeight": 4888,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3621,
+          "src": "/images/miac/web/Close up activity 01-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2716,
@@ -23,6 +29,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3621,
+          "src": "/images/miac/web/Close up activity 01-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2716,
@@ -41,10 +52,16 @@
       "naturalWidth": 3125,
       "naturalHeight": 3125,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 2560,
+          "src": "/images/miac/web/Close up detail mtl-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1920,
@@ -57,6 +74,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 2560,
+          "src": "/images/miac/web/Close up detail mtl-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1920,
@@ -75,10 +97,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1694,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/miac/web/Main Entry door-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1084,
@@ -91,6 +119,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/miac/web/Main Entry door-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1084,

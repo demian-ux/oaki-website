@@ -144,6 +144,7 @@
       "naturalHeight": 2260,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -152,6 +153,11 @@
           "width": 3840,
           "height": 2170,
           "src": "/images/2w-29th/web/Lounge terrace-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/2w-29th/web/Lounge terrace-2560.avif"
         },
         {
           "width": 1920,
@@ -171,6 +177,11 @@
           "src": "/images/2w-29th/web/Lounge terrace-3840.webp"
         },
         {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/2w-29th/web/Lounge terrace-2560.webp"
+        },
+        {
           "width": 1920,
           "height": 1085,
           "src": "/images/2w-29th/web/Lounge terrace-1920.webp"
@@ -188,10 +199,16 @@
       "naturalWidth": 3320,
       "naturalHeight": 1876,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/2w-29th/web/main airea-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -204,6 +221,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/2w-29th/web/main airea-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -256,10 +278,16 @@
       "naturalWidth": 3320,
       "naturalHeight": 1876,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/2w-29th/web/Stair-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -272,6 +300,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/2w-29th/web/Stair-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -324,10 +357,16 @@
       "naturalWidth": 3320,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/2w-29th/web/View 01_a03-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -340,6 +379,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/2w-29th/web/View 01_a03-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2313,

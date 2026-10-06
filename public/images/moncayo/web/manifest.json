@@ -7,10 +7,16 @@
       "naturalWidth": 3600,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/moncayo/web/View 01_Rear Facade_Final-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -23,6 +29,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/moncayo/web/View 01_Rear Facade_Final-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -42,6 +53,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -50,6 +62,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 02_Garage_Final-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 02_Garage_Final-2560.avif"
         },
         {
           "width": 1920,
@@ -67,6 +84,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 02_Garage_Final-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 02_Garage_Final-2560.webp"
         },
         {
           "width": 1920,
@@ -87,6 +109,7 @@
       "naturalHeight": 2000,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -95,6 +118,11 @@
           "width": 3840,
           "height": 1920,
           "src": "/images/moncayo/web/View 03_Terrace_Final-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1280,
+          "src": "/images/moncayo/web/View 03_Terrace_Final-2560.avif"
         },
         {
           "width": 1920,
@@ -114,6 +142,11 @@
           "src": "/images/moncayo/web/View 03_Terrace_Final-3840.webp"
         },
         {
+          "width": 2560,
+          "height": 1280,
+          "src": "/images/moncayo/web/View 03_Terrace_Final-2560.webp"
+        },
+        {
           "width": 1920,
           "height": 960,
           "src": "/images/moncayo/web/View 03_Terrace_Final-1920.webp"
@@ -131,10 +164,16 @@
       "naturalWidth": 3600,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/moncayo/web/View 04_Garden_Final-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -147,6 +186,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/moncayo/web/View 04_Garden_Final-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -166,6 +210,7 @@
       "naturalHeight": 2259,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -174,6 +219,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/moncayo/web/View 05_Living room Bar_Final-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/moncayo/web/View 05_Living room Bar_Final-2560.avif"
         },
         {
           "width": 1920,
@@ -191,6 +241,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/moncayo/web/View 05_Living room Bar_Final-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/moncayo/web/View 05_Living room Bar_Final-2560.webp"
         },
         {
           "width": 1920,
@@ -211,6 +266,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -219,6 +275,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 06_Garage_Final-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 06_Garage_Final-2560.avif"
         },
         {
           "width": 1920,
@@ -236,6 +297,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 06_Garage_Final-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 06_Garage_Final-2560.webp"
         },
         {
           "width": 1920,
@@ -256,6 +322,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -264,6 +331,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 07_Rear_Facade_Final-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 07_Rear_Facade_Final-2560.avif"
         },
         {
           "width": 1920,
@@ -281,6 +353,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 07_Rear_Facade_Final-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 07_Rear_Facade_Final-2560.webp"
         },
         {
           "width": 1920,
@@ -301,6 +378,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -309,6 +387,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 08_Bedroom_Final-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 08_Bedroom_Final-2560.avif"
         },
         {
           "width": 1920,
@@ -326,6 +409,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 08_Bedroom_Final-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 08_Bedroom_Final-2560.webp"
         },
         {
           "width": 1920,
@@ -346,6 +434,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -354,6 +443,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 09_Final-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 09_Final-2560.avif"
         },
         {
           "width": 1920,
@@ -373,6 +467,11 @@
           "src": "/images/moncayo/web/View 09_Final-3840.webp"
         },
         {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 09_Final-2560.webp"
+        },
+        {
           "width": 1920,
           "height": 1444,
           "src": "/images/moncayo/web/View 09_Final-1920.webp"
@@ -390,10 +489,16 @@
       "naturalWidth": 3600,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/moncayo/web/View 10_Bathroom_Final-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -406,6 +511,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/moncayo/web/View 10_Bathroom_Final-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -425,6 +535,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -433,6 +544,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 11_a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 11_a02-2560.avif"
         },
         {
           "width": 1920,
@@ -450,6 +566,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 11_a02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 11_a02-2560.webp"
         },
         {
           "width": 1920,
@@ -470,6 +591,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -478,6 +600,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 12_a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 12_a02-2560.avif"
         },
         {
           "width": 1920,
@@ -495,6 +622,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 12_a02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 12_a02-2560.webp"
         },
         {
           "width": 1920,
@@ -515,6 +647,7 @@
       "naturalHeight": 2250,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -523,6 +656,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 13_a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 13_a02-2560.avif"
         },
         {
           "width": 1920,
@@ -540,6 +678,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 13_a02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 13_a02-2560.webp"
         },
         {
           "width": 1920,
@@ -560,6 +703,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -568,6 +712,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 14_a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 14_a02-2560.avif"
         },
         {
           "width": 1920,
@@ -585,6 +734,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 14_a02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 14_a02-2560.webp"
         },
         {
           "width": 1920,
@@ -605,6 +759,7 @@
       "naturalHeight": 2250,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -613,6 +768,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 15_a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 15_a02-2560.avif"
         },
         {
           "width": 1920,
@@ -630,6 +790,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 15_a02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 15_a02-2560.webp"
         },
         {
           "width": 1920,
@@ -650,6 +815,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -658,6 +824,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 16_a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 16_a02-2560.avif"
         },
         {
           "width": 1920,
@@ -675,6 +846,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 16_a02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 16_a02-2560.webp"
         },
         {
           "width": 1920,
@@ -695,6 +871,7 @@
       "naturalHeight": 2250,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -703,6 +880,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 17_a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 17_a02-2560.avif"
         },
         {
           "width": 1920,
@@ -720,6 +902,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 17_a02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 17_a02-2560.webp"
         },
         {
           "width": 1920,
@@ -740,6 +927,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -748,6 +936,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 18_a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 18_a02-2560.avif"
         },
         {
           "width": 1920,
@@ -765,6 +958,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 18_a02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 18_a02-2560.webp"
         },
         {
           "width": 1920,
@@ -785,6 +983,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -793,6 +992,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 19_a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 19_a03-2560.avif"
         },
         {
           "width": 1920,
@@ -810,6 +1014,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 19_a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 19_a03-2560.webp"
         },
         {
           "width": 1920,
@@ -830,6 +1039,7 @@
       "naturalHeight": 3006,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -838,6 +1048,11 @@
           "width": 3840,
           "height": 2886,
           "src": "/images/moncayo/web/View 20_b02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/moncayo/web/View 20_b02-2560.avif"
         },
         {
           "width": 1920,
@@ -855,6 +1070,11 @@
           "width": 3840,
           "height": 2886,
           "src": "/images/moncayo/web/View 20_b02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/moncayo/web/View 20_b02-2560.webp"
         },
         {
           "width": 1920,
@@ -875,6 +1095,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -883,6 +1104,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 21_a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 21_a03-2560.avif"
         },
         {
           "width": 1920,
@@ -900,6 +1126,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 21_a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 21_a03-2560.webp"
         },
         {
           "width": 1920,
@@ -920,6 +1151,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -928,6 +1160,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 22_a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 22_a03-2560.avif"
         },
         {
           "width": 1920,
@@ -945,6 +1182,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/moncayo/web/View 22_a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/moncayo/web/View 22_a03-2560.webp"
         },
         {
           "width": 1920,
@@ -965,6 +1207,7 @@
       "naturalHeight": 2259,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -973,6 +1216,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/moncayo/web/View 23_b02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/moncayo/web/View 23_b02-2560.avif"
         },
         {
           "width": 1920,
@@ -990,6 +1238,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/moncayo/web/View 23_b02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/moncayo/web/View 23_b02-2560.webp"
         },
         {
           "width": 1920,
@@ -1010,6 +1263,7 @@
       "naturalHeight": 2259,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -1018,6 +1272,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/moncayo/web/View 24_a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/moncayo/web/View 24_a03-2560.avif"
         },
         {
           "width": 1920,
@@ -1035,6 +1294,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/moncayo/web/View 24_a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/moncayo/web/View 24_a03-2560.webp"
         },
         {
           "width": 1920,
@@ -1055,6 +1319,7 @@
       "naturalHeight": 2259,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -1063,6 +1328,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/moncayo/web/View 25_a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/moncayo/web/View 25_a03-2560.avif"
         },
         {
           "width": 1920,
@@ -1080,6 +1350,11 @@
           "width": 3840,
           "height": 2169,
           "src": "/images/moncayo/web/View 25_a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/moncayo/web/View 25_a03-2560.webp"
         },
         {
           "width": 1920,
@@ -1100,6 +1375,7 @@
       "naturalHeight": 2000,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -1108,6 +1384,11 @@
           "width": 3840,
           "height": 1920,
           "src": "/images/moncayo/web/View 26_a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1280,
+          "src": "/images/moncayo/web/View 26_a03-2560.avif"
         },
         {
           "width": 1920,
@@ -1125,6 +1406,11 @@
           "width": 3840,
           "height": 1920,
           "src": "/images/moncayo/web/View 26_a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1280,
+          "src": "/images/moncayo/web/View 26_a03-2560.webp"
         },
         {
           "width": 1920,
@@ -1145,6 +1431,7 @@
       "naturalHeight": 2000,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -1153,6 +1440,11 @@
           "width": 3840,
           "height": 1920,
           "src": "/images/moncayo/web/View 27_a03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1280,
+          "src": "/images/moncayo/web/View 27_a03-2560.avif"
         },
         {
           "width": 1920,
@@ -1170,6 +1462,11 @@
           "width": 3840,
           "height": 1920,
           "src": "/images/moncayo/web/View 27_a03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1280,
+          "src": "/images/moncayo/web/View 27_a03-2560.webp"
         },
         {
           "width": 1920,
@@ -1190,6 +1487,7 @@
       "naturalHeight": 2250,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -1198,6 +1496,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 28-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 28-2560.avif"
         },
         {
           "width": 1920,
@@ -1217,6 +1520,11 @@
           "src": "/images/moncayo/web/View 28-3840.webp"
         },
         {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 28-2560.webp"
+        },
+        {
           "width": 1920,
           "height": 1080,
           "src": "/images/moncayo/web/View 28-1920.webp"
@@ -1234,10 +1542,16 @@
       "naturalWidth": 3600,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/moncayo/web/View 29-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -1250,6 +1564,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/moncayo/web/View 29-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -1268,10 +1587,16 @@
       "naturalWidth": 3600,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/moncayo/web/View 30-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -1284,6 +1609,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/moncayo/web/View 30-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2133,
@@ -1303,6 +1633,7 @@
       "naturalHeight": 2250,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -1311,6 +1642,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 31-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 31-2560.avif"
         },
         {
           "width": 1920,
@@ -1328,6 +1664,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 31-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 31-2560.webp"
         },
         {
           "width": 1920,
@@ -1348,6 +1689,7 @@
       "naturalHeight": 2250,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -1356,6 +1698,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 32-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 32-2560.avif"
         },
         {
           "width": 1920,
@@ -1373,6 +1720,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 32-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 32-2560.webp"
         },
         {
           "width": 1920,
@@ -1393,6 +1745,7 @@
       "naturalHeight": 2250,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -1401,6 +1754,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 33-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 33-2560.avif"
         },
         {
           "width": 1920,
@@ -1418,6 +1776,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/moncayo/web/View 33-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/moncayo/web/View 33-2560.webp"
         },
         {
           "width": 1920,

@@ -25,7 +25,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const mastersRoot = resolve(root, "images");
 const webRoot = resolve(root, "public", "images");
 
-const WIDTHS = [3840, 1920, 960];
+const WIDTHS = [3840, 2560, 1920, 960];
 const INPUT_EXTS = new Set([".tif", ".tiff", ".png", ".jpg", ".jpeg", ".webp"]);
 // AVIF ~62 keeps a 15-25 MB 4K render around 400-900 KB at 3840 with no
 // visible loss; WebP is the fallback for engines without AVIF.

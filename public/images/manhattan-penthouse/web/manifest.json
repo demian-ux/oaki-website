@@ -8,6 +8,7 @@
       "naturalHeight": 2260,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -16,6 +17,11 @@
           "width": 3840,
           "height": 2170,
           "src": "/images/manhattan-penthouse/web/01-lounge-terrace-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/manhattan-penthouse/web/01-lounge-terrace-2560.avif"
         },
         {
           "width": 1920,
@@ -35,6 +41,11 @@
           "src": "/images/manhattan-penthouse/web/01-lounge-terrace-3840.webp"
         },
         {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/manhattan-penthouse/web/01-lounge-terrace-2560.webp"
+        },
+        {
           "width": 1920,
           "height": 1085,
           "src": "/images/manhattan-penthouse/web/01-lounge-terrace-1920.webp"
@@ -52,10 +63,16 @@
       "naturalWidth": 2828,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3621,
+          "src": "/images/manhattan-penthouse/web/02-aerial-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2716,
@@ -68,6 +85,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3621,
+          "src": "/images/manhattan-penthouse/web/02-aerial-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2716,
@@ -86,10 +108,16 @@
       "naturalWidth": 3320,
       "naturalHeight": 1876,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/manhattan-penthouse/web/03-stair-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -102,6 +130,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/manhattan-penthouse/web/03-stair-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -154,10 +187,16 @@
       "naturalWidth": 3320,
       "naturalHeight": 1876,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/manhattan-penthouse/web/05-main-area-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -170,6 +209,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/manhattan-penthouse/web/05-main-area-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -325,6 +369,7 @@
       "naturalHeight": 2260,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -333,6 +378,11 @@
           "width": 3840,
           "height": 2170,
           "src": "/images/manhattan-penthouse/web/10-lounge-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/manhattan-penthouse/web/10-lounge-2560.avif"
         },
         {
           "width": 1920,
@@ -350,6 +400,11 @@
           "width": 3840,
           "height": 2170,
           "src": "/images/manhattan-penthouse/web/10-lounge-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/manhattan-penthouse/web/10-lounge-2560.webp"
         },
         {
           "width": 1920,

@@ -7,10 +7,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2118,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/icnyc/web/View 01-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1356,
@@ -23,6 +29,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/icnyc/web/View 01-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1356,
@@ -41,10 +52,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2118,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/icnyc/web/View 02-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1356,
@@ -57,6 +74,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/icnyc/web/View 02-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1356,
@@ -75,10 +97,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2118,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/icnyc/web/View 03-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1356,
@@ -91,6 +119,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/icnyc/web/View 03-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1356,
@@ -109,10 +142,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2256,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/icnyc/web/View 04-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -125,6 +164,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/icnyc/web/View 04-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -143,10 +187,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2256,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/icnyc/web/View 05-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -159,6 +209,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/icnyc/web/View 05-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -177,10 +232,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2256,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/icnyc/web/View 06-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -193,6 +254,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/icnyc/web/View 06-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -211,10 +277,16 @@
       "naturalWidth": 3320,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/icnyc/web/View 07_Stair_A-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -227,6 +299,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/icnyc/web/View 07_Stair_A-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -245,10 +322,16 @@
       "naturalWidth": 3320,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/icnyc/web/View 07_Stair_B-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -261,6 +344,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/icnyc/web/View 07_Stair_B-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -279,10 +367,16 @@
       "naturalWidth": 3320,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/icnyc/web/View 07_Stair-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -295,6 +389,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/icnyc/web/View 07_Stair-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2313,
@@ -313,10 +412,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2118,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/icnyc/web/View 08_Cafe-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1356,
@@ -329,6 +434,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/icnyc/web/View 08_Cafe-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1356,
@@ -347,10 +457,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1999,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1706,
+          "src": "/images/icnyc/web/View 09 - Update-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1279,
@@ -363,6 +479,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1706,
+          "src": "/images/icnyc/web/View 09 - Update-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1279,
@@ -381,10 +502,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1999,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1706,
+          "src": "/images/icnyc/web/View 10 - Update-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1279,
@@ -397,6 +524,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1706,
+          "src": "/images/icnyc/web/View 10 - Update-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1279,

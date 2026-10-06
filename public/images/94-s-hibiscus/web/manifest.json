@@ -42,6 +42,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -50,6 +51,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/94-s-hibiscus/web/View 05_Exterior Day_Final-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/94-s-hibiscus/web/View 05_Exterior Day_Final-2560.avif"
         },
         {
           "width": 1920,
@@ -67,6 +73,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/94-s-hibiscus/web/View 05_Exterior Day_Final-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/94-s-hibiscus/web/View 05_Exterior Day_Final-2560.webp"
         },
         {
           "width": 1920,
@@ -121,6 +132,7 @@
       "naturalHeight": 3008,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -129,6 +141,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/94-s-hibiscus/web/View 07_a02-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/94-s-hibiscus/web/View 07_a02-2560.avif"
         },
         {
           "width": 1920,
@@ -146,6 +163,11 @@
           "width": 3840,
           "height": 2888,
           "src": "/images/94-s-hibiscus/web/View 07_a02-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/94-s-hibiscus/web/View 07_a02-2560.webp"
         },
         {
           "width": 1920,

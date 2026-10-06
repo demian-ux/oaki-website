@@ -146,6 +146,25 @@
   }
 }
 
+/* Pair (template v2): two images at their own widths, centered on the
+   page and on each other, a wide gap between them. */
+.pair {
+  justify-content: center;
+  align-items: center;
+}
+.pairItem {
+  width: 100%;
+}
+@media (min-width: 821px) {
+  .pair {
+    gap: clamp(24px, 8vw, 140px);
+  }
+  .pairItem {
+    flex: none;
+    width: var(--w, 50%);
+  }
+}
+
 /* 5. Interlude: a vertical image with a short text beside it. */
 .interlude {
   display: grid;

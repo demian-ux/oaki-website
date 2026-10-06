@@ -8,6 +8,7 @@
       "naturalHeight": 7064,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -16,6 +17,11 @@
           "width": 3840,
           "height": 2713,
           "src": "/images/803-hunter-rd/web/View 01_Exterior-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1808,
+          "src": "/images/803-hunter-rd/web/View 01_Exterior-2560.avif"
         },
         {
           "width": 1920,
@@ -33,6 +39,11 @@
           "width": 3840,
           "height": 2713,
           "src": "/images/803-hunter-rd/web/View 01_Exterior-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1808,
+          "src": "/images/803-hunter-rd/web/View 01_Exterior-2560.webp"
         },
         {
           "width": 1920,
@@ -87,6 +98,7 @@
       "naturalHeight": 2250,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -95,6 +107,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/803-hunter-rd/web/View 03_Living-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/803-hunter-rd/web/View 03_Living-2560.avif"
         },
         {
           "width": 1920,
@@ -112,6 +129,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/803-hunter-rd/web/View 03_Living-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/803-hunter-rd/web/View 03_Living-2560.webp"
         },
         {
           "width": 1920,
@@ -132,6 +154,7 @@
       "naturalHeight": 2250,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -140,6 +163,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/803-hunter-rd/web/View 04_Kitchen-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/803-hunter-rd/web/View 04_Kitchen-2560.avif"
         },
         {
           "width": 1920,
@@ -157,6 +185,11 @@
           "width": 3840,
           "height": 2160,
           "src": "/images/803-hunter-rd/web/View 04_Kitchen-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/803-hunter-rd/web/View 04_Kitchen-2560.webp"
         },
         {
           "width": 1920,
@@ -177,6 +210,7 @@
       "naturalHeight": 2824,
       "widths": [
         3840,
+        2560,
         1920,
         960
       ],
@@ -185,6 +219,11 @@
           "width": 3840,
           "height": 2711,
           "src": "/images/803-hunter-rd/web/View 05_Bath-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/803-hunter-rd/web/View 05_Bath-2560.avif"
         },
         {
           "width": 1920,
@@ -204,6 +243,11 @@
           "src": "/images/803-hunter-rd/web/View 05_Bath-3840.webp"
         },
         {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/803-hunter-rd/web/View 05_Bath-2560.webp"
+        },
+        {
           "width": 1920,
           "height": 1356,
           "src": "/images/803-hunter-rd/web/View 05_Bath-1920.webp"
@@ -221,10 +265,16 @@
       "naturalWidth": 3602,
       "naturalHeight": 4000,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 2843,
+          "src": "/images/803-hunter-rd/web/View 06_Bath-2560.avif"
+        },
         {
           "width": 1920,
           "height": 2132,
@@ -237,6 +287,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 2843,
+          "src": "/images/803-hunter-rd/web/View 06_Bath-2560.webp"
+        },
         {
           "width": 1920,
           "height": 2132,
@@ -255,10 +310,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2113,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1803,
+          "src": "/images/803-hunter-rd/web/View 07-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1352,
@@ -271,6 +332,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1803,
+          "src": "/images/803-hunter-rd/web/View 07-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1352,
@@ -357,10 +423,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2110,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1801,
+          "src": "/images/803-hunter-rd/web/View 10-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1350,
@@ -373,6 +445,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1801,
+          "src": "/images/803-hunter-rd/web/View 10-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1350,
@@ -391,10 +468,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2114,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1804,
+          "src": "/images/803-hunter-rd/web/View 11-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1353,
@@ -407,6 +490,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1804,
+          "src": "/images/803-hunter-rd/web/View 11-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1353,

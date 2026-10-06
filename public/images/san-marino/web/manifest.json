@@ -7,10 +7,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2255,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/san-marino/web/View 01 - Front Facade-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1443,
@@ -23,6 +29,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/san-marino/web/View 01 - Front Facade-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1443,
@@ -41,10 +52,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2255,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/san-marino/web/View 02 - Entry Stairs-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1443,
@@ -57,6 +74,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/san-marino/web/View 02 - Entry Stairs-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1443,
@@ -109,10 +131,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 2256,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/san-marino/web/View 04 - Seawall-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -125,6 +153,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/san-marino/web/View 04 - Seawall-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1444,
@@ -143,10 +176,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1695,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/san-marino/web/View 05 - Outdoor-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -159,6 +198,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/san-marino/web/View 05 - Outdoor-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -177,10 +221,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1695,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/san-marino/web/View 06 - Waterfront-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -193,6 +243,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/san-marino/web/View 06 - Waterfront-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -211,10 +266,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1695,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/san-marino/web/View 07 - Outdoor-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -227,6 +288,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/san-marino/web/View 07 - Outdoor-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -245,10 +311,16 @@
       "naturalWidth": 3000,
       "naturalHeight": 1695,
       "widths": [
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/san-marino/web/View 08 - Balcony-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -261,6 +333,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/san-marino/web/View 08 - Balcony-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,

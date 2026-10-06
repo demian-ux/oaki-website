@@ -7,9 +7,15 @@
       "naturalWidth": 1600,
       "naturalHeight": 1778,
       "widths": [
+        1600,
         960
       ],
       "avif": [
+        {
+          "width": 1600,
+          "height": 1778,
+          "src": "/images/the-point/web/01-porte-cochere-1600.avif"
+        },
         {
           "width": 960,
           "height": 1067,
@@ -17,6 +23,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 1600,
+          "height": 1778,
+          "src": "/images/the-point/web/01-porte-cochere-1600.webp"
+        },
         {
           "width": 960,
           "height": 1067,
@@ -30,9 +41,15 @@
       "naturalWidth": 1600,
       "naturalHeight": 904,
       "widths": [
+        1600,
         960
       ],
       "avif": [
+        {
+          "width": 1600,
+          "height": 904,
+          "src": "/images/the-point/web/02-lobby-1600.avif"
+        },
         {
           "width": 960,
           "height": 542,
@@ -40,6 +57,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 1600,
+          "height": 904,
+          "src": "/images/the-point/web/02-lobby-1600.webp"
+        },
         {
           "width": 960,
           "height": 542,
@@ -53,9 +75,15 @@
       "naturalWidth": 1600,
       "naturalHeight": 904,
       "widths": [
+        1600,
         960
       ],
       "avif": [
+        {
+          "width": 1600,
+          "height": 904,
+          "src": "/images/the-point/web/03-pool-1600.avif"
+        },
         {
           "width": 960,
           "height": 542,
@@ -63,6 +91,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 1600,
+          "height": 904,
+          "src": "/images/the-point/web/03-pool-1600.webp"
+        },
         {
           "width": 960,
           "height": 542,
@@ -76,9 +109,15 @@
       "naturalWidth": 1600,
       "naturalHeight": 1204,
       "widths": [
+        1600,
         960
       ],
       "avif": [
+        {
+          "width": 1600,
+          "height": 1204,
+          "src": "/images/the-point/web/04-garden-bar-1600.avif"
+        },
         {
           "width": 960,
           "height": 722,
@@ -86,6 +125,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 1600,
+          "height": 1204,
+          "src": "/images/the-point/web/04-garden-bar-1600.webp"
+        },
         {
           "width": 960,
           "height": 722,
@@ -99,9 +143,15 @@
       "naturalWidth": 1600,
       "naturalHeight": 1778,
       "widths": [
+        1600,
         960
       ],
       "avif": [
+        {
+          "width": 1600,
+          "height": 1778,
+          "src": "/images/the-point/web/05-bronze-1600.avif"
+        },
         {
           "width": 960,
           "height": 1067,
@@ -109,6 +159,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 1600,
+          "height": 1778,
+          "src": "/images/the-point/web/05-bronze-1600.webp"
+        },
         {
           "width": 960,
           "height": 1067,
@@ -122,9 +177,15 @@
       "naturalWidth": 1600,
       "naturalHeight": 1778,
       "widths": [
+        1600,
         960
       ],
       "avif": [
+        {
+          "width": 1600,
+          "height": 1778,
+          "src": "/images/the-point/web/06-library-1600.avif"
+        },
         {
           "width": 960,
           "height": 1067,
@@ -132,6 +193,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 1600,
+          "height": 1778,
+          "src": "/images/the-point/web/06-library-1600.webp"
+        },
         {
           "width": 960,
           "height": 1067,
@@ -145,9 +211,15 @@
       "naturalWidth": 1600,
       "naturalHeight": 1204,
       "widths": [
+        1600,
         960
       ],
       "avif": [
+        {
+          "width": 1600,
+          "height": 1204,
+          "src": "/images/the-point/web/07-sea-terrace-1600.avif"
+        },
         {
           "width": 960,
           "height": 722,
@@ -155,6 +227,11 @@
         }
       ],
       "webp": [
+        {
+          "width": 1600,
+          "height": 1204,
+          "src": "/images/the-point/web/07-sea-terrace-1600.webp"
+        },
         {
           "width": 960,
           "height": 722,
