@@ -11,20 +11,22 @@ year: 2024
 imageProject: windsor-residence
 template: editorial
 description: A house told from the facade to the summer kitchen, seventeen frames holding one afternoon.
-hero: View 06 :: Arrival, the pool terrace and planting, the hero frame (the home shelf uses it)
+heroVideo: /video/windsor-residence/animation.mp4 :: The house in motion
+heroPoster: /video/windsor-residence/animation-poster.webp
+heroRatio: 1.7778
 introImage: View 15B_Stair :: Detail, the stair
 sheet1: Architect :: KODA, Kean Office for Design + Architecture
 sheet2: Collection :: Residential
 sheet3: Year :: 2024
 sheet4: Visualization :: Oaki Studio
-row1: full | View 01_Facade_a05 :: Arrival, the facade
-row2: full | View 02 :: Moving through, the main living space
-row3: 60% center | View 16_Salon :: Moving through, the salon
-row4: full | View 14_Kitchen :: Moving through, the kitchen
-row5: full | View 04_Lounge :: Life, the lounge
-row6: 60% center | View 17_FamilyRoom :: Life, the family room
-row7: full | View 23_Summer Kitchen :: Life, the summer kitchen
-row8: film | /video/windsor-residence/animation.mp4 :: /video/windsor-residence/animation-poster.webp
+row1: full | View 06 :: Arrival, the pool terrace and planting
+row2: full | View 01_Facade_a05 :: Arrival, the facade
+row3: full | View 02 :: Moving through, the main living space
+row4: 60% center | View 16_Salon :: Moving through, the salon
+row5: full | View 14_Kitchen :: Moving through, the kitchen
+row6: full | View 04_Lounge :: Life, the lounge
+row7: 60% center | View 17_FamilyRoom :: Life, the family room
+row8: full | View 23_Summer Kitchen :: Life, the summer kitchen
 next: 8-rockledge :: 8 Rockledge
 closing: next
 img1: View 06 :: Arrival, the pool terrace and planting, the hero frame (the home shelf uses it)

@@ -28,7 +28,7 @@ row4: 60% center | view-07-a02 :: Inside, the principal bedroom
 row5: full | view-23-a05 :: Detail, the dressing room | view-32-kitchen-a03 :: Detail, the wine wall
 row6: full | view-17-a05 :: Life, the guest terrace
 row7: 44% left | view-28-teather-a06 :: Life, the theater
-row8: film | /video/dillido-residence/animation.mp4 :: /video/dillido-residence/animation-poster.webp
+row8: film 0.7895 | /video/dillido-residence/animation.mp4 :: /video/dillido-residence/animation-poster.webp
 next: icnyc :: Islamic Center of New York City
 closing: next
 img1: view-01-front-facade :: Arrival, the residence from the front

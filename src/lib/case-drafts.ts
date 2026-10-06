@@ -51,7 +51,7 @@ export type CaseEditorialRow =
    *  height, with a wide gap between them (template v2). */
   | { kind: "pair"; images: [CaseEditorialImage, CaseEditorialImage]; widths: [number, number] }
   /** `rowN: film | <src> :: <poster src>`: a muted loop at full width. */
-  | { kind: "film"; src: string; poster?: string };
+  | { kind: "film"; src: string; poster?: string; ratio: number };
 
 /** The editorial case template (01-plantilla-caso-de-estudio.md, 2026-10):
  *  clean hero, small tracked title, three-column intro, justified image
@@ -59,7 +59,17 @@ export type CaseEditorialRow =
 export interface CaseEditorial {
   hero:
     | { type: "image"; image: CaseEditorialImage }
-    | { type: "video"; src: string; poster?: CaseEditorialImage; alt: string };
+    | {
+        type: "video";
+        src: string;
+        /** Poster from the library (`heroPoster: <master>`) ... */
+        poster?: CaseEditorialImage;
+        /** ... or a plain file (`heroPoster: /video/x/poster.webp`). */
+        posterSrc?: string;
+        /** Frame ratio for sizing, `heroRatio:` (defaults to 16:9). */
+        ratio: number;
+        alt: string;
+      };
   sheet: { label: string; value: string }[];
   intro: string[];
   introImage: CaseEditorialImage | null;
@@ -146,13 +156,15 @@ function editorialImage(raw: string | undefined, images: JournalImage[]): CaseEd
 
 /**
  * Editorial template frontmatter:
- *   hero: <master> :: <alt>            or   heroVideo: <src> :: <alt>  (+ heroPoster: <master>)
+ *   hero: <master> :: <alt>            or   heroVideo: <src> :: <alt>
+ *                                           (+ heroPoster: <master> | </file.webp>, heroRatio: 1.77)
+ *   The hero is always landscape: a 16:9 still or a landscape loop.
  *   introImage: <master> :: <alt>
  *   sheetN: <label> :: <value>
  *   rowN: full | <m1> :: <alt> | <m2> :: <alt> ...        (justified row)
  *   rowN: 40% left | <master> :: <alt>                    (loose image)
  *   rowN: pair 27% 50% | <a> :: <alt> | <b> :: <alt>      (pair, v2)
- *   rowN: film | <src> :: <poster src>                    (muted loop)
+ *   rowN: film 0.79 | <src> :: <poster src>               (muted loop, ratio w/h, default 16:9)
  *   interludeImage: <master> :: <alt>                     (+ body "## Interlude")
  *   next: <slug> :: <title>
  *   closing: next | next, index | next, bw: <master> :: <alt>
@@ -166,7 +178,15 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
   let hero: CaseEditorial["hero"];
   if (fm.heroVideo) {
     const [src, alt = ""] = fm.heroVideo.split("::").map((s) => s.trim());
-    hero = { type: "video", src, poster: editorialImage(fm.heroPoster, images) ?? undefined, alt };
+    const posterIsFile = fm.heroPoster?.startsWith("/");
+    hero = {
+      type: "video",
+      src,
+      poster: posterIsFile ? undefined : (editorialImage(fm.heroPoster, images) ?? undefined),
+      posterSrc: posterIsFile ? fm.heroPoster : undefined,
+      ratio: Number(fm.heroRatio) || 16 / 9,
+      alt,
+    };
   } else {
     const img = editorialImage(fm.hero, images);
     if (!img) throw new Error(`Editorial case "${fm.slug ?? fm.title}": hero image not found in library`);
@@ -176,9 +196,12 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
   const rows: CaseEditorialRow[] = [];
   for (const raw of numbered(fm, "row")) {
     const [spec, ...imgs] = raw.split("|").map((s) => s.trim());
-    if (spec.toLowerCase() === "film" && imgs[0]) {
+    // `rowN: film [<ratio>] | <src> :: <poster>`: a loop, landscape or
+    // vertical, sized like a hero film (centered, capped to the viewport).
+    const film = spec.match(/^film(?:\s+(\d+(?:\.\d+)?))?$/i);
+    if (film && imgs[0]) {
       const [src, poster] = imgs[0].split("::").map((s) => s.trim());
-      rows.push({ kind: "film", src, poster: poster || undefined });
+      rows.push({ kind: "film", src, poster: poster || undefined, ratio: Number(film[1]) || 16 / 9 });
       continue;
     }
     const resolved = imgs.map((r) => editorialImage(r, images)).filter((x): x is CaseEditorialImage => !!x);

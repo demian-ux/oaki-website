@@ -12,14 +12,14 @@ year: 2024
 imageProject: the-point
 template: editorial
 description: Thirteen interiors for a resort on the Black Sea coast, another designer's intent kept exact across every image.
-hero: 01-porte-cochere :: Arrival, the porte cochere
+hero: 02-lobby :: Arrival, the lobby
 introImage: 05-bronze :: Detail, the bronze
 sheet1: Architecture and interiors :: Gregory Tuck Architecture
 sheet2: Visualization :: Oaki Studio
 sheet3: Location :: Sochi, Black Sea coast
 sheet4: Collection :: Residential
 sheet5: Year :: 2024
-row1: full | 02-lobby :: Arrival, the lobby
+row1: 60% center | 01-porte-cochere :: Arrival, the porte cochere
 row2: full | 03-pool :: Moving through, the indoor pool
 row3: 60% center | 04-garden-bar :: Moving through, the colonnades garden bar
 row4: full | 07-sea-terrace :: Moving through, the sea terrace

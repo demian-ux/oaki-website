@@ -12,7 +12,7 @@ year: "2025"
 imageProject: k-villa
 template: editorial
 description: A six-bedroom villa on the Palm, designed turnkey and sold as images. Twenty-nine rooms rendered before a single one was built.
-hero: View 01_Formal Entrance :: Arrival, the formal entrance, the hero frame
+hero: View 03_FormalLiving :: Arrival, the formal living room
 introImage: View 13_StairCase :: Moving through, the staircase
 sheet1: Interior design :: Portia Fox Design
 sheet2: Location :: K Frond, Palm Jumeirah, Dubai
@@ -20,7 +20,7 @@ sheet3: Collection :: Residential
 sheet4: Type :: New build villa, six bedrooms, full turnkey interior
 sheet5: Year :: 2025
 sheet6: Visualization :: Oaki Studio
-row1: full | View 03_FormalLiving :: Arrival, the formal living room
+row1: 44% left | View 01_Formal Entrance :: Arrival, the formal entrance
 row2: full | View 02_FormalDining :: Moving through, the formal dining room
 row3: 60% center | View 09_ShowKitchen :: Moving through, the show kitchen
 row4: 44% center | View 04_FormalLiving Bar A :: Detail, the bar

@@ -10,6 +10,14 @@
 .root {
   --gap: clamp(10px, 1.4vw, 22px);
   --space: clamp(56px, 9vw, 150px);
+  /* No image taller than this: wide windows cap each image or row by its
+     ratio (width = ratio x max height) and center it, never cropping. */
+  --maxh: 85vh;
+}
+@supports (height: 1svh) {
+  .root {
+    --maxh: 85svh;
+  }
 }
 
 .root img,
@@ -22,6 +30,24 @@
 /* 1. Hero: full width inside the site gutter, height from its own ratio. */
 .hero {
   padding-top: clamp(16px, 3.2vw, 48px);
+}
+.hero > * {
+  max-width: calc(var(--r, 1.77) * var(--maxh));
+  margin-inline: auto;
+}
+/* A landscape loop as hero: centered in the viewport, smaller than a still
+   so it breathes, with extra air above and below. */
+.heroFilm {
+  padding-top: clamp(32px, 6vw, 96px);
+  padding-bottom: clamp(16px, 3vw, 48px);
+}
+.heroFilm > * {
+  max-width: calc(var(--r, 1.77) * 0.72 * var(--maxh) / 0.85);
+}
+@media (min-width: 821px) {
+  .heroFilm > * {
+    max-width: min(82%, calc(var(--r, 1.77) * 0.72 * var(--maxh) / 0.85));
+  }
 }
 
 /* 2. Title: left-aligned on the sheet's left edge. Voice = the site's
@@ -131,9 +157,14 @@
   .row {
     flex-direction: row;
   }
+  .justified {
+    max-width: calc(var(--r, 1.77) * var(--maxh) + var(--n, 0) * var(--gap));
+    margin-inline: auto;
+  }
   .loose {
     flex: none;
     width: var(--w, 100%);
+    max-width: calc(var(--r, 1) * var(--maxh));
   }
   .alignLeft {
     margin-right: auto;
@@ -143,6 +174,21 @@
   }
   .alignRight {
     margin-left: auto;
+  }
+}
+
+/* Film row: same criterion as a hero film, landscape or vertical. Centered,
+   never wider than 82% of the page nor taller than 72% of the viewport. */
+.film {
+  justify-content: center;
+}
+.film > video {
+  width: 100%;
+  max-width: calc(var(--r, 1.77) * 0.72 * var(--maxh) / 0.85);
+}
+@media (min-width: 821px) {
+  .film > video {
+    max-width: min(82%, calc(var(--r, 1.77) * 0.72 * var(--maxh) / 0.85));
   }
 }
 
@@ -162,6 +208,7 @@
   .pairItem {
     flex: none;
     width: var(--w, 50%);
+    max-width: calc(var(--r, 1) * var(--maxh));
   }
 }
 

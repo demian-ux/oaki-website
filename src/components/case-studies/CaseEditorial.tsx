@@ -48,7 +48,7 @@ function Row({
 }) {
   if (row.kind === "film") {
     return (
-      <div className={s.row}>
+      <div className={`${s.row} ${s.film}`} style={{ ["--r" as string]: row.ratio }}>
         <video
           autoPlay
           muted
@@ -56,7 +56,7 @@ function Row({
           playsInline
           preload="metadata"
           poster={row.poster}
-          style={{ display: "block", width: "100%", height: "auto" }}
+          style={{ aspectRatio: String(row.ratio) }}
         >
           <source src={row.src} type="video/mp4" />
         </video>
@@ -70,7 +70,7 @@ function Row({
           <div
             key={img.image.name}
             className={s.pairItem}
-            style={{ ["--w" as string]: `${row.widths[i]}%` }}
+            style={{ ["--w" as string]: `${row.widths[i]}%`, ["--r" as string]: img.ratio }}
           >
             <Picture
               img={img}
@@ -94,7 +94,7 @@ function Row({
       <div className={s.row}>
         <div
           className={`${s.loose} ${align}`}
-          style={{ ["--w" as string]: `${row.width}%` }}
+          style={{ ["--w" as string]: `${row.width}%`, ["--r" as string]: row.image.ratio }}
         >
           <Picture
             img={row.image}
@@ -107,7 +107,10 @@ function Row({
   }
   const total = row.images.reduce((n, i) => n + i.ratio, 0);
   return (
-    <div className={s.row}>
+    <div
+      className={`${s.row} ${s.justified}`}
+      style={{ ["--r" as string]: total, ["--n" as string]: row.images.length - 1 }}
+    >
       {row.images.map((img) => (
         // flex-grow = ratio: images in a row share one height, each taking
         // the width its proportion earns.
@@ -142,7 +145,12 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
     <CaseEditorialGallery images={gallery}>
       <article className={s.root}>
         {/* 1. Hero: image today, a short muted loop when the case brings one. */}
-        <div className={`page-x ${s.hero}`}>
+        <div
+          className={`page-x ${s.hero} ${e.hero.type === "video" ? s.heroFilm : ""}`}
+          style={{
+            ["--r" as string]: e.hero.type === "image" ? e.hero.image.ratio : e.hero.ratio,
+          }}
+        >
           {e.hero.type === "image" ? (
             <Picture
               img={e.hero.image}
@@ -157,10 +165,9 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
               loop
               playsInline
               preload="metadata"
-              poster={e.hero.poster?.image.webp[0].src}
+              poster={e.hero.poster?.image.webp[0].src ?? e.hero.posterSrc}
               aria-label={e.hero.alt}
-              width={e.hero.poster?.image.naturalWidth}
-              height={e.hero.poster?.image.naturalHeight}
+              style={{ aspectRatio: String(e.hero.ratio) }}
             >
               <source src={e.hero.src} type="video/mp4" />
             </video>
