@@ -10,6 +10,21 @@ type: Cultural
 client: KODA, Kean Office for Design + Architecture
 year: 2023
 imageProject: miac
+template: editorial
+description: A former produce market wrapped in a gabion facade built from demolished Miami. The jury met it through the renderings.
+hero: View 03_a03 :: Arrival, the gabion facade, the frame that made the project
+introImage: Sidewalk seating area :: Life, the sidewalk seating
+sheet1: Architect :: KODA, Kean Office for Design + Architecture
+sheet2: Location :: Allapattah, Miami, FL
+sheet3: Collection :: Cultural
+sheet4: Year :: 2023
+sheet5: Visualization :: Oaki Studio
+row1: full | View 01_a04 :: Arrival, the building in its Allapattah block
+row2: full | Main Entry door :: Moving through, the entry
+row3: 60% center | View 02_a03 :: Moving through, along the facade
+row4: full | Close up activity 01 :: Life, activity at the edge of the building | Close up detail mtl :: Detail, the gabion material up close, fragments of demolished buildings
+next: moncayo :: Moncayo
+closing: next
 img1: View 03_a03 :: Arrival, the gabion facade, the frame that made the project
 img2: View 01_a04 :: Arrival, the building in its Allapattah block
 img3: Main Entry door :: Moving through, the entry
@@ -27,6 +42,11 @@ gap2: Camera and light decisions, references, what was rejected
 flag1: Demi flagged the hero pick as ambiguous (View 03 vs View 01) in the image-picks review, settle before sharing
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+MIAC, the Miami Art Center, is a 35,000-square-foot art warehouse in Allapattah by KODA, designed inside a former produce market. The design keeps the market's bones and wraps them in a gabion facade built from fragments of demolished buildings.
+
+The set runs from the block to the stone. The facade opens the sequence at urban scale, the entry and sidewalk frames bring it to street level, and the closing macro puts the demolished-building fragments in front of the viewer at arm's length. Street life stays restrained: enough to place the building in Allapattah, never enough to crowd it.
+
 ## Setup
 MIAC, the Miami Art Center, is a 35,000-square-foot art warehouse in Allapattah by KODA, designed inside a former produce market. The design keeps the market's bones and wraps them in a gabion facade built from fragments of demolished buildings.
 

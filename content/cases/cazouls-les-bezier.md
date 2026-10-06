@@ -10,6 +10,20 @@ type: Competition
 client: Naos
 year: 2025
 imageProject: cazouls-les-bezier
+template: editorial
+description: Garden courts and low pavilions in the south of France, rendered for a competition entry by Naos.
+hero: View 02 :: Arrival, the garden court, the hero frame (the home shelf uses it)
+sheet1: Architect :: Naos
+sheet2: Location :: Cazouls-lès-Béziers, France
+sheet3: Collection :: Competition
+sheet4: Year :: 2025
+sheet5: Visualization :: Oaki Studio
+row1: full | View 01 :: Arrival, the pavilions in their landscape
+row2: full | View 03 :: Moving through, between the pavilions
+row3: 60% center | View 04 :: Moving through, the court at ground level
+row4: full | View 05 :: Detail, the pavilion edge
+next: cdg34-juvignac :: CDG 34 Headquarters
+closing: next
 img1: View 02 :: Arrival, the garden court, the hero frame (the home shelf uses it)
 img2: View 01 :: Arrival, the pavilions in their landscape
 img3: View 03 :: Moving through, between the pavilions
@@ -26,6 +40,11 @@ gap3: Competition result unknown, do not publish an outcome until it can be cite
 flag1: NAME, the repo and home shelf spell it "Cazouls les Bézier", the commune is Cazouls-lès-Béziers, settle the public spelling before anything ships
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+A public project in Cazouls-lès-Béziers, in the south of France: low pavilions organized around garden courts, by Naos.
+
+The garden court leads, and the eye stays low: the sequence walks between the pavilions at the height a visitor would, ending on the built edge where material meets planting. Languedoc light.
+
 ## Setup
 A public project in Cazouls-lès-Béziers, in the south of France: low pavilions organized around garden courts, by Naos.
 

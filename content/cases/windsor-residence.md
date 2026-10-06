@@ -9,6 +9,24 @@ type: Residential
 client: KODA, Kean Office for Design + Architecture
 year: 2024
 imageProject: windsor-residence
+template: editorial
+description: A house told from the facade to the summer kitchen, seventeen frames holding one afternoon.
+hero: View 06 :: Arrival, the pool terrace and planting, the hero frame (the home shelf uses it)
+introImage: View 15B_Stair :: Detail, the stair
+sheet1: Architect :: KODA, Kean Office for Design + Architecture
+sheet2: Collection :: Residential
+sheet3: Year :: 2024
+sheet4: Visualization :: Oaki Studio
+row1: full | View 01_Facade_a05 :: Arrival, the facade
+row2: full | View 02 :: Moving through, the main living space
+row3: 60% center | View 16_Salon :: Moving through, the salon
+row4: full | View 14_Kitchen :: Moving through, the kitchen
+row5: full | View 04_Lounge :: Life, the lounge
+row6: 60% center | View 17_FamilyRoom :: Life, the family room
+row7: full | View 23_Summer Kitchen :: Life, the summer kitchen
+row8: film | /video/windsor-residence/animation.mp4 :: /video/windsor-residence/animation-poster.webp
+next: 8-rockledge :: 8 Rockledge
+closing: next
 img1: View 06 :: Arrival, the pool terrace and planting, the hero frame (the home shelf uses it)
 img2: View 01_Facade_a05 :: Arrival, the facade
 img3: View 02 :: Moving through, the main living space
@@ -26,6 +44,11 @@ credit3: Visualization :: Oaki Studio
 flag1: NAME, confirm what may be said publicly about location and client before this page ships
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+A large private residence by KODA. The commission covered the house end to end: facade, living spaces, kitchen, stair, lounge, gym, and the summer kitchen outside.
+
+The pool terrace opens, because the house lives outdoors; the facade follows, and the walk runs inward, living, salon, kitchen, stair, and back out to the summer kitchen at the end of the day. One light, one temperature, first frame to last.
+
 ## Setup
 A large private residence by KODA. The commission covered the house end to end: facade, living spaces, kitchen, stair, lounge, gym, and the summer kitchen outside.
 

@@ -32,9 +32,48 @@ export interface CaseVideo {
   label: string;
 }
 
+/** One image in an editorial row: the library master plus its alt. */
+export interface CaseEditorialImage {
+  image: JournalImage;
+  alt: string;
+  /** naturalWidth / naturalHeight, drives the justified-row flex share. */
+  ratio: number;
+}
+
+/** A row of the editorial body: either a justified row of 1..n images
+ *  sharing a height at full width, or a single loose image at a partial
+ *  width with an alignment. */
+export type CaseEditorialRow =
+  | { kind: "justified"; images: CaseEditorialImage[] }
+  | { kind: "loose"; image: CaseEditorialImage; width: number; align: "left" | "center" | "right" }
+  /** `rowN: film | <src> :: <poster src>`: a muted loop at full width. */
+  | { kind: "film"; src: string; poster?: string };
+
+/** The editorial case template (01-plantilla-caso-de-estudio.md, 2026-10):
+ *  clean hero, small tracked title, three-column intro, justified image
+ *  rows with no captions, optional interlude, "Next project" closing. */
+export interface CaseEditorial {
+  hero:
+    | { type: "image"; image: CaseEditorialImage }
+    | { type: "video"; src: string; poster?: CaseEditorialImage; alt: string };
+  sheet: { label: string; value: string }[];
+  intro: string[];
+  introImage: CaseEditorialImage | null;
+  rows: CaseEditorialRow[];
+  interlude?: { image: CaseEditorialImage; text: string[] };
+  next: { slug: string; title: string } | null;
+  /** Optional closing extras, only when the case file asks for them. */
+  closingIndex: boolean;
+  closingBw: CaseEditorialImage | null;
+}
+
 export interface CaseDraft {
   title: string;
   slug: string;
+  /** SEO description (editorial template `description:`). */
+  description?: string;
+  /** Set when the file opts into the editorial template (`template: editorial`). */
+  editorial?: CaseEditorial;
   collection?: string;
   audience?: string;
   argument?: string;
@@ -89,6 +128,93 @@ function numbered(fm: Record<string, string>, prefix: string): string[] {
   const out: string[] = [];
   for (let i = 1; fm[`${prefix}${i}`]; i++) out.push(fm[`${prefix}${i}`]);
   return out;
+}
+
+/** `<master name> :: <alt>` → editorial image, or null when the master is
+ *  missing from the library (the row simply closes up around it). */
+function editorialImage(raw: string | undefined, images: JournalImage[]): CaseEditorialImage | null {
+  if (!raw) return null;
+  const [name, alt = ""] = raw.split("::").map((s) => s.trim());
+  const image = images.find((i) => i.name === name);
+  if (!image) return null;
+  return { image, alt: alt || name, ratio: image.naturalWidth / image.naturalHeight };
+}
+
+/**
+ * Editorial template frontmatter:
+ *   hero: <master> :: <alt>            or   heroVideo: <src> :: <alt>  (+ heroPoster: <master>)
+ *   introImage: <master> :: <alt>
+ *   sheetN: <label> :: <value>
+ *   rowN: full | <m1> :: <alt> | <m2> :: <alt> ...        (justified row)
+ *   rowN: 40% left | <master> :: <alt>                    (loose image)
+ *   interludeImage: <master> :: <alt>                     (+ body "## Interlude")
+ *   next: <slug> :: <title>
+ *   closing: next | next, index | next, bw: <master> :: <alt>
+ * Body: "## Intro" paragraphs (two), optional "## Interlude" paragraphs.
+ */
+function parseEditorial(fm: Record<string, string>, body: string, images: JournalImage[]): CaseEditorial {
+  const sections = parseSections(body);
+  const section = (name: string) =>
+    sections.find((s) => s.heading.toLowerCase() === name)?.paragraphs ?? [];
+
+  let hero: CaseEditorial["hero"];
+  if (fm.heroVideo) {
+    const [src, alt = ""] = fm.heroVideo.split("::").map((s) => s.trim());
+    hero = { type: "video", src, poster: editorialImage(fm.heroPoster, images) ?? undefined, alt };
+  } else {
+    const img = editorialImage(fm.hero, images);
+    if (!img) throw new Error(`Editorial case "${fm.slug ?? fm.title}": hero image not found in library`);
+    hero = { type: "image", image: img };
+  }
+
+  const rows: CaseEditorialRow[] = [];
+  for (const raw of numbered(fm, "row")) {
+    const [spec, ...imgs] = raw.split("|").map((s) => s.trim());
+    if (spec.toLowerCase() === "film" && imgs[0]) {
+      const [src, poster] = imgs[0].split("::").map((s) => s.trim());
+      rows.push({ kind: "film", src, poster: poster || undefined });
+      continue;
+    }
+    const resolved = imgs.map((r) => editorialImage(r, images)).filter((x): x is CaseEditorialImage => !!x);
+    if (resolved.length === 0) continue;
+    const loose = spec.match(/^(\d+(?:\.\d+)?)%\s*(left|center|right)?$/i);
+    if (loose) {
+      rows.push({
+        kind: "loose",
+        image: resolved[0],
+        width: Number(loose[1]),
+        align: (loose[2]?.toLowerCase() as "left" | "center" | "right") ?? "left",
+      });
+    } else {
+      rows.push({ kind: "justified", images: resolved });
+    }
+  }
+
+  const interludeImage = editorialImage(fm.interludeImage, images);
+  const interludeText = section("interlude");
+
+  const closing = (fm.closing ?? "next").split(",").map((s) => s.trim());
+  const bwSpec = closing.find((c) => c.toLowerCase().startsWith("bw:"));
+
+  const nextRaw = fm.next ? fm.next.split("::").map((s) => s.trim()) : null;
+
+  return {
+    hero,
+    sheet: numbered(fm, "sheet").map((c) => {
+      const [label, value = ""] = c.split("::").map((s) => s.trim());
+      return { label, value };
+    }),
+    intro: section("intro"),
+    introImage: editorialImage(fm.introImage, images),
+    rows,
+    interlude:
+      interludeImage && interludeText.length > 0
+        ? { image: interludeImage, text: interludeText }
+        : undefined,
+    next: nextRaw ? { slug: nextRaw[0], title: nextRaw[1] ?? nextRaw[0] } : null,
+    closingIndex: closing.some((c) => c.toLowerCase() === "index"),
+    closingBw: bwSpec ? editorialImage(bwSpec.slice(3).trim(), images) : null,
+  };
 }
 
 /** Repo case studies as library cards, hero = first resolved image slot.
@@ -149,9 +275,31 @@ export function getCaseDraft(slug: string): CaseDraft | null {
     return { n: idx + 1, image, label: label || name };
   });
 
+  // A file can opt into the editorial template only once it has a hero in
+  // the library; until then it keeps rendering through CaseDraftView.
+  const editorial =
+    fm.template === "editorial" && (fm.heroVideo || editorialImage(fm.hero, images))
+      ? parseEditorial(fm, body, images)
+      : undefined;
+
+  // Editorial files carry no imgN slots: expose hero + rows as slots so the
+  // library cards and the home shelf keep resolving a cover from slot 1.
+  if (editorial && slots.length === 0) {
+    const all: CaseEditorialImage[] = [];
+    if (editorial.hero.type === "image") all.push(editorial.hero.image);
+    else if (editorial.hero.poster) all.push(editorial.hero.poster);
+    for (const r of editorial.rows) {
+      if (r.kind === "justified") all.push(...r.images);
+      else if (r.kind === "loose") all.push(r.image);
+    }
+    all.forEach((e, i) => slots.push({ n: i + 1, image: e.image, label: e.alt }));
+  }
+
   return {
     title: fm.title ?? slug,
     slug,
+    description: fm.description,
+    editorial,
     collection: fm.collection,
     audience: fm.audience,
     argument: fm.argument,

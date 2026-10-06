@@ -10,6 +10,25 @@ type: Hospitality
 client: iCrave, part of Journey
 year: 2025–2026
 imageProject: icrave-southwest
+template: editorial
+description: After 55 years without lounges, Southwest is building its first, designed with iCrave. oaki rendered the concept and its first cities.
+hero: View 01_Dining :: Arrival, the dining area, the hero frame
+sheet1: Design :: iCrave, part of Journey
+sheet2: Location :: Nashville, Denver, Austin
+sheet3: Collection :: Hospitality
+sheet4: Client :: Southwest Airlines with Chase
+sheet5: Year :: 2025–2026
+sheet6: Visualization :: Oaki Studio
+row1: full | View 07_A :: Arrival, the lounge wide
+row2: full | View 02_Family :: Moving through, the family area
+row3: 60% center | View 03_Productivity :: Moving through, the productivity zone
+row4: full | View 05_DenArea :: Moving through, the den
+row5: full | View 08_Dining Beverage :: Detail, dining and beverage
+row6: 60% center | View 11_flight concierge desk :: Detail, the flight concierge desk
+row7: full | View 09_BNA :: Moving through, the Nashville localization
+row8: full | View 10_Aus :: Moving through, the Austin localization
+next: 8-rockledge :: 8 Rockledge
+closing: next
 img1: View 01_Dining :: Arrival, the dining area, the hero frame
 img2: View 07_A :: Arrival, the lounge wide
 img3: View 02_Family :: Moving through, the family area
@@ -29,6 +48,11 @@ gap2: Camera and light decisions, references, what was rejected
 flag1: CLEARANCE, HARD GATE, Demi ruled that not even the private preview link is shared until the program is publicly announced and Andrew approves, this is the most restricted draft in the set
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+In July 2026 Southwest's CEO confirmed what the industry suspected: after 55 years of open seating and no lounges, the airline is building its first, co-branded with Chase, with Nashville, Denver, Austin, Dallas, and Honolulu in the pipeline and a flagship of some 30,000 square feet at Nashville. It is the biggest identity shift in the airline's history. iCrave designs the program.
+
+The concept carries the first half of the arc: dining, family, productivity, den, the rooms that define the program. The localizations close it, Nashville and Austin in the same language, proving the system travels. Airline-lounge light, daylit and calm, deliberately unlike the airport outside.
+
 ## Setup
 In July 2026 Southwest's CEO confirmed what the industry suspected: after 55 years of open seating and no lounges, the airline is building its first, co-branded with Chase, with Nashville, Denver, Austin, Dallas, and Honolulu in the pipeline and a flagship of some 30,000 square feet at Nashville. It is the biggest identity shift in the airline's history. iCrave designs the program.
 

@@ -5,6 +5,7 @@ import { getAllProjectSlugs, getAllProjects, getProjectBySlug, getNextProject } 
 import { getCaseDraft, listCaseDraftSlugs } from "@/lib/case-drafts";
 import { HIDDEN_PROJECT_SLUGS } from "@/lib/hidden-projects";
 import CaseDraftView from "@/components/case-studies/CaseDraft";
+import CaseEditorialView from "@/components/case-studies/CaseEditorial";
 import PhaseSection from "@/components/case-studies/PhaseSection";
 import CaseHero from "@/components/case-studies/CaseHero";
 import SectionLabel from "@/components/global/SectionLabel";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   if (HIDDEN_PROJECT_SLUGS.has(slug)) return {};
   const draft = getCaseDraft(slug);
-  if (draft) return { title: draft.title, description: draft.subtitle };
+  if (draft) return { title: draft.title, description: draft.description ?? draft.subtitle };
   const project = await getProjectBySlug(slug);
   if (!project) return {};
   return {
@@ -46,6 +47,9 @@ export default async function CaseStudyPage({ params }: Props) {
   // image arc from the library, where the Sanity projects so far hold only
   // a cover. The Sanity phase template remains the fallback.
   const draft = getCaseDraft(slug);
+  // The editorial template (2026-10) carries its own top: no back link, the
+  // hero opens the page under the navbar.
+  if (draft?.editorial) return <CaseEditorialView draft={draft} />;
   if (draft) {
     return (
       <>

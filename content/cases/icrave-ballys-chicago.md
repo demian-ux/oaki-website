@@ -10,6 +10,20 @@ type: Hospitality
 client: iCrave, part of Journey
 year: 2026
 imageProject: icrave-ballys-chicago
+template: editorial
+description: iCrave's food hall inside Chicago's first casino. When the interiors reached the press, they arrived as renderings.
+hero: View 01 - :: Arrival, the food hall, the hero frame
+sheet1: Design (food hall) :: iCrave, part of Journey
+sheet2: Location :: River West, Chicago, IL
+sheet3: Collection :: Hospitality
+sheet4: Year :: 2026
+sheet5: Visualization :: Oaki Studio
+row1: full | View 02 - :: Moving through, along the stalls
+row2: full | View 03 - :: Moving through, the seating
+row3: 60% center | View 04 :: Detail, the counter
+row4: full | View 05 - :: Life, the hall in service
+next: 8-rockledge :: 8 Rockledge
+closing: next
 img1: View 01 - :: Arrival, the food hall, the hero frame
 img2: View 02 - :: Moving through, along the stalls
 img3: View 03 - :: Moving through, the seating
@@ -26,6 +40,11 @@ gap3: Confirm whether oaki frames ran in the December 2025 press before claiming
 flag1: CLEARANCE, all iCrave imagery is private-review only until Andrew Delgado gives written per-project approval, this draft does not leave the studio before that
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+Bally's Chicago is a $1.7 billion casino and hotel in River West, the city's first, topped off in May 2026 with an opening set for spring 2027. Among its venues is the food hall, designed by iCrave. When the interiors reached the press in December 2025, they arrived as renderings.
+
+The hall leads at full width, then the sequence tightens: stalls, seating, counter, and finally the hall in service. Food-hall light, bright and specific, distinct from the casino floor around it.
+
 ## Setup
 Bally's Chicago is a $1.7 billion casino and hotel in River West, the city's first, topped off in May 2026 with an opening set for spring 2027. Among its venues is the food hall, designed by iCrave. When the interiors reached the press in December 2025, they arrived as renderings.
 

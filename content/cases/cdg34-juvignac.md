@@ -10,6 +10,19 @@ type: Workplace
 client: Naos architecture (Groupe Mhodul)
 year: 2026
 imageProject: cdg34-juvignac
+template: editorial
+description: A bioclimatic headquarters for a French public institution. The winning entry ran on three images; oaki made them.
+hero: View 01_A :: Arrival, the building around its central patio, one of the three images on the announcement
+sheet1: Architect :: Naos architecture (Groupe Mhodul)
+sheet2: Client :: Centre de Gestion de la Fonction Publique Territoriale de l'Hérault
+sheet3: Location :: Juvignac, France
+sheet4: Collection :: Competition
+sheet5: Year :: 2026
+sheet6: Visualization :: Oaki Studio
+row1: full | View 02_A :: Moving through, the wide frame, photovoltaics and Mediterranean planting
+row2: full | View 03_A :: Detail, the bioclimatic facade
+next: dillido-residence :: Dillido Residence
+closing: next
 img1: View 01_A :: Arrival, the building around its central patio, one of the three images on the announcement
 img2: View 02_A :: Moving through, the wide frame, photovoltaics and Mediterranean planting
 img3: View 03_A :: Detail, the bioclimatic facade
@@ -23,6 +36,11 @@ gap1: Intake pending, the brief as it arrived and what the model lacked
 gap2: Camera and light decisions, references, what was rejected
 flag1: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+The Centre de Gestion de l'Hérault, the public body managing local government staff for the department, held a competition for its new headquarters in Juvignac: a bioclimatic office building organized around a central patio, with photovoltaics and Mediterranean planting. Naos architecture entered.
+
+Three frames, three scales. The patio view establishes the organizing idea, the wide frame places the building in its landscape with the photovoltaic roof legible, and the facade view holds the climate detail. Southern French light throughout, the hour that makes Mediterranean planting read as shade rather than garnish.
+
 ## Setup
 The Centre de Gestion de l'Hérault, the public body managing local government staff for the department, held a competition for its new headquarters in Juvignac: a bioclimatic office building organized around a central patio, with photovoltaics and Mediterranean planting. Naos architecture entered.
 

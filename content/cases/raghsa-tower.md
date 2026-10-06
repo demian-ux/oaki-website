@@ -10,6 +10,22 @@ type: Competition
 client: AFT
 year: 2026
 imageProject: raghsa-tower
+template: editorial
+description: A tower read against the skyline and walked from the street to the elevated lobby.
+hero: View 02_Exterior_Libertador :: Arrival, the tower from Libertador, the hero frame (the home shelf uses it)
+sheet1: Client :: AFT
+sheet2: Location :: Buenos Aires, Argentina
+sheet3: Collection :: Competition
+sheet4: Year :: 2026
+sheet5: Visualization :: Oaki Studio
+row1: full | View 01_Exterior Richieri :: Arrival, the tower from Richieri
+row2: full | View 07_Exterior_Lobby_01 :: Moving through, the street approach to the lobby
+row3: 44% left | View 03_Interior lobby :: Moving through, the lobby
+row4: 60% center | View 04_Escalones :: Moving through, the steps
+row5: full | View 05_Lobby Elevado :: Moving through, the elevated lobby
+row6: 44% center | View 06_Lobby Elevado :: Detail, the elevated lobby, vertical
+next: sf-housing-schemes :: Carved Terrace Block
+closing: next
 img1: View 02_Exterior_Libertador :: Arrival, the tower from Libertador, the hero frame (the home shelf uses it)
 img2: View 01_Exterior Richieri :: Arrival, the tower from Richieri
 img3: View 07_Exterior_Lobby_01 :: Moving through, the street approach to the lobby
@@ -28,6 +44,11 @@ gap3: Competition result unknown, do not publish an outcome until it can be cite
 flag1: LOCATION AND CREDITS, Buenos Aires is inferred from the view names (Libertador, Richieri), confirm location, architect, and what may be named publicly before this page ships
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+A tower for AFT, read from the city's two defining avenues and walked from the street into its elevated lobby.
+
+The Libertador frame leads with the tower against the sky, the second avenue view confirms the massing from its other face, and then the set descends: street approach, lobby, steps, the elevated lobby in both orientations. City light, one hour, from skyline to interior.
+
 ## Setup
 A tower for AFT, read from the city's two defining avenues and walked from the street into its elevated lobby.
 

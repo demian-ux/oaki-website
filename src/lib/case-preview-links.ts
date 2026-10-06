@@ -16,7 +16,7 @@ export const casePreviewLinks: Record<string, CasePreviewLink> = {
   lsk70r7c70o12hl5xu25: { label: "Prismatic Parasol", slug: "prismatic-parasol" },
   unmjqx0mtb68whk98sn7: { label: "94 S Hibiscus", slug: "94-s-hibiscus" },
   tulx3wwb69xh5ea3ch0n: { label: "Alderbrook", slug: "alderbrook" },
-  e08umrtr2j2fsux3o9ji: { label: "Manhattan Apartment", slug: "manhattan-apartment" },
+  e08umrtr2j2fsux3o9ji: { label: "Manhattan Penthouse", slug: "manhattan-apartment" },
   "5u1fz8q9laht6yrwe2m4": { label: "Oak House", slug: "oak-house" },
   s6lnudet74fvi85gjacb: { label: "MIAC", slug: "miac" },
   htzoldqfp51v97cun03m: { label: "CDG 34 Headquarters", slug: "cdg34-juvignac" },

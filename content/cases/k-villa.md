@@ -10,6 +10,25 @@ type: Residential
 client: Portia Fox Design
 year: "2025"
 imageProject: k-villa
+template: editorial
+description: A six-bedroom villa on the Palm, designed turnkey and sold as images. Twenty-nine rooms rendered before a single one was built.
+hero: View 01_Formal Entrance :: Arrival, the formal entrance, the hero frame
+introImage: View 13_StairCase :: Moving through, the staircase
+sheet1: Interior design :: Portia Fox Design
+sheet2: Location :: K Frond, Palm Jumeirah, Dubai
+sheet3: Collection :: Residential
+sheet4: Type :: New build villa, six bedrooms, full turnkey interior
+sheet5: Year :: 2025
+sheet6: Visualization :: Oaki Studio
+row1: full | View 03_FormalLiving :: Arrival, the formal living room
+row2: full | View 02_FormalDining :: Moving through, the formal dining room
+row3: 60% center | View 09_ShowKitchen :: Moving through, the show kitchen
+row4: 44% center | View 04_FormalLiving Bar A :: Detail, the bar
+row5: full | View 17_MasterDressing :: Detail, the master dressing room
+row6: full | View 15_Master BedRoom :: Life, the master bedroom
+row7: 44% left | View 22_Cinema :: Life, the cinema
+next: miac :: MIAC, Miami Art Center
+closing: next
 img1: View 01_Formal Entrance :: Arrival, the formal entrance, the hero frame
 img2: View 03_FormalLiving :: Arrival, the formal living room
 img3: View 02_FormalDining :: Moving through, the formal dining room
@@ -29,6 +48,11 @@ gap1: Camera and light decisions, references, what was rejected (optional, Demi 
 flag1: Publication cleared by Demi 2026-08-26. Demi had asked Portia Fox to credit oaki if they published the images; they published as "Inhouse CGI's" instead, so oaki publishes its own case study without restriction.
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+Portia Fox Design took on a new build villa on the Palm Jumeirah as a full turnkey project: six bedrooms across 8,500 square feet of interior, every room designed, furnished and dressed before handover. The villa would be sold on its interiors, and the interiors did not exist yet.
+
+The set walks the villa the way a buyer would: the formal entrance, the living and dining rooms, the staircase, the show kitchen, then down into the rooms that make the house particular, the bar, the cinema, the dressing rooms, the gym on the roof level. One light logic across all twenty-nine frames so the house reads as one place at one hour.
+
 ## Setup
 Portia Fox Design took on a new build villa on the Palm Jumeirah as a full turnkey project: six bedrooms across 8,500 square feet of interior, every room designed, furnished and dressed before handover. The villa would be sold on its interiors, and the interiors did not exist yet.
 

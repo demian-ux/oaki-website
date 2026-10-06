@@ -10,6 +10,19 @@ type: Waterfront residence
 client: DN'A Design and Architecture
 year: 2023
 imageProject: 94-s-hibiscus
+template: editorial
+description: The landscape was rendered in 2023. The house closed at $18.5 million before the garden had grown in.
+hero: View 07_a02 :: Arrival, the house from the water, held inside its planting
+sheet1: Architect :: DN'A Design and Architecture
+sheet2: Developer :: JAE Development
+sheet3: Location :: Hibiscus Island, Miami Beach, FL
+sheet4: Collection :: Residential
+sheet5: Year :: 2023
+sheet6: oaki produced :: landscape renderings
+row1: full | View 05_Exterior Day_Final :: Arrival, the street front under the palms
+row2: full | View 06_Exterior Day_Final :: Moving through, the pool terrace and the garden wall
+next: bay-house :: Bay House
+closing: next
 img1: View 07_a02 :: Arrival, the house from the water, held inside its planting
 img2: View 05_Exterior Day_Final :: Arrival, the street front under the palms
 img3: View 06_Exterior Day_Final :: Moving through, the pool terrace and the garden wall
@@ -29,6 +42,11 @@ flag1: Scope discipline, oaki produced the landscape renderings ONLY, every clai
 flag2: The library also holds a kitchen interior (View 03_Vitas_kitchen_a05). It sits outside the landscape scope this draft claims, so it stays out of the arc until Demi confirms what oaki produced
 flag3: The listing photo as a possible process artifact depends on rights, confirm before it enters the sequence
 ---
+## Intro
+In 2023, 94 S Hibiscus existed as drawings. A new waterfront residence on Hibiscus Island by DN'A Design and Architecture, developed with JAE Development, and a plan to sell it ahead of completion with its own dedicated marketing site.
+
+The landscape frames were built to show the house already held inside its planting: the entry sequence, the pool terrace, the water edge, each at the hour that serves it.
+
 ## Setup
 In 2023, 94 S Hibiscus existed as drawings. A new waterfront residence on Hibiscus Island by DN'A Design and Architecture, developed with JAE Development, and a plan to sell it ahead of completion with its own dedicated marketing site.
 

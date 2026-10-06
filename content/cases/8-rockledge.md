@@ -10,6 +10,17 @@ type: Landscape
 client: LandFluent
 year: 2026
 imageProject: 8-rockledge
+template: editorial
+description: Gardens for a 1930 Garrett Van Pelt estate above the Pacific, restored over three years and protected under the Mills Act.
+hero: View 02 :: Arrival, the garden above the ocean, the hero frame
+sheet1: Landscape design :: LandFluent
+sheet2: Location :: Laguna Beach, CA
+sheet3: Collection :: Landscape
+sheet4: Year :: 2026
+sheet5: Visualization :: Oaki Studio
+row1: full | View 01 :: Moving through, the second garden view
+next: 803-hunter-rd :: 803 Hunter Rd
+closing: next
 img1: View 02 :: Arrival, the garden above the ocean, the hero frame
 img2: View 01 :: Moving through, the second garden view
 img3: GAP :: Detail, planting close-up, brief Diego if the set expands
@@ -23,6 +34,11 @@ gap2: Camera and light decisions, references, what was rejected
 gap3: Only two masters in the library, confirm whether more exist before this page is considered complete
 flag1: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+8 Rockledge is a 1930 oceanfront estate in Laguna Beach by Garrett Van Pelt, protected under the Mills Act and restored over three years. After the restoration, LandFluent was brought in to design its gardens.
+
+The garden holds the foreground and the Pacific holds the horizon; the house sits between them as context, not subject. Coastal light, the hour when planting throws shadow and reads as structure.
+
 ## Setup
 8 Rockledge is a 1930 oceanfront estate in Laguna Beach by Garrett Van Pelt, protected under the Mills Act and restored over three years. After the restoration, LandFluent was brought in to design its gardens.
 

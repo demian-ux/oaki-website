@@ -10,6 +10,20 @@ type: Residential
 client: KODA, Kean Office for Design + Architecture
 year: 2024–2026
 imageProject: oak-house
+template: editorial
+description: A house designed around century-old oaks. In an unbuilt category, the images are how the jury meets it.
+hero: View 01_Facade_a05 :: Arrival, the facade under the oaks, the image credited on the award page
+introImage: View 05_a01 :: Life, the vertical frame, house and tree in one column
+sheet1: Architect :: KODA, Kean Office for Design + Architecture
+sheet2: Location :: Coconut Grove, Miami, FL
+sheet3: Collection :: Residential
+sheet4: Year :: 2024–2026
+sheet5: Visualization :: Oaki Studio
+row1: full | View 02_Interior_a05 :: Moving through, the interior opening to the trees
+row2: full | View 03_Interior_a05 :: Moving through, the living space
+row3: 60% center | View 04_a01 :: Detail, the roofline bending around the canopy
+next: prismatic-parasol :: Prismatic Parasol
+closing: next
 img1: View 01_Facade_a05 :: Arrival, the facade under the oaks, the image credited on the award page
 img2: View 02_Interior_a05 :: Moving through, the interior opening to the trees
 img3: View 03_Interior_a05 :: Moving through, the living space
@@ -25,6 +39,11 @@ gap2: Camera and light decisions, which frames were rejected and why
 flag1: Demi flagged the hero pick as ambiguous (View 01 vs View 02) in the image-picks review, settle before sharing
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+A single-family residence in Coconut Grove by KODA, designed around the century-old oaks that define its site. The house bends its roofline and its rooms around the trees; nothing on the site was asked to move.
+
+The trees lead every frame. The facade reads through the canopy, the interiors look back out to it, and the closing vertical frame puts house and oak in one column. The light is one Miami afternoon throughout, so five images read as one visit.
+
 ## Setup
 A single-family residence in Coconut Grove by KODA, designed around the century-old oaks that define its site. The house bends its roofline and its rooms around the trees; nothing on the site was asked to move.
 

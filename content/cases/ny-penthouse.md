@@ -10,6 +10,22 @@ type: Residential
 client: TBD Architecture + Design
 year: "2024"
 imageProject: ny-penthouse
+template: editorial
+description: Interiors rendered for the meeting that decides them. Two frames made to convince an owner became the complete set for a Manhattan penthouse.
+hero: Living Piano Stage :: Arrival, the living room as a stage, the hero frame (the home shelf uses it)
+introImage: terrace night pool2 :: Arrival, the terrace after dark, the skyline standing in for the address
+sheet1: Architecture and interior design :: TBD Architecture + Design
+sheet2: Location :: New York, Manhattan
+sheet3: Collection :: Residential
+sheet4: Year :: 2024
+sheet5: Visualization :: Oaki Studio
+row1: full | Main Area :: Moving through, the main space in full
+row2: full | Dining :: Moving through, the dining room | Kitchen Library :: Moving through, kitchen into library | Bar front :: Detail, the bar
+row3: 44% left | Bar detail mrl :: Detail, the millwork matched to the sample
+row4: full | Breakfast nook :: Life, morning light in the breakfast nook
+row5: 44% left | Library :: Life, the library at rest
+next: oak-house :: Oak House
+closing: next
 img1: Living Piano Stage :: Arrival, the living room as a stage, the hero frame (the home shelf uses it)
 img2: terrace night pool2 :: Arrival, the terrace after dark, the skyline standing in for the address
 img3: Main Area :: Moving through, the main space in full
@@ -28,6 +44,11 @@ gap1: Process slot, the two original frames that won the commission would be the
 flag1: The Sanity phase copy keeps the address private ("the skyline standing in for an address we keep private") while the home shelf titles it Central Park West. Demi confirms the public name before ship.
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+TBD Architecture + Design sent a model, drawings, and photos of the material samples on the studio desk. The commission began as two interiors, made so the owner could see the design.
+
+The rooms read as used, not staged: morning light in the kitchen, the living room at golden hour, a bedroom at rest. That is what makes an approval meeting believe them. Gray millwork matched to the sample, stone chosen area by area, and the city doing the talking after dark, one frame on the terrace with the skyline standing in for the address.
+
 ## Setup
 TBD Architecture + Design sent a model, drawings, and photos of the material samples on the studio desk. The commission began as two interiors, made so the owner could see the design.
 

@@ -10,6 +10,20 @@ type: Residential
 client: KODA, Kean Office for Design + Architecture
 year: 2023–2024
 imageProject: bay-house
+template: editorial
+description: A new residence on the site of a lost August Geiger house. Until it is built, the renderings are the design's only public face.
+hero: View 01_a05 :: Arrival, the house from the water side, the hero frame
+sheet1: Architect :: KODA, Kean Office for Design + Architecture
+sheet2: Location :: 2740 N Bay Road, Miami Beach, FL
+sheet3: Collection :: Residential
+sheet4: Year :: 2023–2024
+sheet5: Visualization :: Oaki Studio
+row1: full | View 02_a05 :: Arrival, the approach
+row2: full | View 03_a05 :: Moving through, the interior toward the bay
+row3: 60% center | View 04_a05 :: Moving through, the living space
+row4: full | View 06_a03 :: Life, the house at its quietest hour
+next: cazouls-les-bezier :: Cazouls les Bézier
+closing: next
 img1: View 01_a05 :: Arrival, the house from the water side, the hero frame
 img2: View 02_a05 :: Arrival, the approach
 img3: View 03_a05 :: Moving through, the interior toward the bay
@@ -25,6 +39,11 @@ gap2: Camera and light decisions, references, what was rejected
 flag1: Demi noted the hero should be the lead exterior on KODA's project page, confirm View 01 matches it
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+The lot at 2740 North Bay Road sold for $20.8 million in 2022. The August Geiger house that stood there, work of the architect behind much of early Miami Beach, was already gone. KODA's answer is a house designed for the water and the light the site kept.
+
+The water leads. The hero frame reads the house from the bay side, where the site's whole value lives, and the sequence moves inside toward that same water. One warm hour throughout, exteriors and interiors agreeing across the two production years.
+
 ## Setup
 The lot at 2740 North Bay Road sold for $20.8 million in 2022. The August Geiger house that stood there, work of the architect behind much of early Miami Beach, was already gone. KODA's answer is a house designed for the water and the light the site kept.
 

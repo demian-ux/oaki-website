@@ -10,6 +10,25 @@ type: Retail
 client: KODA, Kean Office for Design + Architecture
 year: 2025–2026
 imageProject: level-shoes
+template: editorial
+description: A Dubai retailer's first US flagship, announced to the world before it exists. The announcement is the renderings.
+hero: View 04_Mens Area :: Arrival, the men's area, the hero frame
+sheet1: Architect :: KODA, Kean Office for Design + Architecture
+sheet2: Client :: Level Shoes (Chalhoub Group)
+sheet3: Location :: Bal Harbour Shops, Miami, FL
+sheet4: Collection :: Retail
+sheet5: Year :: 2025–2026
+sheet6: Visualization :: Oaki Studio
+row1: full | View 01 :: Arrival, the store from the entry
+row2: full | View 02 :: Moving through, the main floor
+row3: 60% center | View 06_Women COntempo :: Moving through, the women's contemporary area
+row4: full | View 05_Personal :: Moving through, personal shopping
+row5: full | View 08_Whitespace :: Detail, the whitespace gallery
+row6: 60% center | View 10_Cobbler :: Detail, the cobbler
+row7: full | View 03_Bar :: Life, the bar
+row8: full | View 09_Pool :: Life, the pool room
+next: 8-rockledge :: 8 Rockledge
+closing: next
 img1: View 04_Mens Area :: Arrival, the men's area, the hero frame
 img2: View 01 :: Arrival, the store from the entry
 img3: View 02 :: Moving through, the main floor
@@ -31,6 +50,11 @@ gap3: Confirm which frames ran in press coverage before claiming placement
 flag1: Demi flagged the hero pick (View 04) for confirmation in the image-picks review
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+Level Shoes, the Chalhoub Group's Dubai retailer, is opening its first United States flagship: close to 2,000 square meters at Bal Harbour Shops, designed by KODA, set to open in 2027. WWD broke the news before ground was touched.
+
+The sequence walks the store the way a client would: entry, main floor, the men's and women's areas, then the rooms that make this flagship particular, the whitespace gallery, the cobbler, the bar, the pool room. Retail light, not gallery light: the products and materials carry the same weight as the architecture.
+
 ## Setup
 Level Shoes, the Chalhoub Group's Dubai retailer, is opening its first United States flagship: close to 2,000 square meters at Bal Harbour Shops, designed by KODA, set to open in 2027. WWD broke the news before ground was touched.
 

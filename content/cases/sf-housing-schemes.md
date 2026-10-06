@@ -10,6 +10,21 @@ type: Mid-rise housing
 client: Object Territories
 year: 2023
 imageProject: sf-housing-schemes
+template: editorial
+description: Three housing schemes for San Francisco, one deadline. Carved Terrace Block took a Merit Award at AIASF's Housing+ competition.
+hero: View 01_a03 :: Arrival, the block on its corner, the competition hero frame
+sheet1: Architect :: Object Territories
+sheet2: Design team :: Marcus Carter, Miranda Lee, Michael Kokora
+sheet3: Competition :: AIA San Francisco, Housing+ (2023)
+sheet4: Location :: San Francisco, CA
+sheet5: Collection :: Competition
+sheet6: Year :: 2023
+sheet7: Visualization :: Oaki Studio
+row1: full | View 02_a03 :: Arrival, the street elevation, the carved terraces read as one facade
+row2: full | View 03_fixed :: Moving through, a terrace opening onto the living room
+row3: full | View 03_a03 :: Moving through, the balcony under the timber soffit | View 04_a02 :: Moving through, the double-height unit and its stair
+next: the-point :: The Point
+closing: next
 img1: View 01_a03 :: Arrival, the block on its corner, the competition hero frame
 img2: View 02_a03 :: Arrival, the street elevation, the carved terraces read as one facade
 img3: View 03_fixed :: Moving through, a terrace opening onto the living room
@@ -29,6 +44,11 @@ gap3: Slots 6 to 8, confirm which of the five library frames belong to Carved Te
 flag1: The library mixes the three schemes. Every frame in the arc must be attributed to the right scheme before this goes anywhere near a client
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+AIA San Francisco's Housing+ competition asked architects to answer the city's housing crisis with buildable, multi-unit schemes. Object Territories entered three. Carved Terrace Block is the one the jury kept.
+
+The frames stay at street level, where the jury's question lives: what is it like to live here, and what does the block give back to the corner. The carved terraces do the arguing from outside; the timber interiors carry it inside. One San Francisco light throughout, the soft overcast the city actually has.
+
 ## Setup
 AIA San Francisco's Housing+ competition asked architects to answer the city's housing crisis with buildable, multi-unit schemes. Object Territories entered three. Carved Terrace Block is the one the jury kept.
 

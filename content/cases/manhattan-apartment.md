@@ -1,49 +1,40 @@
 ---
-title: Manhattan Apartment
+template: editorial
+title: Manhattan Penthouse
 slug: manhattan-apartment
-collection: The Residential Collection
-audience: Interior designers and residential developers in New York
-argument: PROPOSED (Demi defines at review). This case study proves oaki can carry a full New York interior, room by room in one continuous light, to interior designers and residential developers.
-subtitle: One apartment, told the way a visitor would walk it. The living room wall anchors everything else.
-location: New York, NY
+collection: Residential
+description: A Manhattan penthouse by TBD Architecture + Design, visualized by oaki while the material palette was still being decided.
+location: Manhattan, New York
 type: Residential interior
 client: TBD Architecture + Design
 year: 2024
-imageProject: 2w-29th
-img1: Living :: Arrival, the hero frame, the art wall and the city beyond
-img2: main airea :: Arrival, the apartment in one frame, kitchen to stair
-img3: Kitchen :: Moving through, the kitchen
-img4: Stair :: Moving through, the stair
-img5: Main Bathroom :: Moving through, the main bath
-img6: guccibath :: Detail, the powder room
-img7: steamroom :: Detail, the steam room
-img8: View 01_a03 :: Detail, the white bath in morning light
-img9: Lounge terrace :: Life, the terrace at dusk
-img10: Bedroom :: Life, the bedroom
+imageProject: manhattan-penthouse
+hero: 01-lounge-terrace :: Rooftop lounge terrace at sunset
+introImage: 02-aerial :: Aerial view of the penthouse terrace at dusk with the Empire State Building behind
+sheet1: Interior architecture :: TBD Architecture + Design
+sheet2: Location :: Manhattan, New York
+sheet3: Collection :: Residential
+sheet4: Year :: 2024
+sheet5: Scope :: Interior and exterior stills
+sheet6: Visualization :: Oaki Studio
+row1: full | 03-stair :: Floating oak stair against a marble wall
+row2: 40% left | 04-kitchen :: Kitchen island and oak cabinetry
+row3: full | 05-main-area :: Open kitchen, dining and living area
+row4: 44% center | 06-living :: Living room with city views
+row5: full | 07-powder-room :: Powder room with tiger wallpaper | 08-steam-room :: Marble steam room | 09-main-bathroom :: Main bathroom with tub and night skyline
+row6: full | 10-lounge :: Lounge with bar shelving
+row7: 46% left | 11-bedroom :: Bedroom with fluted oak wall
+next: ny-penthouse :: Central Park West
+closing: next
 credit1: Interior architecture :: TBD Architecture + Design
-credit2: Location :: New York, NY
+credit2: Location :: Manhattan, New York
 credit3: Year :: 2024
 credit4: Visualization :: Oaki Studio
-gap1: Intake pending, the brief as it arrived and what the model lacked
-gap2: Process artifact missing, no model-vs-final material in the library, brief Diego if wanted
-flag1: NAME, public name is "Manhattan Apartment" (the home shelf already uses it, the street name appears nowhere public), settle any doubt BEFORE this preview is shared outside
-flag2: PARK CLAIM, the home shelf caption says "the Central Park view", the address suggests Madison Square Park is the likelier view, this draft says only "the city", confirm before publishing either way
-flag3: The argument line is a proposal, Demi defines the argument at review
+flag1: NAME, pack says "Manhattan Penthouse"; the home shelf (home-projects.ts) still says "Manhattan Apartment". Diego to confirm the final name and whether the slug changes.
+flag2: Year 2024 and the role "Interior architecture" were taken from the previous site version; Diego to confirm.
+flag3: NEXT PROJECT, Central Park West (ny-penthouse) is a placeholder; Diego to confirm.
 ---
-## Setup
-A full-floor apartment in Manhattan by TBD Architecture + Design. The commission covered the whole interior sequence: living room, kitchen, stair, baths, terrace, bedroom.
+## Intro
+A Manhattan penthouse by TBD Architecture + Design, conceived as two realms: an intimate residence below and a social rooftop above. A floating stair connects the open living spaces to a terrace with a plunge pool, fire pit and views toward the Empire State Building.
 
-oaki produced the complete set of interior renderings.
-
-## Tension
-An interior set fails in a particular way: ten beautiful rooms that could belong to ten different homes. Held apart, the frames sell nothing. The set has to read as one apartment on one afternoon, with the same light moving through every room.
-
-[GAP for Demi: the brief as it arrived, rounds, timeline.]
-
-## Approach
-The living room leads. The art wall and the city behind it give the apartment its anchor, and every other frame agrees with it: the same warmth in the kitchen marble, the same hour on the stair, the same evening reaching the terrace. The sequence is ordered the way a visitor would walk it.
-
-[GAP for Demi: camera and light decisions, references, what was rejected.]
-
-## Outcome
-[GAP for Demi: the documented outcome. The home shelf already carries this project as 04, centred; what the full set did for TBD is the claim this page needs.]
+Oaki built the visual narrative around this contrast between social and private life. The imagery moves from the openness and energy of the rooftop into quieter interiors, with the stair acting as a threshold between both worlds. Daylight, evening light and carefully observed materiality give each space its own atmosphere.

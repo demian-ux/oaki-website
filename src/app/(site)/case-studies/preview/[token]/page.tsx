@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getCaseDraft } from "@/lib/case-drafts";
 import { casePreviewLinks } from "@/lib/case-preview-links";
 import CaseDraftView from "@/components/case-studies/CaseDraft";
+import CaseEditorialView from "@/components/case-studies/CaseEditorial";
 
 // Private case-study draft preview: unguessable token, repo-only content,
 // noindex. Demi reviews the prose here; client-facing sharing only after
@@ -46,7 +47,11 @@ export default async function CasePreviewPage({ params }: Props) {
       {/* The internal review header (argument / flags / gaps) used to render
           here; removed 2026-08-13 — these token links are now shared with
           clients, so the preview shows the page as it will publish. */}
-      <CaseDraftView draft={draft} showGaps />
+      {draft.editorial ? (
+        <CaseEditorialView draft={draft} />
+      ) : (
+        <CaseDraftView draft={draft} showGaps />
+      )}
     </>
   );
 }

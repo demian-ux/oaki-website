@@ -10,6 +10,25 @@ type: Competition pavilion
 client: Object Territories
 year: 2025
 imageProject: prismatic-parasol
+template: editorial
+description: A solar canopy and water-catchment pavilion for Marou Village, Fiji. Four boards, one jury, three awards.
+hero: View 01_Aerial :: Arrival, the canopy in the valley, the competition hero frame
+sheet1: Architect :: Object Territories
+sheet2: Design team :: Michael Kokora, Marcus Carter, Miranda Lee
+sheet3: Competition :: Land Art Generator Initiative 2025
+sheet4: Location :: Marou Village, Fiji
+sheet5: Collection :: Competition
+sheet6: Year :: 2025
+sheet7: Visualization :: Oaki Studio
+sheet8: Published credit :: Demián Szklar and his team at Oaki Studio
+row1: full | View 05_Entry :: Arrival, the tower and canopy from the path
+row2: full | View 03_Entry :: Moving through, approaching under the canopy edge
+row3: 60% center | View 04_Interior_Concert :: Moving through, the gathering space beneath, in use
+row4: full | View 07_Tower :: Moving through, the lookout at the top, village and sea beyond
+row5: full | View 06_Section :: Detail, the section, how the canopy catches and the tower holds
+row6: 60% center | View 02_Aerial Village :: Life, dusk over the village, the parasols lit
+next: raghsa-tower :: Raghsa Tower
+closing: next
 img1: View 01_Aerial :: Arrival, the canopy in the valley, the competition hero frame
 img2: View 05_Entry :: Arrival, the tower and canopy from the path
 img3: View 03_Entry :: Moving through, approaching under the canopy edge
@@ -29,6 +48,11 @@ gap2: Intake pending, camera and light decisions with the why (the Criterio evid
 gap3: Slot 8, the process artifact, brief Diego
 flag1: Michael Kokora quote available ("The quality has held up from when we first received it to now."), confirm attribution permission before it renders
 ---
+## Intro
+The Land Art Generator Initiative sets one of the hardest briefs in competition work: energy infrastructure a community could love. For the 2025 cycle, Object Territories answered with Prismatic Parasol, a canopy for Marou Village, Fiji, that gathers sun and rain for a village that needs both.
+
+oaki produced the competition set for Object Territories. The frames were built around the canopy's two jobs: light overhead, water below, the village always in frame.
+
 ## Setup
 The Land Art Generator Initiative sets one of the hardest briefs in competition work: energy infrastructure a community could love. For the 2025 cycle, Object Territories answered with Prismatic Parasol, a canopy for Marou Village, Fiji, that gathers sun and rain for a village that needs both.
 

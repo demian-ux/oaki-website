@@ -10,6 +10,25 @@ type: Cultural
 client: Tirmizi Studio
 year: 2025–2026
 imageProject: icnyc
+template: editorial
+description: A renovation shown floor by floor to the community funding it. The campaign's future lives in the images.
+hero: View 02 :: Arrival, the prayer hall, the frame the campaign leads with
+introImage: View 07_Stair :: Detail, the stair
+sheet1: Architect :: Tirmizi Studio
+sheet2: Client :: Islamic Center of New York City
+sheet3: Location :: New York, NY
+sheet4: Collection :: Cultural
+sheet5: Year :: 2025–2026
+sheet6: Visualization :: Oaki Studio
+row1: full | View 01 :: Arrival, the hall from the entry
+row2: full | View 03 :: Moving through, the prayer hall toward the minbar
+row3: 60% center | View 04 :: Moving through, the co-working floor
+row4: full | View 05 :: Moving through, the wellness center
+row5: full | View 08_Cafe :: Life, the cafe
+row6: 60% center | View 09 - Update :: Detail, the facade study
+row7: full | View 10 - Update :: Detail, the facade at street level
+next: k-villa :: K Villa, Palm Jumeirah
+closing: next
 img1: View 02 :: Arrival, the prayer hall, the frame the campaign leads with
 img2: View 01 :: Arrival, the hall from the entry
 img3: View 03 :: Moving through, the prayer hall toward the minbar
@@ -31,6 +50,11 @@ gap3: Campaign result to date, confirm the citable figure before publishing any 
 flag1: The argument line is a proposal, Demi defines the argument at review
 flag2: A faith community's home, review tone with extra care before anything is shared
 ---
+## Intro
+The Islamic Center of New York City is renovating its Manhattan building: a prayer hall, a co-working area with a cafe, a wellness center, and a new facade, designed by Tirmizi Studio. The center is raising $5 million to build it, and the campaign shows the future floor by floor, from the dome to the minbar to the street.
+
+The prayer hall leads, because it is what the community is building first and giving for. The sequence then walks the promise: the working floor, the wellness center, the cafe, the stair, and finally the facade studies that give the campaign a public face on the street. Warm, low light throughout; atmosphere over spectacle.
+
 ## Setup
 The Islamic Center of New York City is renovating its Manhattan building: a prayer hall, a co-working area with a cafe, a wellness center, and a new facade, designed by Tirmizi Studio. The center is raising $5 million to build it, and the campaign shows the future floor by floor, from the dome to the minbar to the street.
 

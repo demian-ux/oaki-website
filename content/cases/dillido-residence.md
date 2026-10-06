@@ -10,6 +10,27 @@ type: Residential
 client: Ceïba
 year: 2024
 imageProject: dillido-residence
+template: editorial
+description: Exteriors, interiors and film for a waterfront residence on Di Lido Island, built to be sold before it was finished.
+hero: view-01-front-facade :: Arrival, the residence from the front
+introImage: view-02-entry-stairs :: Arrival, the entry stairs
+sheet1: Client :: Ceïba, with the Socri group
+sheet2: Architecture :: Strang Design
+sheet3: Interior design :: Dunagan Design Group
+sheet4: Visualization and film :: Oaki Studio
+sheet5: Location :: Di Lido Island, Miami Beach
+sheet6: Collection :: Residential
+sheet7: Year :: 2024
+row1: 44% left | view-20-dock-day-recovered :: The dock
+row2: full | view-07-dining-room :: Inside, the dining room
+row3: full | view-05-kitchen :: Inside, the kitchen
+row4: 60% center | view-07-a02 :: Inside, the principal bedroom
+row5: full | view-23-a05 :: Detail, the dressing room | view-32-kitchen-a03 :: Detail, the wine wall
+row6: full | view-17-a05 :: Life, the guest terrace
+row7: 44% left | view-28-teather-a06 :: Life, the theater
+row8: film | /video/dillido-residence/animation.mp4 :: /video/dillido-residence/animation-poster.webp
+next: icnyc :: Islamic Center of New York City
+closing: next
 img1: view-01-front-facade :: Arrival, the residence from the front
 img2: view-02-entry-stairs :: Arrival, the entry stairs
 img3: view-20-dock-day-recovered :: The dock
@@ -30,6 +51,11 @@ credit5: Location :: Di Lido Island, Miami Beach
 credit6: Year :: 2024
 flag1: Copy carried over from the approved 1505 Ponce portfolio page; client renamed Koqio to Ceïba per the 11-Aug-2026 one-name ruling
 ---
+## Intro
+A waterfront residence on Di Lido Island, built to be sold before it was finished. Over months oaki produced the full image set and the film: the arrival, the interiors, the pool, the rooftop, down to the sculptures and the outdoor shower.
+
+Everything was built in the 3D scene: geometry, materials, light, water. One world across every still and every second of film. The final cut of the film was shaped frame by frame with the listing team, down to the art on the walls, and their direction was incorporated round after round without the schedule slipping.
+
 ## Setup
 A waterfront residence on Di Lido Island, built to be sold before it was finished. Over months oaki produced the full image set and the film: the arrival, the interiors, the pool, the rooftop, down to the sculptures and the outdoor shower.
 

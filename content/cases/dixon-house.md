@@ -10,6 +10,23 @@ type: Waterfront residence, landscape
 client: LandFluent
 year: 2026
 imageProject: san-marino
+template: editorial
+description: New grounds for a house on San Marino Island. The house was already there; the garden had to be seen first.
+hero: View 02 - Entry Stairs :: Arrival, the entry stair through the planting
+introImage: View 03 - Garden :: Moving through, the side garden path
+sheet1: Landscape design :: LandFluent
+sheet2: Location :: San Marino Island, Miami Beach, FL
+sheet3: Collection :: Residential
+sheet4: Year :: 2026
+sheet5: Visualization :: Oaki Studio
+row1: full | View 01 - Front Facade :: Arrival, the street front behind its new hedge and wall
+row2: full | View 04 - Seawall :: Moving through, the seawall walk along the bay
+row3: 60% center | View 05 - Outdoor :: Moving through, the covered terrace toward the water
+row4: full | View 06 - Waterfront :: Detail, the house from the water, planting spilling over the seawall
+row5: full | View 07 - Outdoor :: Life, the terrace with the skyline across the bay
+row6: 60% center | View 08 - Balcony :: Life, the upper terrace over the planters
+next: 8-rockledge :: 8 Rockledge
+closing: next
 img1: View 02 - Entry Stairs :: Arrival, the entry stair through the planting
 img2: View 01 - Front Facade :: Arrival, the street front behind its new hedge and wall
 img3: View 03 - Garden :: Moving through, the side garden path
@@ -29,6 +46,11 @@ flag1: The renders show a new two-storey house, not a 1936 Art Deco residence. E
 flag2: Scope, confirm oaki produced the grounds only, or the house as well, and keep every claim inside that
 flag3: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+A waterfront house on San Marino Island, Miami Beach, sold in December 2024. Its new owners commissioned LandFluent to rethink the grounds around it: the entry, the side garden, the seawall walk, the terraces facing the bay.
+
+The sequence walks the property the way a visitor would: in from the street, up the stair, along the side path, out to the seawall and back to the terraces. Miami light at midday, the hour that makes the planting read as shade and the water read as water.
+
 ## Setup
 A waterfront house on San Marino Island, Miami Beach, sold in December 2024. Its new owners commissioned LandFluent to rethink the grounds around it: the entry, the side garden, the seawall walk, the terraces facing the bay.
 

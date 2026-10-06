@@ -10,6 +10,22 @@ type: Resort interiors
 client: Gregory Tuck Architecture
 year: 2024
 imageProject: the-point
+template: editorial
+description: Thirteen interiors for a resort on the Black Sea coast, another designer's intent kept exact across every image.
+hero: 01-porte-cochere :: Arrival, the porte cochere
+introImage: 05-bronze :: Detail, the bronze
+sheet1: Architecture and interiors :: Gregory Tuck Architecture
+sheet2: Visualization :: Oaki Studio
+sheet3: Location :: Sochi, Black Sea coast
+sheet4: Collection :: Residential
+sheet5: Year :: 2024
+row1: full | 02-lobby :: Arrival, the lobby
+row2: full | 03-pool :: Moving through, the indoor pool
+row3: 60% center | 04-garden-bar :: Moving through, the colonnades garden bar
+row4: full | 07-sea-terrace :: Moving through, the sea terrace
+row5: 44% left | 06-library :: Detail, the library
+next: windsor-residence :: Windsor Residence
+closing: next
 img1: 01-porte-cochere :: Arrival, the porte cochere
 img2: 02-lobby :: Arrival, the lobby
 img3: 03-pool :: Moving through, the indoor pool
@@ -24,6 +40,11 @@ credit4: Year :: 2024
 flag1: Outcome wording adapted for the public site from the private 1505 Ponce page, the Cyprus project and its in-conversation status stay private, Demi confirm
 flag2: Only 1600px derivatives exist locally for this set, the library was built from them, swap in the 4K masters under images/the-point/original and re-run optimize-images when available
 ---
+## Intro
+A resort on the Black Sea, its interiors designed in Brooklyn by Gregory Tuck Architecture. Thirteen final images: the porte cochere, the colonnades bar, the rooms between. The job was to make the design visible before construction, exactly as drawn.
+
+We worked room by room with the architect, view by view, through his own markups. One lighting language across the set. Where a piece did not exist in any library, we modeled it: the chandeliers, the loungers, the furniture that carries the design. The design, exactly as intended.
+
 ## Setup
 A resort on the Black Sea, its interiors designed in Brooklyn by Gregory Tuck Architecture. Thirteen final images: the porte cochere, the colonnades bar, the rooms between. The job was to make the design visible before construction, exactly as drawn.
 

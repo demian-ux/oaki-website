@@ -10,6 +10,22 @@ type: Hospitality
 client: iCrave, part of Journey
 year: 2024–2025
 imageProject: icrave-sapphire
+template: editorial
+description: iCrave designs airport lounges for Chase's Sapphire network. oaki has rendered them from New York to Miami to Chicago.
+hero: View 02_Lounge :: Arrival, the lounge, the hero frame
+sheet1: Design :: iCrave, part of Journey
+sheet2: Location :: JFK, MIA, ORD
+sheet3: Collection :: Hospitality
+sheet4: Client :: JPMorgan Chase
+sheet5: Locations :: JFK, MIA, ORD
+sheet6: Years :: 2024–2025
+sheet7: Year :: 2024–2025
+sheet8: Visualization :: Oaki Studio
+row1: full | View 01_Entrance :: Arrival, the entrance
+row2: full | View 03_Bar :: Moving through, the bar
+row3: 60% center | View 04_La ventanita :: Detail, the Cuban coffee window at Miami
+next: 8-rockledge :: 8 Rockledge
+closing: next
 img1: View 02_Lounge :: Arrival, the lounge, the hero frame
 img2: View 01_Entrance :: Arrival, the entrance
 img3: View 03_Bar :: Moving through, the bar
@@ -25,6 +41,11 @@ gap2: Camera and light decisions, references, what was rejected
 flag1: CLEARANCE, all iCrave imagery is private-review only until Andrew Delgado gives written per-project approval, this draft does not leave the studio before that
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+The Sapphire Lounge network has become the standard airlines get measured against: the LaGuardia lounge was named the world's best third-party lounge and the best new US lounge of 2024. iCrave designs the network's lounges; the next ones exist first as renderings. Miami alone runs to 13,800 square feet, with a Cuban coffee window and a rum bar.
+
+The lounge interior leads, then the entrance sequence, the bar, and the local gesture. Hospitality light: warm, low, occupied without being crowded.
+
 ## Setup
 The Sapphire Lounge network has become the standard airlines get measured against: the LaGuardia lounge was named the world's best third-party lounge and the best new US lounge of 2024. iCrave designs the network's lounges; the next ones exist first as renderings. Miami alone runs to 13,800 square feet, with a Cuban coffee window and a rum bar.
 

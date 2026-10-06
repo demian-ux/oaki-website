@@ -90,6 +90,9 @@ for (const project of projects) {
     const naturalHeight = meta.height ?? 0;
     const widths = WIDTHS.filter((w) => w <= naturalWidth);
     if (widths.length === 0) widths.push(Math.min(naturalWidth, WIDTHS[WIDTHS.length - 1]));
+    // A master narrower than 1920 would otherwise ship only at 960: keep
+    // its native width too so retina layouts get the full pixels it has.
+    if (widths[0] < 1920 && naturalWidth > widths[0]) widths.unshift(naturalWidth);
 
     for (const w of widths) {
       for (const [fmt, opts] of [

@@ -10,6 +10,23 @@ type: Residential
 client: TBD Architecture + Design
 year: 2025
 imageProject: 803-hunter-rd
+template: editorial
+description: A house told from the street to the bath in layered timber and one continuous warmth.
+hero: View 01_Exterior :: Arrival, the house from the street, the hero frame
+sheet1: Architecture :: TBD Architecture + Design
+sheet2: Collection :: Residential
+sheet3: Year :: 2025
+sheet4: Visualization :: Oaki Studio
+row1: full | View 02_Exterior :: Arrival, the second exterior
+row2: full | View 03_Living :: Moving through, the living room in layered timber
+row3: 60% center | View 04_Kitchen :: Moving through, the kitchen
+row4: full | View 07 :: Moving through, continuing the walk
+row5: full | View 05_Bath :: Detail, the bath
+row6: 44% center | View 06_Bath :: Detail, the bath, vertical
+row7: 60% center | View 08 :: Life, the house lived in
+row8: full | View 10 :: Life, the quiet frame
+next: 94-s-hibiscus :: 94 S Hibiscus
+closing: next
 img1: View 01_Exterior :: Arrival, the house from the street, the hero frame
 img2: View 02_Exterior :: Arrival, the second exterior
 img3: View 03_Living :: Moving through, the living room in layered timber
@@ -28,6 +45,11 @@ gap2: Confirm the public project name and whether the street address may be used
 flag1: NAME AND ADDRESS, "803 Hunter Rd" is a street address, confirm the client allows it publicly before this draft is shared anywhere
 flag2: The argument line is a proposal, Demi defines the argument at review
 ---
+## Intro
+A single-family residence by TBD Architecture + Design. The commission covered the full sequence: exteriors, living spaces, kitchen, baths.
+
+The street view opens, the interiors walk in order, and the two bath frames carry the detail argument. One warm hour throughout.
+
 ## Setup
 A single-family residence by TBD Architecture + Design. The commission covered the full sequence: exteriors, living spaces, kitchen, baths.
 
