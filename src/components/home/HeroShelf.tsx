@@ -36,6 +36,20 @@ const SNAP_MS = 48;
 // the entrance-completion effect); this covers browsers that never report
 // them, e.g. a tab/pane that is never painted.
 const ENTRANCE_FALLBACK_MS = 2800;
+// The opening plays once per browser. Returning visitors land straight on
+// the open, drifting shelf. `?intro` forces the opening for review.
+const SEEN_KEY = "oaki:hero-seen";
+
+function readAndMarkSeen() {
+  try {
+    if (window.location.search.includes("intro")) return false;
+    const seen = window.localStorage.getItem(SEEN_KEY) === "1";
+    window.localStorage.setItem(SEEN_KEY, "1");
+    return seen;
+  } catch {
+    return false;
+  }
+}
 
 function Cover({ project, src }: { project: Project; src: string }) {
   const [failed, setFailed] = useState(false);
@@ -83,6 +97,11 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
   // replay (header logotipo on the home route)
   const [replayNonce, setReplayNonce] = useState(0);
   const [snapping, setSnapping] = useState(false);
+  // returning visitor: render the settled state, no opening
+  const [skipIntro, setSkipIntro] = useState(false);
+  // read once per mount, so StrictMode's double effect run can't flip a
+  // first visit into a skipped one
+  const seenRef = useRef<boolean | null>(null);
 
   // ── start once webfonts are ready, so the giant wordmark renders in
   //    Inktrap (not a fallback) from the first frame ──
@@ -91,6 +110,15 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
     const start = () => {
       if (done) return;
       done = true;
+      if (seenRef.current === null) seenRef.current = readAndMarkSeen();
+      if (seenRef.current) {
+        setSkipIntro(true);
+        setSnapping(true);
+        setTick(TICKER_ORDER.length - 1);
+        setPhase("open");
+        setEntranceDone(true);
+        setDrift(true);
+      }
       setReady(true);
     };
     const fonts = document.fonts?.ready ?? Promise.resolve();
@@ -107,7 +135,7 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
 
   // ── the ticker: flip through the covers, then open ──
   useEffect(() => {
-    if (!ready) return;
+    if (!ready || skipIntro) return;
     if (tick < TICKER_ORDER.length - 1) {
       const t = setTimeout(() => setTick((v) => v + 1), TICK_MS);
       return () => clearTimeout(t);
@@ -117,7 +145,7 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
     const t = setTimeout(() => setPhase("open"), 360);
     return () => clearTimeout(t);
     // replayNonce restarts the chain even when tick was already 0
-  }, [tick, ready, replayNonce]);
+  }, [tick, ready, replayNonce, skipIntro]);
 
   // ── once spread, start the perpetual drift ──
   useEffect(() => {
@@ -214,6 +242,7 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
       trackRef.current.style.transform = `translateX(${baseOffset}px)`;
     }
     setSnapping(true);
+    setSkipIntro(false);
     setDrift(false);
     setEntranceDone(false);
     setTypedCount(0);
@@ -297,7 +326,7 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
 
   useEffect(() => {
     // reduced motion is handled by derivation below, no timer at all
-    if (!totalSteps || !entranceDone || reducedMotion) return;
+    if (!totalSteps || !entranceDone || reducedMotion || skipIntro) return;
     let i = 0;
     const id = window.setInterval(() => {
       i += 1;
@@ -305,12 +334,12 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
       if (i >= totalSteps) window.clearInterval(id);
     }, TYPE_MS);
     return () => window.clearInterval(id);
-  }, [entranceDone, reducedMotion, totalSteps]);
+  }, [entranceDone, reducedMotion, totalSteps, skipIntro]);
 
   // reduced motion: the whole line at once, as soon as the hero is open.
   // (Deliberately not gated on entranceDone — under reduced motion the hero's
   // transitions collapse to ~0ms, so there is nothing to wait for.)
-  const visibleCount = reducedMotion && open ? totalSteps : typedCount;
+  const visibleCount = (reducedMotion || skipIntro) && open ? totalSteps : typedCount;
   const typingDone = visibleCount >= totalSteps;
   const dotVisible = hasDot && typingDone;
 
