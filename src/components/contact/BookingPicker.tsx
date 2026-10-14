@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
 import Button from "@/components/global/Button";
 import { bookingRequestSchema } from "@/lib/booking";
 
@@ -126,18 +125,20 @@ export default function BookingPicker() {
 
   if (booked) {
     return (
-      <div className="py-16 max-w-md">
-        <Image
-          src="/brand/oaki-isotipo.png"
-          alt=""
-          aria-hidden={true}
-          width={48}
-          height={48}
-          className="mb-10 opacity-30"
-        />
-        <p className="text-quote mb-6">See you {longLabel(booked.start)}.</p>
-        <p className="text-editorial text-muted">
-          A calendar invite with the video link is on its way to {booked.email}.
+      // Studio voice, like the page hero: coord eyebrow, the volume
+      // headline with its ocre dot, a coord line for the facts, lede body.
+      <div className="py-16">
+        <p className="coord mb-6">Call booked</p>
+        <h2 className="text-statement text-volume mb-6">
+          See you {fmt(booked.start, { weekday: "long", month: "long", day: "numeric" })}
+          <span className="dot">.</span>
+        </h2>
+        <p className="coord mb-10">
+          {timeLabel(booked.start)} · {data?.slotMinutes ?? 30} min · Video · {zoneLabel} time
+        </p>
+        <span className="ocre-rule mb-6" aria-hidden />
+        <p className="text-lede text-muted max-w-md">
+          The invite with the video link is on its way to {booked.email}.
         </p>
         {data?.mode === "mock" && (
           <p className="text-meta text-warm-deep mt-8">
