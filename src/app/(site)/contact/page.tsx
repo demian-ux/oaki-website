@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/contact/ContactForm";
+import ContactPaths from "@/components/contact/ContactPaths";
 import PageHero from "@/components/global/PageHero";
 import { getContactPage } from "@/lib/data";
+import { bookingMode } from "@/lib/booking";
 
 export async function generateMetadata(): Promise<Metadata> {
   const contact = await getContactPage();
@@ -26,7 +28,8 @@ export default async function ContactPage() {
         }
       />
 
-      {/* Form */}
+      {/* Two paths (call or brief) when the calendar is connected; the
+          form alone otherwise. */}
       <section className="page-x section-y">
         <div className="max-w-2xl">
           <p className="text-meta text-muted mb-10">
@@ -39,7 +42,11 @@ export default async function ContactPage() {
             </a>
             {" "}and we will take it from there.
           </p>
-          <ContactForm config={contact} />
+          {bookingMode() === "off" ? (
+            <ContactForm config={contact} />
+          ) : (
+            <ContactPaths config={contact} />
+          )}
         </div>
       </section>
     </>
