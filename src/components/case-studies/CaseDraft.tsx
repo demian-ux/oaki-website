@@ -1,5 +1,6 @@
 import JournalPicture from "@/components/journal/JournalPicture";
 import CaseIndexGallery from "./CaseIndexGallery";
+import ContactCta from "@/components/global/ContactCta";
 import { collectionDisplay } from "@/lib/collection-label";
 import type { CaseDraft, CaseImageSlot } from "@/lib/case-drafts";
 
@@ -226,6 +227,7 @@ export default function CaseDraftView({
           </div>
         </section>
       )}
+      <ContactCta />
     </article>
   );
 }

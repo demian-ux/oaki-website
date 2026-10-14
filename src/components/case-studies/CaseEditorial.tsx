@@ -4,6 +4,7 @@ import {
   CaseEditorialFigure,
 } from "./CaseEditorialLightbox";
 import CaseEditorialIndex from "./CaseEditorialIndex";
+import ContactCta from "@/components/global/ContactCta";
 import type {
   CaseDraft,
   CaseEditorialImage,
@@ -290,6 +291,7 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
           </section>
         )}
       </article>
+      <ContactCta />
     </CaseEditorialGallery>
   );
 }

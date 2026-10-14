@@ -9,7 +9,7 @@ import CaseEditorialView from "@/components/case-studies/CaseEditorial";
 import PhaseSection from "@/components/case-studies/PhaseSection";
 import CaseHero from "@/components/case-studies/CaseHero";
 import SectionLabel from "@/components/global/SectionLabel";
-import Button from "@/components/global/Button";
+import ContactCta from "@/components/global/ContactCta";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -238,18 +238,6 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
-      {/* CTA — the page should not dead-end after the story */}
-      <section className="page-x section-y text-center border-b border-line">
-        <div className="max-w-lg mx-auto">
-          <h2 className="text-mode-title text-volume reveal mb-8">
-            Tell us what you’re building<span className="dot">.</span>
-          </h2>
-          <Button href="/contact" variant="primary" size="lg">
-            Start a project
-          </Button>
-        </div>
-      </section>
-
       {/* Next project — hidden while the library has a single book */}
       {nextProject && nextProject.slug !== slug && (
         <section className="page-x py-16">
@@ -265,6 +253,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </Link>
         </section>
       )}
+      <ContactCta />
     </>
   );
 }
