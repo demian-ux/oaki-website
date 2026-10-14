@@ -11,6 +11,10 @@ import { bookingRequestSchema } from "@/lib/booking";
 type Availability = { mode: "live" | "mock"; slotMinutes: number; slots: string[] };
 type Booked = { start: string; meetLink: string | null; email: string };
 
+// Every time on the picker reads in US Eastern (the clients' clock), for
+// every visitor. America/New_York follows EST/EDT on its own.
+const DISPLAY_TZ = "America/New_York";
+
 const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const inputBase =
@@ -38,7 +42,7 @@ const keyOf = (y: number, m: number, d: number) =>
 export default function BookingPicker() {
   const [data, setData] = useState<Availability | null>(null);
   const [loadError, setLoadError] = useState("");
-  const [timeZone, setTimeZone] = useState("UTC");
+  const timeZone = DISPLAY_TZ;
   const [view, setView] = useState<{ y: number; m: number } | null>(null);
   const [day, setDay] = useState<string | null>(null);
   const [slot, setSlot] = useState<string | null>(null);
@@ -52,9 +56,8 @@ export default function BookingPicker() {
       .then(async (res) => {
         const json = await res.json();
         if (!res.ok) throw new Error(json.error ?? "Could not load the calendar");
-        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+        const tz = DISPLAY_TZ;
         setLoadError("");
-        setTimeZone(tz);
         setData(json);
         const first = json.slots[0] ? dayKey(json.slots[0], tz) : null;
         const [y, m] = (first ?? dayKey(new Date().toISOString(), tz)).split("-").map(Number);
@@ -79,7 +82,7 @@ export default function BookingPicker() {
   const timeLabel = (iso: string) => fmt(iso, { hour: "numeric", minute: "2-digit" });
   const longLabel = (iso: string) =>
     `${fmt(iso, { weekday: "long", month: "long", day: "numeric" })}, ${timeLabel(iso)}`;
-  const zoneLabel = timeZone.replace(/_/g, " ").split("/").pop();
+  const zoneLabel = "ET";
 
   // Months that hold slots bound the prev/next arrows.
   const months = useMemo(() => {
@@ -134,7 +137,7 @@ export default function BookingPicker() {
           <span className="dot">.</span>
         </h2>
         <p className="coord mb-10">
-          {timeLabel(booked.start)} · {data?.slotMinutes ?? 30} min · Video · {zoneLabel} time
+          {timeLabel(booked.start)} · {data?.slotMinutes ?? 30} min · Video · {zoneLabel}
         </p>
         <span className="ocre-rule mb-6" aria-hidden />
         <p className="text-lede text-muted max-w-md">
@@ -175,7 +178,7 @@ export default function BookingPicker() {
               {data.slotMinutes} minute call · video
             </p>
             <p className="text-body text-ink">{longLabel(slot)}</p>
-            <p className="text-meta text-muted mt-1">{zoneLabel} time</p>
+            <p className="text-meta text-muted mt-1">Eastern Time ({zoneLabel})</p>
           </div>
           <button
             type="button"
@@ -305,7 +308,7 @@ export default function BookingPicker() {
           })}
         </div>
         <p className="text-meta text-muted mt-6">
-          {data.slotMinutes} minutes on video. Times in {zoneLabel}.
+          {data.slotMinutes} minutes on video. Times in Eastern Time ({zoneLabel}).
         </p>
       </div>
 
