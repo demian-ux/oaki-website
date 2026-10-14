@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Button from "@/components/global/Button";
+import Received from "@/components/contact/Received";
+import { DISABLED, FOCUS, HAIRLINE, MOTION, OCRE_ON_NEGRO } from "@/components/contact/ui";
 import { bookingRequestSchema } from "@/lib/booking";
 
 // Three quiet steps on one surface: a day, a time, then who you are. The
-// month grid only lights the days that have an open slot; every time is
-// shown in the visitor's own zone (slots arrive as UTC from the API).
+// month is a ruled grid (handoff 1e "The grid plate"): only days with an
+// open slot carry the ocre tick. Slots arrive as UTC from the API.
 
 type Availability = { mode: "live" | "mock"; slotMinutes: number; slots: string[] };
 type Booked = { start: string; meetLink: string | null; email: string };
@@ -17,23 +18,25 @@ const DISPLAY_TZ = "America/New_York";
 
 const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-const inputBase =
-  "w-full border-b bg-transparent py-3 text-body text-ink focus:outline-none focus:border-ink transition-colors duration-200 placeholder:text-muted";
+const inputBase = `w-full border-b bg-transparent py-3 text-[16px] text-ink focus:border-ink placeholder:text-muted ${MOTION} ${FOCUS}`;
 
 /** YYYY-MM-DD of an instant in a zone (en-CA formats that way). */
 function dayKey(iso: string, timeZone: string) {
   return new Intl.DateTimeFormat("en-CA", { timeZone, dateStyle: "short" }).format(new Date(iso));
 }
 
-/** Monday-first grid cells for a month: null pads, then 1..n. */
+/** Monday-first grid cells for a month: null pads, 1..n, then null pads
+ *  to close the last week (an open cell would show the hairline ground). */
 function monthCells(year: number, month: number) {
   const first = new Date(Date.UTC(year, month, 1)).getUTCDay();
   const pad = (first + 6) % 7;
   const days = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
-  return [...Array(pad).fill(null), ...Array.from({ length: days }, (_, i) => i + 1)] as (
-    | number
-    | null
-  )[];
+  const tail = (7 - ((pad + days) % 7)) % 7;
+  return [
+    ...Array(pad).fill(null),
+    ...Array.from({ length: days }, (_, i) => i + 1),
+    ...Array(tail).fill(null),
+  ] as (number | null)[];
 }
 
 const keyOf = (y: number, m: number, d: number) =>
@@ -45,6 +48,9 @@ export default function BookingPicker() {
   const timeZone = DISPLAY_TZ;
   const [view, setView] = useState<{ y: number; m: number } | null>(null);
   const [day, setDay] = useState<string | null>(null);
+  // `pick` is the time highlighted in the column; `slot` is the one the
+  // visitor confirmed, which opens step 3.
+  const [pick, setPick] = useState<string | null>(null);
   const [slot, setSlot] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", note: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -115,6 +121,7 @@ export default function BookingPicker() {
       if (res.status === 409) {
         // The slot went while they were typing: refresh and send them back.
         setSlot(null);
+        setPick(null);
         load();
       }
       if (!res.ok) throw new Error(json.error ?? "We could not book that time.");
@@ -128,27 +135,19 @@ export default function BookingPicker() {
 
   if (booked) {
     return (
-      // Studio voice, like the page hero: coord eyebrow, the volume
-      // headline with its ocre dot, a coord line for the facts, lede body.
-      <div className="py-16">
-        <p className="coord mb-6">Call booked</p>
-        <h2 className="text-statement text-volume mb-6">
-          See you {fmt(booked.start, { weekday: "long", month: "long", day: "numeric" })}
-          <span className="dot">.</span>
-        </h2>
-        <p className="coord mb-10">
-          {timeLabel(booked.start)} · {data?.slotMinutes ?? 30} min · Video · {zoneLabel}
-        </p>
-        <span className="ocre-rule mb-6" aria-hidden />
-        <p className="text-lede text-muted max-w-md">
+      <>
+        <Received
+          heading={`See you ${fmt(booked.start, { weekday: "long", month: "long", day: "numeric" })}`}
+          detail={`${timeLabel(booked.start)} ${zoneLabel} · ${data?.slotMinutes ?? 30} minutes on video`}
+        >
           The invite with the video link is on its way to {booked.email}.
-        </p>
+        </Received>
         {data?.mode === "mock" && (
-          <p className="text-meta text-warm-deep mt-8">
+          <p className="text-meta text-warm-deep -mt-8 pb-16">
             Preview mode: Google Calendar is not connected, so nothing was booked.
           </p>
         )}
-      </div>
+      </>
     );
   }
 
@@ -168,31 +167,30 @@ export default function BookingPicker() {
     return <p className="text-meta text-muted py-10">Loading the calendar…</p>;
   }
 
-  // Step 3: the visitor's details for a chosen slot.
+  // Step 3: the visitor's details for a chosen slot, on the same rules
+  // as the grid plate: a 2px negro rule over the summary, 1px hairlines.
   if (slot) {
     return (
       <form onSubmit={handleSubmit} noValidate>
-        <div className="flex items-baseline justify-between gap-6 pb-6 mb-10 border-b border-line">
+        <div className="flex items-baseline justify-between gap-6 border-t-2 border-ink pt-4 pb-6 mb-10">
           <div>
-            <p className="text-label text-muted mb-2">
-              {data.slotMinutes} minute call · video
-            </p>
-            <p className="text-body text-ink">{longLabel(slot)}</p>
+            <p className="coord mb-3">{data.slotMinutes} minute call · video</p>
+            <p className="text-[22px] font-light text-ink">{longLabel(slot)}</p>
             <p className="text-meta text-muted mt-1">Eastern Time ({zoneLabel})</p>
           </div>
           <button
             type="button"
             onClick={() => setSlot(null)}
-            className="text-meta text-muted hover:text-ink transition-colors duration-200 shrink-0"
+            className={`text-[14px] text-ink border-b border-ink shrink-0 hover:text-warm-deep ${MOTION} ${FOCUS}`}
           >
             Change time
           </button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
           {(["name", "email"] as const).map((f) => (
             <div key={f}>
-              <label htmlFor={`book-${f}`} className="text-label text-muted block mb-2">
+              <label htmlFor={`book-${f}`} className="coord block mb-2.5" style={{ fontSize: 10, color: "var(--color-muted)" }}>
                 {f === "name" ? "Name" : "Email"}
                 <span className="text-warm-deep ml-1">*</span>
               </label>
@@ -204,13 +202,14 @@ export default function BookingPicker() {
                 onChange={(e) => setForm((p) => ({ ...p, [f]: e.target.value }))}
                 required
                 className={inputBase}
+                style={{ borderColor: HAIRLINE }}
               />
             </div>
           ))}
         </div>
 
         <div>
-          <label htmlFor="book-note" className="text-label text-muted block mb-2">
+          <label htmlFor="book-note" className="coord block mb-2.5" style={{ fontSize: 10, color: "var(--color-muted)" }}>
             Anything we should look at before the call?
           </label>
           <textarea
@@ -219,6 +218,7 @@ export default function BookingPicker() {
             value={form.note}
             onChange={(e) => setForm((p) => ({ ...p, note: e.target.value }))}
             className={`${inputBase} resize-none`}
+            style={{ borderColor: HAIRLINE }}
             placeholder="The project, a link, a deadline…"
           />
         </div>
@@ -229,10 +229,16 @@ export default function BookingPicker() {
           </p>
         )}
 
-        <div className="flex items-center justify-end mt-16 pt-8 border-t border-line">
-          <Button type="submit" variant="primary" disabled={submitting}>
-            {submitting ? "Booking…" : "Confirm the call"}
-          </Button>
+        <div className="flex justify-end mt-12">
+          <button
+            type="submit"
+            disabled={submitting}
+            className={`w-full sm:w-auto sm:min-w-[240px] flex justify-between gap-8 bg-ink px-[18px] py-4 coord disabled:opacity-40 ${FOCUS}`}
+            style={{ color: "var(--color-paper)", letterSpacing: "0.16em" }}
+          >
+            <span>{submitting ? "Booking…" : "Confirm the call"}</span>
+            <span aria-hidden style={{ color: OCRE_ON_NEGRO }}>→</span>
+          </button>
         </div>
       </form>
     );
@@ -248,15 +254,15 @@ export default function BookingPicker() {
   const daySlots = day ? byDay.get(day) ?? [] : [];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_11rem] gap-12">
+    <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_220px] gap-10">
       <div>
-        <div className="flex items-baseline justify-between mb-6">
-          <p className="text-body text-ink">
+        <div className="flex items-baseline justify-between mb-5">
+          <p className="text-volume text-[28px] leading-none">
             {new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric", timeZone: "UTC" }).format(
               new Date(Date.UTC(view.y, view.m, 1))
             )}
           </p>
-          <div className="flex gap-5">
+          <div className="flex gap-4 text-[20px]">
             {[
               { n: -1, label: "Previous month", glyph: "←", off: !months.first || monthKey <= months.first },
               { n: 1, label: "Next month", glyph: "→", off: !months.last || monthKey >= months.last },
@@ -267,7 +273,8 @@ export default function BookingPicker() {
                 onClick={() => shift(b.n)}
                 disabled={b.off}
                 aria-label={b.label}
-                className="text-body text-ink disabled:text-line transition-colors duration-200"
+                className={`text-ink ${MOTION} ${FOCUS}`}
+                style={b.off ? { color: DISABLED } : undefined}
               >
                 {b.glyph}
               </button>
@@ -275,14 +282,20 @@ export default function BookingPicker() {
           </div>
         </div>
 
-        <div className="grid grid-cols-7 text-center" role="grid" aria-label="Pick a day">
+        {/* A ruled table: the 1px gap lets the hairline ground show through. */}
+        <div
+          className="grid grid-cols-7 gap-px border"
+          style={{ background: HAIRLINE, borderColor: HAIRLINE }}
+          role="grid"
+          aria-label="Pick a day"
+        >
           {WEEKDAYS.map((w) => (
-            <span key={w} className="text-label text-muted pb-3">
+            <span key={w} className="bg-paper px-2 py-2.5 coord" style={{ fontSize: 10, color: "var(--color-muted)" }}>
               {w}
             </span>
           ))}
           {cells.map((d, i) => {
-            if (d === null) return <span key={`pad-${i}`} />;
+            if (d === null) return <span key={`pad-${i}`} className="bg-paper" />;
             const k = keyOf(view.y, view.m, d);
             const open = byDay.has(k);
             const selected = k === day;
@@ -291,52 +304,75 @@ export default function BookingPicker() {
                 key={k}
                 type="button"
                 disabled={!open}
-                onClick={() => setDay(k)}
+                onClick={() => {
+                  setDay(k);
+                  setPick(null);
+                }}
                 aria-pressed={selected}
                 aria-label={`${d}${open ? ", times available" : ""}`}
-                className={`aspect-square flex items-center justify-center text-body tabular-nums transition-colors duration-200 ${
-                  selected
-                    ? "bg-ink text-paper"
-                    : open
-                    ? "text-ink hover:bg-gris"
-                    : "text-muted opacity-40"
+                className={`h-16 p-2 flex flex-col justify-between items-start text-left text-[18px] tabular-nums ${MOTION} ${FOCUS} ${
+                  selected ? "bg-ink text-paper" : open ? "bg-paper text-ink hover:bg-gris" : "bg-paper"
                 }`}
+                style={!open ? { color: DISABLED } : undefined}
               >
-                <span className={open && !selected ? "border-b border-warm pb-px" : undefined}>{d}</span>
+                <span>{d}</span>
+                {open && <span aria-hidden className="block w-3.5 h-0.5 bg-warm" />}
               </button>
             );
           })}
         </div>
-        <p className="text-meta text-muted mt-6">
+        <p className="text-[13px] text-muted mt-3.5">
           {data.slotMinutes} minutes on video. Times in Eastern Time ({zoneLabel}).
         </p>
       </div>
 
-      <div aria-live="polite">
-        {day ? (
-          <>
-            <p className="text-label text-muted mb-4">
-              {fmt(daySlots[0], { weekday: "long", month: "short", day: "numeric" })}
-            </p>
-            <ul className="flex flex-col gap-2 max-h-[22rem] overflow-y-auto" data-lenis-prevent>
-              {daySlots.map((s) => (
-                <li key={s}>
-                  <button
-                    type="button"
-                    onClick={() => setSlot(s)}
-                    className="w-full py-3 border border-line text-body text-ink tabular-nums hover:border-ink transition-colors duration-200"
-                  >
-                    {timeLabel(s)}
-                  </button>
-                </li>
-              ))}
+      <div className="flex flex-col" aria-live="polite">
+        <p className="coord mb-3.5">
+          {day && daySlots[0]
+            ? new Intl.DateTimeFormat("en-GB", { timeZone, weekday: "short", day: "numeric", month: "short" }).format(
+                new Date(daySlots[0])
+              )
+            : "Open times"}
+        </p>
+        <div className="border-t-2 border-ink flex-1">
+          {day ? (
+            <ul className="max-h-[22rem] overflow-y-auto" data-lenis-prevent>
+              {daySlots.map((s) => {
+                const chosen = s === pick;
+                return (
+                  <li key={s}>
+                    <button
+                      type="button"
+                      onClick={() => setPick(s)}
+                      aria-pressed={chosen}
+                      className={`w-full flex justify-between px-3 py-3.5 border-b text-[16px] text-left tabular-nums ${MOTION} ${FOCUS} ${
+                        chosen ? "bg-ink text-paper" : "bg-paper text-ink hover:bg-gris"
+                      }`}
+                      style={{ borderColor: HAIRLINE }}
+                    >
+                      <span>{timeLabel(s)}</span>
+                      <span aria-hidden>{chosen ? "✓" : ""}</span>
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
-          </>
-        ) : (
-          <p className="text-meta text-muted sm:pt-12">
-            {byDay.size ? "Pick a day to see the open times." : "No open times in the next weeks. Write to us instead."}
-          </p>
-        )}
+          ) : (
+            <p className="mt-4 text-[15px] leading-[1.5] text-muted">
+              {byDay.size ? "Pick a day to see the open times." : "No open times in the next weeks. Write to us instead."}
+            </p>
+          )}
+        </div>
+        <button
+          type="button"
+          disabled={!pick}
+          onClick={() => pick && setSlot(pick)}
+          className={`mt-5 flex justify-between bg-ink px-[18px] py-4 coord disabled:opacity-40 ${FOCUS}`}
+          style={{ color: "var(--color-paper)", letterSpacing: "0.16em" }}
+        >
+          <span>Confirm</span>
+          <span aria-hidden style={{ color: OCRE_ON_NEGRO }}>→</span>
+        </button>
       </div>
     </div>
   );

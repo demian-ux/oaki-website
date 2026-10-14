@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { type ContactPageData } from "@/lib/data";
 import ContactForm from "@/components/contact/ContactForm";
 import BookingPicker from "@/components/contact/BookingPicker";
+import { FOCUS, INVERSE_MUTED, MOTION, OCRE_ON_NEGRO } from "@/components/contact/ui";
 
 // Two ways in, chosen up front: a call on the calendar, or the written
 // brief. Each opens its own block below. #book and #brief deep-link to a
@@ -36,8 +37,13 @@ export default function ContactPaths({ config }: { config?: ContactPageData }) {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 border-t border-line" role="tablist">
-        {PATHS.map((p) => {
+      {/* 2b "Split plate": two cells in one 1px negro frame. The chosen cell
+          turns negro, the strongest signal in the system. */}
+      <div
+        className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] border border-ink"
+        role="tablist"
+      >
+        {PATHS.map((p, i) => {
           const active = path === p.id;
           return (
             <button
@@ -47,21 +53,30 @@ export default function ContactPaths({ config }: { config?: ContactPageData }) {
               aria-selected={active}
               aria-controls={`path-${p.id}`}
               onClick={() => choose(p.id)}
-              className={`text-left py-8 sm:pr-8 border-b transition-colors duration-300 ${
-                active ? "border-ink" : "border-line hover:border-muted"
-              }`}
+              className={`text-left flex flex-col justify-end min-h-[180px] pt-7 px-6 pb-6 ${MOTION} ${FOCUS} ${
+                i > 0 ? "border-t sm:border-t-0 sm:border-l border-ink" : ""
+              } ${active ? "bg-ink" : "bg-paper"}`}
             >
               <span
-                className={`text-body block mb-2 transition-colors duration-300 ${
-                  active || !path ? "text-ink" : "text-muted"
+                className={`flex items-baseline justify-between gap-4 text-[30px] font-light tracking-[-0.012em] ${MOTION} ${
+                  active ? "text-paper" : "text-ink"
                 }`}
               >
-                {p.title}
-                <span className="ml-3 text-warm-deep" aria-hidden>
+                <span>{p.title}</span>
+                <span
+                  aria-hidden
+                  className={active ? undefined : "text-warm-deep"}
+                  style={active ? { color: OCRE_ON_NEGRO } : undefined}
+                >
                   {active ? "↓" : "→"}
                 </span>
               </span>
-              <span className="text-meta text-muted block">{p.text}</span>
+              <span
+                className={`mt-2.5 text-[14px] leading-[1.5] ${MOTION} ${active ? "" : "text-muted"}`}
+                style={active ? { color: INVERSE_MUTED } : undefined}
+              >
+                {p.text}
+              </span>
             </button>
           );
         })}

@@ -31,7 +31,7 @@ export default async function ContactPage() {
       {/* Two paths (call or brief) when the calendar is connected; the
           form alone otherwise. */}
       <section className="page-x section-y">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <p className="text-meta text-muted mb-10">
             Prefer email? Write to{" "}
             <a
