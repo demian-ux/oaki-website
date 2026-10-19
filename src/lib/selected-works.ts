@@ -38,7 +38,7 @@ export const selectedWorks: SelectedWork[] = [
     coord: "Sochi",
     client: "Gregory Tuck Architecture",
     year: "2024",
-    collection: "The Residential Collection",
+    collection: "The Hospitality Collection",
     blurb: "A complete interior program, another designer's intent kept exact across every image.",
     cover: { project: "the-point", name: "01-colonnade-pool" },
   },

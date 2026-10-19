@@ -2,10 +2,10 @@
 template: editorial
 title: The Point
 slug: the-point
-collection: Residential
+collection: Hospitality
 description: The Point, a coastal retreat on the Black Sea by Gregory Tuck Architecture, told by oaki as a day at the property.
 location: Sochi, Russia
-type: Residential
+type: Hospitality
 client: Gregory Tuck Architecture
 year: 2024
 imageProject: the-point
@@ -13,7 +13,7 @@ hero: 01-colonnade-pool :: Colonnaded garden pool with fountain and palms
 introImage: 02-garden-court :: Garden court with green trellis walls and clipped trees
 sheet1: Client :: Gregory Tuck Architecture
 sheet2: Location :: Sochi, Russia
-sheet3: Collection :: Residential
+sheet3: Collection :: Hospitality
 sheet4: Year :: 2024
 sheet5: Scope :: Interior and exterior stills
 sheet6: Visualization :: Oaki Studio
@@ -47,7 +47,7 @@ credit2: Location :: Sochi, Russia
 credit3: Year :: 2024
 credit4: Visualization :: Oaki Studio
 flag1: Label for Gregory Tuck Architecture in the sheet ("Client" or e.g. "Interior design"); Diego to confirm.
-flag2: Collection Residential (as on the site) or Hospitality; Diego to confirm.
+flag2: Collection Hospitality (Demi, 2026-10-19).
 flag3: Scope "Interior and exterior stills"; Diego to confirm.
 flag4: Next project (Central Park West is the pack's placeholder); Diego to confirm.
 flag5: Pack 2026-10-06 replaced the previous 1600px set (7 Ponce derivatives) with 21 body + 13 index images; masters are 1600 to 2400 wide, 4K pending from Diego. Previous public wording kept Cyprus private.
