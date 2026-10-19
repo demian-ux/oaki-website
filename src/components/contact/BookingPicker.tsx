@@ -135,9 +135,11 @@ export default function BookingPicker({ lead }: BookingPickerProps = {}) {
         load();
       }
       if (!res.ok) throw new Error(json.error ?? "We could not book that time.");
+      // Two properties at most: Vercel Web Analytics on Pro keeps only two
+      // per custom event, so source and from travel as one origin string
+      // ("selected-works/goldman", "selected-works/booth", "site").
       track("Call booked", {
-        source: lead?.source ?? "site",
-        from: lead?.from ?? null,
+        origin: lead?.source ? [lead.source, lead.from].filter(Boolean).join("/") : "site",
         mode: data?.mode ?? null,
       });
       setBooked({ start: json.start, meetLink: json.meetLink, email: parsed.data.email });

@@ -183,9 +183,10 @@ export default function ContactForm({ config, lead }: ContactFormProps = {}) {
           typeof data.error === "string" ? data.error : "We could not send your note. Please try again."
         );
       }
+      // Two properties at most (Vercel Web Analytics on Pro): source and
+      // from travel as one origin string, see BookingPicker.
       track("Brief sent", {
-        source: lead?.source ?? "site",
-        from: lead?.from ?? null,
+        origin: lead?.source ? [lead.source, lead.from].filter(Boolean).join("/") : "site",
         attachments: attachments.length,
       });
       setSubmitted(true);
