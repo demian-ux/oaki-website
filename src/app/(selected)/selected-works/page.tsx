@@ -40,7 +40,14 @@ export default function SelectedWorksPage() {
       {/* 2. Two sentences, for someone who has already talked with us. */}
       <section aria-label="Introduction" className="page-x py-[calc(50vh+4rem)]">
         <div className="mx-auto text-center" style={{ maxWidth: 860 }}>
-          <p className="text-lede text-muted reveal">{SELECTED_INTRO}</p>
+          {/* One sentence per line, each kept whole. */}
+          <p className="text-lede text-muted reveal">
+            {(SELECTED_INTRO.match(/[^.]+\./g) ?? [SELECTED_INTRO]).map((sentence, i) => (
+              <span key={i} className="block whitespace-nowrap max-lg:whitespace-normal">
+                {sentence.trim()}
+              </span>
+            ))}
+          </p>
         </div>
       </section>
 
