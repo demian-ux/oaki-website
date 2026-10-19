@@ -264,6 +264,17 @@
   display: grid;
   gap: clamp(28px, 4vw, 48px);
 }
+/* Short closing paragraphs: ranged left, no indent. Justifying them
+   stretches the word spaces, and the intro's first-line indent reads as
+   a misalignment here. */
+.outcome .text {
+  text-align: left;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+}
+.outcome .text p + p {
+  text-indent: 0;
+}
 .quote {
   margin: 0;
 }
