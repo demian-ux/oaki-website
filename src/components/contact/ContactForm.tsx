@@ -13,6 +13,8 @@ import {
 import Received from "@/components/contact/Received";
 import { FOCUS, HAIRLINE, MOTION } from "@/components/contact/ui";
 import { upload } from "@vercel/blob/client";
+import { track } from "@vercel/analytics";
+import type { Lead } from "@/lib/lead-source";
 
 // One step, no wizard. Set as a letter (handoff 1b): the main fields are a
 // sentence the visitor completes; link and files drop to a quiet tier.
@@ -28,6 +30,9 @@ import { upload } from "@vercel/blob/client";
 
 interface ContactFormProps {
   config?: ContactPageData;
+  /** Where the lead came from (selected work passes source and from);
+   *  travels as hidden fields and in the payload. */
+  lead?: Lead;
 }
 
 type Field = "name" | "email" | "website" | "message" | "files";
@@ -62,7 +67,7 @@ function toFieldErrors(issues: { path: PropertyKey[]; message: string }[]): Fiel
   return out;
 }
 
-export default function ContactForm({ config }: ContactFormProps = {}) {
+export default function ContactForm({ config, lead }: ContactFormProps = {}) {
   const submittingLabel = config?.submittingLabel ?? "Sending…";
   const messagePrompt =
     config?.messagePrompt ??
@@ -125,6 +130,8 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
       email: form.email.trim(),
       website: form.website.trim(),
       message: form.message.trim(),
+      ...(lead?.source ? { source: lead.source } : {}),
+      ...(lead?.from ? { from: lead.from } : {}),
     };
     const parsed = contactSchema.safeParse(payload);
     const fileProblem = attachmentsError(files);
@@ -176,6 +183,11 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
           typeof data.error === "string" ? data.error : "We could not send your note. Please try again."
         );
       }
+      track("Brief sent", {
+        source: lead?.source ?? "site",
+        from: lead?.from ?? null,
+        attachments: attachments.length,
+      });
       setSubmitted(true);
     } catch (err) {
       setError(
@@ -200,6 +212,9 @@ export default function ContactForm({ config }: ContactFormProps = {}) {
 
   return (
     <form onSubmit={handleSubmit} noValidate>
+      {/* The origin, as the hidden fields a plain form would carry. */}
+      {lead?.source && <input type="hidden" name="source" value={lead.source} />}
+      {lead?.from && <input type="hidden" name="from" value={lead.from} />}
       <div
         className="font-light text-ink tracking-[-0.012em]"
         style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", lineHeight: 1.7 }}

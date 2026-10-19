@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { leadLabel, leadPath } from "./lead-source";
 
 // The intro-call picker on /contact. Availability is read from Demi's
 // Google Calendar (freeBusy) and a booking becomes a real event with a Meet
@@ -31,6 +32,9 @@ export const bookingRequestSchema = z.object({
   name: z.string().trim().min(1, "Please add your name").max(120),
   email: z.email("That email does not look right"),
   note: z.string().trim().max(1000, "Keep the note under 1,000 characters").optional(),
+  // Where the lead came from (src/lib/lead-source.ts).
+  source: z.string().max(64).optional(),
+  from: z.string().max(64).optional(),
 });
 export type BookingRequest = z.infer<typeof bookingRequestSchema>;
 
@@ -199,7 +203,8 @@ export async function book(req: BookingRequest) {
       body: JSON.stringify({
         summary: `oaki studio · Intro call with ${req.name}`,
         description: [
-          `Booked from oaki.studio/contact`,
+          `Booked from oaki.studio${leadPath(req)}`,
+          leadLabel(req) && `Source: ${leadLabel(req)}`,
           `Name: ${req.name}`,
           `Email: ${req.email}`,
           req.note && `\nNote:\n${req.note}`,

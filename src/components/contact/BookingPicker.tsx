@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import Received from "@/components/contact/Received";
 import { DISABLED, FOCUS, HAIRLINE, MOTION, OCRE_ON_NEGRO } from "@/components/contact/ui";
 import { bookingRequestSchema } from "@/lib/booking";
+import type { Lead } from "@/lib/lead-source";
+import { track } from "@vercel/analytics";
 
 // Three quiet steps on one surface: a day, a time, then who you are. The
 // month is a ruled grid (handoff 1e "The grid plate"): only days with an
@@ -42,7 +44,13 @@ function monthCells(year: number, month: number) {
 const keyOf = (y: number, m: number, d: number) =>
   `${y}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
 
-export default function BookingPicker() {
+interface BookingPickerProps {
+  /** Where the lead came from (selected work passes source and from);
+   *  goes to the API, the notification mail and the calendar event. */
+  lead?: Lead;
+}
+
+export default function BookingPicker({ lead }: BookingPickerProps = {}) {
   const [data, setData] = useState<Availability | null>(null);
   const [loadError, setLoadError] = useState("");
   const timeZone = DISPLAY_TZ;
@@ -105,6 +113,8 @@ export default function BookingPicker() {
       name: form.name.trim(),
       email: form.email.trim(),
       note: form.note.trim() || undefined,
+      ...(lead?.source ? { source: lead.source } : {}),
+      ...(lead?.from ? { from: lead.from } : {}),
     });
     if (!parsed.success) {
       setError(parsed.error.issues[0]?.message ?? "Please check the details.");
@@ -125,6 +135,11 @@ export default function BookingPicker() {
         load();
       }
       if (!res.ok) throw new Error(json.error ?? "We could not book that time.");
+      track("Call booked", {
+        source: lead?.source ?? "site",
+        from: lead?.from ?? null,
+        mode: data?.mode ?? null,
+      });
       setBooked({ start: json.start, meetLink: json.meetLink, email: parsed.data.email });
     } catch (err) {
       setError(err instanceof Error ? err.message : "We could not book that time.");
@@ -172,6 +187,8 @@ export default function BookingPicker() {
   if (slot) {
     return (
       <form onSubmit={handleSubmit} noValidate>
+        {lead?.source && <input type="hidden" name="source" value={lead.source} />}
+        {lead?.from && <input type="hidden" name="from" value={lead.from} />}
         <div className="flex items-baseline justify-between gap-6 border-t-2 border-ink pt-4 pb-6 mb-10">
           <div>
             <p className="coord mb-3">{data.slotMinutes} minute call · video</p>

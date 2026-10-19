@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 import { contactSchema, attachmentsError } from "@/lib/contact-schema";
+import { leadLabel } from "@/lib/lead-source";
 
 // Attachments arrive as references to blobs the browser already uploaded
 // (see ./upload/route.ts). Read each one back from the private store and
@@ -33,6 +34,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: fileProblem }, { status: 400 });
     }
     const attachmentNames = refs.map((f) => f.name);
+    // "Selected work, from Goldman" when the note came from the private set.
+    const origin = leadLabel(data);
 
     // Save to Sanity (only when configured)
     const sanityProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
@@ -67,12 +70,18 @@ export async function POST(request: Request) {
         from: "Oaki Studio <noreply@oaki.studio>",
         to: contactEmail,
         replyTo: data.email,
-        subject: data.projectName
-          ? `New inquiry from ${data.name} — ${data.projectName}`
-          : `New inquiry from ${data.name}`,
+        subject: [
+          data.projectName
+            ? `New inquiry from ${data.name} — ${data.projectName}`
+            : `New inquiry from ${data.name}`,
+          origin && `(${origin})`,
+        ]
+          .filter(Boolean)
+          .join(" "),
         text: [
           `Name: ${data.name}`,
           `Email: ${data.email}`,
+          origin && `Source: ${origin}`,
           data.website && `Link: ${data.website}`,
           data.company && `Company: ${data.company}`,
           data.role && `Role: ${data.role}`,

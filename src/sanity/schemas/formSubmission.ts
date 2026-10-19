@@ -21,6 +21,8 @@ export default defineType({
     defineField({ name: "company",         title: "Company",          type: "string",   readOnly: true }),
     defineField({ name: "role",            title: "Role",             type: "string",   readOnly: true }),
     defineField({ name: "website",         title: "Website",          type: "url",      readOnly: true }),
+    defineField({ name: "source",          title: "Source",           type: "string",   readOnly: true, description: 'Where the note was sent from: empty for the public site, "selected-works" for the private set.' }),
+    defineField({ name: "from",            title: "From",             type: "string",   readOnly: true, description: 'The selected-work case (or "booth") the visitor came from.' }),
     defineField({ name: "projectName",     title: "Project Name",     type: "string",   readOnly: true }),
     defineField({ name: "projectLocation", title: "Project Location", type: "string",   readOnly: true }),
     defineField({ name: "projectType",     title: "Project Type",     type: "string",   readOnly: true }),

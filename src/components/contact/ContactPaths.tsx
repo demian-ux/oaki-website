@@ -5,6 +5,7 @@ import { type ContactPageData } from "@/lib/data";
 import ContactForm from "@/components/contact/ContactForm";
 import BookingPicker from "@/components/contact/BookingPicker";
 import { FOCUS, INVERSE_MUTED, MOTION, OCRE_ON_NEGRO } from "@/components/contact/ui";
+import type { Lead } from "@/lib/lead-source";
 
 // Two ways in, chosen up front: a call on the calendar, or the written
 // brief. Each opens its own block below. #book and #brief deep-link to a
@@ -17,7 +18,7 @@ const PATHS: { id: Path; title: string; text: string }[] = [
   { id: "brief", title: "Send a brief", text: "Tell us about the project in writing. Files welcome." },
 ];
 
-export default function ContactPaths({ config }: { config?: ContactPageData }) {
+export default function ContactPaths({ config, lead }: { config?: ContactPageData; lead?: Lead }) {
   const [path, setPath] = useState<Path | null>(null);
 
   useEffect(() => {
@@ -84,7 +85,7 @@ export default function ContactPaths({ config }: { config?: ContactPageData }) {
 
       {path && (
         <div id={`path-${path}`} role="tabpanel" className="pt-14">
-          {path === "book" ? <BookingPicker /> : <ContactForm config={config} />}
+          {path === "book" ? <BookingPicker lead={lead} /> : <ContactForm config={config} lead={lead} />}
         </div>
       )}
     </>

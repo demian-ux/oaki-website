@@ -55,6 +55,11 @@ export const contactSchema = z.object({
   website: z.string().url("Please enter a valid URL").optional().or(z.literal("")),
   attachments: z.array(attachmentRefSchema).max(ATTACHMENT_MAX_FILES).optional(),
 
+  // Where the lead came from (src/lib/lead-source.ts): the surface
+  // ("selected-works") and the project or screen that led here.
+  source: z.string().max(64).optional(),
+  from: z.string().max(64).optional(),
+
   // Legacy fields (pre-collapse wizard) — accepted, never required.
   company: z.string().optional(),
   role: z.string().optional(),

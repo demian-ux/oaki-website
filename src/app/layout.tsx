@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const neueMontreal = localFont({
@@ -81,7 +82,13 @@ export default function RootLayout({
       lang="en"
       className={`h-full antialiased ${neueMontreal.variable} ${ppNeueMachina.variable} ${ppNeueMachinaInktrap.variable} ${sangBleu.variable}`}
     >
-      <body className="min-h-full flex flex-col bg-paper text-ink">{children}</body>
+      <body className="min-h-full flex flex-col bg-paper text-ink">
+        {children}
+        {/* Vercel Web Analytics: page views everywhere, plus the custom
+            lead events the contact form and the booking picker send
+            (src/lib/lead-source.ts). Nothing runs outside Vercel. */}
+        <Analytics />
+      </body>
     </html>
   );
 }

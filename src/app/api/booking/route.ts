@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 import { BOOKING, SlotTakenError, book, bookingMode, bookingRequestSchema } from "@/lib/booking";
+import { leadLabel } from "@/lib/lead-source";
 
 export async function POST(request: Request) {
   if (bookingMode() === "off") {
@@ -9,6 +10,8 @@ export async function POST(request: Request) {
   try {
     const data = bookingRequestSchema.parse(await request.json());
     const result = await book(data);
+    // "Selected work, from Goldman" when booked inside the private set.
+    const origin = leadLabel(data);
 
     // A note to the studio inbox too: Google does not notify the organizer
     // of an event it created on their behalf.
@@ -27,10 +30,11 @@ export async function POST(request: Request) {
         from: "Oaki Studio <noreply@oaki.studio>",
         to: contactEmail,
         replyTo: data.email,
-        subject: `Call booked: ${data.name}, ${when}`,
+        subject: `Call booked: ${data.name}, ${when}${origin ? ` (${origin})` : ""}`,
         text: [
           `Name: ${data.name}`,
           `Email: ${data.email}`,
+          origin && `Source: ${origin}`,
           `When: ${when} (Buenos Aires)`,
           result.meetLink && `Meet: ${result.meetLink}`,
           data.note && `\nNote:\n${data.note}`,

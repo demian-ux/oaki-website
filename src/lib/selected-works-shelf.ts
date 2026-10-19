@@ -7,7 +7,7 @@ import { SELECTED_BASE, getSelectedWork } from "./selected-works";
 // which client components import.
 
 /** Largest-first webp source for a library master, for plain <img> covers. */
-function coverSrc(project: string, name: string, maxWidth = 1920): string | null {
+export function coverSrc(project: string, name: string, maxWidth = 1920): string | null {
   const image = getProjectImages(project).find((i) => i.name === name && i.set === null);
   if (!image) return null;
   const fit = image.webp.filter((w) => w.width <= maxWidth).sort((a, b) => b.width - a.width)[0];
