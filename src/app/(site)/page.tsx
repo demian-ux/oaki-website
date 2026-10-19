@@ -8,65 +8,10 @@ import { journalArticlesMock, type JournalArticle } from "@/lib/journal-mock";
 import { formatJournalDate } from "@/lib/format";
 import { getJournalLocalImages } from "@/lib/journal-images";
 import { urlFor } from "@/sanity/client";
+import { fallbackPeerBand, clientMarks, additionalPeerQuotes } from "@/lib/peer-band";
+import { STUDIO_MANIFESTO } from "@/lib/studio-copy";
 
 export { generateMetadata } from "./home-metadata";
-
-const fallbackPeerBand = {
-  heading: "Trusted by the people who could do it themselves.",
-  quote:
-    "You overcome any obstacle that we throw at your team with the technical skills and ability to work to meet the deliverables.",
-  authorName: "Andrew Delgado",
-  authorTitle: "Technical Director of Visualization, Journey / iCrave",
-  factStrip: "100+ projects · 12 cities · 4 continents · since 2019",
-};
-
-// Client roster for the "Trusted by" bar. Names from the studio's client list;
-// URLs verified to each firm's official site (left undefined when no official
-// site was confirmed, so the name renders as plain text, not a broken link).
-const clientMarks: { name: string; url?: string }[] = [
-  { name: "AFT arquitectos", url: "https://www.aftarquitectos.com.ar" },
-  { name: "Asifa Tirmizi", url: "https://www.tirmizi.co" },
-  { name: "Aura Architecture", url: "https://www.aura-architecte.com" },
-  { name: "BKS Partners", url: "https://bks-partner.de" },
-  { name: "Ceïba", url: "https://www.ceiba.us" }, // formerly Koqio — one name site-wide, matches the Dillido credit
-  { name: "Cochet Pais", url: "https://www.cochetpais.com" },
-  { name: "DNA Miami", url: "https://www.dna-arc.com" },
-  { name: "Fornaris Pau", url: "https://fpadesigns.com" },
-  { name: "Gregory Tuck", url: "https://www.gregorytuck.com" },
-  { name: "iCrave", url: "https://icrave.com" },
-  { name: "Inch", url: "https://inch.com.ar/inicio/" },
-  { name: "JHID", url: "https://www.jhinteriordesign.com" },
-  { name: "Koda", url: "https://www.kodamiami.com" },
-  { name: "LandFluent", url: "https://landfluent.com" },
-  { name: "Lawrence + Long", url: "https://www.lawrenceandlong.com" },
-  { name: "Naos" }, // low confidence — candidate naos-architecture.fr, several French firms share the name
-  { name: "Object Territories", url: "https://object-territories.com" },
-  { name: "Studio ST architects", url: "https://studio-st.com" },
-  { name: "TBD Architecture", url: "https://www.tbddesignstudio.com" },
-];
-
-// Additional client testimonials that cycle in after Andrew's. Verified,
-// attribution-permitting. The first quote comes from Sanity (editable); these
-// follow in sequence.
-const additionalPeerQuotes = [
-  {
-    quote:
-      "Knowing the results will be excellent. It's reassuring to have their support, especially in a competitive field where stress is high.",
-    authorName: "David Reichert",
-    authorTitle: "BKS",
-  },
-  {
-    quote:
-      "For us, an image needs to spark all the senses. The building and architecture become secondary as it relates to marketing imagery.",
-    authorName: "Javier Fornaris Pau",
-    authorTitle: "FPA+A",
-  },
-  {
-    quote: "The quality has held up from when we first received it to now.",
-    authorName: "Michael Kokora",
-    authorTitle: "Object Territories",
-  },
-];
 
 export default async function HomePage() {
   const [home, journalPosts] = await Promise.all([getHomePage(), getJournalPosts()]);
@@ -138,7 +83,7 @@ export default async function HomePage() {
               horribly: at 375px the worst line stretched to 4.2x normal word
               spacing. Narrow screens get ordinary left-ranged text. */}
           <p className="text-body text-muted reveal leading-[1.75] text-left lg:text-justify">
-            {"We are an architectural visualization studio working with architects, interior designers, and developers across the USA and Europe. Every project is treated as an editorial story: stills, film, and narrative built as one world. We don't need the brief spoon-fed. Give us what you have and we will make the images that carry your project into the room where everything is decided."}
+            {STUDIO_MANIFESTO}
           </p>
         </div>
       </section>

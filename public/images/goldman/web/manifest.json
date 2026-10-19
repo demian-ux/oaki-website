@@ -1,0 +1,680 @@
+{
+  "project": "goldman",
+  "images": [
+    {
+      "name": "view-01-gateway",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-01-gateway-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-01-gateway-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-01-gateway-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-01-gateway-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-01-gateway-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-01-gateway-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-02-gateway",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-02-gateway-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-02-gateway-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-02-gateway-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-02-gateway-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-02-gateway-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-02-gateway-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-03-gateway",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-03-gateway-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-03-gateway-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-03-gateway-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-03-gateway-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-03-gateway-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-03-gateway-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-04-gateway",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-04-gateway-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-04-gateway-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-04-gateway-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-04-gateway-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-04-gateway-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-04-gateway-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-05-mixer",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1804,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1443,
+          "src": "/images/goldman/web/view-05-mixer-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1082,
+          "src": "/images/goldman/web/view-05-mixer-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 541,
+          "src": "/images/goldman/web/view-05-mixer-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1443,
+          "src": "/images/goldman/web/view-05-mixer-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1082,
+          "src": "/images/goldman/web/view-05-mixer-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 541,
+          "src": "/images/goldman/web/view-05-mixer-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-06-mixer",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1804,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1443,
+          "src": "/images/goldman/web/view-06-mixer-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1082,
+          "src": "/images/goldman/web/view-06-mixer-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 541,
+          "src": "/images/goldman/web/view-06-mixer-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1443,
+          "src": "/images/goldman/web/view-06-mixer-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1082,
+          "src": "/images/goldman/web/view-06-mixer-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 541,
+          "src": "/images/goldman/web/view-06-mixer-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-07-mixer",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1804,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1443,
+          "src": "/images/goldman/web/view-07-mixer-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1082,
+          "src": "/images/goldman/web/view-07-mixer-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 541,
+          "src": "/images/goldman/web/view-07-mixer-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1443,
+          "src": "/images/goldman/web/view-07-mixer-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1082,
+          "src": "/images/goldman/web/view-07-mixer-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 541,
+          "src": "/images/goldman/web/view-07-mixer-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-08-social-club",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-08-social-club-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-08-social-club-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-08-social-club-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-08-social-club-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-08-social-club-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-08-social-club-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-09-dininghall",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-09-dininghall-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-09-dininghall-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-09-dininghall-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-09-dininghall-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-09-dininghall-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-09-dininghall-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-10-dining-hall",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-10-dining-hall-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-10-dining-hall-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-10-dining-hall-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-10-dining-hall-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-10-dining-hall-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-10-dining-hall-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-11-social-club",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-11-social-club-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-11-social-club-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-11-social-club-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-11-social-club-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-11-social-club-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-11-social-club-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-12-penthouse-b2",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-12-penthouse-b2-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-12-penthouse-b2-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-12-penthouse-b2-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-12-penthouse-b2-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-12-penthouse-b2-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-12-penthouse-b2-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-12-penthouse",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-12-penthouse-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-12-penthouse-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-12-penthouse-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-12-penthouse-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-12-penthouse-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-12-penthouse-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-13-the-mansion",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-13-the-mansion-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-13-the-mansion-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-13-the-mansion-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-13-the-mansion-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-13-the-mansion-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-13-the-mansion-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-14-the-mixer-night",
+      "set": null,
+      "naturalWidth": 3200,
+      "naturalHeight": 1800,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-14-the-mixer-night-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-14-the-mixer-night-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-14-the-mixer-night-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/goldman/web/view-14-the-mixer-night-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/goldman/web/view-14-the-mixer-night-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/goldman/web/view-14-the-mixer-night-960.webp"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./HeroShelf.module.css";
 import { homeProjects, type HomeProject } from "@/lib/home-projects";
@@ -11,17 +11,10 @@ const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : use
 
 type Project = HomeProject;
 
-// Project order = shelf order (01 … 07). 04 (Manhattan) is the one the
-// ticker lands on and that stays centred.
-const PROJECTS: Project[] = homeProjects;
-
-const N = PROJECTS.length;
-const CENTER = 3; // index that lands centred (04 — Manhattan)
-// Every other cover flips through first, the centred one lands last.
-const TICKER_ORDER = [
-  ...Array.from({ length: N }, (_, i) => i).filter((i) => i !== CENTER),
-  CENTER,
-];
+// Project order = shelf order (01 … 07). By default the homepage set, with
+// 04 (Manhattan) as the cover the ticker lands on and that stays centred;
+// the selected-work landing passes its own books and centre.
+const DEFAULT_CENTER = 3;
 const TICK_MS = 200;
 // Once the shelf opens the whole track slides left so cover 01 sits on the
 // viewport's left edge (no empty gap left of it); the drift then runs from
@@ -40,11 +33,11 @@ const ENTRANCE_FALLBACK_MS = 2800;
 // the open, drifting shelf. `?intro` forces the opening for review.
 const SEEN_KEY = "oaki:hero-seen";
 
-function readAndMarkSeen() {
+function readAndMarkSeen(key: string) {
   try {
     if (window.location.search.includes("intro")) return false;
-    const seen = window.localStorage.getItem(SEEN_KEY) === "1";
-    window.localStorage.setItem(SEEN_KEY, "1");
+    const seen = window.localStorage.getItem(key) === "1";
+    window.localStorage.setItem(key, "1");
     return seen;
   } catch {
     return false;
@@ -80,9 +73,34 @@ function Cover({ project, src }: { project: Project; src: string }) {
 interface HeroShelfProps {
   /** The one visible positioning line; fades in with the open state. */
   statement?: string;
+  /** The books on the shelf, in order. Defaults to the homepage set. */
+  projects?: Project[];
+  /** Index of the cover the ticker lands on and that stays centred. */
+  centerIndex?: number;
+  /** Where the top-right CONTACT link goes. */
+  contactHref?: string;
+  /** localStorage key that remembers the opening has played. */
+  seenKey?: string;
+  /** Accessible name of the hero section. */
+  ariaLabel?: string;
 }
 
-export default function HeroShelf({ statement }: HeroShelfProps) {
+export default function HeroShelf({
+  statement,
+  projects = homeProjects,
+  centerIndex = DEFAULT_CENTER,
+  contactHref = "/contact",
+  seenKey = SEEN_KEY,
+  ariaLabel = "Oaki Studio, featured project books",
+}: HeroShelfProps) {
+  const PROJECTS = projects;
+  const N = PROJECTS.length;
+  const CENTER = Math.min(centerIndex, N - 1);
+  // Every other cover flips through first, the centred one lands last.
+  const TICKER_ORDER = useMemo(
+    () => [...Array.from({ length: N }, (_, i) => i).filter((i) => i !== CENTER), CENTER],
+    [N, CENTER]
+  );
   const [ready, setReady] = useState(false);
   const [phase, setPhase] = useState<"ticker" | "open">("ticker");
   const [tick, setTick] = useState(0);
@@ -110,11 +128,11 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
     const start = () => {
       if (done) return;
       done = true;
-      if (seenRef.current === null) seenRef.current = readAndMarkSeen();
+      if (seenRef.current === null) seenRef.current = readAndMarkSeen(seenKey);
       if (seenRef.current) {
         setSkipIntro(true);
         setSnapping(true);
-        setTick(TICKER_ORDER.length - 1);
+        setTick(N - 1);
         setPhase("open");
         setEntranceDone(true);
         setDrift(true);
@@ -125,7 +143,9 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
     fonts.then(start).catch(start);
     const safety = setTimeout(start, 1500);
     return () => clearTimeout(safety);
-  }, []);
+    // seenKey and N are fixed per surface; listed so the effect is honest
+    // about what it reads, never expected to re-run.
+  }, [seenKey, N]);
 
   const trackRef = useRef<HTMLDivElement>(null);
   const itemRef = useRef<HTMLDivElement>(null);
@@ -136,7 +156,7 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
   // ── the ticker: flip through the covers, then open ──
   useEffect(() => {
     if (!ready || skipIntro) return;
-    if (tick < TICKER_ORDER.length - 1) {
+    if (tick < N - 1) {
       const t = setTimeout(() => setTick((v) => v + 1), TICK_MS);
       return () => clearTimeout(t);
     }
@@ -145,7 +165,7 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
     const t = setTimeout(() => setPhase("open"), 360);
     return () => clearTimeout(t);
     // replayNonce restarts the chain even when tick was already 0
-  }, [tick, ready, replayNonce, skipIntro]);
+  }, [tick, ready, replayNonce, skipIntro, N]);
 
   // ── once spread, start the perpetual drift ──
   useEffect(() => {
@@ -407,7 +427,7 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
       ref={heroRef}
       className={`${styles.hero} ${ready ? styles.heroReady : ""} ${snapping ? styles.snapReset : ""} -mt-16 lg:-mt-20`}
       data-hero-phase={phase}
-      aria-label="Oaki Studio, featured project books"
+      aria-label={ariaLabel}
     >
       <h1 className={styles.srOnly}>
         Oaki Studio, visualization and narrative studio for architectural projects
@@ -419,7 +439,7 @@ export default function HeroShelf({ statement }: HeroShelfProps) {
       </div>
 
       {/* CONTACT (top-right) — section links live in the nav bar */}
-      <Link href="/contact" className={`${styles.nav} ${styles.contact} ${open ? styles.navOpen : ""}`}>
+      <Link href={contactHref} className={`${styles.nav} ${styles.contact} ${open ? styles.navOpen : ""}`}>
         Contact
       </Link>
 

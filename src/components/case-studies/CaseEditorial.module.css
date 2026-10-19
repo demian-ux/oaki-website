@@ -165,6 +165,99 @@
   }
 }
 
+/* The film with sound: breaks out of the page gutters onto the ink ground,
+   one viewport tall, poster first. The start control sits over it until
+   the viewer taps; then the native controls take over. */
+.screen {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: var(--color-ink);
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.screen > video {
+  width: 100%;
+  max-height: 100svh;
+  height: auto;
+}
+.screenStart {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 34, 34, 0.22);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.screenStart > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-paper);
+  padding: 18px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(34, 34, 34, 0.35);
+  backdrop-filter: blur(6px);
+  transition: background 250ms ease, border-color 250ms ease;
+}
+.screenStart > span::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid var(--color-paper);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+.screenStart:hover > span,
+.screenStart:focus-visible > span {
+  background: var(--color-warm-ground);
+  border-color: var(--color-warm-ground);
+}
+.screenStart:focus-visible {
+  outline: none;
+}
+.screenPlaying .screenStart {
+  display: none;
+}
+@media (max-width: 820px) {
+  .screen {
+    min-height: 0;
+  }
+}
+
+/* Outcome: the closing words in the intro's text column, the quote under
+   them in the serif. */
+.outcome {
+  padding-bottom: var(--space);
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+}
+.quote {
+  margin: 0;
+}
+.quote blockquote {
+  margin: 0;
+  text-wrap: pretty;
+}
+@media (min-width: 821px) {
+  .outcome {
+    padding-inline: 7%;
+    grid-template-columns: 23fr 40fr 23.5fr;
+  }
+  .outcome > * {
+    grid-column: 2;
+  }
+}
+
 /* Film row: same criterion as a hero film, landscape or vertical. Centered,
    never wider than 82% of the page nor taller than 72% of the viewport. */
 .film {

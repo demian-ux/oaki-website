@@ -3,7 +3,10 @@
 // Token preview links stay live — this gates only the public web.
 // Remove a slug here to bring the project back.
 export const HIDDEN_PROJECT_SLUGS = new Set([
+  // Goldman and Pavilion Grove are cleared for private showing only: they
+  // live on /selected-works (src/lib/selected-works.ts), never here.
   "goldman",
+  "pavilion-grove",
   "level-shoes",
   "icrave-ballys-chicago",
   "icrave-sapphire",

@@ -14,9 +14,19 @@ interface MobileMenuProps {
   open: boolean;
   onClose: () => void;
   links: NavLink[];
+  /** Where the logo goes (the selected-work set stays inside itself). */
+  homeHref?: string;
+  /** Where "Start a project" goes. */
+  ctaHref?: string;
 }
 
-export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
+export default function MobileMenu({
+  open,
+  onClose,
+  links,
+  homeHref = "/",
+  ctaHref = "/contact",
+}: MobileMenuProps) {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -38,7 +48,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
       <div className="page-x flex flex-col h-full pt-6 pb-12 gap-12">
         {/* Logo at top */}
         <div className="h-16 flex items-center">
-          <Link href="/" onClick={onClose} aria-label="Oaki Studio, Home">
+          <Link href={homeHref} onClick={onClose} aria-label="Oaki Studio, Home">
             <Image
               src="/brand/oaki-logotipo.png"
               alt="Oaki Studio"
@@ -63,7 +73,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
         </nav>
 
         <div className="mt-auto">
-          <Button href="/contact" variant="outline" onClick={onClose}>
+          <Button href={ctaHref} variant="outline" onClick={onClose}>
             Start a project
           </Button>
         </div>

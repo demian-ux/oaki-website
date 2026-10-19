@@ -4,21 +4,19 @@ const nextConfig: NextConfig = {
   // Lets a second dev server run alongside the main one (Next locks per
   // distDir). Unset in normal use and in production builds.
   distDir: process.env.NEXT_DIST_DIR || ".next",
-  // Selected work (the private sample site, Vercel project oaki-selected-work)
-  // is served under /selected-works on this domain. Static HTML with relative
-  // links, so the bare path lands on index.html to keep those links resolving.
+  // Selected work (the private sample set) lives in this app under
+  // /selected-works (src/app/(selected)), replacing the static site that
+  // used to be proxied from the oaki-selected-work Vercel project. Its old
+  // page URLs keep resolving. Never indexed, never linked from the public nav.
   async redirects() {
     return [
-      { source: "/selected-works", destination: "/selected-works/index.html", permanent: false },
-    ];
-  },
-  async rewrites() {
-    return [
-      { source: "/selected-works/:path*", destination: "https://oaki-selected-work.vercel.app/:path*" },
+      { source: "/selected-works/index.html", destination: "/selected-works", permanent: true },
+      { source: "/selected-works/:slug.html", destination: "/selected-works/:slug", permanent: true },
     ];
   },
   async headers() {
     return [
+      { source: "/selected-works", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
       { source: "/selected-works/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
     ];
   },

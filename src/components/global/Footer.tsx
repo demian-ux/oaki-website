@@ -19,7 +19,14 @@ const socialLinks = [
 const linkClass =
   "coord nav-link-warm hover:text-ink transition-colors duration-300";
 
-export default function Footer() {
+interface FooterProps {
+  /** Replaces the site links (the selected-work set keeps its own). */
+  links?: { label: string; href: string }[];
+  /** Hides Instagram / LinkedIn (a private sample site stays self-contained). */
+  showSocial?: boolean;
+}
+
+export default function Footer({ links = navLinks, showSocial = true }: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
@@ -31,7 +38,7 @@ export default function Footer() {
             className="flex flex-wrap gap-x-8 gap-y-4"
             aria-label="Footer navigation"
           >
-            {navLinks.map((link) => (
+            {links.map((link) => (
               <Link key={link.href} href={link.href} className={linkClass}>
                 {link.label}
               </Link>
@@ -43,7 +50,7 @@ export default function Footer() {
             aria-label="Footer contact"
           >
             <EmailLink className={linkClass} />
-            {socialLinks.map((link) => (
+            {showSocial && socialLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}

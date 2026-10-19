@@ -4,6 +4,7 @@ import {
   CaseEditorialFigure,
 } from "./CaseEditorialLightbox";
 import CaseEditorialIndex from "./CaseEditorialIndex";
+import CaseFilmScreen from "./CaseFilmScreen";
 import ContactCta from "@/components/global/ContactCta";
 import type {
   CaseDraft,
@@ -47,6 +48,12 @@ function Row({
   row: CaseEditorialRow;
   gallery: CaseEditorialImage[];
 }) {
+  if (row.kind === "interlude") return null;
+  if (row.kind === "film" && row.sound) {
+    return (
+      <CaseFilmScreen src={row.src} poster={row.poster} ratio={row.ratio} label={row.label} />
+    );
+  }
   if (row.kind === "film") {
     return (
       <div className={`${s.row} ${s.film}`} style={{ ["--r" as string]: row.ratio }}>
@@ -127,9 +134,26 @@ function Row({
   );
 }
 
-export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
+interface CaseEditorialViewProps {
+  draft: CaseDraft;
+  /** Where case pages live. The public library is the default; the private
+   *  selected-work set renders the same template under its own path. */
+  caseBase?: string;
+  /** Where "Start a project" goes. */
+  contactHref?: string;
+  /** Overrides the file's `next:` so a curated set keeps its own chain. */
+  next?: { slug: string; title: string } | null;
+}
+
+export default function CaseEditorialView({
+  draft,
+  caseBase = "/case-studies",
+  contactHref = "/contact",
+  next: nextOverride,
+}: CaseEditorialViewProps) {
   const e = draft.editorial;
   if (!e) return null;
+  const next = nextOverride === undefined ? e.next : nextOverride;
 
   // Every image on the page, in reading order, for the lightbox.
   const gallery: CaseEditorialImage[] = [];
@@ -141,6 +165,28 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
   }
   if (e.interlude) gallery.push(e.interlude.image);
   if (e.closingBw) gallery.push(e.closingBw);
+
+  // The interlude sits after the rows unless a `rowN: interlude` marker
+  // places it mid-walk.
+  const inlineInterlude = e.rows.some((r) => r.kind === "interlude");
+  const interlude = e.interlude ? (
+    <section className={`page-x ${s.interlude}`}>
+      <div>
+        <Picture
+          img={e.interlude.image}
+          gallery={gallery}
+          sizes="(min-width: 821px) 16vw, 100vw"
+        />
+      </div>
+      <div className={s.text}>
+        {e.interlude.text.map((p, i) => (
+          <p key={i} className="text-body text-muted">
+            {p}
+          </p>
+        ))}
+      </div>
+    </section>
+  ) : null;
 
   return (
     <CaseEditorialGallery images={gallery}>
@@ -174,6 +220,16 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
             </video>
           )}
         </div>
+
+        {/* 1b. Film-first cases: the film itself, before a word is read. */}
+        {e.film && (
+          <CaseFilmScreen
+            src={e.film.src}
+            poster={e.film.poster}
+            ratio={e.film.ratio}
+            label={e.film.label}
+          />
+        )}
 
         {/* 2. Title */}
         <div className={`page-x ${s.head}`}>
@@ -224,31 +280,42 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
         {/* 4. Image rows */}
         {e.rows.length > 0 && (
           <section className={`page-x ${s.rows}`}>
-            {e.rows.map((row, i) => (
-              <Row key={i} row={row} gallery={gallery} />
-            ))}
+            {e.rows.map((row, i) =>
+              row.kind === "interlude" ? (
+                <div key={i}>{interlude}</div>
+              ) : (
+                <Row key={i} row={row} gallery={gallery} />
+              )
+            )}
           </section>
         )}
 
-        {/* 5. Interlude (optional) */}
-        {e.interlude && (
-          <section className={`page-x ${s.interlude}`}>
-            <div>
-              <Picture
-                img={e.interlude.image}
-                gallery={gallery}
-                sizes="(min-width: 821px) 16vw, 100vw"
-              />
-            </div>
+        {/* 5. Interlude (optional), unless placed among the rows. */}
+        {!inlineInterlude && interlude}
+        {/* 5b. Outcome (optional): the closing words and, when a client
+            said something worth keeping, their words in the serif. */}
+        {e.outcome && (
+          <section className={`page-x ${s.outcome}`}>
             <div className={s.text}>
-              {e.interlude.text.map((p, i) => (
+              {e.outcome.text.map((p, i) => (
                 <p key={i} className="text-body text-muted">
                   {p}
                 </p>
               ))}
             </div>
+            {e.outcome.quote && (
+              <figure className={s.quote}>
+                <blockquote className="text-quote" style={{ color: "var(--color-ink)" }}>
+                  {e.outcome.quote.text}
+                </blockquote>
+                {e.outcome.quote.by && (
+                  <figcaption className="coord mt-5">{e.outcome.quote.by}</figcaption>
+                )}
+              </figure>
+            )}
           </section>
         )}
+
         {/* 6. Closing: optional B&W closer, optional index set, then Next. */}
         {e.closingBw && (
           <section className={`page-x ${s.bw}`}>
@@ -270,15 +337,15 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
         )}
 
         {/* Next project: always */}
-        {e.next && (
+        {next && (
           <section className={`page-x ${s.next}`}>
             <div>
               <p className={`coord mb-3 ${s.nextLabel}`}>Next project</p>
               <Link
-                href={`/case-studies/${e.next.slug}`}
+                href={`${caseBase}/${next.slug}`}
                 className={`text-case-title ${s.nextLink}`}
               >
-                {e.next.title}
+                {next.title}
                 <span
                   aria-hidden
                   className="dot"
@@ -291,7 +358,7 @@ export default function CaseEditorialView({ draft }: { draft: CaseDraft }) {
           </section>
         )}
       </article>
-      <ContactCta />
+      <ContactCta href={contactHref} />
     </CaseEditorialGallery>
   );
 }

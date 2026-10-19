@@ -50,8 +50,14 @@ export type CaseEditorialRow =
    *  their own widths, centered on the page, centered on each other in
    *  height, with a wide gap between them (template v2). */
   | { kind: "pair"; images: [CaseEditorialImage, CaseEditorialImage]; widths: [number, number] }
-  /** `rowN: film | <src> :: <poster src>`: a muted loop at full width. */
-  | { kind: "film"; src: string; poster?: string; ratio: number };
+  /** `rowN: film | <src> :: <poster src>`: a muted loop at full width.
+   *  `rowN: film 1.78 sound | <src> :: <poster src> :: <label>`: the film
+   *  itself, on the ink ground at viewport height, started by the viewer
+   *  with sound (selected-work film-first cases). */
+  | { kind: "film"; src: string; poster?: string; ratio: number; sound: boolean; label?: string }
+  /** `rowN: interlude`: the interlude (image + words) at this point of the
+   *  walk instead of after the last row. */
+  | { kind: "interlude" };
 
 /** The editorial case template (01-plantilla-caso-de-estudio.md, 2026-10):
  *  clean hero, small tracked title, three-column intro, justified image
@@ -70,11 +76,19 @@ export interface CaseEditorial {
         ratio: number;
         alt: string;
       };
+  /** Film-first cases (`film: <src> :: <poster> :: <label>`, `filmRatio:`):
+   *  the film itself, with sound on tap, between the cover and the title. */
+  film?: { src: string; poster?: string; ratio: number; label?: string };
   sheet: { label: string; value: string }[];
   intro: string[];
   introImage: CaseEditorialImage | null;
   rows: CaseEditorialRow[];
   interlude?: { image: CaseEditorialImage; text: string[] };
+  /** Optional closing words ("## Outcome" in the body) with an optional
+   *  pull-quote (`quote: <text> :: <attribution>`), set before the index
+   *  and the Next band. The one place a verifiable fact or a client's
+   *  words land on the page. */
+  outcome?: { text: string[]; quote?: { text: string; by: string } };
   next: { slug: string; title: string } | null;
   /** Optional closing extras, only when the case file asks for them. */
   closingIndex: boolean;
@@ -174,7 +188,11 @@ function editorialImage(raw: string | undefined, images: JournalImage[]): CaseEd
  *   rowN: 40% left | <master> :: <alt>                    (loose image)
  *   rowN: pair 27% 50% | <a> :: <alt> | <b> :: <alt>      (pair, v2)
  *   rowN: film 0.79 | <src> :: <poster src>               (muted loop, ratio w/h, default 16:9)
+ *   rowN: film 1.78 sound | <src> :: <poster> :: <label>  (the film, played with sound on tap)
+ *   rowN: interlude                                       (the interlude here, not after the rows)
+ *   film: <src> :: <poster> :: <label> (+ filmRatio:)     (film-first: the film before the title)
  *   interludeImage: <master> :: <alt>                     (+ body "## Interlude")
+ *   quote: <text> :: <attribution>                        (+ body "## Outcome", optional)
  *   next: <slug> :: <title>
  *   closing: next | next, index | next, bw: <master> :: <alt>
  *   indexN: index/<master> :: <alt>                       (index set, v3)
@@ -206,12 +224,23 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
   const rows: CaseEditorialRow[] = [];
   for (const raw of numbered(fm, "row")) {
     const [spec, ...imgs] = raw.split("|").map((s) => s.trim());
+    if (/^interlude$/i.test(spec)) {
+      rows.push({ kind: "interlude" });
+      continue;
+    }
     // `rowN: film [<ratio>] | <src> :: <poster>`: a loop, landscape or
     // vertical, sized like a hero film (centered, capped to the viewport).
-    const film = spec.match(/^film(?:\s+(\d+(?:\.\d+)?))?$/i);
+    const film = spec.match(/^film(?:\s+(\d+(?:\.\d+)?))?(\s+sound)?$/i);
     if (film && imgs[0]) {
-      const [src, poster] = imgs[0].split("::").map((s) => s.trim());
-      rows.push({ kind: "film", src, poster: poster || undefined, ratio: Number(film[1]) || 16 / 9 });
+      const [src, poster, label] = imgs[0].split("::").map((s) => s.trim());
+      rows.push({
+        kind: "film",
+        src,
+        poster: poster || undefined,
+        ratio: Number(film[1]) || 16 / 9,
+        sound: !!film[2],
+        label: label || undefined,
+      });
       continue;
     }
     const resolved = imgs.map((r) => editorialImage(r, images)).filter((x): x is CaseEditorialImage => !!x);
@@ -246,8 +275,28 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
 
   const nextRaw = fm.next ? fm.next.split("::").map((s) => s.trim()) : null;
 
+  const outcomeText = section("outcome");
+  const quoteRaw = fm.quote ? fm.quote.split("::").map((s) => s.trim()) : null;
+  const outcome =
+    outcomeText.length > 0 || quoteRaw
+      ? {
+          text: outcomeText,
+          quote: quoteRaw ? { text: quoteRaw[0], by: quoteRaw[1] ?? "" } : undefined,
+        }
+      : undefined;
+
+  const filmRaw = fm.film ? fm.film.split("::").map((s) => s.trim()) : null;
+
   return {
     hero,
+    film: filmRaw
+      ? {
+          src: filmRaw[0],
+          poster: filmRaw[1] || undefined,
+          ratio: Number(fm.filmRatio) || 16 / 9,
+          label: filmRaw[2] || undefined,
+        }
+      : undefined,
     sheet: numbered(fm, "sheet").map((c) => {
       const [label, value = ""] = c.split("::").map((s) => s.trim());
       return { label, value };
@@ -259,6 +308,7 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
       interludeImage && interludeText.length > 0
         ? { image: interludeImage, text: interludeText }
         : undefined,
+    outcome,
     next: nextRaw ? { slug: nextRaw[0], title: nextRaw[1] ?? nextRaw[0] } : null,
     closingIndex: closing.some((c) => c.toLowerCase() === "index"),
     closingIndexImages: numbered(fm, "index")
