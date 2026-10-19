@@ -34,6 +34,7 @@ export default function SelectedWorksPage() {
         ariaLabel="Oaki Studio, selected work"
         moving={false}
         size="large"
+        ticker={false}
       />
 
       {/* 2. Two sentences, for someone who has already talked with us. */}

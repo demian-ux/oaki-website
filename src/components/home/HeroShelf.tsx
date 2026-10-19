@@ -88,6 +88,10 @@ interface HeroShelfProps {
   moving?: boolean;
   /** "book" = the homepage shelf; "large" = a few big covers (selected work). */
   size?: "book" | "large";
+  /** Flip the centred cover through every other book before it opens
+   *  (the homepage). false = the centred card shows its own cover from
+   *  the first frame; the opening still plays. */
+  ticker?: boolean;
 }
 
 export default function HeroShelf({
@@ -99,6 +103,7 @@ export default function HeroShelf({
   ariaLabel = "Oaki Studio, featured project books",
   moving = true,
   size = "book",
+  ticker = true,
 }: HeroShelfProps) {
   const PROJECTS = projects;
   const N = PROJECTS.length;
@@ -110,7 +115,10 @@ export default function HeroShelf({
   );
   const [ready, setReady] = useState(false);
   const [phase, setPhase] = useState<"ticker" | "open">("ticker");
-  const [tick, setTick] = useState(0);
+  // With the ticker off, start on the last step: the centred card is its
+  // own cover and the chain goes straight to the spread.
+  const tickStart = ticker ? 0 : N - 1;
+  const [tick, setTick] = useState(tickStart);
   const [drift, setDrift] = useState(false);
   const [full, setFull] = useState(0);
   const [baseOffset, setBaseOffset] = useState(0);
@@ -273,7 +281,7 @@ export default function HeroShelf({
     setDrift(false);
     setEntranceDone(false);
     setTypedCount(0);
-    setTick(0);
+    setTick(tickStart);
     setPhase("ticker");
     setReplayNonce((n) => n + 1);
   }, [baseOffset]);
