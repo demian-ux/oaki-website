@@ -63,7 +63,10 @@ export type CaseEditorialRow =
  *  clean hero, small tracked title, three-column intro, justified image
  *  rows with no captions, optional interlude, "Next project" closing. */
 export interface CaseEditorial {
+  /** The cover. null when the case opens on its film instead (`film:`
+   *  with no `hero:`): the film is the hero. */
   hero:
+    | null
     | { type: "image"; image: CaseEditorialImage }
     | {
         type: "video";
@@ -179,7 +182,7 @@ function editorialImage(raw: string | undefined, images: JournalImage[]): CaseEd
 
 /**
  * Editorial template frontmatter:
- *   hero: <master> :: <alt>            or   heroVideo: <src> :: <alt>
+ *   hero: <master> :: <alt>            or   heroVideo: <src> :: <alt>   (or neither, with film:)
  *                                           (+ heroPoster: <master> | </file.webp>, heroRatio: 1.77)
  *   The hero is always landscape: a 16:9 still or a landscape loop.
  *   introImage: <master> :: <alt>
@@ -215,10 +218,14 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
       ratio: Number(fm.heroRatio) || 16 / 9,
       alt,
     };
-  } else {
+  } else if (fm.hero) {
     const img = editorialImage(fm.hero, images);
     if (!img) throw new Error(`Editorial case "${fm.slug ?? fm.title}": hero image not found in library`);
     hero = { type: "image", image: img };
+  } else if (fm.film) {
+    hero = null;
+  } else {
+    throw new Error(`Editorial case "${fm.slug ?? fm.title}": no hero, heroVideo or film`);
   }
 
   const rows: CaseEditorialRow[] = [];
@@ -379,7 +386,7 @@ export function getCaseDraft(slug: string): CaseDraft | null {
   // A file can opt into the editorial template only once it has a hero in
   // the library; until then it keeps rendering through CaseDraftView.
   const editorial =
-    fm.template === "editorial" && (fm.heroVideo || editorialImage(fm.hero, images))
+    fm.template === "editorial" && (fm.heroVideo || fm.film || editorialImage(fm.hero, images))
       ? parseEditorial(fm, body, images)
       : undefined;
 
@@ -387,8 +394,8 @@ export function getCaseDraft(slug: string): CaseDraft | null {
   // library cards and the home shelf keep resolving a cover from slot 1.
   if (editorial && slots.length === 0) {
     const all: CaseEditorialImage[] = [];
-    if (editorial.hero.type === "image") all.push(editorial.hero.image);
-    else if (editorial.hero.poster) all.push(editorial.hero.poster);
+    if (editorial.hero?.type === "image") all.push(editorial.hero.image);
+    else if (editorial.hero?.poster) all.push(editorial.hero.poster);
     for (const r of editorial.rows) {
       if (r.kind === "justified" || r.kind === "pair") all.push(...r.images);
       else if (r.kind === "loose") all.push(r.image);

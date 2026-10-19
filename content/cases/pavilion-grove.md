@@ -10,7 +10,6 @@ type: Residential
 client: Koda
 year: 2026
 imageProject: pavilion-grove
-hero: view-13-padel-drone :: Pavilion Grove, the court under the canopy
 film: /video/pavilion-grove/film.mp4 :: /video/pavilion-grove/film-poster.webp :: The film, 1:20
 filmRatio: 1.7778
 introImage: view-05-drone :: The house from above

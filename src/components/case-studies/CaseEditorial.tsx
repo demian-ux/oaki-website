@@ -157,7 +157,7 @@ export default function CaseEditorialView({
 
   // Every image on the page, in reading order, for the lightbox.
   const gallery: CaseEditorialImage[] = [];
-  if (e.hero.type === "image") gallery.push(e.hero.image);
+  if (e.hero?.type === "image") gallery.push(e.hero.image);
   if (e.introImage) gallery.push(e.introImage);
   for (const r of e.rows) {
     if (r.kind === "justified" || r.kind === "pair") gallery.push(...r.images);
@@ -191,7 +191,9 @@ export default function CaseEditorialView({
   return (
     <CaseEditorialGallery images={gallery}>
       <article className={s.root}>
-        {/* 1. Hero: image today, a short muted loop when the case brings one. */}
+        {/* 1. Hero: image today, a short muted loop when the case brings one;
+            absent when the film itself opens the page. */}
+        {e.hero && (
         <div
           className={s.hero}
           style={{
@@ -220,6 +222,7 @@ export default function CaseEditorialView({
             </video>
           )}
         </div>
+        )}
 
         {/* 1b. Film-first cases: the film itself, before a word is read. */}
         {e.film && (
