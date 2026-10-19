@@ -234,6 +234,29 @@
   }
 }
 
+/* A film with a note above it: the head in the coord voice, the words in
+   the intro's text column, then the screen. */
+.filmBlock {
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+}
+.note {
+  display: grid;
+  gap: 12px;
+}
+.note p {
+  margin: 0;
+}
+@media (min-width: 821px) {
+  .note {
+    padding-inline: 7%;
+    grid-template-columns: 23fr 40fr 23.5fr;
+  }
+  .note > * {
+    grid-column: 2;
+  }
+}
+
 /* Outcome: the closing words in the intro's text column, the quote under
    them in the serif. */
 .outcome {

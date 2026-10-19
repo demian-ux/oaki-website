@@ -54,7 +54,18 @@ export type CaseEditorialRow =
    *  `rowN: film 1.78 sound | <src> :: <poster src> :: <label>`: the film
    *  itself, on the ink ground at viewport height, started by the viewer
    *  with sound (selected-work film-first cases). */
-  | { kind: "film"; src: string; poster?: string; ratio: number; sound: boolean; label?: string }
+  | {
+      kind: "film";
+      src: string;
+      poster?: string;
+      ratio: number;
+      sound: boolean;
+      label?: string;
+      /** `rowN: film R sound | <src> :: <poster> :: <label> :: <head> :: <text>`:
+       *  a short note above the film (a coord head and one or two
+       *  sentences), for a storyboard or a cut that needs a word first. */
+      note?: { head: string; text: string };
+    }
   /** `rowN: interlude`: the interlude (image + words) at this point of the
    *  walk instead of after the last row. */
   | { kind: "interlude" };
@@ -192,6 +203,7 @@ function editorialImage(raw: string | undefined, images: JournalImage[]): CaseEd
  *   rowN: pair 27% 50% | <a> :: <alt> | <b> :: <alt>      (pair, v2)
  *   rowN: film 0.79 | <src> :: <poster src>               (muted loop, ratio w/h, default 16:9)
  *   rowN: film 1.78 sound | <src> :: <poster> :: <label>  (the film, played with sound on tap)
+ *                             :: <head> :: <text>          (optional note above it)
  *   rowN: interlude                                       (the interlude here, not after the rows)
  *   film: <src> :: <poster> :: <label> (+ filmRatio:)     (film-first: the film before the title)
  *   interludeImage: <master> :: <alt>                     (+ body "## Interlude")
@@ -239,7 +251,7 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
     // vertical, sized like a hero film (centered, capped to the viewport).
     const film = spec.match(/^film(?:\s+(\d+(?:\.\d+)?))?(\s+sound)?$/i);
     if (film && imgs[0]) {
-      const [src, poster, label] = imgs[0].split("::").map((s) => s.trim());
+      const [src, poster, label, head, text] = imgs[0].split("::").map((s) => s.trim());
       rows.push({
         kind: "film",
         src,
@@ -247,6 +259,7 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
         ratio: Number(film[1]) || 16 / 9,
         sound: !!film[2],
         label: label || undefined,
+        note: head && text ? { head, text } : undefined,
       });
       continue;
     }

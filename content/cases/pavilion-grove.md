@@ -23,10 +23,8 @@ row2: full | view-08-entry :: The entry | view-15-padel-game :: Mid-rally
 row3: 72% center | view-24-bedroom :: The bedroom, the wall open to the court
 row4: full | view-19-gym-cardio :: The gym | view-23-fireplace-people :: The fire, as the light goes
 row5: interlude
-row6: film 1.7778 sound | /video/pavilion-grove/storyboard.mp4 :: /video/pavilion-grove/storyboard-poster.webp :: The storyboard
-row7: full | film/storyboard-01 :: Storyboard, the entry | film/storyboard-02 :: Storyboard, the court | film/storyboard-03 :: Storyboard, the fireplace
-row8: full | film/film-01 :: Film, the entry | film/film-02 :: Film, the court | film/film-03 :: Film, the fireplace
-row9: full | view-25-drone :: The pavilion from above, at dusk
+row6: film 1.7778 sound | /video/pavilion-grove/storyboard.mp4 :: /video/pavilion-grove/storyboard-poster.webp :: The storyboard :: Making of :: Before anything moved, the whole walk went to Koda as still frames cut to music, every shot already in its place. This is that storyboard. Two weeks later it became the film.
+row7: full | view-25-drone :: The pavilion from above, at dusk
 interludeImage: view-14-b-padel-house :: The padel house
 quote: This is amazing. :: Wesley Kean, Koda, the afternoon the film arrived
 next: goldman :: Goldman

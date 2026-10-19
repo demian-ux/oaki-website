@@ -51,7 +51,15 @@ function Row({
   if (row.kind === "interlude") return null;
   if (row.kind === "film" && row.sound) {
     return (
-      <CaseFilmScreen src={row.src} poster={row.poster} ratio={row.ratio} label={row.label} />
+      <div className={s.filmBlock}>
+        {row.note && (
+          <div className={s.note}>
+            <p className="coord">{row.note.head}</p>
+            <p className="text-body text-muted">{row.note.text}</p>
+          </div>
+        )}
+        <CaseFilmScreen src={row.src} poster={row.poster} ratio={row.ratio} label={row.label} />
+      </div>
     );
   }
   if (row.kind === "film") {
