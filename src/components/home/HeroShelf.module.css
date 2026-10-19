@@ -230,6 +230,21 @@
   margin-right: clamp(22px, 2.4vw, 46px);
   transition: transform 1050ms var(--ease), opacity 850ms var(--ease);
 }
+/* The large variant: a few covers, each a real card, capped by the
+   viewport height so three fit on a phone and never run into the tagline. */
+.itemLarge {
+  width: min(clamp(104px, 22vw, 340px), 38svh);
+  margin-right: clamp(14px, 4vw, 72px);
+}
+.itemLarge .collection {
+  font-size: 12px;
+}
+.itemLarge .title {
+  font-size: 15px;
+}
+.itemLarge .meta {
+  font-size: 11px;
+}
 .itemLink {
   display: block;
   color: inherit;

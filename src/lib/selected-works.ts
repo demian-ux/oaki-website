@@ -10,9 +10,9 @@
 export const SELECTED_BASE = "/selected-works";
 export const SELECTED_CONTACT = `${SELECTED_BASE}/contact`;
 
-/** The one line a stranger reads first on the index. */
-export const SELECTED_STATEMENT =
-  "Most studios run like render factories. oaki.studio builds stories.";
+/** Two sentences for someone who has already talked with Demi. */
+export const SELECTED_INTRO =
+  "Three projects, chosen after our conversation. Stills and film, built to outlast the meeting they were made for.";
 
 export interface SelectedWork {
   slug: string;
@@ -32,6 +32,17 @@ export interface SelectedWork {
 
 export const selectedWorks: SelectedWork[] = [
   {
+    slug: "the-point",
+    title: "The Point",
+    short: "The Point",
+    coord: "Sochi",
+    client: "Gregory Tuck Architecture",
+    year: "2024",
+    collection: "The Residential Collection",
+    blurb: "A complete interior program, another designer's intent kept exact across every image.",
+    cover: { project: "the-point", name: "01-colonnade-pool" },
+  },
+  {
     slug: "pavilion-grove",
     title: "Pavilion Grove",
     short: "Pavilion Grove",
@@ -44,25 +55,14 @@ export const selectedWorks: SelectedWork[] = [
   },
   {
     slug: "goldman",
-    title: "Goldman, with Journey",
+    title: "Goldman",
     short: "Goldman",
     coord: "New York",
-    client: "iCrave, part of Journey",
+    client: "Undisclosed",
     year: "2025",
     collection: "The Workplace Collection",
     blurb: "Work at institutional name scale, chosen by a practice with visualization in-house.",
     cover: { project: "goldman", name: "view-01-gateway" },
-  },
-  {
-    slug: "the-point",
-    title: "The Point",
-    short: "The Point",
-    coord: "Sochi",
-    client: "Gregory Tuck Architecture",
-    year: "2024",
-    collection: "The Residential Collection",
-    blurb: "A complete interior program, another designer's intent kept exact across every image.",
-    cover: { project: "the-point", name: "01-colonnade-pool" },
   },
 ];
 

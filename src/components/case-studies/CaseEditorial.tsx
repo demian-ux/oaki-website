@@ -306,7 +306,7 @@ export default function CaseEditorialView({
             {e.outcome.quote && (
               <figure className={s.quote}>
                 <blockquote className="text-quote" style={{ color: "var(--color-ink)" }}>
-                  {e.outcome.quote.text}
+                  &ldquo;{e.outcome.quote.text}&rdquo;
                 </blockquote>
                 {e.outcome.quote.by && (
                   <figcaption className="coord mt-5">{e.outcome.quote.by}</figcaption>

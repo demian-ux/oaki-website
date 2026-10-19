@@ -83,6 +83,11 @@ interface HeroShelfProps {
   seenKey?: string;
   /** Accessible name of the hero section. */
   ariaLabel?: string;
+  /** Keep the row drifting after it opens (the homepage). false = the
+   *  opening plays, the covers spread and stay put, centred. */
+  moving?: boolean;
+  /** "book" = the homepage shelf; "large" = a few big covers (selected work). */
+  size?: "book" | "large";
 }
 
 export default function HeroShelf({
@@ -92,6 +97,8 @@ export default function HeroShelf({
   contactHref = "/contact",
   seenKey = SEEN_KEY,
   ariaLabel = "Oaki Studio, featured project books",
+  moving = true,
+  size = "book",
 }: HeroShelfProps) {
   const PROJECTS = projects;
   const N = PROJECTS.length;
@@ -135,7 +142,7 @@ export default function HeroShelf({
         setTick(N - 1);
         setPhase("open");
         setEntranceDone(true);
-        setDrift(true);
+        setDrift(moving);
       }
       setReady(true);
     };
@@ -145,7 +152,7 @@ export default function HeroShelf({
     return () => clearTimeout(safety);
     // seenKey and N are fixed per surface; listed so the effect is honest
     // about what it reads, never expected to re-run.
-  }, [seenKey, N]);
+  }, [seenKey, N, moving]);
 
   const trackRef = useRef<HTMLDivElement>(null);
   const itemRef = useRef<HTMLDivElement>(null);
@@ -169,10 +176,10 @@ export default function HeroShelf({
 
   // ── once spread, start the perpetual drift ──
   useEffect(() => {
-    if (phase !== "open") return;
+    if (phase !== "open" || !moving) return;
     const t = setTimeout(() => setDrift(true), 1150);
     return () => clearTimeout(t);
-  }, [phase]);
+  }, [phase, moving]);
 
   // ── measure item geometry → centring offset (before drift) ──
   useIsoLayoutEffect(() => {
@@ -365,8 +372,9 @@ export default function HeroShelf({
 
   const tickerImg = PROJECTS[TICKER_ORDER[Math.min(tick, TICKER_ORDER.length - 1)]].img;
 
-  // two sets of covers so the drift can loop seamlessly
-  const items = Array.from({ length: N * 2 }, (_, g) => {
+  // two sets of covers so the drift can loop seamlessly; one set when the
+  // row stays put
+  const items = Array.from({ length: moving ? N * 2 : N }, (_, g) => {
     const idx = g % N;
     const project = PROJECTS[idx];
     const isPrimary = g === CENTER; // the centred cover in set 1
@@ -378,7 +386,7 @@ export default function HeroShelf({
       if (isPrimary) {
         // opening cover ≈ 30–35vh, kissing the wordmark's baseline; the
         // word+cover group is centred vertically in the viewport
-        transform = "translateY(6vh) scale(1.3)";
+        transform = `translateY(6vh) scale(${size === "large" ? 1.08 : 1.3})`;
         opacity = 1;
       } else {
         // collapsed toward the centre so it can spread outward on open
@@ -394,7 +402,7 @@ export default function HeroShelf({
       <div
         key={g}
         ref={g === 0 ? itemRef : undefined}
-        className={styles.item}
+        className={`${styles.item} ${size === "large" ? styles.itemLarge : ""}`}
         style={{ transform, opacity, transitionDelay: itemDelay }}
       >
         <Link
@@ -485,7 +493,8 @@ export default function HeroShelf({
               ? ({ "--full": `${full}px` } as React.CSSProperties)
               : ({
                   "--full": `${full}px`,
-                  transform: `translateX(${open ? OPEN_OFFSET : baseOffset}px)`,
+                  // a still row keeps its centring offset once open
+                  transform: `translateX(${open && moving ? OPEN_OFFSET : baseOffset}px)`,
                   // slides left together with the spread; the drift takes
                   // over (direct style writes) once this has settled
                   transition: open && !snapping ? "transform 1050ms var(--ease)" : "none",

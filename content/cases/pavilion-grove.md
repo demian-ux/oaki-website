@@ -30,7 +30,7 @@ row8: full | film/film-01 :: Film, the entry | film/film-02 :: Film, the court |
 row9: full | view-25-drone :: The pavilion from above, at dusk
 interludeImage: view-14-b-padel-house :: The padel house
 quote: This is amazing. :: Wesley Kean, Koda, the afternoon the film arrived
-next: goldman :: Goldman, with Journey
+next: goldman :: Goldman
 closing: next
 credit1: Architecture :: Koda, Miami. Wesley Kean, Nick McIntosh.
 credit2: Visualization and film :: Oaki Studio. Diego Moreschi, Geronimo Ruiz Brigante, Francis.

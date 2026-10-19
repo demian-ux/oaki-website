@@ -1,6 +1,6 @@
 ---
 template: editorial
-title: Goldman, with Journey
+title: Goldman
 slug: goldman
 collection: Workplace
 description: Fifteen stills for a competition pitch at institutional name scale, produced with iCrave, part of Journey.

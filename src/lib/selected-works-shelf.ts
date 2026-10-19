@@ -1,6 +1,6 @@
 import { getProjectImages } from "./journal-images";
 import type { HomeProject } from "./home-projects";
-import { SELECTED_BASE, getSelectedWork } from "./selected-works";
+import { SELECTED_BASE, selectedWorks } from "./selected-works";
 
 // Server-side helpers for the selected-work landing: they read the image
 // library manifests (node:fs), so they stay out of selected-works.ts,
@@ -14,40 +14,27 @@ export function coverSrc(project: string, name: string, maxWidth = 1920): string
   return (fit ?? image.webp[image.webp.length - 1])?.src ?? null;
 }
 
-/** Seven books for the hero shelf: the three projects seen through several
- *  of their frames, so the shelf reads full and the drift never shows the
- *  same cover twice in one viewport. The caption's first line names the
- *  frame; title and client · year name the project. Index 3 is the one the
- *  ticker lands on. */
-const shelfBooks: { work: string; name: string; caption: string; video?: boolean }[] = [
-  { work: "pavilion-grove", name: "view-09-water-path", caption: "The path in, over the water" },
-  { work: "goldman", name: "view-14-the-mixer-night", caption: "The Mixer, night" },
-  { work: "the-point", name: "05-bar", caption: "The bar, evening" },
-  { work: "pavilion-grove", name: "view-13-padel-drone", caption: "The court under the canopy" },
-  { work: "goldman", name: "view-01-gateway", caption: "The Gateway, street approach" },
-  { work: "the-point", name: "01-colonnade-pool", caption: "The colonnade pool", video: true },
-  { work: "pavilion-grove", name: "view-24-bedroom", caption: "The bedroom, open to the court" },
-];
-
+/** One card per project for the hero: the index cover, the project's own
+ *  collection line, title and client · year, exactly as the public shelf
+ *  captions them. The Point carries its loop, as on the homepage. */
 export function getSelectedShelf(): HomeProject[] {
-  return shelfBooks.flatMap((b, i) => {
-    const work = getSelectedWork(b.work);
-    if (!work) return [];
-    const img = b.video
+  return selectedWorks.flatMap((work, i) => {
+    const video = work.slug === "the-point";
+    const img = video
       ? "/video/the-point/hero-tall-poster.webp"
-      : coverSrc(work.cover.project, b.name, 960);
+      : coverSrc(work.cover.project, work.cover.name, 1920);
     if (!img) return [];
     return [
       {
         n: String(i + 1).padStart(2, "0"),
-        collection: b.caption,
+        collection: work.collection,
         title: work.title,
         client: work.client,
         year: work.year,
         img,
-        description: b.caption,
+        description: work.blurb,
         href: `${SELECTED_BASE}/${work.slug}`,
-        ...(b.video
+        ...(video
           ? { video: { mp4: "/video/the-point/hero-tall.mp4", webm: "/video/the-point/hero-tall.webm" } }
           : {}),
       },

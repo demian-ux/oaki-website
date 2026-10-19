@@ -9,7 +9,7 @@ import { formatJournalDate } from "@/lib/format";
 import { getJournalLocalImages } from "@/lib/journal-images";
 import { urlFor } from "@/sanity/client";
 import { fallbackPeerBand, clientMarks, additionalPeerQuotes } from "@/lib/peer-band";
-import { STUDIO_MANIFESTO } from "@/lib/studio-copy";
+import { STUDIO_MANIFESTO, STUDIO_STATEMENT } from "@/lib/studio-copy";
 
 export { generateMetadata } from "./home-metadata";
 
@@ -46,7 +46,7 @@ export default async function HomePage() {
       {/* 1. Hero — animated wordmark → drifting project-book shelf */}
       {/* Tagline is hardcoded on purpose: it renders regardless of what
           heroLabel / heroTitle hold in Sanity. */}
-      <HeroShelf statement="Architecture, shown before it's built." />
+      <HeroShelf statement={STUDIO_STATEMENT} />
 
       {/* 2. Manifesto — the quiet statement of what the studio is. Replaces the
           bare h-14 spacer that used to keep the grey journal ground off the

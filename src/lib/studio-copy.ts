@@ -3,3 +3,6 @@
 
 export const STUDIO_MANIFESTO =
   "We are an architectural visualization studio working with architects, interior designers, and developers across the USA and Europe. Every project is treated as an editorial story: stills, film, and narrative built as one world. We don't need the brief spoon-fed. Give us what you have and we will make the images that carry your project into the room where everything is decided.";
+
+/** The hero tagline, the one line a stranger reads first. */
+export const STUDIO_STATEMENT = "Architecture, shown before it's built.";
