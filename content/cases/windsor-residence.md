@@ -27,7 +27,7 @@ row5: full | View 14_Kitchen :: Moving through, the kitchen
 row6: full | View 04_Lounge :: Life, the lounge
 row7: 60% center | View 17_FamilyRoom :: Life, the family room
 row8: full | View 23_Summer Kitchen :: Life, the summer kitchen
-next: 8-rockledge :: 8 Rockledge
+next: 803-hunter-rd :: 803 Hunter Rd
 closing: next
 img1: View 06 :: Arrival, the pool terrace and planting, the hero frame (the home shelf uses it)
 img2: View 01_Facade_a05 :: Arrival, the facade

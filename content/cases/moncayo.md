@@ -12,7 +12,7 @@ year: 2024
 imageProject: moncayo
 template: editorial
 description: Two residences by KODA inside the 1,100-acre community Puerto Rico's press compares to Palm Beach. Sold before built, on images.
-hero: View 07_Rear_Facade_Final :: Arrival, the rear facade wide
+hero: View 22_a03 :: Arrival, the house on its slope, the pool and the sea beyond
 sheet1: Architect :: KODA, Kean Office for Design + Architecture
 sheet2: Development :: Moncayo, with Auberge Resorts Collection
 sheet3: Location :: Fajardo, Puerto Rico
@@ -29,8 +29,8 @@ row7: full | View 11_a02 :: Arrival, the second house
 row8: 60% center | View 19_a03 :: Moving through, the second house, living space
 next: ny-penthouse :: Central Park West
 closing: next
-img1: View 01_Rear Facade_Final :: Arrival, the first house from the garden, the hero frame
-img2: View 07_Rear_Facade_Final :: Arrival, the rear facade wide
+img1: View 22_a03 :: Arrival, the house on its slope, the pool and the sea beyond
+img2: View 01_Rear Facade_Final :: Arrival, the first house from the garden
 img3: View 03_Terrace_Final :: Moving through, the terrace
 img4: View 04_Garden_Final :: Moving through, the garden
 img5: View 05_Living room Bar_Final :: Moving through, the living room and bar

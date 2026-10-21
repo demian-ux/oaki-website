@@ -12,7 +12,7 @@ year: 2025–2026
 imageProject: icnyc
 template: editorial
 description: A renovation shown floor by floor to the community funding it. The campaign's future lives in the images.
-hero: View 02 :: Arrival, the prayer hall, the frame the campaign leads with
+hero: View 03 :: Arrival, the mihrab under its oculus, the frame that holds the whole center
 introImage: View 07_Stair :: Detail, the stair
 sheet1: Architect :: Tirmizi Studio
 sheet2: Client :: Islamic Center of New York City
@@ -21,7 +21,7 @@ sheet4: Collection :: Cultural
 sheet5: Year :: 2025–2026
 sheet6: Visualization :: Oaki Studio
 row1: full | View 01 :: Arrival, the hall from the entry
-row2: full | View 03 :: Moving through, the prayer hall toward the minbar
+row2: full | View 02 :: Moving through, the prayer hall under its grid of light
 row3: 60% center | View 04 :: Moving through, the co-working floor
 row4: full | View 05 :: Moving through, the wellness center
 row5: full | View 08_Cafe :: Life, the cafe
@@ -29,9 +29,9 @@ row6: 60% center | View 09 - Update :: Detail, the facade study
 row7: full | View 10 - Update :: Detail, the facade at street level
 next: k-villa :: K Villa, Palm Jumeirah
 closing: next
-img1: View 02 :: Arrival, the prayer hall, the frame the campaign leads with
+img1: View 03 :: Arrival, the mihrab under its oculus, the frame that holds the whole center
 img2: View 01 :: Arrival, the hall from the entry
-img3: View 03 :: Moving through, the prayer hall toward the minbar
+img3: View 02 :: Moving through, the prayer hall under its grid of light
 img4: View 04 :: Moving through, the co-working floor
 img5: View 05 :: Moving through, the wellness center
 img6: View 08_Cafe :: Life, the cafe

@@ -25,7 +25,7 @@ row5: full | View 05_Bath :: Detail, the bath
 row6: 44% center | View 06_Bath :: Detail, the bath, vertical
 row7: 60% center | View 08 :: Life, the house lived in
 row8: full | View 10 :: Life, the quiet frame
-next: 94-s-hibiscus :: 94 S Hibiscus
+next: bay-house :: Bay House
 closing: next
 img1: View 01_Exterior :: Arrival, the house from the street, the hero frame
 img2: View 02_Exterior :: Arrival, the second exterior

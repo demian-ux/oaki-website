@@ -12,7 +12,7 @@ year: 2025
 imageProject: cazouls-les-bezier
 template: editorial
 description: Garden courts and low pavilions in the south of France, rendered for a competition entry by Naos.
-hero: View 02 :: Arrival, the garden court, the hero frame (the home shelf uses it)
+hero: View 04 :: Arrival, the stepped court, the frame that explains the plan
 sheet1: Architect :: Naos
 sheet2: Location :: Cazouls-lès-Béziers, France
 sheet3: Collection :: Competition
@@ -20,14 +20,14 @@ sheet4: Year :: 2025
 sheet5: Visualization :: Oaki Studio
 row1: full | View 01 :: Arrival, the pavilions in their landscape
 row2: full | View 03 :: Moving through, between the pavilions
-row3: 60% center | View 04 :: Moving through, the court at ground level
+row3: 60% center | View 02 :: Moving through, the garden court
 row4: full | View 05 :: Detail, the pavilion edge
-next: cdg34-juvignac :: CDG 34 Headquarters
+next: dillido-residence :: Dillido Residence
 closing: next
-img1: View 02 :: Arrival, the garden court, the hero frame (the home shelf uses it)
+img1: View 04 :: Arrival, the stepped court, the frame that explains the plan
 img2: View 01 :: Arrival, the pavilions in their landscape
 img3: View 03 :: Moving through, between the pavilions
-img4: View 04 :: Moving through, the court at ground level
+img4: View 02 :: Moving through, the garden court
 img5: View 05 :: Detail, the pavilion edge
 img6: GAP :: Process, model-vs-final artifact, brief Diego
 credit1: Architect :: Naos

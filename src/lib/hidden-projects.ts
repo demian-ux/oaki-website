@@ -13,6 +13,11 @@ export const HIDDEN_PROJECT_SLUGS = new Set([
   "icrave-southwest",
   // Dixon House (San Marino Island): awaiting client approval
   "dixon-house",
+  // Hidden by Demi, 2026-10-21
+  "8-rockledge",
+  "94-s-hibiscus",
+  "cdg34-juvignac",
+  "sf-housing-schemes",
 ]);
 
 // Journal articles about those projects, hidden from the public journal
@@ -23,4 +28,8 @@ export const HIDDEN_JOURNAL_SLUGS = new Set([
   "icrave-sapphire-lounges",
   "icrave-southwest-lounges",
   "dixon-house-gardens",
+  // Hidden by Demi, 2026-10-21
+  "8-rockledge-gardens",
+  "bay-house-geiger-site",
+  "moncayo-puerto-rico",
 ]);
