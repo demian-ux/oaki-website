@@ -46,6 +46,11 @@ export default function WarmupAssets() {
 
     const warm = () => {
       if (cancelled) return;
+      // Desktop only. The jank this prevents is GPU raster on a large
+      // viewport; on a phone, eager-fetching and decoding every below-fold
+      // image on load just spends the visitor's data and memory (iOS evicts
+      // decoded bitmaps under pressure anyway), so lazy loading stays native.
+      if (!window.matchMedia("(min-width: 1024px)").matches) return;
       prewarmLayers();
       const imgs = Array.from(document.images);
       // Promote every pending lazy image at once so all fetches start now,

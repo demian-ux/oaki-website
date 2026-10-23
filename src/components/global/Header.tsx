@@ -228,8 +228,10 @@ export default function Header({ projects = [], navLabels, showJournal = false }
           </nav>
 
           {/* Mobile menu button */}
+          {/* 44x44 touch target (Apple HIG); the lines stay 24px wide and the
+              negative margin keeps them on the same right edge as before. */}
           <button
-            className="lg:hidden flex flex-col gap-1.5 p-2"
+            className="lg:hidden flex flex-col items-center justify-center gap-1.5 w-11 h-11 -mr-2.5"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-expanded={menuOpen}
             aria-label="Toggle menu"

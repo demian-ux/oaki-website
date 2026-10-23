@@ -59,11 +59,15 @@
   transition: transform var(--motion-base, 300ms) var(--motion-ease, ease);
   display: inline-block;
 }
-.allEntries:hover {
-  color: var(--color-warm-deep, #7c6549);
+@media (hover: hover) {
+  .allEntries:hover {
+    color: var(--color-warm-deep, #7c6549);
+  }
 }
-.allEntries:hover span {
-  transform: translateX(4px);
+@media (hover: hover) {
+  .allEntries:hover span {
+    transform: translateX(4px);
+  }
 }
 .allEntries:focus-visible {
   outline: 1px solid var(--color-warm, #c6b193);
@@ -193,6 +197,8 @@
   margin-top: 10px;
 }
 .readLink {
+  /* inline box: the vertical padding widens the touch area only */
+  padding-block: 12px;
   font-family: var(--font-sans);
   font-size: 0.6875rem;
   font-weight: 500;
@@ -204,8 +210,10 @@
 .readLink span {
   color: var(--color-warm-deep, #7c6549);
 }
-.readLink:hover {
-  color: var(--color-warm-deep, #7c6549);
+@media (hover: hover) {
+  .readLink:hover {
+    color: var(--color-warm-deep, #7c6549);
+  }
 }
 .metaText {
   font-family: var(--font-sans);
@@ -232,17 +240,26 @@
   display: flex;
   gap: 9px;
 }
+/* A 7px mark inside a 35px touch target: the transparent padding is pulled
+   back by the negative margin, so the row still reads as 7px dots 9px apart.
+   Colours must stay background-color (the shorthand would reset the clip). */
 .dot {
   width: 7px;
   height: 7px;
-  background: rgba(34, 34, 34, 0.22);
-  transition: background var(--motion-base, 300ms) var(--motion-ease, ease);
+  box-sizing: content-box;
+  padding: 14px;
+  margin: -14px;
+  background-color: rgba(34, 34, 34, 0.22);
+  background-clip: content-box;
+  transition: background-color var(--motion-base, 300ms) var(--motion-ease, ease);
 }
-.dot:hover {
-  background: rgba(34, 34, 34, 0.45);
+@media (hover: hover) {
+  .dot:hover {
+    background-color: rgba(34, 34, 34, 0.45);
+  }
 }
 .dotActive {
-  background: var(--color-warm-deep, #7c6549);
+  background-color: var(--color-warm-deep, #7c6549);
 }
 .dot:focus-visible {
   outline: 1px solid var(--color-warm, #c6b193);
@@ -253,13 +270,18 @@
   gap: 18px;
 }
 .arrow {
+  /* ~44px touch target around an 18px glyph, no visual change */
+  padding: 13px;
+  margin: -13px;
   font-size: 1.15rem;
   line-height: 1;
   color: var(--color-ink, #222);
   transition: color var(--motion-base, 300ms) var(--motion-ease, ease);
 }
-.arrow:hover {
-  color: var(--color-warm-deep, #7c6549);
+@media (hover: hover) {
+  .arrow:hover {
+    color: var(--color-warm-deep, #7c6549);
+  }
 }
 .arrow:focus-visible {
   outline: 1px solid var(--color-warm, #c6b193);
@@ -269,7 +291,9 @@
 @media (max-width: 768px) {
   .section {
     --slide-w: 84vw;
-    --img-h: 46vh;
+    /* svh: sized to the viewport with Safari's toolbars showing, so the
+       card never grows past the screen when they collapse on scroll */
+    --img-h: 46svh;
   }
   .header {
     flex-direction: column;

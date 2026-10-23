@@ -44,16 +44,28 @@ function readAndMarkSeen(key: string) {
   }
 }
 
-function Cover({ project, src }: { project: Project; src: string }) {
+function Cover({
+  project,
+  shown,
+  sizes,
+}: {
+  project: Project;
+  /** The book whose cover is painted (the ticker flips other books' covers
+   *  through the centred card before it opens). */
+  shown: Project;
+  sizes: string;
+}) {
   const [failed, setFailed] = useState(false);
   // Film cards loop a portrait video (videos may cover; only stills are
   // never cropped). The poster/img doubles as the loading frame.
-  if (project.video && src === project.img) {
+  // mp4 (H.264) is listed first: iPhones decode it in hardware, and here it
+  // is also half the size of the webm, which every other browser plays too.
+  if (project.video && shown === project) {
     return (
       <div className={styles.cover}>
         <video autoPlay muted loop playsInline poster={project.img}>
-          {project.video.webm && <source src={project.video.webm} type="video/webm" />}
           <source src={project.video.mp4} type="video/mp4" />
+          {project.video.webm && <source src={project.video.webm} type="video/webm" />}
         </video>
       </div>
     );
@@ -62,7 +74,15 @@ function Cover({ project, src }: { project: Project; src: string }) {
     <div className={styles.cover}>
       {!failed ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt={project.title} loading="eager" onError={() => setFailed(true)} />
+        <img
+          src={shown.img}
+          srcSet={shown.srcSet}
+          sizes={sizes}
+          alt={project.title}
+          loading="eager"
+          decoding="async"
+          onError={() => setFailed(true)}
+        />
       ) : (
         <div className={styles.ph}>{project.n}</div>
       )}
@@ -378,7 +398,11 @@ export default function HeroShelf({
   const typingDone = visibleCount >= totalSteps;
   const dotVisible = hasDot && typingDone;
 
-  const tickerImg = PROJECTS[TICKER_ORDER[Math.min(tick, TICKER_ORDER.length - 1)]].img;
+  const tickerProject = PROJECTS[TICKER_ORDER[Math.min(tick, TICKER_ORDER.length - 1)]];
+  // Rendered cover width (HeroShelf.module.css .item / .itemLarge), so the
+  // browser picks the 960 export on phones and 2x desktops alike.
+  const coverSizes =
+    size === "large" ? "min(clamp(104px, 22vw, 340px), 38svh)" : "clamp(132px, 12.5vw, 216px)";
 
   // two sets of covers so the drift can loop seamlessly; one set when the
   // row stays put
@@ -386,7 +410,7 @@ export default function HeroShelf({
     const idx = g % N;
     const project = PROJECTS[idx];
     const isPrimary = g === CENTER; // the centred cover in set 1
-    const src = isPrimary && !open ? tickerImg : project.img;
+    const shown = isPrimary && !open ? tickerProject : project;
 
     let transform = "none";
     let opacity = 1;
@@ -421,7 +445,7 @@ export default function HeroShelf({
           tabIndex={open ? 0 : -1}
           aria-label={`Open case study: ${project.title}`}
         >
-          <Cover project={project} src={src} />
+          <Cover project={project} shown={shown} sizes={coverSizes} />
           <div
             className={`${styles.cap} ${open ? styles.capOpen : ""}`}
             style={{ transitionDelay: capDelay }}

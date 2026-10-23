@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -70,6 +70,16 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+};
+
+// iOS Safari: viewport-fit=cover lets the page run under the notch and the
+// home indicator (the safe-area paddings in globals.css keep content clear of
+// them, mostly in landscape); theme-color tints Safari's chrome to the paper.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({

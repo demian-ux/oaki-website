@@ -140,8 +140,10 @@
     background 300ms var(--motion-ease),
     color 300ms var(--motion-ease);
 }
-.arrow:hover {
-  border-color: var(--color-warm);
+@media (hover: hover) {
+  .arrow:hover {
+    border-color: var(--color-warm);
+  }
 }
 .arrow:focus-visible {
   outline: 2px solid var(--color-warm-deep);
@@ -173,9 +175,11 @@
     color 300ms var(--motion-ease),
     opacity 300ms var(--motion-ease);
 }
-.label:hover {
-  color: var(--color-ink);
-  opacity: 1;
+@media (hover: hover) {
+  .label:hover {
+    color: var(--color-ink);
+    opacity: 1;
+  }
 }
 .labelActive {
   color: var(--color-ink);

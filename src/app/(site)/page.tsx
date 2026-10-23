@@ -137,6 +137,9 @@ export default async function HomePage() {
             alt="The Oaki Studio team in a working session"
             width={1920}
             height={1280}
+            // lazy: hidden below lg, and a lazy image that is display:none is
+            // never requested (an eager one is, even when it will not show).
+            loading="lazy"
             className="hidden lg:block w-full h-auto"
           />
         </div>

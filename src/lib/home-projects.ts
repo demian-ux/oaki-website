@@ -15,12 +15,24 @@ export type HomeProject = {
   /** Optional looping cover video (portrait). `img` doubles as the ticker
    *  frame and the fallback while the video loads. */
   video?: { mp4: string; webm?: string };
+  /** Width candidates for `img` (srcset). A shelf cover is 132px wide on a
+   *  phone and at most ~340px anywhere, so the 960 export serves nearly every
+   *  screen; without this every cover fetched the 1920 master (4 MB on a
+   *  phone for the row). */
+  srcSet?: string;
 };
+
+/** 960w + 1920w candidates for an image-library 1920 WebP derivative. Every
+ *  active book below ships both sizes (public/images/<project>/web/). */
+function webSrcSet(img1920: string): string | undefined {
+  if (!/-1920\.webp$/.test(img1920)) return undefined;
+  return `${img1920.replace(/-1920\.webp$/, "-960.webp")} 960w, ${img1920} 1920w`;
+}
 
 // Order = shelf order (01 … 07). 04 (Manhattan) is the one the hero ticker
 // lands on and that stays centred.
 // img points at the image-library 1920 WebP derivatives (2026-08-05).
-export const homeProjects: HomeProject[] = [
+export const homeProjects: HomeProject[] = withSrcSets([
   { n: "01", collection: "The Competition Collection", title: "Raghsa Tower",        client: "AFT",                         year: "2026", img: "/images/raghsa-tower/web/View%2002_Exterior_Libertador-1920.webp", description: "Tower massing read against the skyline", href: "/case-studies/raghsa-tower" },
   { n: "02", collection: "The Competition Collection", title: "Cazouls les Bézier",  client: "Naos",                        year: "2025", img: "/images/cazouls-les-bezier/web/View%2004-1920.webp", description: "The stepped court between the pavilions", href: "/case-studies/cazouls-les-bezier" },
   { n: "03", collection: "The Residential Collection", title: "Dillido Residence",   client: "Ceïba",                       year: "2024", img: "/images/dillido-residence/web/view-01-front-facade-1920.webp", description: "Palm and pool in island light", href: "/case-studies/dillido-residence" },
@@ -35,4 +47,8 @@ export const homeProjects: HomeProject[] = [
   // Temporarily hidden (see src/lib/hidden-projects.ts) — restore by uncommenting:
   // { n: "12", collection: "The Retail Collection",      title: "Level Shoes",         client: "Koda",                        year: "2026", img: "/images/level-shoes/web/View%2004_Mens%20Area-1920.webp", description: "The men's area at Bal Harbour", href: "/case-studies/level-shoes" },
   // { n: "13", collection: "The Workplace Collection",   title: "Goldman, with Journey", client: "",                          year: "",     img: "/images/ponce/goldman-cover-1920.webp", description: "The canopy entrance at street level", href: "https://1505-ponce-portfolio.vercel.app/goldman.html" },
-];
+]);
+
+function withSrcSets(projects: HomeProject[]): HomeProject[] {
+  return projects.map((p) => ({ ...p, srcSet: webSrcSet(p.img) }));
+}

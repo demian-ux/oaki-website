@@ -62,9 +62,11 @@
 .item + .item {
   border-top: 1px solid var(--color-line, #e8e5df);
 }
-.item:hover {
-  background: var(--color-soft, #f4f2ee);
-  color: var(--color-warm-deep, #7c6549);
+@media (hover: hover) {
+  .item:hover {
+    background: var(--color-soft, #f4f2ee);
+    color: var(--color-warm-deep, #7c6549);
+  }
 }
 .item:focus-visible {
   outline: 1px solid var(--color-warm, #c6b193);
