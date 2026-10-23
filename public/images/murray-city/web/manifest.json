@@ -1,0 +1,229 @@
+{
+  "project": "murray-city",
+  "images": [
+    {
+      "name": "view-01-aerial",
+      "set": null,
+      "naturalWidth": 11008,
+      "naturalHeight": 6144,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2143,
+          "src": "/images/murray-city/web/view-01-aerial-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1429,
+          "src": "/images/murray-city/web/view-01-aerial-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1072,
+          "src": "/images/murray-city/web/view-01-aerial-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 536,
+          "src": "/images/murray-city/web/view-01-aerial-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2143,
+          "src": "/images/murray-city/web/view-01-aerial-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1429,
+          "src": "/images/murray-city/web/view-01-aerial-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1072,
+          "src": "/images/murray-city/web/view-01-aerial-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 536,
+          "src": "/images/murray-city/web/view-01-aerial-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-02-pedestrian-day",
+      "set": null,
+      "naturalWidth": 6000,
+      "naturalHeight": 3376,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2161,
+          "src": "/images/murray-city/web/view-02-pedestrian-day-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/murray-city/web/view-02-pedestrian-day-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/murray-city/web/view-02-pedestrian-day-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/murray-city/web/view-02-pedestrian-day-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2161,
+          "src": "/images/murray-city/web/view-02-pedestrian-day-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/murray-city/web/view-02-pedestrian-day-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/murray-city/web/view-02-pedestrian-day-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/murray-city/web/view-02-pedestrian-day-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-03-pedestrian-night",
+      "set": null,
+      "naturalWidth": 5504,
+      "naturalHeight": 3072,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2143,
+          "src": "/images/murray-city/web/view-03-pedestrian-night-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1429,
+          "src": "/images/murray-city/web/view-03-pedestrian-night-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1072,
+          "src": "/images/murray-city/web/view-03-pedestrian-night-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 536,
+          "src": "/images/murray-city/web/view-03-pedestrian-night-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2143,
+          "src": "/images/murray-city/web/view-03-pedestrian-night-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1429,
+          "src": "/images/murray-city/web/view-03-pedestrian-night-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1072,
+          "src": "/images/murray-city/web/view-03-pedestrian-night-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 536,
+          "src": "/images/murray-city/web/view-03-pedestrian-night-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-04-site-plan",
+      "set": null,
+      "naturalWidth": 10000,
+      "naturalHeight": 5626,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2160,
+          "src": "/images/murray-city/web/view-04-site-plan-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/murray-city/web/view-04-site-plan-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/murray-city/web/view-04-site-plan-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/murray-city/web/view-04-site-plan-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2160,
+          "src": "/images/murray-city/web/view-04-site-plan-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/murray-city/web/view-04-site-plan-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/murray-city/web/view-04-site-plan-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/murray-city/web/view-04-site-plan-960.webp"
+        }
+      ]
+    }
+  ]
+}

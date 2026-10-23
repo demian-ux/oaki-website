@@ -16,18 +16,13 @@ type Project = HomeProject;
 // the selected-work landing passes its own books and centre.
 const DEFAULT_CENTER = 3;
 const TICK_MS = 200;
-// Desktop: once the shelf opens the whole track slides so cover 01 sits on
-// the viewport's left edge (no empty gap left of it) and the drift runs from
-// there; the ticker still centres cover 04 before the slide.
-// Phones: that slide shoved the whole row ~340px to the right and the cover
-// the ticker had centred left the screen, so there the row opens where the
-// ticker left it (base) and drifts from that offset instead.
-const OPEN_OFFSET = 0;
-const PHONE = "(max-width: 767px)";
-const isPhone = () => window.matchMedia(PHONE).matches;
-function openOffsetFor(base: number) {
-  return isPhone() ? base : OPEN_OFFSET;
-}
+// The cover the ticker lands on stays centred when the shelf opens, and the
+// drift runs from there: the row never slides as it spreads (it used to
+// slide so cover 01 met the left edge, which moved the centred cover
+// sideways by an amount that depends on the screen width). On a viewport so
+// wide that centring set 1 would leave a gap left of cover 01, the row is
+// centred on set 2 from the first frame instead (two identical sets, same
+// picture, gap filled) and the ticker plays on set 2's cover.
 const DRIFT_PX_PER_SEC = 26; // slow right-to-left drift
 const TYPE_MS = 47; // tagline typewriter cadence, per character
 // One frame with transitions suppressed, so a replay snaps back to the ticker
@@ -66,14 +61,12 @@ function Cover({
   const [failed, setFailed] = useState(false);
   // Film cards loop a portrait video (videos may cover; only stills are
   // never cropped). The poster/img doubles as the loading frame.
-  // mp4 (H.264) is listed first: iPhones decode it in hardware, and here it
-  // is also half the size of the webm, which every other browser plays too.
   if (project.video && shown === project) {
     return (
       <div className={styles.cover}>
         <video autoPlay muted loop playsInline poster={project.img}>
-          <source src={project.video.mp4} type="video/mp4" />
           {project.video.webm && <source src={project.video.webm} type="video/webm" />}
+          <source src={project.video.mp4} type="video/mp4" />
         </video>
       </div>
     );
@@ -81,16 +74,15 @@ function Cover({
   return (
     <div className={styles.cover}>
       {!failed ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={shown.img}
-          srcSet={shown.srcSet}
-          sizes={sizes}
-          alt={project.title}
-          loading="eager"
-          decoding="async"
-          onError={() => setFailed(true)}
-        />
+        // The <img> is exactly what it was before the phone pass (no srcset,
+        // no decoding hint: the ticker swaps src every 200ms and must paint
+        // each frame at once). Phones alone take the 960 export through the
+        // <source media>, which desktop never evaluates.
+        <picture style={{ display: "contents" }}>
+          {shown.srcSet && <source media="(max-width: 767px)" srcSet={shown.srcSet} sizes={sizes} />}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={shown.img} alt={project.title} loading="eager" onError={() => setFailed(true)} />
+        </picture>
       ) : (
         <div className={styles.ph}>{project.n}</div>
       )}
@@ -136,6 +128,9 @@ export default function HeroShelf({
   const PROJECTS = projects;
   const N = PROJECTS.length;
   const CENTER = Math.min(centerIndex, N - 1);
+  // A still row is centred as a whole (its midpoint, which for an even N
+  // falls between two covers); a drifting row centres the CENTER cover.
+  const MID = moving ? CENTER : (N - 1) / 2;
   // Every other cover flips through first, the centred one lands last.
   const TICKER_ORDER = useMemo(
     () => [...Array.from({ length: N }, (_, i) => i).filter((i) => i !== CENTER), CENTER],
@@ -150,11 +145,14 @@ export default function HeroShelf({
   const [drift, setDrift] = useState(false);
   const [full, setFull] = useState(0);
   const [baseOffset, setBaseOffset] = useState(0);
-  // the track offset once open (see openOffsetFor); the drift starts here
-  const [openOffset, setOpenOffset] = useState(0);
-  // true below 768px. Every phone-only branch below keys on this, so from
-  // 768px up the shelf behaves exactly as it did before the phone pass.
-  const [phone, setPhone] = useState(false);
+  // true when the row is centred on set 2 (see the note above DRIFT_PX_PER_SEC)
+  const [shifted, setShifted] = useState(false);
+  // Desktop (>= 768px) keeps the 2026-10-09 opening: the row slides left as
+  // it spreads until cover 01 meets the viewport's left edge, and the drift
+  // runs from there. Phones keep the centred cover centred (set above).
+  const [slideOpen, setSlideOpen] = useState(false);
+  // where the open row rests before the drift takes over
+  const restX = slideOpen ? 0 : baseOffset;
   // tagline typewriter
   const [entranceDone, setEntranceDone] = useState(false);
   const [typedCount, setTypedCount] = useState(0);
@@ -230,15 +228,19 @@ export default function HeroShelf({
       const w = item.offsetWidth;
       const mr = parseFloat(getComputedStyle(item).marginRight) || 0;
       const f = w + mr;
-      const base = window.innerWidth / 2 - (CENTER * f + w / 2);
+      const base = window.innerWidth / 2 - (MID * f + w / 2);
+      // a drifting row has a second set to centre on when set 1 would
+      // leave a gap on the left
+      const desktop = window.matchMedia("(min-width: 768px)").matches;
+      const slide = moving && desktop;
+      const shift = moving && !slide && base > 0 ? f * N : 0;
       setFull(f);
-      setBaseOffset(base);
-      fullSet(f, base);
+      setShifted(shift > 0);
+      setSlideOpen(slide);
+      setBaseOffset(base - shift);
+      fullSet(f, slide ? 0 : base - shift);
     };
-    const fullSet = (f: number, base: number) => {
-      const start = openOffsetFor(base);
-      setPhone(isPhone());
-      setOpenOffset(start);
+    const fullSet = (f: number, start: number) => {
       offsetRef.current = start;
       baseRef.current = start;
       setWRef.current = f * N;
@@ -284,8 +286,7 @@ export default function HeroShelf({
     // as the shelf, and once the row has drifted that far left (a second on
     // a phone, where it starts 340px off) it stops intersecting while its
     // covers are still fully on screen, and the row would just freeze.
-    // Desktop keeps watching the track, as it always did.
-    const watched = (isPhone() ? heroRef.current : null) ?? trackRef.current;
+    const watched = heroRef.current ?? trackRef.current;
     let io: IntersectionObserver | null = null;
     if (watched && typeof IntersectionObserver !== "undefined") {
       io = new IntersectionObserver(([entry]) => {
@@ -422,17 +423,16 @@ export default function HeroShelf({
   const tickerProject = PROJECTS[TICKER_ORDER[Math.min(tick, TICKER_ORDER.length - 1)]];
   // Rendered cover width (HeroShelf.module.css .item / .itemLarge), so the
   // browser picks the 960 export on phones and 2x desktops alike.
-  // From 768px up the 1920 master is requested, exactly as before the phone
-  // pass; phones get the 960 export.
-  const coverSizes =
-    size === "large" ? "(max-width: 767px) min(22vw, 38svh), 1920px" : "(max-width: 767px) 132px, 1920px";
+  // Rendered cover width on a phone (HeroShelf.module.css .item / .itemLarge),
+  // so the 960 export is chosen there. Desktop never reads this.
+  const coverSizes = size === "large" ? "min(22vw, 38svh)" : "132px";
 
   // two sets of covers so the drift can loop seamlessly; one set when the
   // row stays put
   const items = Array.from({ length: moving ? N * 2 : N }, (_, g) => {
     const idx = g % N;
     const project = PROJECTS[idx];
-    const isPrimary = g === CENTER; // the centred cover in set 1
+    const isPrimary = g === CENTER + (shifted ? N : 0); // the centred cover
     const shown = isPrimary && !open ? tickerProject : project;
 
     let transform = "none";
@@ -441,11 +441,11 @@ export default function HeroShelf({
       if (isPrimary) {
         // opening cover ≈ 30–35vh, kissing the wordmark's baseline; the
         // word+cover group is centred vertically in the viewport
-        transform = `translateY(6vh) scale(${size === "large" ? 1.08 : 1.3})`;
+        transform = `translateX(calc((${MID} - ${CENTER}) * var(--full, 0px))) translateY(6vh) scale(${size === "large" ? 1.08 : 1.3})`;
         opacity = 1;
       } else {
         // collapsed toward the centre so it can spread outward on open
-        transform = `translateX(calc((${CENTER} - ${idx}) * var(--full, 0px) * 0.82)) scale(0.6)`;
+        transform = `translateX(calc((${MID} - ${idx}) * var(--full, 0px) * 0.82)) scale(0.6)`;
         opacity = 0;
       }
     }
@@ -545,22 +545,18 @@ export default function HeroShelf({
           className={styles.track}
           style={
             drift
-              ? // Phones: the drift loop writes the transform directly, but
-                // the first frame after this commit paints before that loop
-                // has run; keeping the offset here means that frame shows the
-                // row where it already was, not at x=0 for one flash. Desktop
-                // drifts from x=0, so it needs nothing here (as before).
-                ({
-                  "--full": `${full}px`,
-                  ...(phone ? { transform: `translateX(${openOffset}px)` } : null),
-                } as React.CSSProperties)
+              ? // The drift loop writes the transform directly, but the first
+                // frame after this commit paints before that loop has run;
+                // keeping the offset here means that frame shows the row
+                // where it already was, not at x=0 for one flash.
+                ({ "--full": `${full}px`, transform: `translateX(${restX}px)` } as React.CSSProperties)
               : ({
                   "--full": `${full}px`,
-                  // a still row keeps its centring offset once open
-                  transform: `translateX(${open && moving ? openOffset : baseOffset}px)`,
-                  // normally identical to baseOffset, so nothing slides as
-                  // the covers spread; the drift takes over (direct style
-                  // writes) once the spread has settled
+                  // the centring offset while the ticker plays; on open,
+                  // desktop slides to the left edge with the spread while
+                  // phones stay centred; the drift takes over (direct
+                  // style writes) once the spread has settled
+                  transform: `translateX(${open ? restX : baseOffset}px)`,
                   transition: open && !snapping ? "transform 1050ms var(--ease)" : "none",
                 } as React.CSSProperties)
           }

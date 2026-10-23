@@ -360,6 +360,163 @@
           "src": "/images/raghsa-tower/web/View 07_Exterior_Lobby_02-960.webp"
         }
       ]
+    },
+    {
+      "name": "View 08_Aerial river",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/raghsa-tower/web/View 08_Aerial river-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/raghsa-tower/web/View 08_Aerial river-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/raghsa-tower/web/View 08_Aerial river-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/raghsa-tower/web/View 08_Aerial river-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/raghsa-tower/web/View 08_Aerial river-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/raghsa-tower/web/View 08_Aerial river-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/raghsa-tower/web/View 08_Aerial river-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/raghsa-tower/web/View 08_Aerial river-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 09_Aerial night",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/raghsa-tower/web/View 09_Aerial night-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/raghsa-tower/web/View 09_Aerial night-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/raghsa-tower/web/View 09_Aerial night-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/raghsa-tower/web/View 09_Aerial night-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/raghsa-tower/web/View 09_Aerial night-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/raghsa-tower/web/View 09_Aerial night-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/raghsa-tower/web/View 09_Aerial night-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/raghsa-tower/web/View 09_Aerial night-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "View 10_Pedestrian Libertador",
+      "set": null,
+      "naturalWidth": 3320,
+      "naturalHeight": 4000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/raghsa-tower/web/View 10_Pedestrian Libertador-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/raghsa-tower/web/View 10_Pedestrian Libertador-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/raghsa-tower/web/View 10_Pedestrian Libertador-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/raghsa-tower/web/View 10_Pedestrian Libertador-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/raghsa-tower/web/View 10_Pedestrian Libertador-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/raghsa-tower/web/View 10_Pedestrian Libertador-960.webp"
+        }
+      ]
     }
   ]
 }

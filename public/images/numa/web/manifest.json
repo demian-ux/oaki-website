@@ -1,0 +1,341 @@
+{
+  "project": "numa",
+  "images": [
+    {
+      "name": "view-01-crossing",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-01-crossing-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-01-crossing-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-01-crossing-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-01-crossing-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-01-crossing-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-01-crossing-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-01-crossing-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-01-crossing-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-02-market-front",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-02-market-front-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-02-market-front-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-02-market-front-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-02-market-front-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-02-market-front-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-02-market-front-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-02-market-front-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-02-market-front-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-03-gallery",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-03-gallery-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-03-gallery-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-03-gallery-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-03-gallery-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-03-gallery-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-03-gallery-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-03-gallery-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-03-gallery-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-04-corner",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-04-corner-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-04-corner-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-04-corner-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-04-corner-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-04-corner-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-04-corner-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-04-corner-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-04-corner-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-05-parking-front",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-05-parking-front-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-05-parking-front-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-05-parking-front-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-05-parking-front-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-05-parking-front-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-05-parking-front-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-05-parking-front-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-05-parking-front-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-06-dusk",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2261,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-06-dusk-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-06-dusk-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-06-dusk-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-06-dusk-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2171,
+          "src": "/images/numa/web/view-06-dusk-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1447,
+          "src": "/images/numa/web/view-06-dusk-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/numa/web/view-06-dusk-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/numa/web/view-06-dusk-960.webp"
+        }
+      ]
+    }
+  ]
+}

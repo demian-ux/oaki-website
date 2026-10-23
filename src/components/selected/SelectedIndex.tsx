@@ -1,7 +1,7 @@
 import Link from "next/link";
 import JournalPicture from "@/components/journal/JournalPicture";
 import { getProjectImages } from "@/lib/journal-images";
-import { SELECTED_BASE, selectedWorks } from "@/lib/selected-works";
+import { SELECTED_BASE, type SelectedWork } from "@/lib/selected-works";
 import s from "./SelectedIndex.module.css";
 
 // The index: each case as one cover at its natural ratio with its coord,
@@ -9,11 +9,11 @@ import s from "./SelectedIndex.module.css";
 // and the right. The library's cards are books; here the images are the
 // argument, so they get the width.
 
-export default function SelectedIndex() {
+export default function SelectedIndex({ works }: { works: SelectedWork[] }) {
   return (
     <section className="page-x section-y" aria-label="Selected work index">
       <div className={s.list}>
-        {selectedWorks.map((w, i) => {
+        {works.map((w, i) => {
           const image = getProjectImages(w.cover.project).find(
             (img) => img.name === w.cover.name && img.set === null
           );

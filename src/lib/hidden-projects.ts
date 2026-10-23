@@ -7,6 +7,11 @@ export const HIDDEN_PROJECT_SLUGS = new Set([
   // live on /selected-works (src/lib/selected-works.ts), never here.
   "goldman",
   "pavilion-grove",
+  // Murray City: the Perkins Eastman set (2026-10-22), private viewing only.
+  // Ski Center went public on the home shelf 2026-10-23 (location and
+  // developer still withheld on the page).
+  "murray-city",
+  "numa",
   "level-shoes",
   "icrave-ballys-chicago",
   "icrave-sapphire",

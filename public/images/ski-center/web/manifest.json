@@ -1,0 +1,173 @@
+{
+  "project": "ski-center",
+  "images": [
+    {
+      "name": "view-01-winter-aerial",
+      "set": null,
+      "naturalWidth": 8000,
+      "naturalHeight": 5648,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/ski-center/web/view-01-winter-aerial-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/ski-center/web/view-01-winter-aerial-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/ski-center/web/view-01-winter-aerial-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/ski-center/web/view-01-winter-aerial-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/ski-center/web/view-01-winter-aerial-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/ski-center/web/view-01-winter-aerial-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/ski-center/web/view-01-winter-aerial-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/ski-center/web/view-01-winter-aerial-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-02-ski-beach",
+      "set": null,
+      "naturalWidth": 8000,
+      "naturalHeight": 5648,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/ski-center/web/view-02-ski-beach-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/ski-center/web/view-02-ski-beach-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/ski-center/web/view-02-ski-beach-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/ski-center/web/view-02-ski-beach-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/ski-center/web/view-02-ski-beach-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/ski-center/web/view-02-ski-beach-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/ski-center/web/view-02-ski-beach-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/ski-center/web/view-02-ski-beach-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "view-03-summer-road",
+      "set": null,
+      "naturalWidth": 8000,
+      "naturalHeight": 5648,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/ski-center/web/view-03-summer-road-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/ski-center/web/view-03-summer-road-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/ski-center/web/view-03-summer-road-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/ski-center/web/view-03-summer-road-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2711,
+          "src": "/images/ski-center/web/view-03-summer-road-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1807,
+          "src": "/images/ski-center/web/view-03-summer-road-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1356,
+          "src": "/images/ski-center/web/view-03-summer-road-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 678,
+          "src": "/images/ski-center/web/view-03-summer-road-960.webp"
+        }
+      ]
+    }
+  ]
+}

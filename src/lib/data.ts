@@ -39,7 +39,7 @@ async function getSanityData<T>(query: string, params?: Record<string, unknown>)
    assets are retired (2026-08-26) — the card template now uses these
    renders instead. The Sanity coverImage stays untouched as data. */
 const coverOverrides: Record<string, { coverSrc: string; title?: string }> = {
-  "raghsa-tower": { coverSrc: "/images/raghsa-tower/web/View%2002_Exterior_Libertador-1920.webp" },
+  "raghsa-tower": { coverSrc: "/images/raghsa-tower/web/View%2009_Aerial%20night-1920.webp" },
   "ny-penthouse": {
     coverSrc: "/images/ny-penthouse/web/Living%20Piano%20Stage-1920.webp",
     // Public name confirmed by Demi 2026-08-26 (matches the home shelf).

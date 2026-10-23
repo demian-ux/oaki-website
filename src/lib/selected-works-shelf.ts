@@ -1,6 +1,6 @@
 import { getProjectImages } from "./journal-images";
 import type { HomeProject } from "./home-projects";
-import { SELECTED_BASE, selectedWorks } from "./selected-works";
+import { SELECTED_BASE, worksInSet, type SelectedSet } from "./selected-works";
 
 // Server-side helpers for the selected-work landing: they read the image
 // library manifests (node:fs), so they stay out of selected-works.ts,
@@ -14,11 +14,20 @@ export function coverSrc(project: string, name: string, maxWidth = 1920): string
   return (fit ?? image.webp[image.webp.length - 1])?.src ?? null;
 }
 
+/** Every webp derivative up to maxWidth as a srcset, so a phone fetches the
+ *  960 instead of the 1920 master for a 340px-wide cover. */
+export function coverSrcSet(project: string, name: string, maxWidth = 1920): string | undefined {
+  const image = getProjectImages(project).find((i) => i.name === name && i.set === null);
+  const fits = image?.webp.filter((w) => w.width <= maxWidth) ?? [];
+  if (fits.length < 2) return undefined;
+  return fits.map((w) => `${w.src} ${w.width}w`).join(", ");
+}
+
 /** One card per project for the hero: the index cover, the project's own
  *  collection line, title and client · year, exactly as the public shelf
  *  captions them. The Point carries its loop, as on the homepage. */
-export function getSelectedShelf(): HomeProject[] {
-  return selectedWorks.flatMap((work, i) => {
+export function getSelectedShelf(set: SelectedSet): HomeProject[] {
+  return worksInSet(set).flatMap((work, i) => {
     const video = work.slug === "the-point";
     const img = video
       ? "/video/the-point/hero-tall-poster.webp"
@@ -32,6 +41,7 @@ export function getSelectedShelf(): HomeProject[] {
         client: work.client,
         year: work.year,
         img,
+        srcSet: video ? undefined : coverSrcSet(work.cover.project, work.cover.name, 1920),
         description: work.blurb,
         href: `${SELECTED_BASE}/${work.slug}`,
         ...(video

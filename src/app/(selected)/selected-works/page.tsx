@@ -1,80 +1,17 @@
 import type { Metadata } from "next";
-import HeroShelf from "@/components/home/HeroShelf";
-import PeerBand from "@/components/home/PeerBand";
-import ContactCta from "@/components/global/ContactCta";
-import SelectedIndex from "@/components/selected/SelectedIndex";
-import { fallbackPeerBand, clientMarks, additionalPeerQuotes } from "@/lib/peer-band";
-import { STUDIO_STATEMENT } from "@/lib/studio-copy";
-import { SELECTED_CONTACT, SELECTED_INTRO, selectedWorks } from "@/lib/selected-works";
-import { getSelectedShelf } from "@/lib/selected-works-shelf";
+import SelectedLanding from "@/components/selected/SelectedLanding";
+import { DEFAULT_SET_KEY, getSelectedSet } from "@/lib/selected-works";
 
-// The selected-work landing, composed like the homepage: the shelf opening
-// on three big covers that spread and stay put, two sentences, the three
-// cases at full width, the proof band, and the way in. Everything links
-// inside /selected-works.
+// The default selected-work landing (the BDNY set). Client-specific sets
+// render the same page at /selected-works/for/<key>.
+
+const set = getSelectedSet(DEFAULT_SET_KEY)!;
 
 export const metadata: Metadata = {
   title: "Selected work",
-  description: `${selectedWorks.length} projects. Stills and film for architects, interior designers and developers.`,
+  description: `${set.slugs.length} projects. Stills and film for architects, interior designers and developers.`,
 };
 
 export default function SelectedWorksPage() {
-  const shelf = getSelectedShelf();
-
-  return (
-    <>
-      {/* 1. Hero — the wordmark opening onto three covers, one per
-          project, which spread and stay put. Same tagline as the homepage. */}
-      <HeroShelf
-        statement={STUDIO_STATEMENT}
-        projects={shelf}
-        centerIndex={1}
-        contactHref={SELECTED_CONTACT}
-        seenKey="oaki:selected-hero-seen"
-        ariaLabel="Oaki Studio, selected work"
-        moving={false}
-        size="large"
-        ticker={false}
-      />
-
-      {/* 2. Two sentences, for someone who has already talked with us. */}
-      <section aria-label="Introduction" className="page-x py-[calc(50vh+4rem)]">
-        <div className="mx-auto text-center" style={{ maxWidth: 860 }}>
-          {/* One sentence per line, each kept whole. */}
-          <p className="text-lede text-muted reveal">
-            {(SELECTED_INTRO.match(/[^.]+\./g) ?? [SELECTED_INTRO]).map((sentence, i) => (
-              <span key={i} className="block whitespace-nowrap max-lg:whitespace-normal">
-                {sentence.trim()}
-              </span>
-            ))}
-          </p>
-        </div>
-      </section>
-
-      {/* 3. The index — three cases, covers at natural ratio. */}
-      <section className="page-x border-t border-line pt-16 lg:pt-24">
-        <p className="coord text-muted">
-          {selectedWorks.length} projects · Stills and film for architects, interior designers and developers
-        </p>
-      </section>
-      <SelectedIndex />
-
-      {/* 4. Proof follows the claim. */}
-      <PeerBand
-        quotes={[
-          {
-            quote: fallbackPeerBand.quote,
-            authorName: fallbackPeerBand.authorName,
-            authorTitle: fallbackPeerBand.authorTitle,
-          },
-          ...additionalPeerQuotes,
-        ]}
-        clientMarks={clientMarks}
-        factStrip={fallbackPeerBand.factStrip}
-      />
-
-      {/* 5. The way in, without leaving. */}
-      <ContactCta href={SELECTED_CONTACT} />
-    </>
-  );
+  return <SelectedLanding set={set} />;
 }

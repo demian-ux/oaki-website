@@ -6,7 +6,7 @@ import { startTransition, useEffect, useLayoutEffect, useState } from "react";
 import Logotipo from "@/components/global/Logotipo";
 import MobileMenu from "@/components/global/MobileMenu";
 import CopyEmail from "@/components/global/CopyEmail";
-import { SELECTED_BASE, SELECTED_CONTACT, selectedWorks } from "@/lib/selected-works";
+import { SELECTED_BASE, SELECTED_CONTACT, setFromPathname, worksInSet } from "@/lib/selected-works";
 
 // The selected-work bar: the site header's chrome (same bar, same glass,
 // same hide-over-the-hero rule) with a closed set of links, so a prospect
@@ -15,13 +15,13 @@ import { SELECTED_BASE, SELECTED_CONTACT, selectedWorks } from "@/lib/selected-w
 
 const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-const links = [
-  ...selectedWorks.map((w) => ({ label: w.short, href: `${SELECTED_BASE}/${w.slug}` })),
-  { label: "Contact", href: SELECTED_CONTACT },
-];
-
 export default function SelectedHeader() {
   const pathname = usePathname();
+  const set = setFromPathname(pathname ?? SELECTED_BASE);
+  const links = [
+    ...worksInSet(set).map((w) => ({ label: w.short, href: `${SELECTED_BASE}/${w.slug}` })),
+    { label: "Contact", href: SELECTED_CONTACT },
+  ];
   const [scrolled, setScrolled] = useState(false);
   const [pastHero, setPastHero] = useState(false);
   const [hasHero, setHasHero] = useState<boolean | null>(null);
@@ -82,7 +82,7 @@ export default function SelectedHeader() {
       >
         <div className="pl-8 lg:pl-12 pr-7 flex items-center justify-between h-16 lg:h-20 relative">
           <Link
-            href={SELECTED_BASE}
+            href={set.path}
             aria-label="Oaki Studio, Selected work"
             className="inline-flex items-baseline gap-3"
           >
@@ -122,7 +122,7 @@ export default function SelectedHeader() {
         open={menuOpen}
         onClose={() => setMenuOpen(false)}
         links={links}
-        homeHref={SELECTED_BASE}
+        homeHref={set.path}
         ctaHref={SELECTED_CONTACT}
       />
     </>
