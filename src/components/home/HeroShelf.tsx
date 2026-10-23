@@ -273,15 +273,19 @@ export default function HeroShelf({
       cancelAnimationFrame(raf);
       raf = 0;
     };
-    const track = trackRef.current;
+    // Watch the hero section, not the track: the track box is only as wide
+    // as the shelf, and once the row has drifted that far left (a second on
+    // a phone, where it starts 340px off) it stops intersecting while its
+    // covers are still fully on screen, and the row would just freeze.
+    const watched = heroRef.current ?? trackRef.current;
     let io: IntersectionObserver | null = null;
-    if (track && typeof IntersectionObserver !== "undefined") {
+    if (watched && typeof IntersectionObserver !== "undefined") {
       io = new IntersectionObserver(([entry]) => {
         visible = entry.isIntersecting;
         if (visible) start();
         else stop();
       });
-      io.observe(track);
+      io.observe(watched);
     } else {
       start();
     }

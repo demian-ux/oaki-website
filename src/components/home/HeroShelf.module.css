@@ -355,6 +355,19 @@
   border: 0;
 }
 
+/* Phones: a 132px cover cannot hold a one-line title (MANHATTAN APARTMENT
+   ran into its neighbour), so titles wrap there and the covers sit a little
+   further apart. */
+@media (max-width: 767px) {
+  .item {
+    margin-right: 30px;
+  }
+  .title {
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .wm,
   .item,
