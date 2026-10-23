@@ -16,10 +16,15 @@ type Project = HomeProject;
 // the selected-work landing passes its own books and centre.
 const DEFAULT_CENTER = 3;
 const TICK_MS = 200;
-// Once the shelf opens the whole track slides left so cover 01 sits on the
-// viewport's left edge (no empty gap left of it); the drift then runs from
-// there. The ticker still centres cover 04 before the slide.
-const OPEN_OFFSET = 0;
+// Once the shelf opens, the cover the ticker landed on STAYS centred and the
+// drift runs from there: the row never slides as it spreads (on a phone the
+// old slide to x=0 shoved the whole row 340px to the right). The only case
+// handled is a viewport so wide that centring leaves empty space left of
+// cover 01: the row is then shown one set further along (there are two
+// identical sets), which is the same picture with the gap filled.
+function openOffsetFor(base: number, setWidth: number) {
+  return base > 0 ? base - setWidth : base;
+}
 const DRIFT_PX_PER_SEC = 26; // slow right-to-left drift
 const TYPE_MS = 47; // tagline typewriter cadence, per character
 // One frame with transitions suppressed, so a replay snaps back to the ticker
@@ -142,6 +147,8 @@ export default function HeroShelf({
   const [drift, setDrift] = useState(false);
   const [full, setFull] = useState(0);
   const [baseOffset, setBaseOffset] = useState(0);
+  // the track offset once open (see openOffsetFor); the drift starts here
+  const [openOffset, setOpenOffset] = useState(0);
   // tagline typewriter
   const [entranceDone, setEntranceDone] = useState(false);
   const [typedCount, setTypedCount] = useState(0);
@@ -238,7 +245,7 @@ export default function HeroShelf({
   // for frame time long after the hero is gone.
   useEffect(() => {
     if (!drift) return;
-    offsetRef.current = OPEN_OFFSET;
+    offsetRef.current = baseRef.current;
     let raf = 0;
     let last = performance.now();
     let visible = true;
@@ -292,7 +299,7 @@ export default function HeroShelf({
   const replay = useCallback(() => {
     // put the drifting track back on its centring offset before React
     // re-takes ownership of the transform
-    offsetRef.current = OPEN_OFFSET;
+    offsetRef.current = baseRef.current;
     if (trackRef.current) {
       trackRef.current.style.transform = `translateX(${baseOffset}px)`;
     }
@@ -522,13 +529,18 @@ export default function HeroShelf({
           className={styles.track}
           style={
             drift
-              ? ({ "--full": `${full}px` } as React.CSSProperties)
+              ? // The drift loop writes the transform directly, but the first
+                // frame after this commit paints before that loop has run;
+                // keeping the offset here means that frame shows the row
+                // exactly where it already was, not at x=0 for one flash.
+                ({ "--full": `${full}px`, transform: `translateX(${openOffset}px)` } as React.CSSProperties)
               : ({
                   "--full": `${full}px`,
                   // a still row keeps its centring offset once open
-                  transform: `translateX(${open && moving ? OPEN_OFFSET : baseOffset}px)`,
-                  // slides left together with the spread; the drift takes
-                  // over (direct style writes) once this has settled
+                  transform: `translateX(${open && moving ? openOffset : baseOffset}px)`,
+                  // normally identical to baseOffset, so nothing slides as
+                  // the covers spread; the drift takes over (direct style
+                  // writes) once the spread has settled
                   transition: open && !snapping ? "transform 1050ms var(--ease)" : "none",
                 } as React.CSSProperties)
           }
