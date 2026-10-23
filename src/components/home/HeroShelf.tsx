@@ -24,8 +24,9 @@ const TICK_MS = 200;
 // ticker left it (base) and drifts from that offset instead.
 const OPEN_OFFSET = 0;
 const PHONE = "(max-width: 767px)";
+const isPhone = () => window.matchMedia(PHONE).matches;
 function openOffsetFor(base: number) {
-  return window.matchMedia(PHONE).matches ? base : OPEN_OFFSET;
+  return isPhone() ? base : OPEN_OFFSET;
 }
 const DRIFT_PX_PER_SEC = 26; // slow right-to-left drift
 const TYPE_MS = 47; // tagline typewriter cadence, per character
@@ -151,6 +152,9 @@ export default function HeroShelf({
   const [baseOffset, setBaseOffset] = useState(0);
   // the track offset once open (see openOffsetFor); the drift starts here
   const [openOffset, setOpenOffset] = useState(0);
+  // true below 768px. Every phone-only branch below keys on this, so from
+  // 768px up the shelf behaves exactly as it did before the phone pass.
+  const [phone, setPhone] = useState(false);
   // tagline typewriter
   const [entranceDone, setEntranceDone] = useState(false);
   const [typedCount, setTypedCount] = useState(0);
@@ -233,6 +237,7 @@ export default function HeroShelf({
     };
     const fullSet = (f: number, base: number) => {
       const start = openOffsetFor(base);
+      setPhone(isPhone());
       setOpenOffset(start);
       offsetRef.current = start;
       baseRef.current = start;
@@ -279,7 +284,8 @@ export default function HeroShelf({
     // as the shelf, and once the row has drifted that far left (a second on
     // a phone, where it starts 340px off) it stops intersecting while its
     // covers are still fully on screen, and the row would just freeze.
-    const watched = heroRef.current ?? trackRef.current;
+    // Desktop keeps watching the track, as it always did.
+    const watched = (isPhone() ? heroRef.current : null) ?? trackRef.current;
     let io: IntersectionObserver | null = null;
     if (watched && typeof IntersectionObserver !== "undefined") {
       io = new IntersectionObserver(([entry]) => {
@@ -416,8 +422,10 @@ export default function HeroShelf({
   const tickerProject = PROJECTS[TICKER_ORDER[Math.min(tick, TICKER_ORDER.length - 1)]];
   // Rendered cover width (HeroShelf.module.css .item / .itemLarge), so the
   // browser picks the 960 export on phones and 2x desktops alike.
+  // From 768px up the 1920 master is requested, exactly as before the phone
+  // pass; phones get the 960 export.
   const coverSizes =
-    size === "large" ? "min(clamp(104px, 22vw, 340px), 38svh)" : "clamp(132px, 12.5vw, 216px)";
+    size === "large" ? "(max-width: 767px) min(22vw, 38svh), 1920px" : "(max-width: 767px) 132px, 1920px";
 
   // two sets of covers so the drift can loop seamlessly; one set when the
   // row stays put
@@ -537,11 +545,15 @@ export default function HeroShelf({
           className={styles.track}
           style={
             drift
-              ? // The drift loop writes the transform directly, but the first
-                // frame after this commit paints before that loop has run;
-                // keeping the offset here means that frame shows the row
-                // exactly where it already was, not at x=0 for one flash.
-                ({ "--full": `${full}px`, transform: `translateX(${openOffset}px)` } as React.CSSProperties)
+              ? // Phones: the drift loop writes the transform directly, but
+                // the first frame after this commit paints before that loop
+                // has run; keeping the offset here means that frame shows the
+                // row where it already was, not at x=0 for one flash. Desktop
+                // drifts from x=0, so it needs nothing here (as before).
+                ({
+                  "--full": `${full}px`,
+                  ...(phone ? { transform: `translateX(${openOffset}px)` } : null),
+                } as React.CSSProperties)
               : ({
                   "--full": `${full}px`,
                   // a still row keeps its centring offset once open

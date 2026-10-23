@@ -90,18 +90,26 @@
   opacity: 1;
   transform: translateY(0);
 }
-/* 12px of padding pulled back by the margin: the 11px label keeps its
-   place, the touch target grows to ~40px. The inset never goes under a
-   landscape notch. */
 .info {
-  left: max(28px, env(safe-area-inset-left));
-  padding: 12px;
-  margin: -12px;
+  left: 28px;
 }
 .contact {
-  right: max(28px, env(safe-area-inset-right));
-  padding: 12px;
-  margin: -12px;
+  right: 28px;
+}
+/* Phones: 12px of padding pulled back by the margin, so the 11px label
+   keeps its place while the touch target grows to ~40px; the inset never
+   goes under a landscape notch. Desktop is untouched. */
+@media (max-width: 767px) {
+  .info {
+    left: max(28px, env(safe-area-inset-left));
+    padding: 12px;
+    margin: -12px;
+  }
+  .contact {
+    right: max(28px, env(safe-area-inset-right));
+    padding: 12px;
+    margin: -12px;
+  }
 }
 
 /* ── subtitle / tagline ────────────────────────────────────────────────
