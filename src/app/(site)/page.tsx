@@ -78,11 +78,11 @@ export default async function HomePage() {
               one width goes gappy at the next. Fixed size + fixed column = the
               same four lines, and the same spacing, at every width >= lg.
 
-              Justified only from lg up. Below that the column is squeezed by
-              the page gutters instead of the 860 cap, and short lines justify
-              horribly: at 375px the worst line stretched to 4.2x normal word
-              spacing. Narrow screens get ordinary left-ranged text. */}
-          <p className="text-body text-muted reveal leading-[1.75] text-left lg:text-justify">
+              Justified at every width (Demi, 2026-10-23: the phone column
+              should read as a block too). Below lg the column is the page
+              gutters, not the 860 cap, so hyphenation is on to keep the word
+              spacing of short lines in check. */}
+          <p className="text-body text-muted reveal leading-[1.75] text-justify hyphens-auto" lang="en">
             {STUDIO_MANIFESTO}
           </p>
         </div>

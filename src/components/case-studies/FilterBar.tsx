@@ -18,7 +18,7 @@ interface FilterBarProps {
 }
 
 const SELECT_BASE =
-  "filter-select bg-paper border border-line px-3 py-2 pr-8 appearance-none cursor-pointer hover:border-ink transition-colors duration-200 focus:outline-none focus:border-ink";
+  "filter-select w-full min-w-0 md:w-auto bg-paper border border-line px-2 pr-6 md:px-3 md:pr-8 py-2 appearance-none cursor-pointer hover:border-ink transition-colors duration-200 focus:outline-none focus:border-ink";
 
 export default function FilterBar({
   projects,
@@ -37,9 +37,14 @@ export default function FilterBar({
 
   return (
     <div className="border-b border-line page-x py-4">
-      <div className="flex flex-wrap items-center gap-4 justify-between">
-        <div className="flex flex-wrap items-center gap-3">
-          <SectionLabel as="span">Filter</SectionLabel>
+      {/* Phones: a 2-column grid, two rows: collection + location, then the
+          sort select with the count beside it ("All Collections" at the 16px
+          iOS needs does not fit three across a 375px screen). The Filter
+          eyebrow only shows from md, where the two groups return: label +
+          collection + location left, sort + count right. */}
+      <div className="grid grid-cols-2 gap-x-3 gap-y-3 md:flex md:flex-wrap md:items-center md:gap-4 md:justify-between">
+        <div className="contents md:flex md:flex-wrap md:items-center md:gap-3">
+          <SectionLabel as="span" className="hidden md:inline">Filter</SectionLabel>
 
           <div className="relative">
             <select
@@ -72,7 +77,7 @@ export default function FilterBar({
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="contents md:flex md:items-center md:gap-4">
           <div className="relative">
             <select
               className={SELECT_BASE}
@@ -87,7 +92,7 @@ export default function FilterBar({
             </select>
           </div>
 
-          <span className="text-meta text-muted shrink-0">
+          <span className="text-meta text-muted shrink-0 self-center text-right md:text-left">
             {filteredCount} {filteredCount === 1 ? "Case Study" : "Case Studies"}
           </span>
         </div>
