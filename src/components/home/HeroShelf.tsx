@@ -16,14 +16,16 @@ type Project = HomeProject;
 // the selected-work landing passes its own books and centre.
 const DEFAULT_CENTER = 3;
 const TICK_MS = 200;
-// Once the shelf opens, the cover the ticker landed on STAYS centred and the
-// drift runs from there: the row never slides as it spreads (on a phone the
-// old slide to x=0 shoved the whole row 340px to the right). The only case
-// handled is a viewport so wide that centring leaves empty space left of
-// cover 01: the row is then shown one set further along (there are two
-// identical sets), which is the same picture with the gap filled.
-function openOffsetFor(base: number, setWidth: number) {
-  return base > 0 ? base - setWidth : base;
+// Desktop: once the shelf opens the whole track slides so cover 01 sits on
+// the viewport's left edge (no empty gap left of it) and the drift runs from
+// there; the ticker still centres cover 04 before the slide.
+// Phones: that slide shoved the whole row ~340px to the right and the cover
+// the ticker had centred left the screen, so there the row opens where the
+// ticker left it (base) and drifts from that offset instead.
+const OPEN_OFFSET = 0;
+const PHONE = "(max-width: 767px)";
+function openOffsetFor(base: number) {
+  return window.matchMedia(PHONE).matches ? base : OPEN_OFFSET;
 }
 const DRIFT_PX_PER_SEC = 26; // slow right-to-left drift
 const TYPE_MS = 47; // tagline typewriter cadence, per character
@@ -230,7 +232,7 @@ export default function HeroShelf({
       fullSet(f, base);
     };
     const fullSet = (f: number, base: number) => {
-      const start = openOffsetFor(base, f * N);
+      const start = openOffsetFor(base);
       setOpenOffset(start);
       offsetRef.current = start;
       baseRef.current = start;
