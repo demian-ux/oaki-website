@@ -229,9 +229,11 @@ export default function HeroShelf({
       setBaseOffset(base);
       fullSet(f, base);
     };
-    const fullSet = (f: number, _base: number) => {
-      offsetRef.current = OPEN_OFFSET;
-      baseRef.current = OPEN_OFFSET;
+    const fullSet = (f: number, base: number) => {
+      const start = openOffsetFor(base, f * N);
+      setOpenOffset(start);
+      offsetRef.current = start;
+      baseRef.current = start;
       setWRef.current = f * N;
     };
     measure();
