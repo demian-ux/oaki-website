@@ -577,8 +577,11 @@ function parseMagazine(fm: Record<string, string>, body: string, images: Journal
         break;
       case "film": {
         const [src, poster] = (items[0] ?? "").split("::").map((s) => s.trim());
-        // The sheet appears once the file is in public/ (Diego delivers the MP4 apart).
-        if (src && existsSync(resolve(process.cwd(), "public", src.replace(/^\//, "")))) {
+        // No existence check against public/ here: a dynamic fs path under
+        // public/ makes Vercel's file tracing bundle the whole folder (800 MB
+        // of image derivatives) into the preview function. The file names a
+        // film that is already in public/video.
+        if (src) {
           pages.push({ kind: "film", src, poster: poster || undefined, ratio: Number(mods[0]) || 9 / 16 });
         }
         break;
