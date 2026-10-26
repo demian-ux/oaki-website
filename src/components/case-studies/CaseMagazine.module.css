@@ -295,7 +295,7 @@
   text-align: center;
 }
 .afterIn {
-  max-width: 46em;
+  max-width: 1080px;
   text-align: center;
 }
 .afterK {
@@ -305,14 +305,17 @@
   color: var(--label);
   margin-bottom: 2.2em;
 }
+/* The result in the client quote's voice (ClientQuote.module.css .quote),
+   per Demi 2026-10-26. */
 .afterIn p {
   margin: 0 auto;
-  max-width: 34em;
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: clamp(19px, 1.7vw, 27px);
-  line-height: 1.45;
+  font-size: clamp(1.9rem, 4.2vw, 3.1rem);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
   color: var(--color-ink);
+  text-wrap: balance;
 }
 .afterIn p + p {
   margin-top: 1em;
