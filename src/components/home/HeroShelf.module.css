@@ -252,6 +252,26 @@
   align-items: flex-start;
   will-change: transform;
 }
+/* Once the row drifts it can be dragged. pan-y leaves vertical page
+   scrolling to the browser on touch; horizontal gestures reach the drag. */
+.trackLive {
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.trackLive.dragging {
+  cursor: grabbing;
+}
+.trackLive a,
+.trackLive img,
+.trackLive video {
+  -webkit-user-drag: none;
+}
+.trackLive img,
+.trackLive video {
+  pointer-events: none;
+}
 .item {
   flex: 0 0 auto;
   width: clamp(132px, 12.5vw, 216px);

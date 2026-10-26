@@ -444,6 +444,13 @@ body:has([data-hero]) .site-header:not([data-nav-ready]) {
   opacity: 0;
   pointer-events: none;
 }
+/* Just after a route change onto a hero page: the bar and the mega menu
+   snap away instead of fading over the hero (Header.tsx routeSnap). */
+.site-header.route-snap,
+.site-header.route-snap .mega-menu,
+.site-header.route-snap .mega-menu * {
+  transition: none !important;
+}
 /* Phones in landscape: the notch sits on the left/right edge, so the
    logotipo and the menu button keep clear of it (viewport-fit=cover). */
 @media (max-width: 1023px) {

@@ -15,7 +15,17 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
+    // The image library and the films are served from public/ and so, by
+    // default, with max-age=0: every return to the home re-asked the server
+    // for each hero cover (a 304 round trip per cover) before it could paint.
+    // Fresh for a day, then revalidated in the background for a month: a
+    // visitor's session never refetches a cover, and a file replaced under
+    // the same name shows within a day. (Not immutable: the names are not
+    // content-hashed.)
+    const library = { key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=2592000" };
     return [
+      { source: "/images/:path*", headers: [library] },
+      { source: "/video/:path*", headers: [library] },
       { source: "/selected-works", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
       { source: "/selected-works/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
     ];

@@ -25,6 +25,13 @@ const TICK_MS = 200;
 // the row is centred on set 2 from the first frame instead (two identical
 // sets, same picture, gap filled) and the ticker plays on set 2's cover.
 const DRIFT_PX_PER_SEC = 26; // slow right-to-left drift
+// Click-and-drag on the open row. Only wired while the drift runs (i.e.
+// once every cover has settled). On release the row keeps the gesture's
+// speed and eases back to the drift over FLING_SETTLE_S; a pointer that
+// travelled more than DRAG_CLICK_PX is a drag, not a click on a cover.
+const FLING_SETTLE_S = 0.9;
+const FLING_MAX_PX_PER_SEC = 4000;
+const DRAG_CLICK_PX = 6;
 const COVER_RATIO = 0.66; // HeroShelf.module.css .cover aspect-ratio
 const WM_LOGO_PX = 30; // the logotipo size the wordmark lands on (HeroShelf.module.css .wmOpen)
 const TYPE_MS = 47; // tagline typewriter cadence, per character
@@ -38,6 +45,25 @@ const ENTRANCE_FALLBACK_MS = 2800;
 // The opening plays once per browser. Returning visitors land straight on
 // the open, drifting shelf. `?intro` forces the opening for review.
 const SEEN_KEY = "oaki:hero-seen";
+// A returning visitor lands straight on the open row, so its covers must be
+// decoded before the hero is revealed: every <img> is new on each mount and
+// Chrome paints a cover progressively as its bytes and decode arrive, which
+// showed half-painted and blank covers for a moment on every return from a
+// case study. Capped so a cold cache never holds the hero back for long.
+const DECODE_WAIT_MS = 900;
+
+function decodeCovers(projects: Project[], sizes: string): Promise<unknown> {
+  const jobs = projects.map((p) => {
+    const i = new Image();
+    if (p.srcSet) {
+      i.sizes = sizes;
+      i.srcset = p.srcSet;
+    }
+    i.src = p.img;
+    return i.decode().catch(() => {});
+  });
+  return Promise.race([Promise.all(jobs), new Promise((r) => setTimeout(r, DECODE_WAIT_MS))]);
+}
 
 function readAndMarkSeen(key: string) {
   try {
@@ -81,11 +107,19 @@ function Cover({
         // no decoding hint: the ticker swaps src every 200ms and must paint
         // each frame at once). Phones alone take the 960 export through the
         // <source media>, which desktop never evaluates.
-        <picture style={{ display: "contents" }}>
-          {shown.srcSet && <source media="(max-width: 767px)" srcSet={shown.srcSet} sizes={sizes} />}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={shown.img} alt={project.title} loading="eager" onError={() => setFailed(true)} />
-        </picture>
+        // srcset at every width: a shelf cover is at most 460px wide, so the
+        // 960 export is sharp up to 2x and a third of the bytes of the 1920
+        // master, which is what made the covers paint in stages after a
+        // navigation. The browser keeps the 1920 for denser screens.
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={shown.img}
+          srcSet={shown.srcSet}
+          sizes={sizes}
+          alt={project.title}
+          loading="eager"
+          onError={() => setFailed(true)}
+        />
       ) : (
         <div className={styles.ph}>{project.n}</div>
       )}
@@ -130,6 +164,10 @@ export default function HeroShelf({
 }: HeroShelfProps) {
   const PROJECTS = projects;
   const N = PROJECTS.length;
+  // Rendered cover width (HeroShelf.module.css .item / .itemLarge), so the
+  // browser picks the 960 export wherever it is sharp enough.
+  const coverSizes =
+    size === "large" ? "min(22vw, 38svh)" : "(min-width: 768px) min(20vw, 460px), 132px";
   const CENTER = Math.min(centerIndex, N - 1);
   // A still row is centred as a whole (its midpoint, which for an even N
   // falls between two covers); a drifting row centres the CENTER cover.
@@ -196,6 +234,13 @@ export default function HeroShelf({
         setPhase("open");
         setEntranceDone(true);
         setDrift(moving);
+        // reveal only once the covers can paint whole (see DECODE_WAIT_MS)
+        decodeCovers(PROJECTS, coverSizes).then(() => {
+          // as before, the settled row appears at once, no fade
+          setSnapping(true);
+          setReady(true);
+        });
+        return;
       }
       setReady(true);
     };
@@ -205,6 +250,7 @@ export default function HeroShelf({
     return () => clearTimeout(safety);
     // seenKey and N are fixed per surface; listed so the effect is honest
     // about what it reads, never expected to re-run.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- PROJECTS/coverSizes are fixed per surface
   }, [seenKey, N, moving]);
 
   const trackRef = useRef<HTMLDivElement>(null);
@@ -213,6 +259,9 @@ export default function HeroShelf({
   const baseRef = useRef(0);
   const setWRef = useRef(0);
   const wrapRef = useRef(0);
+  const wrapRightRef = useRef(0);
+  const dragRef = useRef({ active: false, captured: false, pointerId: 0, startX: 0, startOffset: 0, lastX: 0, lastT: 0, moved: 0, v: 0 });
+  const suppressClickRef = useRef(false);
 
   // ── the ticker: flip through the covers, then open ──
   useEffect(() => {
@@ -236,11 +285,9 @@ export default function HeroShelf({
   }, [phase, moving]);
 
   // ── once spread, reveal the covers that sat out the fan (off-screen) ──
+  // (reset to false by replay(), the only way back to the ticker)
   useEffect(() => {
-    if (phase !== "open") {
-      setFanned(false);
-      return;
-    }
+    if (phase !== "open") return;
     const t = setTimeout(() => setFanned(true), 1100);
     return () => clearTimeout(t);
   }, [phase]);
@@ -272,6 +319,9 @@ export default function HeroShelf({
       // instead of after a full set width, which left the right side empty
       // for a while on every loop.
       wrapRef.current = Math.max(f, (N - 1 - CENTER) * f - window.innerWidth / 2 - f);
+      // ...and the mirror for a row dragged to the right: set 1 runs out on
+      // the left after N + CENTER covers
+      wrapRightRef.current = Math.max(f, (N + CENTER) * f - window.innerWidth / 2 - f);
       setFull(f);
       const coverH = w / COVER_RATIO;
       // slots whose cover can be (partly) on screen once spread
@@ -315,21 +365,121 @@ export default function HeroShelf({
   useEffect(() => {
     if (!drift) return;
     offsetRef.current = baseRef.current;
+    const d = dragRef.current;
+    d.active = false;
+    d.v = -DRIFT_PX_PER_SEC;
     let raf = 0;
     let last = performance.now();
     let visible = true;
-    const loop = (now: number) => {
-      const dt = Math.min((now - last) / 1000, 0.05);
-      last = now;
-      offsetRef.current -= DRIFT_PX_PER_SEC * dt;
+    // Infinite in both directions: the two sets are identical, so jumping
+    // the row a whole set is invisible. Returns the jump so a drag in
+    // progress can keep its anchor.
+    const wrap = () => {
+      const setW = setWRef.current;
+      if (setW <= 0) return 0;
+      let jumped = 0;
       while (baseRef.current - offsetRef.current >= wrapRef.current) {
-        offsetRef.current += setWRef.current;
+        offsetRef.current += setW;
+        jumped += setW;
       }
+      while (offsetRef.current - baseRef.current >= wrapRightRef.current) {
+        offsetRef.current -= setW;
+        jumped -= setW;
+      }
+      return jumped;
+    };
+    const write = () => {
       if (trackRef.current) {
         trackRef.current.style.transform = `translateX(${offsetRef.current}px)`;
       }
+    };
+    const loop = (now: number) => {
+      const dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+      if (!d.active) {
+        // the fling speed eases back to the drift; with no gesture this is
+        // just the drift
+        d.v = -DRIFT_PX_PER_SEC + (d.v + DRIFT_PX_PER_SEC) * Math.exp(-dt / (FLING_SETTLE_S / 3));
+        offsetRef.current += d.v * dt;
+        wrap();
+        write();
+      }
       raf = requestAnimationFrame(loop);
     };
+    // ── click-and-drag ──
+    const track = trackRef.current;
+    const onDown = (e: PointerEvent) => {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      d.active = true;
+      d.moved = 0;
+      d.startX = e.clientX;
+      d.startOffset = offsetRef.current;
+      d.lastX = e.clientX;
+      d.lastT = performance.now();
+      d.v = 0;
+      d.pointerId = e.pointerId;
+      // No pointer capture yet: captured from pointerdown, the pointerup
+      // would land on the track and the browser would fire the click on
+      // the track instead of the cover's link, so a plain click never
+      // opened a case. The capture starts once this is clearly a drag.
+      d.captured = false;
+    };
+    const onMove = (e: PointerEvent) => {
+      if (!d.active) return;
+      const dx = e.clientX - d.startX;
+      d.moved = Math.max(d.moved, Math.abs(dx));
+      if (d.moved <= DRAG_CLICK_PX) return; // still a click
+      if (!d.captured) {
+        d.captured = true;
+        try {
+          track?.setPointerCapture(d.pointerId);
+        } catch {}
+        track?.classList.add(styles.dragging);
+      }
+      offsetRef.current = d.startOffset + dx;
+      d.startOffset += wrap();
+      const now = performance.now();
+      const dt = (now - d.lastT) / 1000;
+      if (dt > 0) {
+        const inst = (e.clientX - d.lastX) / dt;
+        d.v = d.v * 0.5 + inst * 0.5;
+      }
+      d.lastX = e.clientX;
+      d.lastT = now;
+      write();
+    };
+    const onUp = (e: PointerEvent) => {
+      if (!d.active) return;
+      d.active = false;
+      // a pointer that rested before release carries no speed
+      if (performance.now() - d.lastT > 80) d.v = 0;
+      d.v = Math.max(-FLING_MAX_PX_PER_SEC, Math.min(FLING_MAX_PX_PER_SEC, d.v));
+      if (d.moved > DRAG_CLICK_PX) {
+        // the click that follows a drag is swallowed (onClickCapture); if
+        // none comes (released off the row), the mark must not linger and
+        // eat the next real click
+        suppressClickRef.current = true;
+        window.setTimeout(() => {
+          suppressClickRef.current = false;
+        }, 300);
+      }
+      if (d.captured) {
+        try {
+          track?.releasePointerCapture(e.pointerId);
+        } catch {}
+      }
+      track?.classList.remove(styles.dragging);
+      last = performance.now();
+    };
+    // The covers are links: a few pixels into a drag the browser would
+    // start its own drag-and-drop of the link and cancel the pointer
+    // events, so the row only ever moved a little.
+    const onDragStart = (e: DragEvent) => e.preventDefault();
+    track?.addEventListener("dragstart", onDragStart);
+    track?.addEventListener("pointerdown", onDown);
+    track?.addEventListener("pointermove", onMove);
+    track?.addEventListener("pointerup", onUp);
+    track?.addEventListener("pointercancel", onUp);
     const start = () => {
       if (raf) return;
       last = performance.now();
@@ -360,6 +510,13 @@ export default function HeroShelf({
     return () => {
       io?.disconnect();
       stop();
+      track?.removeEventListener("dragstart", onDragStart);
+      track?.removeEventListener("pointerdown", onDown);
+      track?.removeEventListener("pointermove", onMove);
+      track?.removeEventListener("pointerup", onUp);
+      track?.removeEventListener("pointercancel", onUp);
+      track?.classList.remove(styles.dragging);
+      d.active = false;
     };
   }, [drift]);
 
@@ -379,6 +536,7 @@ export default function HeroShelf({
     setSnapping(true);
     setSkipIntro(false);
     setDrift(false);
+    setFanned(false);
     setEntranceDone(false);
     setTypedCount(0);
     setTick(tickStart);
@@ -479,11 +637,6 @@ export default function HeroShelf({
   const dotVisible = hasDot && typingDone;
 
   const tickerProject = PROJECTS[TICKER_ORDER[Math.min(tick, TICKER_ORDER.length - 1)]];
-  // Rendered cover width (HeroShelf.module.css .item / .itemLarge), so the
-  // browser picks the 960 export on phones and 2x desktops alike.
-  // Rendered cover width on a phone (HeroShelf.module.css .item / .itemLarge),
-  // so the 960 export is chosen there. Desktop never reads this.
-  const coverSizes = size === "large" ? "min(22vw, 38svh)" : "132px";
 
   // two sets of covers so the drift can loop seamlessly; one set when the
   // row stays put
@@ -492,7 +645,14 @@ export default function HeroShelf({
     const project = PROJECTS[idx];
     const primaryG = CENTER + (shifted ? N : 0); // slot of the centred cover
     const isPrimary = g === primaryG;
-    const shown = isPrimary && !open ? tickerProject : project;
+    // The ticker frame is painted only once the opening is actually
+    // running (ready, first visit). Before that, and for a returning
+    // visitor who lands straight on the open row, the centred card shows
+    // its own cover: it used to start on the ticker's first frame (Raghsa)
+    // and swap to Manhattan an effect later, and the <img> kept showing
+    // Raghsa until Manhattan had decoded, a visible flash on every return
+    // from a case study.
+    const shown = isPrimary && !open && ready && !skipIntro ? tickerProject : project;
 
     // Before the open every cover sits in the centred card's exact box
     // (same slot, same 6vh drop, same opening scale), stacked beneath it,
@@ -624,7 +784,14 @@ export default function HeroShelf({
       <div className={styles.shelf}>
         <div
           ref={trackRef}
-          className={styles.track}
+          className={`${styles.track} ${drift ? styles.trackLive : ""}`}
+          // a drag must not open the cover it ended on
+          onClickCapture={(e) => {
+            if (!suppressClickRef.current) return;
+            suppressClickRef.current = false;
+            e.preventDefault();
+            e.stopPropagation();
+          }}
           // The track itself never moves during the opening: it sits on the
           // centring offset while the ticker plays and while the covers
           // spread, and the drift loop takes over from that same offset with

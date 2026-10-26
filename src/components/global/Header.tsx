@@ -62,6 +62,13 @@ export default function Header({ projects = [], navLabels, showJournal = false }
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // True for the first moments after a route change lands on a hero page:
+  // the bar (and an open mega menu) must vanish in the same frame the hero
+  // appears, not fade out over it for 450ms. Coming back from a case study
+  // that fade showed the inner-page chrome, mega-menu covers included, on
+  // top of the opening row.
+  const [routeSnap, setRouteSnap] = useState(false);
+  const snapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useIsoLayoutEffect(() => {
     // Reveal the nav only once the hero section is fully scrolled past.
@@ -82,6 +89,11 @@ export default function Header({ projects = [], navLabels, showJournal = false }
       hero = document.querySelector<HTMLElement>("[data-hero]");
       if (hero) heroBottom = hero.getBoundingClientRect().bottom + window.scrollY;
       setHasHero(!!hero);
+      if (hero) {
+        setRouteSnap(true);
+        if (snapTimer.current) clearTimeout(snapTimer.current);
+        snapTimer.current = setTimeout(() => setRouteSnap(false), 600);
+      }
       update();
     };
     const onScroll = () => {
@@ -174,10 +186,11 @@ export default function Header({ projects = [], navLabels, showJournal = false }
     <>
       <header
         data-nav-ready={hasHero === null ? undefined : ""}
-        className={`site-header fixed top-0 left-0 right-0 z-50 ${glass ? "glass" : ""} ${inverted ? "inverted" : ""} ${megaOpen ? "mega-open" : ""}`}
+        className={`site-header fixed top-0 left-0 right-0 z-50 ${glass ? "glass" : ""} ${inverted ? "inverted" : ""} ${megaOpen ? "mega-open" : ""} ${routeSnap ? "route-snap" : ""}`}
         style={{
-          transition:
-            "transform 450ms cubic-bezier(0.66,0,0.2,1), opacity 450ms cubic-bezier(0.66,0,0.2,1), background 300ms, border-color 300ms, backdrop-filter 300ms",
+          transition: routeSnap
+            ? "none"
+            : "transform 450ms cubic-bezier(0.66,0,0.2,1), opacity 450ms cubic-bezier(0.66,0,0.2,1), background 300ms, border-color 300ms, backdrop-filter 300ms",
           ...(hideForHero
             ? { transform: "translateY(-100%)", opacity: 0, pointerEvents: "none" as const }
             : null),

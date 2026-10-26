@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Avoid the SSR "useLayoutEffect does nothing on the server" warning.
+const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 // Module-level handle so motion components can read the live Lenis instance
 // (e.g. velocity) without prop-drilling. null when reduced-motion is on.
@@ -36,12 +39,16 @@ export default function SmoothScroll() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
-  // Next resets window scroll on navigation, but Lenis keeps its internal
-  // scroll state and would write the old position back on the next frame.
-  // Reset it in the same moment. Keyed on pathname only, so same-page
-  // anchor jumps are left alone.
-  useEffect(() => {
+  // Every route starts at the top, and it must already be there when the
+  // new page first paints: as a plain effect this ran after paint, so the
+  // new page showed one frame at the previous page's scroll position (a
+  // case study's foot, then a jump to the hero). Lenis keeps its own
+  // scroll state and would write the old position back on its next frame,
+  // so it is told too. Keyed on pathname only, so same-page anchor jumps
+  // are left alone.
+  useIsoLayoutEffect(() => {
     lenisInstance?.scrollTo(0, { immediate: true, force: true });
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, [pathname]);
 
   useEffect(() => {
