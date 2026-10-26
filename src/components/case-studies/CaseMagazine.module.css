@@ -157,9 +157,12 @@
 .dark {
   background: var(--dark);
 }
-.color,
-.film {
+.color {
   background: var(--ground);
+}
+/* The film sheet sits on the dark ground, like the dark sheet (Demi 2026-10-26). */
+.film {
+  background: var(--dark);
 }
 .color {
   padding-top: 40px;
@@ -462,7 +465,8 @@
     border-bottom: 1px solid var(--rule-foot);
     pointer-events: none;
   }
-  .dark::after {
+  .dark::after,
+  .film::after {
     border-left-color: color-mix(in srgb, var(--color-warm) 35%, transparent);
     border-bottom-color: transparent;
   }
@@ -485,7 +489,8 @@
     pointer-events: none;
     z-index: 2;
   }
-  .dark .folio {
+  .dark .folio,
+  .film .folio {
     color: #a89f90;
   }
 
