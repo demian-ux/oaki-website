@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllProjectSlugs, getAllProjects, getProjectBySlug, getNextProject } from "@/lib/data";
+import { getAllProjectSlugs, getAllProjects, getProjectBySlug } from "@/lib/data";
+import { getNextCase } from "@/lib/case-chain";
 import { getCaseDraft, listCaseDraftSlugs } from "@/lib/case-drafts";
 import { HIDDEN_PROJECT_SLUGS } from "@/lib/hidden-projects";
 import CaseDraftView from "@/components/case-studies/CaseDraft";
@@ -47,9 +48,13 @@ export default async function CaseStudyPage({ params }: Props) {
   // image arc from the library, where the Sanity projects so far hold only
   // a cover. The Sanity phase template remains the fallback.
   const draft = getCaseDraft(slug);
+  // "Next project" always comes from the single public chain (case-chain.ts),
+  // never from the file: hand-written next: fields formed pairs (Manhattan
+  // <-> Central Park West) and pointed at hidden cases.
+  const next = getNextCase(slug, await getAllProjects());
   // The editorial template (2026-10) carries its own top: no back link, the
   // hero opens the page under the navbar.
-  if (draft?.editorial) return <CaseEditorialView draft={draft} />;
+  if (draft?.editorial) return <CaseEditorialView draft={draft} next={next} />;
   if (draft) {
     return (
       <>
@@ -66,14 +71,11 @@ export default async function CaseStudyPage({ params }: Props) {
     );
   }
 
-  const [project, allProjects] = await Promise.all([
-    getProjectBySlug(slug),
-    getAllProjects(),
-  ]);
+  const project = await getProjectBySlug(slug);
 
   if (!project) notFound();
 
-  const nextProject = getNextProject(slug, allProjects);
+  const nextProject = next;
 
   const displayClient =
     project.clientVisibility === "Public"
