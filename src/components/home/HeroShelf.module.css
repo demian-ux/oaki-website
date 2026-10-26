@@ -44,17 +44,25 @@
   white-space: nowrap;
   z-index: 1;
   pointer-events: none;
-  transition: font-size 1150ms var(--ease), top 1150ms var(--ease),
-    letter-spacing 1150ms var(--ease);
+  /* Laid out once at the ticker size and moved with a transform only, so
+     the shrink to the logotipo is pure compositor work: animating font-size
+     and top re-laid out and re-rasterised the giant word on every frame,
+     which is what made the opening feel heavy. --wm-scale is measured by
+     HeroShelf.tsx (30px over the rendered ticker size); the origin is the
+     top centre so the word lands on the logotipo line at top: 20px. */
+  top: 20px;
+  font-size: clamp(120px, 33vw, 660px);
+  transform-origin: 50% 0;
+  will-change: transform;
+  transition: transform 1150ms var(--ease), letter-spacing 1150ms var(--ease);
 }
 .wmTicker {
-  top: 22vh;
-  font-size: clamp(120px, 33vw, 660px);
+  transform: translateY(calc(22vh - 20px)) scale(1);
   letter-spacing: -0.05em;
 }
 .wmOpen {
-  top: 20px;
-  font-size: 30px;
+  /* = 30px with 0.02em tracking once scaled */
+  transform: translateY(0) scale(var(--wm-scale, 0.05));
   letter-spacing: 0.02em;
 }
 /* the ocre dot is the brand identifier — present from the opening on */
@@ -249,6 +257,22 @@
   width: clamp(132px, 12.5vw, 216px);
   margin-right: clamp(22px, 2.4vw, 46px);
   transition: transform 1050ms var(--ease), opacity 850ms var(--ease);
+}
+/* Desktop: the resting covers are the large cards of the reference (about
+   23vw wide), capped by the viewport height so cover + caption always
+   clear the tagline. The opening cover is scaled DOWN to ~34vh from this
+   (HeroShelf.tsx openScale), so it grows into the row. Phones keep the
+   132px books above. */
+@media (min-width: 768px) {
+  .item:not(.itemLarge) {
+    width: min(clamp(200px, 20vw, 460px), 38svh);
+    margin-right: clamp(28px, 2.4vw, 56px);
+  }
+  /* the open row (cover + caption) sits in the middle of the band between
+     the logotipo and the tagline, so the white above and below match */
+  .shelf {
+    top: 49%;
+  }
 }
 /* The large variant: a few covers, each a real card, capped by the
    viewport height so three fit on a phone and never run into the tagline. */

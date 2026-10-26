@@ -16,14 +16,17 @@ type Project = HomeProject;
 // the selected-work landing passes its own books and centre.
 const DEFAULT_CENTER = 3;
 const TICK_MS = 200;
-// The cover the ticker lands on stays centred when the shelf opens, and the
-// drift runs from there: the row never slides as it spreads (it used to
-// slide so cover 01 met the left edge, which moved the centred cover
-// sideways by an amount that depends on the screen width). On a viewport so
-// wide that centring set 1 would leave a gap left of cover 01, the row is
-// centred on set 2 from the first frame instead (two identical sets, same
-// picture, gap filled) and the ticker plays on set 2's cover.
+// The cover the ticker lands on stays centred when the shelf opens, at every
+// width, and the drift runs from there (Ruben Stom's spec, Demi 2026-10-26):
+// the row never slides as it spreads. It used to slide on desktop so cover
+// 01 met the left edge, which moved the centred cover sideways by an amount
+// that depends on the screen width and made the opening feel heavy. On a
+// viewport so wide that centring set 1 would leave a gap left of cover 01,
+// the row is centred on set 2 from the first frame instead (two identical
+// sets, same picture, gap filled) and the ticker plays on set 2's cover.
 const DRIFT_PX_PER_SEC = 26; // slow right-to-left drift
+const COVER_RATIO = 0.66; // HeroShelf.module.css .cover aspect-ratio
+const WM_LOGO_PX = 30; // the logotipo size the wordmark lands on (HeroShelf.module.css .wmOpen)
 const TYPE_MS = 47; // tagline typewriter cadence, per character
 // One frame with transitions suppressed, so a replay snaps back to the ticker
 // state instead of visibly rewinding out of the open state first.
@@ -147,12 +150,23 @@ export default function HeroShelf({
   const [baseOffset, setBaseOffset] = useState(0);
   // true when the row is centred on set 2 (see the note above DRIFT_PX_PER_SEC)
   const [shifted, setShifted] = useState(false);
-  // Desktop (>= 768px) keeps the 2026-10-09 opening: the row slides left as
-  // it spreads until cover 01 meets the viewport's left edge, and the drift
-  // runs from there. Phones keep the centred cover centred (set above).
-  const [slideOpen, setSlideOpen] = useState(false);
-  // where the open row rests before the drift takes over
-  const restX = slideOpen ? 0 : baseOffset;
+  // The giant wordmark shrinks to the logotipo with a transform (never
+  // font-size, which re-lays out and re-rasterises the text every frame):
+  // this is the scale that takes the ticker size down to the 30px logotipo.
+  const [wmScale, setWmScale] = useState(0.05);
+  // Scale of the opening cover relative to its resting size, so it opens at
+  // ~34vh tall (Ruben Stom's 30-35vh) and GROWS into the row. Capped at 1.3,
+  // which is what phones always hit (their 132px covers), so they are
+  // unchanged; on desktop the resting cover is far larger than 34vh.
+  const [openScale, setOpenScale] = useState(1.3);
+  // The fan: while the covers spread, only the ones that can land on screen
+  // take part, the SAME number on each side of the centred card (the row
+  // itself is lopsided, 15 covers left of it and 8 right, and the extra
+  // ones showed as a thicker fan on the left). The rest are revealed once
+  // the spread has settled, by which time they sit off-screen.
+  const [fanReach, setFanReach] = useState(3);
+  const [fanned, setFanned] = useState(false);
+  const wmRef = useRef<HTMLDivElement>(null);
   // tagline typewriter
   const [entranceDone, setEntranceDone] = useState(false);
   const [typedCount, setTypedCount] = useState(0);
@@ -198,6 +212,7 @@ export default function HeroShelf({
   const offsetRef = useRef(0);
   const baseRef = useRef(0);
   const setWRef = useRef(0);
+  const wrapRef = useRef(0);
 
   // ── the ticker: flip through the covers, then open ──
   useEffect(() => {
@@ -220,25 +235,56 @@ export default function HeroShelf({
     return () => clearTimeout(t);
   }, [phase, moving]);
 
+  // ── once spread, reveal the covers that sat out the fan (off-screen) ──
+  useEffect(() => {
+    if (phase !== "open") {
+      setFanned(false);
+      return;
+    }
+    const t = setTimeout(() => setFanned(true), 1100);
+    return () => clearTimeout(t);
+  }, [phase]);
+
   // ── measure item geometry → centring offset (before drift) ──
   useIsoLayoutEffect(() => {
     const measure = () => {
       const item = itemRef.current;
       if (!item) return;
-      const w = item.offsetWidth;
-      const mr = parseFloat(getComputedStyle(item).marginRight) || 0;
+      // Layout width from computed style: fractional (offsetWidth rounds,
+      // and a slot pitch off by a fraction let the covers stacked behind
+      // the centred one peek out across the row) and unaffected by the
+      // item's own transform (a bounding rect would include the opening
+      // scale).
+      const cs = getComputedStyle(item);
+      const w = parseFloat(cs.width) || item.offsetWidth;
+      const mr = parseFloat(cs.marginRight) || 0;
       const f = w + mr;
       const base = window.innerWidth / 2 - (MID * f + w / 2);
-      // a drifting row has a second set to centre on when set 1 would
-      // leave a gap on the left
-      const desktop = window.matchMedia("(min-width: 768px)").matches;
-      const slide = moving && desktop;
-      const shift = moving && !slide && base > 0 ? f * N : 0;
+      // A drifting row is centred on set 2's cover, always: set 1 then
+      // fills the left (N + CENTER covers) and the rest of set 2 the right
+      // (N - 1 - CENTER covers), so the covers fan out of the centred card
+      // to both sides at the same density. Centred on set 1 there were only
+      // CENTER covers to the left and the whole of set 2 to the right.
+      const shift = moving ? f * N : 0;
+      // The drift recycles the row (jumps one set to the right, which is
+      // invisible since the sets are identical) as soon as the right end of
+      // set 2 would come within a cover of the viewport's right edge,
+      // instead of after a full set width, which left the right side empty
+      // for a while on every loop.
+      wrapRef.current = Math.max(f, (N - 1 - CENTER) * f - window.innerWidth / 2 - f);
       setFull(f);
+      const coverH = w / COVER_RATIO;
+      // slots whose cover can be (partly) on screen once spread
+      setFanReach(Math.ceil((window.innerWidth / 2 + w / 2) / f));
+      setOpenScale(Math.min(1.3, Math.max(0.5, (0.34 * window.innerHeight) / coverH)));
       setShifted(shift > 0);
-      setSlideOpen(slide);
       setBaseOffset(base - shift);
-      fullSet(f, slide ? 0 : base - shift);
+      fullSet(f, base - shift);
+      const wm = wmRef.current;
+      if (wm) {
+        const fs = parseFloat(getComputedStyle(wm).fontSize) || 0;
+        if (fs > 0) setWmScale(WM_LOGO_PX / fs);
+      }
     };
     const fullSet = (f: number, start: number) => {
       offsetRef.current = start;
@@ -246,8 +292,20 @@ export default function HeroShelf({
       setWRef.current = f * N;
     };
     measure();
+    // Re-measure whenever the cover's own box changes, not only on a window
+    // resize: the width also moves with the 768px media query, a font load
+    // and the viewport height cap, and a stale --full leaves the stacked
+    // covers fanned out across the row before the open.
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    let ro: ResizeObserver | null = null;
+    if (itemRef.current && typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(() => measure());
+      ro.observe(itemRef.current);
+    }
+    return () => {
+      window.removeEventListener("resize", measure);
+      ro?.disconnect();
+    };
   }, []);
 
   // ── the drift loop (direct style writes; no React churn) ──
@@ -264,7 +322,7 @@ export default function HeroShelf({
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
       offsetRef.current -= DRIFT_PX_PER_SEC * dt;
-      while (baseRef.current - offsetRef.current >= setWRef.current) {
+      while (baseRef.current - offsetRef.current >= wrapRef.current) {
         offsetRef.current += setWRef.current;
       }
       if (trackRef.current) {
@@ -432,33 +490,52 @@ export default function HeroShelf({
   const items = Array.from({ length: moving ? N * 2 : N }, (_, g) => {
     const idx = g % N;
     const project = PROJECTS[idx];
-    const isPrimary = g === CENTER + (shifted ? N : 0); // the centred cover
+    const primaryG = CENTER + (shifted ? N : 0); // slot of the centred cover
+    const isPrimary = g === primaryG;
     const shown = isPrimary && !open ? tickerProject : project;
 
+    // Before the open every cover sits in the centred card's exact box
+    // (same slot, same 6vh drop, same opening scale), stacked beneath it,
+    // so on open they come out from behind it and grow with it to their
+    // resting size (Ruben Stom's opening). The z-order falls off with the
+    // distance from the centred card, so each one emerges from under its
+    // nearer neighbour. Measured per set (as before) the far covers would
+    // collapse toward their own set's centre, off-screen.
     let transform = "none";
-    let opacity = 1;
+    // Only the centred card is visible before the open: the stacked covers
+    // are hidden (not just beneath it) so nothing can peek out, and they are
+    // revealed at the instant the open state is committed, when they are
+    // still exactly behind it.
+    const slotDist = Math.abs(g - primaryG);
+    const hiddenNow = !open ? !isPrimary : !fanned && !skipIntro && slotDist > fanReach;
+    const visibility = hiddenNow ? "hidden" : undefined;
     if (!open) {
-      if (isPrimary) {
-        // opening cover ≈ 30–35vh, kissing the wordmark's baseline; the
-        // word+cover group is centred vertically in the viewport
-        transform = `translateX(calc((${MID} - ${CENTER}) * var(--full, 0px))) translateY(6vh) scale(${size === "large" ? 1.08 : 1.3})`;
-        opacity = 1;
-      } else {
-        // collapsed toward the centre so it can spread outward on open
-        transform = `translateX(calc((${MID} - ${idx}) * var(--full, 0px) * 0.82)) scale(0.6)`;
-        opacity = 0;
-      }
+      transform = `translateX(calc((${MID - CENTER} + ${primaryG - g}) * var(--full, 0px))) translateY(6vh) scale(${size === "large" ? 1.08 : openScale})`;
     }
-    const dist = Math.abs(idx - CENTER);
-    const itemDelay = open ? `${dist * 45}ms` : "0ms";
-    const capDelay = open ? `${480 + dist * 55}ms` : "0ms";
+    const zIndex = N * 2 - slotDist;
+    // Every cover leaves the stack at the same instant: with a stagger the
+    // far ones were still waiting in the stack, at the small opening size,
+    // while the centred card had already grown and risen off it, and they
+    // showed underneath. Moving together, each one slides out from under
+    // its nearer neighbour (the fan of the reference). Only the captions
+    // stagger, by slot distance, so both sides read at the same pace.
+    const itemDelay = "0ms";
+    const capDelay = open ? `${480 + slotDist * 55}ms` : "0ms";
 
     return (
       <div
         key={g}
         ref={g === 0 ? itemRef : undefined}
         className={`${styles.item} ${size === "large" ? styles.itemLarge : ""}`}
-        style={{ transform, opacity, transitionDelay: itemDelay }}
+        // No transition while the ticker plays: the first paint uses set 1's
+        // centred slot, the measure may then move the centred cover to set 2
+        // (wide viewports), and that style change must snap, not animate as
+        // a 1050ms zoom from scale(0.6) to scale(1.3). The class transition
+        // takes over the moment the open state is committed.
+        // transitionDuration, not the `transition` shorthand: React cannot
+        // mix a shorthand with the transitionDelay longhand in one style
+        // object, and the delay was silently dropped on the open render.
+        style={{ transform, zIndex, visibility, transitionDelay: itemDelay, transitionDuration: open ? undefined : "0s" }}
       >
         <Link
           href={project.href}
@@ -497,7 +574,12 @@ export default function HeroShelf({
       </h1>
 
       {/* wordmark → logotipo */}
-      <div className={`${styles.wm} ${open ? styles.wmOpen : styles.wmTicker}`} aria-hidden="true">
+      <div
+        ref={wmRef}
+        className={`${styles.wm} ${open ? styles.wmOpen : styles.wmTicker}`}
+        style={{ "--wm-scale": wmScale } as React.CSSProperties}
+        aria-hidden="true"
+      >
         oaki<span className={styles.dot}>.</span>
       </div>
 
@@ -543,23 +625,13 @@ export default function HeroShelf({
         <div
           ref={trackRef}
           className={styles.track}
-          style={
-            drift
-              ? // The drift loop writes the transform directly, but the first
-                // frame after this commit paints before that loop has run;
-                // keeping the offset here means that frame shows the row
-                // where it already was, not at x=0 for one flash.
-                ({ "--full": `${full}px`, transform: `translateX(${restX}px)` } as React.CSSProperties)
-              : ({
-                  "--full": `${full}px`,
-                  // the centring offset while the ticker plays; on open,
-                  // desktop slides to the left edge with the spread while
-                  // phones stay centred; the drift takes over (direct
-                  // style writes) once the spread has settled
-                  transform: `translateX(${open ? restX : baseOffset}px)`,
-                  transition: open && !snapping ? "transform 1050ms var(--ease)" : "none",
-                } as React.CSSProperties)
-          }
+          // The track itself never moves during the opening: it sits on the
+          // centring offset while the ticker plays and while the covers
+          // spread, and the drift loop takes over from that same offset with
+          // direct style writes once the spread has settled. Keeping the
+          // offset in the drift state too means the handover frame paints
+          // the row where it already was, never at x=0 for one flash.
+          style={{ "--full": `${full}px`, transform: `translateX(${baseOffset}px)` } as React.CSSProperties}
         >
           {items}
         </div>
