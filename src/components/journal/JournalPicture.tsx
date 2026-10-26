@@ -1,4 +1,5 @@
 import type { JournalImage } from "@/lib/journal-images";
+import { tabletSizes } from "@/lib/image-sizes";
 
 // Renders a pipeline-generated journal image as <picture>: AVIF primary,
 // WebP fallback, srcset across the generated widths so the browser picks
@@ -22,12 +23,14 @@ const srcSet = (sources: { src: string; width: number }[]) =>
 export default function JournalPicture({
   image,
   alt,
-  sizes,
+  sizes: sizesProp,
   priority,
   className,
   contain,
 }: JournalPictureProps) {
   const largestWebp = image.webp[0];
+  // "100vw" gets the iPad clause (image-sizes.ts); anything else is passed through.
+  const sizes = tabletSizes(sizesProp) ?? sizesProp;
   return (
     <picture>
       <source type="image/avif" srcSet={srcSet(image.avif)} sizes={sizes} />

@@ -4,6 +4,12 @@ const nextConfig: NextConfig = {
   // Lets a second dev server run alongside the main one (Next locks per
   // distDir). Unset in normal use and in production builds.
   distDir: process.env.NEXT_DIST_DIR || ".next",
+  // Dev only (ignored by production builds): lets the iPad / a phone on the
+  // studio wifi open the dev server at http://192.168.1.15:3001. Without it
+  // Next 16 blocks every /_next dev resource for a non-localhost origin, so
+  // the page arrives without JS: the hero stays at opacity 0 and the site
+  // header (hidden until the nav measures the hero) never appears.
+  allowedDevOrigins: ["192.168.1.15", "192.168.1.*"],
   // Selected work (the private sample set) lives in this app under
   // /selected-works (src/app/(selected)), replacing the static site that
   // used to be proxied from the oaki-selected-work Vercel project. Its old

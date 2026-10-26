@@ -13,6 +13,7 @@ import { collectionDisplay } from "@/lib/collection-label";
 import { COLLECTIONS, collectionsFor } from "@/lib/project-taxonomy";
 import { useHeroTheme } from "./HeroTheme";
 import { getLenis } from "./SmoothScroll";
+import useCoarsePointer from "./useCoarsePointer";
 import { HERO_REPLAY_EVENT } from "@/lib/hero-replay";
 import type { Project } from "@/lib/types";
 
@@ -62,6 +63,10 @@ export default function Header({ projects = [], navLabels, showJournal = false }
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // iPad tier: with a finger there is no hover, so the mega menu is a tap
+  // toggle instead (see the nav below). False on desktop: every hover
+  // handler stays exactly as it was.
+  const coarse = useCoarsePointer();
   // True for the first moments after a route change lands on a hero page:
   // the bar (and an open mega menu) must vanish in the same frame the hero
   // appears, not fade out over it for 450ms. Coming back from a case study
@@ -158,6 +163,36 @@ export default function Header({ projects = [], navLabels, showJournal = false }
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setMegaOpen(true);
   };
+  // Coarse pointer only. First tap on "Case Studies" opens the panel instead
+  // of navigating; a second tap (or any link inside the panel) navigates.
+  // Relying on iOS's synthetic hover would leave no way to close the panel
+  // without navigating, so the backdrop closes it too (onClick below).
+  const onCaseStudiesTap = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!coarse) return;
+    if (megaOpen) return;
+    e.preventDefault();
+    openMega();
+  };
+  // Coarse pointer, panel open: a touch anywhere that is not the panel or
+  // the bar closes it. Bound on the document as a pointer event, so it does
+  // not depend on iOS Safari deciding to dispatch a click to the backdrop
+  // div (it only does for elements it deems clickable, and a delegated
+  // React handler is not visible to that heuristic).
+  useEffect(() => {
+    if (!coarse || !megaOpen) return;
+    const onDown = (e: PointerEvent) => {
+      const t = e.target instanceof Element ? e.target : null;
+      if (t?.closest(".mega-inner")) return;
+      if (t?.closest(".mega-backdrop")) {
+        setMegaOpen(false);
+        return;
+      }
+      if (t?.closest(".site-header")) return; // the bar: its own links decide
+      setMegaOpen(false);
+    };
+    document.addEventListener("pointerdown", onDown, true);
+    return () => document.removeEventListener("pointerdown", onDown, true);
+  }, [coarse, megaOpen]);
   const scheduleClose = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     closeTimer.current = setTimeout(() => setMegaOpen(false), 120);
@@ -218,11 +253,12 @@ export default function Header({ projects = [], navLabels, showJournal = false }
                 <div
                   key={link.href}
                   className="relative flex items-center"
-                  onMouseEnter={isCaseStudies && projects.length > 0 ? openMega : undefined}
-                  onMouseLeave={isCaseStudies && projects.length > 0 ? scheduleClose : undefined}
+                  onMouseEnter={isCaseStudies && projects.length > 0 && !coarse ? openMega : undefined}
+                  onMouseLeave={isCaseStudies && projects.length > 0 && !coarse ? scheduleClose : undefined}
                 >
                   <Link
                     href={link.href}
+                    onClick={isCaseStudies && projects.length > 0 ? onCaseStudiesTap : undefined}
                     className={`coord nav-link-warm inline-flex items-center gap-1 py-1 transition-colors duration-300 ${
                       pathname === link.href ? "text-ink active" : "hover:text-ink"
                     } ${isCaseStudies && megaOpen ? "open" : ""}`}
@@ -263,6 +299,7 @@ export default function Header({ projects = [], navLabels, showJournal = false }
             onEnter={openMega}
             onLeave={scheduleClose}
             onClose={() => setMegaOpen(false)}
+            tapToClose={coarse}
           />
         )}
       </header>
@@ -278,12 +315,15 @@ function CaseStudiesMegaMenu({
   onEnter,
   onLeave,
   onClose,
+  tapToClose = false,
 }: {
   open: boolean;
   projects: Project[];
   onEnter: () => void;
   onLeave: () => void;
   onClose: () => void;
+  /** iPad tier: the panel was opened by a tap, so a tap outside closes it. */
+  tapToClose?: boolean;
 }) {
   // Prefer explicitly-featured books, but fall back to the most recent case
   // studies so the column never renders empty when nothing is flagged featured.
@@ -299,8 +339,8 @@ function CaseStudiesMegaMenu({
   return (
     <div
       className={`mega-menu ${open ? "open" : ""}`}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
+      onMouseEnter={tapToClose ? undefined : onEnter}
+      onMouseLeave={tapToClose ? undefined : onLeave}
       aria-hidden={!open}
     >
       <div className="mega-inner page-x">
@@ -408,7 +448,7 @@ function CaseStudiesMegaMenu({
           </div>
         </div>
       </div>
-      <div className="mega-backdrop" />
+      <div className="mega-backdrop" onClick={tapToClose ? onClose : undefined} />
     </div>
   );
 }

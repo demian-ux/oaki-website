@@ -10,6 +10,11 @@ import { useEffect } from "react";
  * remaining image is fetched and decoded one at a time during idle frames, so
  * scrolling only ever composites already-decoded bitmaps. Renders nothing.
  */
+// Desktop = wide AND a fine pointer. An iPad Pro matches the width alone
+// (1024px portrait, 1366px landscape) but not the pointer, so it keeps the
+// native lazy loading (IPAD_AUDIT_2026-10.md, finding 6).
+const DESKTOP = "(min-width: 1024px) and (pointer: fine)";
+
 export default function WarmupAssets() {
   useEffect(() => {
     let cancelled = false;
@@ -29,9 +34,11 @@ export default function WarmupAssets() {
     // would force a re-raster back into the parent and re-create the jank.
     // Skipped: the hero (already painted) and the pinned services deck
     // (will-change:transform on an ancestor re-parents its position:fixed
-    // pin). Desktop only; the layer memory isn't worth it on mobile.
+    // pin). Desktop only; the layer memory isn't worth it on mobile, and
+    // an iPad (1024px wide but pointer: coarse) is treated like mobile:
+    // Safari iOS evicts the extra layers under memory pressure anyway.
     const prewarmLayers = () => {
-      if (!window.matchMedia("(min-width: 1024px)").matches) return;
+      if (!window.matchMedia(DESKTOP).matches) return;
       const main = document.querySelector("main");
       if (!main) return;
       const roots = [...Array.from(main.children), document.querySelector("footer")];
@@ -50,7 +57,7 @@ export default function WarmupAssets() {
       // viewport; on a phone, eager-fetching and decoding every below-fold
       // image on load just spends the visitor's data and memory (iOS evicts
       // decoded bitmaps under pressure anyway), so lazy loading stays native.
-      if (!window.matchMedia("(min-width: 1024px)").matches) return;
+      if (!window.matchMedia(DESKTOP).matches) return;
       prewarmLayers();
       const imgs = Array.from(document.images);
       // Promote every pending lazy image at once so all fetches start now,

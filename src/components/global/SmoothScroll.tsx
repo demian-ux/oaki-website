@@ -53,6 +53,12 @@ export default function SmoothScroll() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // iPad tier (IPAD_AUDIT_2026-10.md): the finger already scrolls natively
+    // (syncTouch is off), and the Magic Keyboard trackpad sends wheel events
+    // that iPadOS has already given momentum; Lenis lerping on top of that
+    // read as lag. Native scroll there, like reduced motion. Phones (under
+    // 768px) and every mouse keep Lenis exactly as before.
+    if (window.matchMedia("(pointer: coarse) and (min-width: 768px)").matches) return;
 
     gsap.registerPlugin(ScrollTrigger);
 

@@ -433,3 +433,36 @@
     display: none;
   }
 }
+
+/* ── iPad / tablet tier (IPAD_AUDIT_2026-10.md) ──────────────────────
+   Guarded by (pointer: coarse): a mouse never evaluates these. Width keeps
+   phones (their own rules above) out. */
+/* INFO / CONTACT and the three hero nav links are 11px labels; the same
+   12px-in / 12px-out trick as the phone rule grows the finger target to
+   ~40px without moving a pixel (margin box = the old border box). */
+@media (pointer: coarse) and (min-width: 768px) {
+  .info {
+    padding: 12px;
+    margin: -12px;
+  }
+  .contact {
+    padding: 12px;
+    margin: -12px;
+  }
+  .heroNavLink {
+    padding: 12px;
+    margin: -12px;
+  }
+}
+/* iPad in portrait (1024 x 1366): the desktop cover, 20vw = 205px, sat in
+   a 300px band with half the viewport empty above and below. Three covers
+   of 30vw fill the band; the height cap still clears the tagline. The
+   opening cover scale (HeroShelf.tsx openScale) is measured from this
+   width, so the opening keeps growing into the row. Landscape keeps the
+   desktop size. */
+@media (pointer: coarse) and (min-width: 768px) and (orientation: portrait) {
+  .item:not(.itemLarge) {
+    width: min(clamp(200px, 30vw, 460px), 38svh);
+    margin-right: clamp(28px, 3.5vw, 56px);
+  }
+}

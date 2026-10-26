@@ -292,7 +292,10 @@ export default function BookingPicker({ lead }: BookingPickerProps = {}) {
                 onClick={() => shift(b.n)}
                 disabled={b.off}
                 aria-label={b.label}
-                className={`text-ink ${MOTION} ${FOCUS}`}
+                // tablet: (iPad tier) the 15x32 glyph gets a 44px finger
+                // target; the padding is cancelled by the margin, so the
+                // arrows do not move. A mouse never matches the variant.
+                className={`text-ink tablet:p-3 tablet:-m-3 ${MOTION} ${FOCUS}`}
                 style={b.off ? { color: DISABLED } : undefined}
               >
                 {b.glyph}

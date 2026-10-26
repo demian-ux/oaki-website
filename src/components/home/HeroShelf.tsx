@@ -166,8 +166,12 @@ export default function HeroShelf({
   const N = PROJECTS.length;
   // Rendered cover width (HeroShelf.module.css .item / .itemLarge), so the
   // browser picks the 960 export wherever it is sharp enough.
+  // The first clause is the iPad-portrait width (HeroShelf.module.css,
+  // tablet tier); a mouse never matches it, so desktop keeps 20vw.
   const coverSizes =
-    size === "large" ? "min(22vw, 38svh)" : "(min-width: 768px) min(20vw, 460px), 132px";
+    size === "large"
+      ? "min(22vw, 38svh)"
+      : "(pointer: coarse) and (min-width: 768px) and (orientation: portrait) min(30vw, 460px), (min-width: 768px) min(20vw, 460px), 132px";
   const CENTER = Math.min(centerIndex, N - 1);
   // A still row is centred as a whole (its midpoint, which for an even N
   // falls between two covers); a drifting row centres the CENTER cover.
@@ -342,18 +346,30 @@ export default function HeroShelf({
       setWRef.current = f * N;
     };
     measure();
+    // iPad tier (IPAD_AUDIT_2026-10.md): Safari fires resize every time its
+    // toolbar collapses or expands on a scroll, with the width unchanged,
+    // and each re-measure sent the drifting row back to its start position
+    // mid-scroll. With a coarse pointer only a width change (rotation,
+    // Split View) re-measures; a mouse keeps every resize, as before.
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    let lastW = window.innerWidth;
+    const onResize = () => {
+      if (coarse && window.innerWidth === lastW) return;
+      lastW = window.innerWidth;
+      measure();
+    };
     // Re-measure whenever the cover's own box changes, not only on a window
     // resize: the width also moves with the 768px media query, a font load
     // and the viewport height cap, and a stale --full leaves the stacked
     // covers fanned out across the row before the open.
-    window.addEventListener("resize", measure);
+    window.addEventListener("resize", onResize);
     let ro: ResizeObserver | null = null;
     if (itemRef.current && typeof ResizeObserver !== "undefined") {
       ro = new ResizeObserver(() => measure());
       ro.observe(itemRef.current);
     }
     return () => {
-      window.removeEventListener("resize", measure);
+      window.removeEventListener("resize", onResize);
       ro?.disconnect();
     };
   }, []);

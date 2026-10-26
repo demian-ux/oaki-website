@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { urlFor } from "@/sanity/client";
 import { type SanityImage } from "@/lib/types";
+import { tabletSizes } from "@/lib/image-sizes";
 
 interface SanityImgProps {
   image: SanityImage | null | undefined;
@@ -39,7 +40,7 @@ export default function SanityImg({
         src={src}
         alt={image.alt ?? alt ?? ""}
         fill
-        sizes={sizes ?? "100vw"}
+        sizes={tabletSizes(sizes ?? "100vw")}
         className={className}
         priority={priority}
         placeholder={image.asset.metadata?.lqip ? "blur" : "empty"}
@@ -54,7 +55,7 @@ export default function SanityImg({
       alt={image.alt ?? alt ?? ""}
       width={width ?? 1200}
       height={height ?? 800}
-      sizes={sizes}
+      sizes={tabletSizes(sizes)}
       className={className}
       style={style}
       priority={priority}

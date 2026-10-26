@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import styles from "./JournalSlider.module.css";
+import useCoarsePointer from "@/components/global/useCoarsePointer";
 import type { JournalArticle } from "@/lib/journal-mock";
 
 /**
@@ -41,6 +42,11 @@ export default function JournalSlider({
   const draggedRef = useRef(false);
   const pressedRef = useRef<number | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  // iPad tier (IPAD_AUDIT_2026-10.md): on a tablet the swipe comes through
+  // native touch listeners (below) and the pointer handlers ignore touch
+  // pointers. A mouse or pen keeps the pointer path exactly as it was.
+  const tablet = useCoarsePointer(true);
 
   const active = ((pos % n) + n) % n;
 
@@ -93,20 +99,44 @@ export default function JournalSlider({
     }
   };
 
-  // Pointer drag / swipe.
-  const onPointerDown = (e: React.PointerEvent) => {
-    startXRef.current = e.clientX || 1;
+  // Drag core, shared by the pointer path and the tablet touch path.
+  const dragStart = (x: number, target: EventTarget | null) => {
+    startXRef.current = x || 1;
     draggedRef.current = false;
-    const el = (e.target as HTMLElement).closest("[data-idx]") as HTMLElement | null;
+    const el = (target as HTMLElement | null)?.closest("[data-idx]") as HTMLElement | null;
     pressedRef.current = el ? Number(el.dataset.idx) : null;
     setAnimate(false);
+  };
+  const dragMove = (x: number) => {
+    if (!startXRef.current) return;
+    const dx = x - startXRef.current;
+    if (Math.abs(dx) > 5) draggedRef.current = true;
+    setDragPx(dx);
+  };
+  // A touch that turned out to be a vertical page scroll: let go without a
+  // step and without a tap.
+  const cancelDrag = () => {
+    if (!startXRef.current) return;
+    startXRef.current = 0;
+    pressedRef.current = null;
+    setDragPx(0);
+    setAnimate(true);
+  };
+
+  // Pointer drag / swipe (mouse, pen; touch too outside the tablet tier).
+  const isTabletTouch = (e: React.PointerEvent) => tablet && e.pointerType === "touch";
+  const onPointerDown = (e: React.PointerEvent) => {
+    if (isTabletTouch(e)) return;
+    dragStart(e.clientX, e.target);
     e.currentTarget.setPointerCapture(e.pointerId);
   };
   const onPointerMove = (e: React.PointerEvent) => {
-    if (!startXRef.current) return;
-    const dx = e.clientX - startXRef.current;
-    if (Math.abs(dx) > 5) draggedRef.current = true;
-    setDragPx(dx);
+    if (isTabletTouch(e)) return;
+    dragMove(e.clientX);
+  };
+  const onPointerEnd = (e: React.PointerEvent) => {
+    if (isTabletTouch(e)) return;
+    endDrag();
   };
   // Pointer capture suppresses the native click, so resolve tap-vs-drag here.
   const endDrag = () => {
@@ -132,6 +162,65 @@ export default function JournalSlider({
     else if (e.key === "ArrowLeft") step(-1);
   };
 
+  // Tablet touch path. iOS Safari and pointer capture on a touch pointer
+  // did not deliver the horizontal moves, so the swipe is read from the
+  // touch events themselves: the first clear direction decides whether the
+  // gesture is ours (horizontal: the page must not pan, so the move is
+  // prevented) or the page's (vertical: touch-action: pan-y scrolls it and
+  // the drag is dropped). The handlers are read through a ref so the
+  // listeners, bound once, always call the current render's closures.
+  const touchApi = useRef({ dragStart, dragMove, endDrag, cancelDrag });
+  useEffect(() => {
+    touchApi.current = { dragStart, dragMove, endDrag, cancelDrag };
+  });
+  useEffect(() => {
+    if (!tablet) return;
+    const el = viewportRef.current;
+    if (!el) return;
+    let sx = 0;
+    let sy = 0;
+    let axis: "x" | "y" | null = null;
+    const onStart = (e: TouchEvent) => {
+      if (e.touches.length !== 1) return;
+      const t = e.touches[0];
+      sx = t.clientX;
+      sy = t.clientY;
+      axis = null;
+      touchApi.current.dragStart(t.clientX, e.target);
+    };
+    const onMove = (e: TouchEvent) => {
+      if (e.touches.length !== 1) return;
+      const t = e.touches[0];
+      const dx = t.clientX - sx;
+      const dy = t.clientY - sy;
+      if (axis === null) {
+        if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+        axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+        if (axis === "y") {
+          touchApi.current.cancelDrag();
+          return;
+        }
+      }
+      if (axis !== "x") return;
+      if (e.cancelable) e.preventDefault();
+      touchApi.current.dragMove(t.clientX);
+    };
+    const onEnd = () => {
+      if (axis === "y") return;
+      touchApi.current.endDrag();
+    };
+    el.addEventListener("touchstart", onStart, { passive: true });
+    el.addEventListener("touchmove", onMove, { passive: false });
+    el.addEventListener("touchend", onEnd);
+    el.addEventListener("touchcancel", onEnd);
+    return () => {
+      el.removeEventListener("touchstart", onStart);
+      el.removeEventListener("touchmove", onMove);
+      el.removeEventListener("touchend", onEnd);
+      el.removeEventListener("touchcancel", onEnd);
+    };
+  }, [tablet]);
+
   if (n === 0) return null;
 
   return (
@@ -156,6 +245,7 @@ export default function JournalSlider({
       {intro ? <p className={`${styles.intro} page-x`}>{intro}</p> : null}
 
       <div
+        ref={viewportRef}
         className={styles.viewport}
         role="group"
         aria-roledescription="carousel"
@@ -163,9 +253,9 @@ export default function JournalSlider({
         onKeyDown={onKeyDown}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-        onPointerLeave={endDrag}
+        onPointerUp={onPointerEnd}
+        onPointerCancel={onPointerEnd}
+        onPointerLeave={onPointerEnd}
       >
         <div
           ref={trackRef}

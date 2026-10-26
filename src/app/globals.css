@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* iPad / tablet tier (IPAD_AUDIT_2026-10.md). Discriminated by input, never
+   by width: an iPad in portrait is 1024px wide, the same as a small desktop
+   window, so a width rule would leak into desktop. A mouse reports
+   pointer: fine, so nothing under these variants is ever evaluated there.
+   touch:  any coarse pointer (phones included)
+   tablet: coarse pointer from 768px up (iPad, iPad Pro; phones excluded) */
+@custom-variant touch (@media (pointer: coarse));
+@custom-variant tablet (@media (pointer: coarse) and (min-width: 768px));
+
 @theme {
   /* Colors — brand */
   --color-ink: #222222;
@@ -1647,3 +1656,49 @@ html.lenis body {
   overflow: clip;
 }
 
+/* ════════════════════════════════════════════════════════════════════
+   IPAD / TABLET TIER
+   Every rule below is guarded by (pointer: coarse), so a desktop with a
+   mouse never evaluates it. Width guards keep phones (which have their own
+   rules above) out. Nothing visual changes: the hit areas grow through an
+   absolute pseudo-element or padding cancelled by a negative margin, so the
+   layout and the painted pixels are identical to desktop.
+   ════════════════════════════════════════════════════════════════════ */
+@media (pointer: coarse) and (min-width: 1024px) {
+  /* Header nav links are 26px tall and the quick-copy email 18px; Apple's
+     HIG asks for 44pt. The underline (::after) stays where it is; ::before
+     paints nothing and only extends what a finger can hit. */
+  .site-header nav .nav-link-warm::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    right: -8px;
+    top: 50%;
+    height: 44px;
+    transform: translateY(-50%);
+  }
+  /* "View the Library" (19px) in the mega menu, same treatment. */
+  .mega-cta-link {
+    position: relative;
+  }
+  .mega-cta-link::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    right: -8px;
+    top: 50%;
+    height: 44px;
+    transform: translateY(-50%);
+  }
+  /* The mega menu is opened by a tap here (Header.tsx, coarse pointer), so
+     the backdrop must take the tap that closes it: the base rule leaves it
+     at pointer-events: none (on desktop the hover-out closes the panel).
+     cursor: pointer is what makes iOS Safari dispatch a click to a plain
+     div with a delegated handler. It starts under the 80px bar so the bar
+     itself stays tappable: a second tap on Case Studies still navigates. */
+  .mega-menu.open .mega-backdrop {
+    pointer-events: auto;
+    cursor: pointer;
+    top: 80px;
+  }
+}
