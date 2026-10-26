@@ -30,7 +30,7 @@ export const casePreviewLinks: Record<string, CasePreviewLink> = {
   q8jbz3pynk4elsahxd5o: { label: "Southwest Lounges (iCrave, HARD GATE)", slug: "icrave-southwest" },
   sgdx3eacf20bvo6nrwpy: { label: "803 Hunter Rd", slug: "803-hunter-rd" },
   "7n5omzq1psrfd4x9h0bl": { label: "Cazouls les Bézier", slug: "cazouls-les-bezier" },
-  i16ij50oym7j41jnrdse: { label: "Dillido Residence", slug: "dillido-residence" },
+  i16ij50oym7j41jnrdse: { label: "Maison Rive Gauche", slug: "dillido-residence" },
   fdy9fcc3munh9uxlrupo: { label: "Windsor Residence", slug: "windsor-residence" },
   m3xq81vkw7yrn5t2ojdc: { label: "K Villa", slug: "k-villa" },
   b2wq7ndk4xm9rte0shcv: { label: "Carved Terrace Block", slug: "sf-housing-schemes" },

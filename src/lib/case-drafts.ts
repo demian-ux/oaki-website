@@ -112,6 +112,83 @@ export interface CaseEditorial {
   closingBw: CaseEditorialImage | null;
 }
 
+
+/* ------------------------------------------------------------------------
+ * The MAGAZINE template (01-plantilla-v4.md, 2026-10, "Magazine"): hero,
+ * cover (kicker / huge title / one-line summary), three-column intro, then
+ * a sequence of SHEETS, each one viewport tall, with the case name running
+ * down a fixed spine on the left. Images are re-scaled into the sheet,
+ * never cropped, never deformed, and nothing enters the spine.
+ * ---------------------------------------------------------------------- */
+
+export interface CaseMagazineFigure {
+  value: string;
+  label: string;
+}
+
+/** An image on a sheet: the library master, its alt, its ratio and an
+ *  optional credit (diagrams: "Diagram: AFT Arquitectos"). */
+export interface CaseMagazineImage extends CaseEditorialImage {
+  credit?: string;
+}
+
+export type CaseMagazinePage =
+  /** Sangrado: one image from the spine to the right edge, max 92% tall. */
+  | { kind: "bleed"; image: CaseMagazineImage }
+  /** Sangrado doble: two images at one height, filling the width. */
+  | { kind: "bleed-two"; images: CaseMagazineImage[] }
+  /** Lámina centrada: one image, 12% side margins, max 88% tall. */
+  | { kind: "plate"; image: CaseMagazineImage }
+  /** Tres láminas: two or three verticals at one height, centered. */
+  | { kind: "plates"; images: CaseMagazineImage[] }
+  /** Par asimétrico: big (62% / 80%) + small (28% / 56%), centered on each other. */
+  | { kind: "pair"; big: CaseMagazineImage; small: CaseMagazineImage; smallFirst: boolean }
+  /** Hoja de color: warm grey sheet, image(s) the full height, left / right / centered. */
+  | { kind: "color"; images: CaseMagazineImage[]; align: "left" | "right" | "center" }
+  /** Banda: the colour is as tall as the big image (80%), the small one centered in the rest. */
+  | { kind: "band"; big: CaseMagazineImage; small: CaseMagazineImage }
+  /** Hoja oscura: #1d1b18, image up to the full height, optional quote at right. */
+  | { kind: "dark"; image: CaseMagazineImage; quote?: string }
+  /** Cita: plate at left (88%), serif italic sentence at right, right-aligned. */
+  | { kind: "quote"; image: CaseMagazineImage; quote: string; cite?: string }
+  /** Texto + diagrama: figures / paragraphs / a quote at left, a diagram with
+   *  credit (or a plate, or a trio) at right; `under` puts the diagram under
+   *  the text instead. Words come from the body section "## Page N". */
+  | {
+      kind: "text";
+      figures: CaseMagazineFigure[];
+      text: string[];
+      quote?: string;
+      under?: CaseMagazineImage;
+      right: CaseMagazineImage[];
+    }
+  /** Lámina con margen frente a sangrado. */
+  | { kind: "plate-bleed"; left: CaseMagazineImage; right: CaseMagazineImage }
+  /** Film vertical: a colour sheet with a 9:16 muted loop, 84% tall. */
+  | { kind: "film"; src: string; poster?: string; ratio: number }
+  /** Afterward: centered serif text with the result, optionally the client's
+   *  words with attribution, and 0-3 numeric figures. */
+  | { kind: "afterward"; text: string[]; figures: CaseMagazineFigure[]; quote?: { text: string; by?: string } };
+
+export interface CaseMagazine {
+  hero:
+    | { type: "image"; image: CaseMagazineImage }
+    | { type: "video"; src: string; posterSrc?: string; ratio: number; alt: string };
+  /** The section line over the title: "The X Collection · No. NN · City, Year". */
+  kicker: string;
+  /** Short names (Ranu, The Point) take the larger title size. */
+  titleSize: "short" | "long";
+  /** The one-line summary under the title, serif italic. */
+  summary: string;
+  sheet: { label: string; value: string }[];
+  intro: string[];
+  introImage: CaseMagazineImage | null;
+  pages: CaseMagazinePage[];
+  index: CaseMagazineImage[];
+  /** The "Next project" band's second line, e.g. "Gregory Tuck Architecture · 2024". */
+  byline?: string;
+}
+
 export interface CaseDraft {
   title: string;
   slug: string;
@@ -119,6 +196,8 @@ export interface CaseDraft {
   description?: string;
   /** Set when the file opts into the editorial template (`template: editorial`). */
   editorial?: CaseEditorial;
+  /** Set when the file opts into the magazine template (`template: magazine`). */
+  magazine?: CaseMagazine;
   collection?: string;
   audience?: string;
   argument?: string;
@@ -338,6 +417,206 @@ function parseEditorial(fm: Record<string, string>, body: string, images: Journa
   };
 }
 
+
+/** `<master> :: <alt> :: <credit>` → magazine image, or null when missing. */
+function magazineImage(raw: string | undefined, images: JournalImage[]): CaseMagazineImage | null {
+  if (!raw) return null;
+  const parts = raw.split("::").map((s) => s.trim());
+  const base = editorialImage(parts.slice(0, 2).join(" :: "), images);
+  if (!base) return null;
+  return parts[2] ? { ...base, credit: parts[2] } : base;
+}
+
+const isQuoteItem = (item: string) => /^[“"']/.test(item);
+const stripQuotes = (item: string) => item.replace(/^[“"']+|[”"']+$/g, "").trim();
+
+/** The words of a sheet from its body section: `- value :: label` lines
+ *  are figures, a `> ...` paragraph is a quote, the rest are paragraphs. */
+function magazineWords(paragraphs: string[]): {
+  figures: CaseMagazineFigure[];
+  text: string[];
+  quote?: string;
+  /** `> “words” :: who said them` */
+  quoteBy?: string;
+} {
+  const figures: CaseMagazineFigure[] = [];
+  const text: string[] = [];
+  let quote: string | undefined;
+  let quoteBy: string | undefined;
+  for (const p of paragraphs) {
+    const lines = p.split(/\r?\n/).map((l) => l.trim());
+    if (lines.every((l) => l.startsWith("- "))) {
+      for (const l of lines) {
+        const [value, label = ""] = l.slice(2).split("::").map((s) => s.trim());
+        figures.push({ value, label });
+      }
+    } else if (p.startsWith("> ")) {
+      const [q, by] = lines
+        .map((l) => l.replace(/^>\s?/, ""))
+        .join(" ")
+        .split("::")
+        .map((x) => x.trim());
+      quote = stripQuotes(q);
+      quoteBy = by || undefined;
+    } else {
+      text.push(p);
+    }
+  }
+  return { figures, text, quote, quoteBy };
+}
+
+/**
+ * Magazine template frontmatter (01-plantilla-v4.md):
+ *   hero: <master> :: <alt>            or   heroVideo: <src> :: <alt> (+ heroPoster: </file>, heroRatio:)
+ *   kicker: The Residential Collection · No. 02 · New York, 2022
+ *   titleSize: short | long            (short for Ranu, The Point; default long)
+ *   summary: <one sentence>
+ *   introImage: <master> :: <alt>
+ *   sheetN: <label> :: <value>
+ *   byline: <client> · <year>          (the Next band's second line, optional)
+ *   pageN: <type> [modifier] | <item> | <item> ...
+ *     bleed | img                      bleed-two | img | img
+ *     plate | img                      plates | img | img | img
+ *     pair [small-first] | big | small
+ *     color [left|right|center] | img [| img]
+ *     band | big | small               dark | img [| “quote”]
+ *     quote | img | “quote” [:: cite]
+ *     text [under] | diagram :: alt :: credit [| right img ...]   (+ body "## Page N")
+ *     plate-bleed | left | right       film [<ratio>] | <src> :: <poster src>
+ *     afterward                        (+ body "## Afterward")
+ *   indexN: index/<master> :: <alt>
+ * Body: "## Intro" (two paragraphs), "## Page N", "## Afterward".
+ */
+function parseMagazine(fm: Record<string, string>, body: string, images: JournalImage[]): CaseMagazine {
+  const sections = parseSections(body);
+  const section = (name: string) =>
+    sections.find((s) => s.heading.toLowerCase() === name.toLowerCase())?.paragraphs ?? [];
+  const name = fm.slug ?? fm.title;
+
+  let hero: CaseMagazine["hero"];
+  if (fm.heroVideo) {
+    const [src, alt = ""] = fm.heroVideo.split("::").map((s) => s.trim());
+    hero = { type: "video", src, posterSrc: fm.heroPoster, ratio: Number(fm.heroRatio) || 16 / 9, alt };
+  } else {
+    const img = magazineImage(fm.hero, images);
+    if (!img) throw new Error(`Magazine case "${name}": hero image not found in library`);
+    hero = { type: "image", image: img };
+  }
+
+  const pages: CaseMagazinePage[] = [];
+  numbered(fm, "page").forEach((raw, idx) => {
+    const n = idx + 1;
+    const [spec, ...items] = raw.split("|").map((s) => s.trim());
+    const [type, ...mods] = spec.toLowerCase().split(/\s+/);
+    const imgs = items
+      .filter((i) => !isQuoteItem(i))
+      .map((i) => magazineImage(i, images))
+      .filter((x): x is CaseMagazineImage => !!x);
+    const quoteItem = items.find(isQuoteItem);
+    const quoteParts = quoteItem ? quoteItem.split("::").map((s) => s.trim()) : null;
+    const need = (k: number) => {
+      if (imgs.length < k)
+        throw new Error(`Magazine case "${name}", page ${n} (${type}): needs ${k} image(s), found ${imgs.length}`);
+    };
+    switch (type) {
+      case "bleed":
+        need(1);
+        pages.push({ kind: "bleed", image: imgs[0] });
+        break;
+      case "bleed-two":
+        need(2);
+        pages.push({ kind: "bleed-two", images: imgs.slice(0, 2) });
+        break;
+      case "plate":
+        need(1);
+        pages.push({ kind: "plate", image: imgs[0] });
+        break;
+      case "plates":
+        need(2);
+        pages.push({ kind: "plates", images: imgs.slice(0, 3) });
+        break;
+      case "pair":
+        need(2);
+        pages.push({ kind: "pair", big: imgs[0], small: imgs[1], smallFirst: mods.includes("small-first") });
+        break;
+      case "color": {
+        need(1);
+        const align = mods.includes("right") ? "right" : mods.includes("center") ? "center" : "left";
+        pages.push({ kind: "color", images: imgs.slice(0, 2), align: imgs.length > 1 ? "center" : align });
+        break;
+      }
+      case "band":
+        need(2);
+        pages.push({ kind: "band", big: imgs[0], small: imgs[1] });
+        break;
+      case "dark":
+        need(1);
+        pages.push({ kind: "dark", image: imgs[0], quote: quoteParts ? stripQuotes(quoteParts[0]) : undefined });
+        break;
+      case "quote":
+        need(1);
+        if (!quoteParts) throw new Error(`Magazine case "${name}", page ${n}: quote sheet without a quote`);
+        pages.push({ kind: "quote", image: imgs[0], quote: stripQuotes(quoteParts[0]), cite: quoteParts[1] || undefined });
+        break;
+      case "text": {
+        const words = magazineWords(section(`Page ${n}`));
+        const under = mods.includes("under") ? imgs[0] : undefined;
+        pages.push({
+          kind: "text",
+          figures: words.figures,
+          text: words.text,
+          quote: words.quote,
+          under,
+          right: under ? imgs.slice(1) : imgs,
+        });
+        break;
+      }
+      case "plate-bleed":
+        need(2);
+        pages.push({ kind: "plate-bleed", left: imgs[0], right: imgs[1] });
+        break;
+      case "film": {
+        const [src, poster] = (items[0] ?? "").split("::").map((s) => s.trim());
+        // The sheet appears once the file is in public/ (Diego delivers the MP4 apart).
+        if (src && existsSync(resolve(process.cwd(), "public", src.replace(/^\//, "")))) {
+          pages.push({ kind: "film", src, poster: poster || undefined, ratio: Number(mods[0]) || 9 / 16 });
+        }
+        break;
+      }
+      case "afterward": {
+        const words = magazineWords(section("Afterward"));
+        pages.push({
+          kind: "afterward",
+          text: words.text,
+          figures: words.figures,
+          quote: words.quote ? { text: words.quote, by: words.quoteBy } : undefined,
+        });
+        break;
+      }
+      default:
+        throw new Error(`Magazine case "${name}", page ${n}: unknown sheet type "${type}"`);
+    }
+  });
+
+  return {
+    hero,
+    kicker: fm.kicker ?? "",
+    titleSize: fm.titleSize === "short" ? "short" : "long",
+    summary: fm.summary ?? fm.subtitle ?? "",
+    sheet: numbered(fm, "sheet").map((c) => {
+      const [label, value = ""] = c.split("::").map((s) => s.trim());
+      return { label, value };
+    }),
+    intro: section("intro"),
+    introImage: magazineImage(fm.introImage, images),
+    pages,
+    index: numbered(fm, "index")
+      .map((r) => magazineImage(r, images))
+      .filter((x): x is CaseMagazineImage => !!x),
+    byline: fm.byline || undefined,
+  };
+}
+
 /** Repo case studies as library cards, hero = first resolved image slot.
  *  Drafts with no library images yet (e.g. Alderbrook, which also carries
  *  review conditions) stay preview-only and are not listed. */
@@ -373,6 +652,24 @@ export function getCaseDraftCards(): Project[] {
     });
 }
 
+/** Sanity cards keep their cover, but the NAME the library and the mega
+ *  menu show is the repo case study's whenever one exists for the slug:
+ *  the detail page renders the repo file, so the card must agree with it
+ *  (Raghsa Tower became Ranu in the v4 pack while the Sanity doc kept the
+ *  old title). Year and subtitle follow for the same reason. */
+export function withDraftTitles(projects: Project[]): Project[] {
+  return projects.map((p) => {
+    const d = getCaseDraft(p.slug);
+    if (!d) return p;
+    return {
+      ...p,
+      title: d.title,
+      year: d.year ?? p.year,
+      subtitle: d.subtitle ?? p.subtitle,
+    };
+  });
+}
+
 /** All repo case-study slugs (content/cases/*.md). */
 export function listCaseDraftSlugs(): string[] {
   const dir = resolve(process.cwd(), "content", "cases");
@@ -402,6 +699,10 @@ export function getCaseDraft(slug: string): CaseDraft | null {
     fm.template === "editorial" && (fm.heroVideo || fm.film || editorialImage(fm.hero, images))
       ? parseEditorial(fm, body, images)
       : undefined;
+  const magazine =
+    fm.template === "magazine" && (fm.heroVideo || editorialImage(fm.hero, images))
+      ? parseMagazine(fm, body, images)
+      : undefined;
 
   // Editorial files carry no imgN slots: expose hero + rows as slots so the
   // library cards and the home shelf keep resolving a cover from slot 1.
@@ -415,12 +716,27 @@ export function getCaseDraft(slug: string): CaseDraft | null {
     }
     all.forEach((e, i) => slots.push({ n: i + 1, image: e.image, label: e.alt }));
   }
+  // Magazine files likewise: the hero, then every sheet image in order.
+  if (magazine && slots.length === 0) {
+    const all: CaseEditorialImage[] = [];
+    if (magazine.hero.type === "image") all.push(magazine.hero.image);
+    if (magazine.introImage) all.push(magazine.introImage);
+    for (const p of magazine.pages) {
+      if ("image" in p) all.push(p.image);
+      if ("images" in p) all.push(...p.images);
+      if ("big" in p) all.push(p.big, p.small);
+      if (p.kind === "plate-bleed") all.push(p.left, p.right);
+      if (p.kind === "text") all.push(...(p.under ? [p.under] : []), ...p.right);
+    }
+    all.forEach((e, i) => slots.push({ n: i + 1, image: e.image, label: e.alt }));
+  }
 
   return {
     title: fm.title ?? slug,
     slug,
     description: fm.description,
     editorial,
+    magazine,
     collection: fm.collection,
     audience: fm.audience,
     argument: fm.argument,

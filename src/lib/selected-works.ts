@@ -131,8 +131,8 @@ export const selectedWorks: SelectedWork[] = [
   },
   {
     slug: "raghsa-tower",
-    title: "Raghsa Tower",
-    short: "Raghsa",
+    title: "Ranu",
+    short: "Ranu",
     coord: "Buenos Aires",
     client: "AFT",
     year: "2026",

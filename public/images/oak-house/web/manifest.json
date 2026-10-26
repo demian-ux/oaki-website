@@ -2,6 +2,356 @@
   "project": "oak-house",
   "images": [
     {
+      "name": "01-facade",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/oak-house/web/01-facade-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/oak-house/web/01-facade-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/oak-house/web/01-facade-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/oak-house/web/01-facade-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "02-oak-detail",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 2400,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 2400,
+          "src": "/images/oak-house/web/02-oak-detail-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 1440,
+          "src": "/images/oak-house/web/02-oak-detail-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 2400,
+          "src": "/images/oak-house/web/02-oak-detail-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 1440,
+          "src": "/images/oak-house/web/02-oak-detail-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "03-living",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/oak-house/web/03-living-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/oak-house/web/03-living-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/oak-house/web/03-living-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/oak-house/web/03-living-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "04-dining-a",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2669,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/04-dining-a-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1708,
+          "src": "/images/oak-house/web/04-dining-a-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/04-dining-a-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/04-dining-a-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/04-dining-a-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1708,
+          "src": "/images/oak-house/web/04-dining-a-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/04-dining-a-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/04-dining-a-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "05-dining-b",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2669,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/05-dining-b-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1708,
+          "src": "/images/oak-house/web/05-dining-b-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/05-dining-b-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/05-dining-b-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2562,
+          "src": "/images/oak-house/web/05-dining-b-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1708,
+          "src": "/images/oak-house/web/05-dining-b-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "src": "/images/oak-house/web/05-dining-b-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 641,
+          "src": "/images/oak-house/web/05-dining-b-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "06-study",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1988,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 1988,
+          "src": "/images/oak-house/web/06-study-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 1193,
+          "src": "/images/oak-house/web/06-study-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 1988,
+          "src": "/images/oak-house/web/06-study-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 1193,
+          "src": "/images/oak-house/web/06-study-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "07-stone",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1600,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 1600,
+          "src": "/images/oak-house/web/07-stone-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/oak-house/web/07-stone-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 1600,
+          "src": "/images/oak-house/web/07-stone-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/oak-house/web/07-stone-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "08-courtyard",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1800,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 1800,
+          "src": "/images/oak-house/web/08-courtyard-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 1080,
+          "src": "/images/oak-house/web/08-courtyard-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 1800,
+          "src": "/images/oak-house/web/08-courtyard-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 1080,
+          "src": "/images/oak-house/web/08-courtyard-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "09-oaks-bw",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1018,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 814,
+          "src": "/images/oak-house/web/09-oaks-bw-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 407,
+          "src": "/images/oak-house/web/09-oaks-bw-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 814,
+          "src": "/images/oak-house/web/09-oaks-bw-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 407,
+          "src": "/images/oak-house/web/09-oaks-bw-960.webp"
+        }
+      ]
+    },
+    {
       "name": "View 01_Facade_a05",
       "set": null,
       "naturalWidth": 4000,

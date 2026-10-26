@@ -1,0 +1,682 @@
+/* The magazine case template (content/cases, template: magazine).
+   Reference: oaki-case-studies-v4/01-plantilla-v4.md + referencias/*.html
+   (approved by Diego). Site tokens for type and colour; the proportions
+   are the template's own. Mobile first: phones stack everything at full
+   width; from 821px every sheet is one viewport ("hoja = ventana") with
+   the spine on the left. Images are re-scaled, never cropped. */
+
+.root {
+  --spine: clamp(44px, 4vw, 64px);
+  --gutter: clamp(16px, 3.2vw, 48px);
+  --label: var(--color-warm-deep);
+  --body: var(--color-muted);
+  --ground: var(--color-gris);
+  --dark: #1d1b18;
+  --rule: color-mix(in srgb, var(--color-warm) 45%, transparent);
+  --rule-foot: color-mix(in srgb, var(--color-warm) 28%, transparent);
+  color: var(--body);
+  font-family: var(--font-sans);
+}
+.root picture {
+  display: contents;
+}
+.root img,
+.root video {
+  display: block;
+}
+
+/* The drawn ocre period: a circle, not the font's dot. */
+.dot {
+  display: inline-block;
+  width: 0.14em;
+  height: 0.14em;
+  border-radius: 50%;
+  background: var(--color-warm);
+  margin-left: 0.06em;
+  vertical-align: baseline;
+}
+
+/* 1. Hero */
+.hero {
+  padding-top: clamp(12px, 2vw, 32px);
+}
+.hero img,
+.hero video {
+  width: 100%;
+  height: auto;
+}
+
+/* 2. Cover */
+.opener {
+  padding: clamp(40px, 9vw, 140px) var(--gutter) clamp(24px, 3vw, 48px);
+}
+.title {
+  margin: 0.3em 0 0;
+  font-family: var(--font-display);
+  font-weight: 300;
+  /* Halfway between the previous template (26px / 3.3vw / 54px) and the
+     v4 maqueta (40px / 7.6vw / 130px), per Demi 2026-10-26. */
+  font-size: clamp(26px, 4.36vw, 74px);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.titleShort {
+  font-size: clamp(30px, 5.28vw, 90px);
+}
+/* Subtitle in the sheet value's voice (SangBleu Light, upright, ink), not
+   the italic of the maqueta (Demi 2026-10-26). */
+.summary {
+  margin: 0.6em 0 0;
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-weight: 300;
+  font-size: clamp(14.5px, 1.52vw, 22.5px);
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+
+/* 3. Intro (scale 105 %: the sizes below already carry it). */
+.intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(28px, 5vw, 56px);
+  align-items: start;
+  padding: clamp(40px, 5vw, 90px) var(--gutter) clamp(56px, 9vw, 150px);
+}
+.ficha {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+/* The sheet keeps the previous template's voice (Demi 2026-10-26): label =
+   the site's .coord (sans caps, ocre-700), value = SangBleu Light in ink. */
+.ficha dt {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-warm-deep);
+}
+.ficha dd {
+  margin: 3px 0 0;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+.introText p {
+  margin: 0 0 1.6em;
+  font-size: clamp(14.7px, 0.84vw, 16.8px);
+  line-height: 1.6;
+  text-align: left;
+}
+.introText p:last-child {
+  margin-bottom: 0;
+}
+.introText p + p {
+  text-indent: 2.2em;
+}
+.introImage img {
+  width: 100%;
+  height: auto;
+}
+
+/* 4. Sheets: phones stack everything at full width. */
+.sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 4vw, 28px);
+  padding: 32px var(--gutter);
+}
+.sheet img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.folio {
+  display: none;
+}
+.bleed,
+.bleedTwo,
+.dark {
+  padding-inline: 0;
+}
+.bleed img,
+.bleedTwo img {
+  width: 100%;
+}
+.dark {
+  background: var(--dark);
+}
+.color,
+.film {
+  background: var(--ground);
+}
+.color {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.color img {
+  width: 70%;
+}
+.bandBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background: var(--ground);
+  padding: 24px var(--gutter);
+}
+.qimg {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.blockquote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 100;
+  font-size: clamp(26px, 3vw, 48px);
+  line-height: 1.18;
+  color: var(--color-ink);
+  text-align: right;
+  text-wrap: balance;
+}
+.darkQuote .blockquote {
+  color: #efece6;
+}
+.cite {
+  display: block;
+  margin-top: 1.2em;
+  font-style: normal;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+.cap {
+  width: 100%;
+  max-width: 32em;
+}
+.cap p {
+  margin: 0;
+  font-size: clamp(15px, 0.95vw, 17px);
+  line-height: 1.7;
+  color: var(--body);
+}
+.cap p + p {
+  margin-top: 1.2em;
+}
+.nums {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(20px, 3vw, 48px) clamp(28px, 3vw, 56px);
+  margin-bottom: 2em;
+}
+.nums b,
+.afterN b {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(30px, 3.2vw, 48px);
+  line-height: 1;
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+.nums span,
+.afterN span {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+.q2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 100;
+  font-size: clamp(24px, 2.6vw, 42px);
+  line-height: 1.2;
+  color: var(--color-ink);
+  max-width: 14em;
+}
+.under {
+  margin-top: 2.2em;
+}
+.under img {
+  width: 100%;
+  object-position: left;
+}
+.page {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.2vw, 18px);
+  min-width: 0;
+}
+.fig {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.credit {
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--label);
+  text-align: right;
+}
+/* Justified rows (double bleed, plates, trio): one height, widths by ratio. */
+.justified {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: var(--gap, 16px);
+}
+.justified > div {
+  width: 100%;
+}
+.justified img {
+  width: 100%;
+}
+.rowBleed {
+  --gap: clamp(10px, 1.4vw, 22px);
+}
+.rowPlates {
+  --gap: clamp(24px, 4vw, 70px);
+}
+.rowTrio {
+  --gap: clamp(10px, 1.2vw, 18px);
+}
+.wrapl,
+.bleedr {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.filmBox {
+  width: min(100%, 420px);
+  height: auto;
+  background: var(--dark);
+}
+.afterward {
+  text-align: center;
+}
+.afterIn {
+  max-width: 46em;
+  text-align: center;
+}
+.afterK {
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin-bottom: 2.2em;
+}
+.afterIn p {
+  margin: 0 auto;
+  max-width: 34em;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(19px, 1.7vw, 27px);
+  line-height: 1.45;
+  color: var(--color-ink);
+}
+.afterIn p + p {
+  margin-top: 1em;
+}
+.afterN {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px clamp(32px, 5vw, 90px);
+  margin-top: 3.2em;
+}
+.afterN b {
+  font-size: clamp(28px, 3vw, 46px);
+}
+.afterN span {
+  margin-top: 8px;
+  font-size: 9.5px;
+}
+
+/* The client's words on the Afterward sheet, under the result. */
+.afterQ {
+  margin: 2.4em auto 0;
+  max-width: 30em;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 100;
+  font-size: clamp(22px, 2.2vw, 36px);
+  line-height: 1.25;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.afterQ .cite {
+  text-align: center;
+}
+
+/* 6. Closing */
+.next {
+  background: var(--ground);
+  padding-top: clamp(48px, 7vw, 110px);
+  padding-bottom: clamp(48px, 7vw, 110px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.nextLabel {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+.nextLink {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: clamp(26px, 4vw, 56px);
+  line-height: 1.05;
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: color 300ms;
+}
+.nextLink:hover,
+.nextLink:focus-visible {
+  color: var(--label);
+  outline: none;
+}
+.nextMeta {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 19px;
+  color: var(--label);
+}
+
+/* ---------------------------------------------------------------------
+   DESKTOP: sheet = viewport, spine on the left, lines, air between sheets.
+   --------------------------------------------------------------------- */
+@media (min-width: 821px) {
+  .opener,
+  .intro {
+    padding-inline: 7%;
+  }
+  .intro {
+    grid-template-columns: 23fr 40fr 7fr 16.5fr;
+    gap: 0;
+    padding-top: clamp(48px, 5vw, 90px);
+    padding-bottom: clamp(70px, 7vw, 130px);
+  }
+  .ficha {
+    grid-template-columns: 1fr;
+  }
+  .introImage {
+    grid-column: 4;
+  }
+  .summary {
+    white-space: nowrap;
+  }
+
+  /* Every sheet is one window tall, with 4 % of air top and bottom (6 %
+     after a colour sheet); only the dark sheet runs edge to edge. The
+     spine is reserved on the left: nothing enters it. */
+  .sheet {
+    flex-direction: row;
+    min-height: 100svh;
+    padding: 4svh 0 4svh var(--spine);
+    gap: 0;
+    overflow: hidden;
+  }
+  .sheet::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--spine);
+    right: 0;
+    border-left: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule-foot);
+    pointer-events: none;
+  }
+  .dark::after {
+    border-left-color: color-mix(in srgb, var(--color-warm) 35%, transparent);
+    border-bottom-color: transparent;
+  }
+  .color + .sheet,
+  .film + .sheet {
+    padding-top: 6svh;
+  }
+  .folio {
+    display: block;
+    position: absolute;
+    left: calc(var(--spine) / 2);
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    writing-mode: vertical-rl;
+    font-size: 9px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--label);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .dark .folio {
+    color: #a89f90;
+  }
+
+  /* Sangrado: from the spine to the right edge, max 92 % of the height. */
+  .bleed img {
+    width: auto;
+    max-height: 92svh;
+  }
+  /* Justified rows: never taller than the cap (width = ratio x cap + gaps). */
+  .justified {
+    flex-direction: row;
+    align-items: center;
+    max-width: calc(var(--r, 1.77) * var(--cap, 80svh) + var(--n, 0) * var(--gap, 16px));
+    margin-inline: auto;
+  }
+  .justified > div {
+    width: auto;
+  }
+  /* Lámina centrada: 12 % side margins, max 88 %. */
+  .plate {
+    padding-left: calc(var(--spine) + 12%);
+    padding-right: 12%;
+  }
+  .plate img {
+    max-height: 88svh;
+  }
+  /* Tres láminas: at one height, centered, 12 % margins. */
+  .plates {
+    padding-left: calc(var(--spine) + 12%);
+    padding-right: 12%;
+  }
+  /* Par asimétrico: big 62 % / 80 %, small 28 % / 56 %, centered on each other. */
+  .pair {
+    padding: 8svh 7% 8svh calc(var(--spine) + 3%);
+    gap: clamp(20px, 3vw, 56px);
+  }
+  .pair .big {
+    max-width: 62%;
+    max-height: 80svh;
+  }
+  .pair .small {
+    max-width: 28%;
+    max-height: 56svh;
+  }
+  /* Hoja de color: the image is the full height and touches top and
+     bottom, at the left (12 % from the spine) or centered. */
+  .color {
+    height: 100svh;
+    padding-top: 6svh;
+    padding-bottom: 6svh;
+    justify-content: flex-start;
+    gap: clamp(12px, 2vw, 36px);
+  }
+  /* Demi (2026-10-26): the grey runs past the image top and bottom, as the
+     dark sheet does, so the image never touches the sheet's edges. */
+  .color img {
+    width: auto;
+    max-height: 88svh;
+    max-width: 60%;
+    margin-left: 12%;
+  }
+  .colorRight {
+    justify-content: flex-end;
+  }
+  .colorRight img {
+    margin: 0 12% 0 0;
+  }
+  .colorCenter,
+  .colorDuo {
+    justify-content: center;
+  }
+  .colorCenter img,
+  .colorDuo img {
+    margin: 0;
+  }
+  .colorDuo img {
+    max-width: 46%;
+  }
+  /* Banda: the colour is as tall as the big image (80 %), not the sheet. */
+  .band {
+    padding-top: 10svh;
+    padding-bottom: 10svh;
+  }
+  .bandBox {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    height: 80svh;
+    padding: 0;
+  }
+  .bandBox .big {
+    max-height: 80svh;
+    max-width: 55%;
+    margin-left: 12%;
+  }
+  .rest {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6%;
+  }
+  .rest .small {
+    max-height: 56svh;
+    max-width: 100%;
+  }
+  /* Hoja oscura: edge to edge, image up to the full height. */
+  .dark {
+    height: 100svh;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .dark img {
+    max-height: 100svh;
+  }
+  .darkQuote {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 90px);
+    align-items: center;
+    padding-left: calc(var(--spine) + 3%);
+    padding-right: 7%;
+  }
+  .darkQuote .blockquote {
+    justify-self: end;
+  }
+  /* Cita: plate at left (88 %), the sentence at right, right-aligned. */
+  .quote {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 90px);
+    align-items: center;
+    padding-left: calc(var(--spine) + 3%);
+    padding-right: 7%;
+  }
+  .quote .qimg img {
+    max-height: 88svh;
+  }
+  .quote .blockquote {
+    justify-self: end;
+  }
+  /* Texto + diagrama. */
+  .text {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: clamp(24px, 5vw, 90px);
+    align-items: center;
+    padding-left: calc(var(--spine) + 3%);
+    padding-right: 7%;
+  }
+  .page > figure > picture > img,
+  .page > picture > img {
+    max-height: 60svh;
+  }
+  .under img {
+    max-height: 30svh;
+    width: auto;
+  }
+  /* Lámina con margen frente a sangrado. */
+  .plateBleed {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(16px, 2vw, 32px);
+    align-items: center;
+    padding-left: calc(var(--spine) + 3%);
+  }
+  .wrapl {
+    padding-right: 4%;
+  }
+  .bleedr {
+    justify-content: flex-end;
+  }
+  .wrapl img,
+  .bleedr img {
+    max-height: 88svh;
+  }
+  /* Afterward: centered, clear of the spine. */
+  .afterward {
+    padding-left: calc(var(--spine) + 7%);
+    padding-right: 7%;
+  }
+  /* Film vertical: 9:16 on the colour sheet, 84 % tall. */
+  .film {
+    height: 100svh;
+    padding-top: 8svh;
+    padding-bottom: 8svh;
+  }
+  .filmBox {
+    width: auto;
+    height: 84svh;
+  }
+}

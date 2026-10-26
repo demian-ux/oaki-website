@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getAllProjects } from "@/lib/data";
-import { getCaseDraftCards } from "@/lib/case-drafts";
+import { getCaseDraftCards, withDraftTitles } from "@/lib/case-drafts";
 import { ponceCases } from "@/lib/ponce-cases";
 import { HIDDEN_PROJECT_SLUGS } from "@/lib/hidden-projects";
 import { applyTaxonomy, COLLECTIONS } from "@/lib/project-taxonomy";
@@ -24,7 +24,7 @@ export default async function CaseStudiesPage({
     collection && (COLLECTIONS as readonly string[]).includes(collection) ? collection : undefined;
   // Library = Sanity/placeholder projects + repo case studies (deduped by
   // slug, Sanity card wins) + the external Ponce-portfolio cases.
-  const sanityProjects = await getAllProjects();
+  const sanityProjects = withDraftTitles(await getAllProjects());
   const taken = new Set(sanityProjects.map((p) => p.slug));
   const draftCards = getCaseDraftCards().filter((p) => !taken.has(p.slug));
   const projects = [...sanityProjects, ...draftCards, ...ponceCases]

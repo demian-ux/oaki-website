@@ -1,63 +1,40 @@
 ---
+template: magazine
 title: Oak House
 slug: oak-house
 collection: The Residential Collection
-audience: Architects entering award and publication cycles
-argument: PROPOSED (Demi defines at review). This case study proves oaki's images can carry an unbuilt house through an award jury, to architects who compete on unbuilt work.
-subtitle: A house designed around century-old oaks. In an unbuilt category, the images are how the jury meets it.
 location: Coconut Grove, Miami, FL
 type: Residential
-client: KODA, Kean Office for Design + Architecture
-year: 2024–2026
+client: KODA
+year: 2024
+subtitle: A house that bends its roof and its rooms around the century-old oaks that were there first.
+description: Oak House, a Coconut Grove residence by KODA drawn around century-old live oaks, visualized by oaki for the 2026 AIA Florida Design Awards, where it received a Citation for Unbuilt Work.
 imageProject: oak-house
-template: editorial
-description: A house designed around century-old oaks. In an unbuilt category, the images are how the jury meets it.
-hero: View 01_Facade_a05 :: Arrival, the facade under the oaks, the image credited on the award page
-introImage: View 05_a01 :: Life, the vertical frame, house and tree in one column
-sheet1: Architect :: KODA, Kean Office for Design + Architecture
-sheet2: Location :: Coconut Grove, Miami, FL
+kicker: The Residential Collection · No. 05 · Coconut Grove, Miami, 2024
+summary: A house that bends its roof and its rooms around the century-old oaks that were there first.
+hero: 01-facade :: The house from the street, under the canopy of live oaks
+introImage: 02-oak-detail :: Fern and moss on the bark of a live oak
+sheet1: Architecture :: KODA
+sheet2: Location :: Coconut Grove, Miami
 sheet3: Collection :: Residential
-sheet4: Year :: 2024–2026
-sheet5: Visualization :: Oaki Studio
-row1: full | View 02_Interior_a05 :: Moving through, the interior opening to the trees
-row2: full | View 03_Interior_a05 :: Moving through, the living space
-row3: 60% center | View 04_a01 :: Detail, the roofline bending around the canopy
-next: prismatic-parasol :: Prismatic Parasol
-closing: next
-img1: View 01_Facade_a05 :: Arrival, the facade under the oaks, the image credited on the award page
-img2: View 02_Interior_a05 :: Moving through, the interior opening to the trees
-img3: View 03_Interior_a05 :: Moving through, the living space
-img4: View 04_a01 :: Detail, the roofline bending around the canopy
-img5: View 05_a01 :: Life, the vertical frame, house and tree in one column
-img6: GAP :: Process, model-vs-final artifact, brief Diego
-credit1: Architect :: KODA, Kean Office for Design + Architecture
-credit2: Location :: Coconut Grove, Miami, FL
-credit3: Year :: 2024–2026
-credit4: Visualization :: Oaki Studio
-gap1: Intake pending, the brief as it arrived and what the model lacked
-gap2: Camera and light decisions, which frames were rejected and why
-flag1: Demi flagged the hero pick as ambiguous (View 01 vs View 02) in the image-picks review, settle before sharing
-flag2: The argument line is a proposal, Demi defines the argument at review
+sheet4: Year :: 2024
+sheet5: Scope :: Interior and exterior stills
+sheet6: Visualization :: Oaki Studio
+page1: bleed | 03-living :: Living and dining room open to the oaks
+page2: bleed-two | 04-dining-a :: Dining room under the timber roof, the oak beyond | 05-dining-b :: Dining room toward the garden
+page3: band | 06-study :: Study with a window onto the garden | 07-stone :: Coral stone wall and oak shelving
+page4: plate | 08-courtyard :: The courtyard, the roof folded around the central oak
+page5: afterward
+page6: dark | 09-oaks-bw :: The live oaks, in black and white
+flag1: v4 Magazine (2026-10-26, from Diego's oaki-case-studies-v4 package). Year 2024 (production of the images) in listings and home; client KODA. Pack .md asks Next = Maison Rive Gauche; the site's single chain decides.
+flag2: Masters: 04 and 05 are the 4K files View 03_Interior_a05 and View 04_a01 under the new names; the rest are the package webps until Diego's NAS originals arrive (same names). The View files stay in the folder for the journal article.
 ---
 ## Intro
-A single-family residence in Coconut Grove by KODA, designed around the century-old oaks that define its site. The house bends its roofline and its rooms around the trees; nothing on the site was asked to move.
+On a Coconut Grove lot shaded by historic live oaks, Quercus virginiana older than the neighborhood itself, KODA chose to keep every tree and the memory of the old house that stood among them. The new residence is drawn around the trunks: a low roof that lifts and folds where the canopy demands, rooms of coral stone and pale timber that open to the garden, and a courtyard where the largest oak remains the center of the plan.
 
-The trees lead every frame. The facade reads through the canopy, the interiors look back out to it, and the closing vertical frame puts house and oak in one column. The light is one Miami afternoon throughout, so five images read as one visit.
+For a house that exists only on paper, the images are how a jury meets it. Oaki proposed the cameras and the interior furnishing from the start, placing each frame where the architecture and the trees meet, and dressing the rooms so they read as inhabited rather than drawn. Light filtered through the canopy, the grain of the stone and the quiet of the furniture were composed to carry the essence of the house before a single wall was built.
 
-## Setup
-A single-family residence in Coconut Grove by KODA, designed around the century-old oaks that define its site. The house bends its roofline and its rooms around the trees; nothing on the site was asked to move.
+## Afterward
+Oak House received a Citation Award for Unbuilt Work at the 2026 AIA Florida Design Awards. The image chosen for the award listing is the courtyard with the central oak.
 
-oaki produced the renderings between 2024 and 2026.
-
-## Tension
-An unbuilt house has no photography. When it enters an award cycle, the images are the building: the jury never visits a site, it visits a set of frames. Every claim the design makes about the oaks had to be legible in the pictures, or it would not exist for the jury at all.
-
-[GAP for Demi: the brief as it arrived, rounds, timeline.]
-
-## Approach
-The trees lead every frame. The facade reads through the canopy, the interiors look back out to it, and the closing vertical frame puts house and oak in one column. The light is one Miami afternoon throughout, so five images read as one visit.
-
-[GAP for Demi: camera and light decisions, references, what was rejected.]
-
-## Outcome
-At the 2026 AIA Florida Design Awards, Oak House received a Citation Award for Unbuilt Work. The award listing runs on a single image: the courtyard render oaki produced. Source: the 2026 AIA Florida Design Award recipients page.
+- 2026 :: AIA Florida Design Awards

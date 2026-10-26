@@ -1,0 +1,1032 @@
+{
+  "project": "maison-rive-gauche",
+  "images": [
+    {
+      "name": "01-pool",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1356,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/maison-rive-gauche/web/01-pool-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/maison-rive-gauche/web/01-pool-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/maison-rive-gauche/web/01-pool-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/maison-rive-gauche/web/01-pool-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "02-palm",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 2001,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 2001,
+          "src": "/images/maison-rive-gauche/web/02-palm-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 1201,
+          "src": "/images/maison-rive-gauche/web/02-palm-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 2001,
+          "src": "/images/maison-rive-gauche/web/02-palm-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 1201,
+          "src": "/images/maison-rive-gauche/web/02-palm-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "03-facade",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/maison-rive-gauche/web/03-facade-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/maison-rive-gauche/web/03-facade-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/maison-rive-gauche/web/03-facade-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/maison-rive-gauche/web/03-facade-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "04-entry",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 4000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 3413,
+          "src": "/images/maison-rive-gauche/web/04-entry-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2560,
+          "src": "/images/maison-rive-gauche/web/04-entry-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1280,
+          "src": "/images/maison-rive-gauche/web/04-entry-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 3413,
+          "src": "/images/maison-rive-gauche/web/04-entry-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2560,
+          "src": "/images/maison-rive-gauche/web/04-entry-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1280,
+          "src": "/images/maison-rive-gauche/web/04-entry-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "05-water-garden",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1356,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/maison-rive-gauche/web/05-water-garden-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/maison-rive-gauche/web/05-water-garden-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/maison-rive-gauche/web/05-water-garden-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/maison-rive-gauche/web/05-water-garden-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "06-artemis",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 2143,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 2143,
+          "src": "/images/maison-rive-gauche/web/06-artemis-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 1286,
+          "src": "/images/maison-rive-gauche/web/06-artemis-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 2143,
+          "src": "/images/maison-rive-gauche/web/06-artemis-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 1286,
+          "src": "/images/maison-rive-gauche/web/06-artemis-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "07-living",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1356,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/maison-rive-gauche/web/07-living-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/maison-rive-gauche/web/07-living-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/maison-rive-gauche/web/07-living-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/maison-rive-gauche/web/07-living-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "08-aquarium",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1600,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 1600,
+          "src": "/images/maison-rive-gauche/web/08-aquarium-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/maison-rive-gauche/web/08-aquarium-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 1600,
+          "src": "/images/maison-rive-gauche/web/08-aquarium-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/maison-rive-gauche/web/08-aquarium-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "09-kitchen",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1600,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 1600,
+          "src": "/images/maison-rive-gauche/web/09-kitchen-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/maison-rive-gauche/web/09-kitchen-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 1600,
+          "src": "/images/maison-rive-gauche/web/09-kitchen-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/maison-rive-gauche/web/09-kitchen-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "10-dining",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 3007,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2887,
+          "src": "/images/maison-rive-gauche/web/10-dining-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/maison-rive-gauche/web/10-dining-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1443,
+          "src": "/images/maison-rive-gauche/web/10-dining-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/maison-rive-gauche/web/10-dining-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2887,
+          "src": "/images/maison-rive-gauche/web/10-dining-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/maison-rive-gauche/web/10-dining-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1443,
+          "src": "/images/maison-rive-gauche/web/10-dining-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/maison-rive-gauche/web/10-dining-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "11-snooker",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1356,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/maison-rive-gauche/web/11-snooker-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/maison-rive-gauche/web/11-snooker-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/maison-rive-gauche/web/11-snooker-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/maison-rive-gauche/web/11-snooker-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "12-master-bedroom",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1778,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 1778,
+          "src": "/images/maison-rive-gauche/web/12-master-bedroom-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/maison-rive-gauche/web/12-master-bedroom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 1778,
+          "src": "/images/maison-rive-gauche/web/12-master-bedroom-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/maison-rive-gauche/web/12-master-bedroom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "13-interior",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1691,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/maison-rive-gauche/web/13-interior-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/maison-rive-gauche/web/13-interior-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1353,
+          "src": "/images/maison-rive-gauche/web/13-interior-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 676,
+          "src": "/images/maison-rive-gauche/web/13-interior-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "14-bedroom",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 3008,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/maison-rive-gauche/web/14-bedroom-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/maison-rive-gauche/web/14-bedroom-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/maison-rive-gauche/web/14-bedroom-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/maison-rive-gauche/web/14-bedroom-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/maison-rive-gauche/web/14-bedroom-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/maison-rive-gauche/web/14-bedroom-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/maison-rive-gauche/web/14-bedroom-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/maison-rive-gauche/web/14-bedroom-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "15-dock",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 4000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 3413,
+          "src": "/images/maison-rive-gauche/web/15-dock-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2560,
+          "src": "/images/maison-rive-gauche/web/15-dock-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1280,
+          "src": "/images/maison-rive-gauche/web/15-dock-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 3413,
+          "src": "/images/maison-rive-gauche/web/15-dock-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2560,
+          "src": "/images/maison-rive-gauche/web/15-dock-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1280,
+          "src": "/images/maison-rive-gauche/web/15-dock-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "16-pergola-night",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1356,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/maison-rive-gauche/web/16-pergola-night-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/maison-rive-gauche/web/16-pergola-night-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/maison-rive-gauche/web/16-pergola-night-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/maison-rive-gauche/web/16-pergola-night-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "01",
+      "set": "index",
+      "naturalWidth": 996,
+      "naturalHeight": 1200,
+      "widths": [
+        996,
+        960
+      ],
+      "avif": [
+        {
+          "width": 996,
+          "height": 1200,
+          "src": "/images/maison-rive-gauche/web/index--01-996.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/maison-rive-gauche/web/index--01-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 996,
+          "height": 1200,
+          "src": "/images/maison-rive-gauche/web/index--01-996.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/maison-rive-gauche/web/index--01-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "02",
+      "set": "index",
+      "naturalWidth": 997,
+      "naturalHeight": 1200,
+      "widths": [
+        997,
+        960
+      ],
+      "avif": [
+        {
+          "width": 997,
+          "height": 1200,
+          "src": "/images/maison-rive-gauche/web/index--02-997.avif"
+        },
+        {
+          "width": 960,
+          "height": 1155,
+          "src": "/images/maison-rive-gauche/web/index--02-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 997,
+          "height": 1200,
+          "src": "/images/maison-rive-gauche/web/index--02-997.webp"
+        },
+        {
+          "width": 960,
+          "height": 1155,
+          "src": "/images/maison-rive-gauche/web/index--02-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "03",
+      "set": "index",
+      "naturalWidth": 4000,
+      "naturalHeight": 3008,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/maison-rive-gauche/web/index--03-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/maison-rive-gauche/web/index--03-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/maison-rive-gauche/web/index--03-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/maison-rive-gauche/web/index--03-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2888,
+          "src": "/images/maison-rive-gauche/web/index--03-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1925,
+          "src": "/images/maison-rive-gauche/web/index--03-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1444,
+          "src": "/images/maison-rive-gauche/web/index--03-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/maison-rive-gauche/web/index--03-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "04",
+      "set": "index",
+      "naturalWidth": 996,
+      "naturalHeight": 1200,
+      "widths": [
+        996,
+        960
+      ],
+      "avif": [
+        {
+          "width": 996,
+          "height": 1200,
+          "src": "/images/maison-rive-gauche/web/index--04-996.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/maison-rive-gauche/web/index--04-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 996,
+          "height": 1200,
+          "src": "/images/maison-rive-gauche/web/index--04-996.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/maison-rive-gauche/web/index--04-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "05",
+      "set": "index",
+      "naturalWidth": 3320,
+      "naturalHeight": 4000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/maison-rive-gauche/web/index--05-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/maison-rive-gauche/web/index--05-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/maison-rive-gauche/web/index--05-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/maison-rive-gauche/web/index--05-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/maison-rive-gauche/web/index--05-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/maison-rive-gauche/web/index--05-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "06",
+      "set": "index",
+      "naturalWidth": 4000,
+      "naturalHeight": 3007,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2887,
+          "src": "/images/maison-rive-gauche/web/index--06-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/maison-rive-gauche/web/index--06-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1443,
+          "src": "/images/maison-rive-gauche/web/index--06-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/maison-rive-gauche/web/index--06-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2887,
+          "src": "/images/maison-rive-gauche/web/index--06-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1924,
+          "src": "/images/maison-rive-gauche/web/index--06-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1443,
+          "src": "/images/maison-rive-gauche/web/index--06-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/maison-rive-gauche/web/index--06-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "07",
+      "set": "index",
+      "naturalWidth": 3321,
+      "naturalHeight": 4000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 3083,
+          "src": "/images/maison-rive-gauche/web/index--07-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/maison-rive-gauche/web/index--07-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1156,
+          "src": "/images/maison-rive-gauche/web/index--07-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 3083,
+          "src": "/images/maison-rive-gauche/web/index--07-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/maison-rive-gauche/web/index--07-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1156,
+          "src": "/images/maison-rive-gauche/web/index--07-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "08",
+      "set": "index",
+      "naturalWidth": 3320,
+      "naturalHeight": 4000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/maison-rive-gauche/web/index--08-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/maison-rive-gauche/web/index--08-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/maison-rive-gauche/web/index--08-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/maison-rive-gauche/web/index--08-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/maison-rive-gauche/web/index--08-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/maison-rive-gauche/web/index--08-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "09",
+      "set": "index",
+      "naturalWidth": 1200,
+      "naturalHeight": 903,
+      "widths": [
+        1200,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1200,
+          "height": 903,
+          "src": "/images/maison-rive-gauche/web/index--09-1200.avif"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/maison-rive-gauche/web/index--09-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1200,
+          "height": 903,
+          "src": "/images/maison-rive-gauche/web/index--09-1200.webp"
+        },
+        {
+          "width": 960,
+          "height": 722,
+          "src": "/images/maison-rive-gauche/web/index--09-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "10",
+      "set": "index",
+      "naturalWidth": 1080,
+      "naturalHeight": 1200,
+      "widths": [
+        1080,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1080,
+          "height": 1200,
+          "src": "/images/maison-rive-gauche/web/index--10-1080.avif"
+        },
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/maison-rive-gauche/web/index--10-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1080,
+          "height": 1200,
+          "src": "/images/maison-rive-gauche/web/index--10-1080.webp"
+        },
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/maison-rive-gauche/web/index--10-960.webp"
+        }
+      ]
+    }
+  ]
+}

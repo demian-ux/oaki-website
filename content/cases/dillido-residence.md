@@ -1,69 +1,62 @@
 ---
-title: Dillido Residence
+template: magazine
+title: Maison Rive Gauche
 slug: dillido-residence
 collection: The Residential Collection
-audience: Developers and design teams selling a residence before it is finished
-argument: This case study proves oaki can carry the full program of a for-sale residence, stills, film, and rounds under a live market, and that the images did their job, the record sale is citable. Copy migrated from the approved 1505 Ponce page (11-Aug-2026).
-subtitle: Exteriors, interiors and film for a waterfront residence on Di Lido Island, built to be sold before it was finished.
-location: Miami Beach, United States
+location: Miami, United States
 type: Residential
 client: Ceïba
-year: 2024
-imageProject: dillido-residence
-template: editorial
-description: Exteriors, interiors and film for a waterfront residence on Di Lido Island, built to be sold before it was finished.
-hero: view-01-front-facade :: Arrival, the residence from the front
-introImage: view-02-entry-stairs :: Arrival, the entry stairs
-sheet1: Client :: Ceïba, with the Socri group
+year: 2023
+byline: Ceïba · Strang Design · 2023
+subtitle: A waterfront house on the Venetian Islands, drawn room by room before a single material was chosen.
+description: Maison Rive Gauche, a waterfront house on Dilido Island by Ceïba and Strang Design, visualized by oaki room by room before a single material was chosen. Sold for $27 million in 2025.
+imageProject: maison-rive-gauche
+kicker: The Residential Collection · No. 04 · Miami, 2023
+summary: A waterfront house on the Venetian Islands, drawn room by room before a single material was chosen.
+hero: 01-pool :: The pool terrace and the open living room beyond
+introImage: 02-palm :: Palm over the bay, the skyline behind
+sheet1: Developer :: Ceïba
 sheet2: Architecture :: Strang Design
-sheet3: Interior design :: Dunagan Design Group
-sheet4: Visualization and film :: Oaki Studio
-sheet5: Location :: Di Lido Island, Miami Beach
-sheet6: Collection :: Residential
-sheet7: Year :: 2024
-row1: 44% left | view-20-dock-day-recovered :: The dock
-row2: full | view-07-dining-room :: Inside, the dining room
-row3: full | view-05-kitchen :: Inside, the kitchen
-row4: 60% center | view-07-a02 :: Inside, the principal bedroom
-row5: full | view-23-a05 :: Detail, the dressing room | view-32-kitchen-a03 :: Detail, the wine wall
-row6: full | view-17-a05 :: Life, the guest terrace
-row7: 44% left | view-28-teather-a06 :: Life, the theater
-row8: film 0.7895 | /video/dillido-residence/animation.mp4 :: /video/dillido-residence/animation-poster.webp
-next: icnyc :: Islamic Center of New York City
-closing: next
-img1: view-01-front-facade :: Arrival, the residence from the front
-img2: view-02-entry-stairs :: Arrival, the entry stairs
-img3: view-20-dock-day-recovered :: The dock
-img4: view-07-dining-room :: Inside, the dining room
-img5: view-05-kitchen :: Inside, the kitchen
-img6: view-07-a02 :: Inside, the principal bedroom
-img7: view-23-a05 :: Detail, the dressing room
-img8: view-32-kitchen-a03 :: Detail, the wine wall
-img9: view-17-a05 :: Life, the guest terrace
-img10: view-28-teather-a06 :: Life, the theater
-video: /video/dillido-residence/animation.mp4 :: The film that sold the residence
-videoPoster: /video/dillido-residence/animation-poster.webp
-credit1: Client :: Ceïba, with the Socri group
-credit2: Architecture :: Strang Design
-credit3: Interior design :: Dunagan Design Group
-credit4: Visualization and film :: Oaki Studio
-credit5: Location :: Di Lido Island, Miami Beach
-credit6: Year :: 2024
-flag1: Copy carried over from the approved 1505 Ponce portfolio page; client renamed Koqio to Ceïba per the 11-Aug-2026 one-name ruling
+sheet3: Location :: Dilido Island, Miami
+sheet4: Collection :: Residential
+sheet5: Year :: 2023
+sheet6: Scope :: Interior and exterior stills, film
+sheet7: Visualization :: Oaki Studio
+page1: bleed | 03-facade :: The house from the street, under the palms
+page2: plate | 04-entry :: Entry stairs between the two volumes
+page3: bleed | 05-water-garden :: Water garden between the glass walls
+page4: quote | 06-artemis :: Artemis by Jean Martin, over the water garden | “Artemis, by Jean Martin: a figure in marine-grade stainless steel, made to stand in salt air, placed where the garden meets the water.”
+page5: bleed | 11-snooker :: Snooker lounge with the bay beyond
+page6: dark | 08-aquarium :: The aquarium | “The house keeps a piece of the ocean inside.”
+page7: pair small-first | 10-dining :: Dining room toward the garden | 09-kitchen :: Kitchen in pale oak and marble
+page8: bleed | 07-living :: Living room open to the bay
+page9: pair small-first | 12-master-bedroom :: Master bedroom open to the bay and the skyline | 14-bedroom :: Bedroom in pale oak
+page10: film 0.7895 | /video/dillido-residence/animation.mp4 :: /video/dillido-residence/animation-poster.webp
+page11: color center | 15-dock :: The house from the canal, with the boat at the dock
+page12: bleed | 16-pergola-night :: Roof pergola at night, the skyline across the bay
+page13: afterward
+index1: index/01 :: Study
+index2: index/02 :: Guest bedroom
+index3: index/03 :: Kitchenette
+index4: index/04 :: Dressing room
+index5: index/05 :: Dressing room, detail
+index6: index/06 :: Her bath
+index7: index/07 :: Theater
+index8: index/08 :: Wine wall
+index9: index/09 :: Bedroom with terrace
+index10: index/10 :: Bedroom
+flag1: v4 Magazine (2026-10-26, from Diego's oaki-case-studies-v4 package). Page name Maison Rive Gauche; the slug dillido-residence stays so the URL keeps working. Pack .md asks Next = The Point; the site's single chain decides.
+flag2: The film sheet (page 10) plays the existing Dillido animation (public/video/dillido-residence/animation.mp4, portrait 1080p, 95 s, muted loop) per Demi 2026-10-26. When Diego's 9:16 film-vertical.mp4 arrives, swap the path and the ratio (`film 0.5625`).
+flag3: Masters: 04, 10, 14, 15 and index 03, 05, 06, 07, 08 are the 4K files from images/dillido-residence under the new names; the rest are the package webps until Diego's NAS originals arrive (same names).
 ---
 ## Intro
-A waterfront residence on Di Lido Island, built to be sold before it was finished. Over months oaki produced the full image set and the film: the arrival, the interiors, the pool, the rooftop, down to the sculptures and the outdoor shower.
+Maison Rive Gauche stands on West Dilido Drive, with the bay on one side and the Miami skyline across the water. Developed by Ceïba and designed by Strang Design, the house gathers five bedrooms, a water garden, a pool and a private dock into a quiet sequence of stone, timber and glass that opens entirely toward the sea.
 
-Everything was built in the 3D scene: geometry, materials, light, water. One world across every still and every second of film. The final cut of the film was shaped frame by frame with the listing team, down to the art on the walls, and their direction was incorporated round after round without the schedule slipping.
+Oaki worked alongside the design team from the first studies, visualizing each space as it took shape and testing alternatives of stone, timber and fabric so that material decisions could be made with the image in hand. The same care went into the objects: the sculpture, the aquarium and the pieces that furnish each room were drawn into place before any of them was chosen.
 
-## Setup
-A waterfront residence on Di Lido Island, built to be sold before it was finished. Over months oaki produced the full image set and the film: the arrival, the interiors, the pool, the rooftop, down to the sculptures and the outdoor shower.
+## Afterward
+Maison Rive Gauche was featured in Robb Report and Florida Design before it reached the market, and named Best Luxury Architecture in Florida for 2025. Listed and sold by Serhant, the house closed on August 6, 2025 for $27 million.
 
-## Tension
-A residence at this scale is bought on atmosphere before it is bought on plans. And the campaign never stops moving: the owner group in France, the builder in Miami, the listing team asking for one more frame with the market already watching. When the market asked for a new view, it had to exist within days.
-
-## Approach
-Everything was built in the 3D scene: geometry, materials, light, water. One world across every still and every second of film. The final cut of the film was shaped frame by frame with the listing team, down to the art on the walls, and their direction was incorporated round after round without the schedule slipping.
-
-## Outcome
-The residence sold for $27 million. At $5,034 per square foot, a record for the Venetian Islands, per the Socri Limited announcement of September 2025. A year later the client returned with their next Venetian Islands residence, twelve new views. And the film keeps working as oaki's calling card: it is the sample that opened our current work with another French practice building in Miami.
+- $27M :: Sale, August 2025
+- 2025 :: Best Luxury Architecture, Florida
+- 45+ :: Stills and a 90-second film

@@ -1,67 +1,55 @@
 ---
-title: Raghsa Tower
+template: magazine
+title: Ranu
 slug: raghsa-tower
 collection: The Competition Collection
-audience: Developers and architects competing for large urban commissions
-argument: A winning competition set. oaki carries a tower at skyline scale and lobby scale in one set, and the client builds it.
-subtitle: A competition won. The tower set into the city's own photographs, then walked from the street to the elevated lobby. Now under construction.
-location: Parque de la Innovación, Buenos Aires, Argentina
+location: Buenos Aires, Argentina
 type: Competition
-client: AFT
+client: AFT Arquitectos
 year: 2026
-imageProject: raghsa-tower
-template: editorial
-description: A competition won. The tower set into the city's own photographs, then walked from the street to the elevated lobby. Now under construction.
-hero: View 09_Aerial night :: The tower in the city at night, set into the aerial photograph
-sheet1: Client :: AFT
-sheet2: Location :: Parque de la Innovación, Buenos Aires
-sheet3: Competition :: Won, under construction
+subtitle: An office tower conceived as an open, evolving working platform on the northern corridor of Buenos Aires.
+description: Ranu, an office tower by AFT Arquitectos for the RAGHSA Campus on Avenida del Libertador, Buenos Aires, visualized by oaki from the river, the avenue and the elevated lobby.
+imageProject: ranu
+kicker: The Competition Collection · No. 04 · Buenos Aires, 2026
+titleSize: short
+summary: An office tower conceived as an open, evolving working platform on the northern corridor of Buenos Aires.
+hero: 01-river-skyline :: Buenos Aires skyline from the river at dusk
+introImage: 02-facade-terraces :: Close view of the stepped terraces on the facade
+sheet1: Architecture :: AFT Arquitectos
+sheet2: Location :: Buenos Aires, Argentina
+sheet3: Collection :: Competition
 sheet4: Year :: 2026
-sheet5: Visualization :: Oaki Studio
-sheet6: Images :: 6 stills
-row1: full | View 08_Aerial river :: The skyline from the river at dawn
-row2: 44% left | View 10_Pedestrian Libertador :: Libertador from the sidewalk, the tower in its photograph
-row3: 44% right | View 03_Interior lobby :: The lobby
-row4: full | View 05_Lobby Elevado :: The elevated lobby
-row5: 44% center | View 06_Lobby Elevado :: The elevated lobby, vertical
-next: the-point :: The Point
-closing: next
-img1: View 09_Aerial night :: The tower in the city at night, set into the aerial photograph
-img2: View 08_Aerial river :: The skyline from the river at dawn
-img3: View 10_Pedestrian Libertador :: Libertador from the sidewalk, the tower in its photograph
-img4: View 03_Interior lobby :: The lobby
-img5: View 05_Lobby Elevado :: The elevated lobby
-img6: View 06_Lobby Elevado :: The elevated lobby, vertical
-credit1: Client :: AFT
-credit2: Location :: Parque de la Innovación, Buenos Aires, Argentina
-credit3: Year :: 2026
-credit4: Visualization :: Oaki Studio
-gap1: Camera and light decisions, references, what was rejected (process copy inferred from the images, Demi to confirm)
-flag1: 2026-10-22, Demi: competition at the Parque de la Innovación, Buenos Aires; AFT won it, the client was very satisfied, construction is starting. Location and outcome now on the page.
-flag4: 2026-10-22, Demi: the case uses ONLY the six images from the NAS folder AFT - RANU (View 03, 05, 06, 08, 09, 10). Views 01, 02, 04 and 07 stay in the library (the home shelf cover is still View 02) but are off this page.
-flag3: 2026-10-22, three photomontages added from the NAS (00_Casos de estudio/Perkins/AFT - RANU): the night aerial, the river skyline and the Libertador street view. Raghsa is also in the Perkins Eastman selected set.
+sheet5: Scope :: Exterior and interior stills
+sheet6: Visualization :: Oaki Studio
+page1: dark | 03-aerial-night :: Aerial view of the tower at night within the city
+page2: text | diagram-volumes :: Three massing diagrams by AFT :: Diagram: AFT Arquitectos
+page3: plate | 06-avenue :: The tower seen from the pedestrian promenade
+page4: quote | 04-libertador :: The tower from Avenida del Libertador | “Architecture stops being a static, sealed container and becomes an active infrastructure, able to adapt to new ways of working.” :: AFT Arquitectos, competition brief
+page5: color left | 05-plaza :: Central plaza under the trees
+page6: text under | diagram-plaza :: Site diagrams, lifted entrance and Plaza 360 :: Diagram: AFT Arquitectos | 08-lobby-gallery :: Interior lobby and gallery
+page7: plate-bleed | 07-lobby-tree :: Ground floor lobby with a tree in daylight | 09-elevated-lobby :: Elevated lobby with reception desk
+page8: bleed | 10-terraces-bw :: The stepped terraces in use, in black and white
+page9: afterward
+flag1: v4 Magazine (2026-10-26, from Diego's oaki-case-studies-v4 package). Page name Ranu; the slug raghsa-tower stays so the URL, the home shelf and the Perkins Eastman selected set keep working. Pack .md asks Next = The Point; the site's single chain decides.
+flag2: Masters: 01, 03, 04, 07, 08, 09 are the 4K files from images/raghsa-tower under the new names; 02, 05, 06, 10 and the two diagrams are the package webps until Diego's NAS originals arrive (same names).
+flag3: 2026-10-22, Demi: competition at the Parque de la Innovación, Buenos Aires; AFT won it, construction is starting.
 ---
 ## Intro
-A competition for a tower at the Parque de la Innovación, the new district Buenos Aires is building on its old military land. AFT drew a glass volume that steps back as it rises, gardens on the terraces, a lobby lifted off the street. The jury had to believe the building in its place, and then want to walk in.
+AFT Arquitectos conceived the proposal for Avenida del Libertador 7055 as a new node within the RAGHSA Campus, bringing together a mix of programs, public space and user experience in one coherent, evolving system. More than an office tower, the project is a contemporary working platform where flexibility, wellbeing and efficiency meet in an urban piece able to lift its surroundings and mark a new landmark on the northern corridor of Buenos Aires.
 
-So the set starts with the city itself. The block from the air at night, every neighbor and every road where it stands. The skyline from the river at dawn, the tower taking its place in the line. The sidewalk on Libertador, buses and bikes and the tower in the photograph. Then the walk in: the lobby, and the elevated lobby in both orientations. Three frames in the city's own photographs, three inside, one afternoon of light carried from the skyline to the interior.
+Oaki set the tower in its real city. The images open from the river and the air, where the building takes its place in the skyline, then come down to the avenue and the plaza as a passer-by would see them. Inside, the frames follow the ground floor into the elevated lobby, keeping the full height of the space and the daylight that crosses it.
 
-## Setup
-A tower for AFT, read from the city's two defining avenues and walked from the street into its elevated lobby.
+## Page 2
+- 74,470 :: m² built
+- 24 :: levels
+- 106 :: m high
 
-oaki produced the image set in 2026.
+The volume gathers at the northern corner of the site, toward the river and the Parque de la Innovación, and steps down as it rises: floors of varying size, each with a garden terrace. The ground floor runs the whole plot as one continuous, open level.
 
-[GAP for Demi: the architect, the program, and the competition context.]
+## Page 6
+The main entrance is lifted to +6.00. Below it, services, loading and bicycle parking; above, a public agora with views to the river, the clubs and the avenue. The lobby images were composed to hold that double height in a single frame.
 
-## Tension
-A tower set has to work at two scales that fight each other: the skyline frame that decides whether the massing convinces, and the lobby sequence that decides whether anyone wants to arrive. Most sets pick one. The commission here was both, in one continuous language.
-
-[GAP for Demi: the brief as it arrived, rounds, timeline.]
-
-## Approach
-The Libertador frame leads with the tower against the sky, the second avenue view confirms the massing from its other face, and then the set descends: street approach, lobby, steps, the elevated lobby in both orientations. City light, one hour, from skyline to interior.
-
-[GAP for Demi: camera and light decisions, references, what was rejected.]
-
-## Outcome
+## Afterward
 AFT won the competition. The client was very satisfied with the set, and the tower is now starting construction at the Parque de la Innovación.
+
+- 2026 :: Competition won

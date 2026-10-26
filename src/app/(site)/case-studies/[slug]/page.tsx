@@ -7,6 +7,7 @@ import { getCaseDraft, listCaseDraftSlugs } from "@/lib/case-drafts";
 import { HIDDEN_PROJECT_SLUGS } from "@/lib/hidden-projects";
 import CaseDraftView from "@/components/case-studies/CaseDraft";
 import CaseEditorialView from "@/components/case-studies/CaseEditorial";
+import CaseMagazineView from "@/components/case-studies/CaseMagazine";
 import PhaseSection from "@/components/case-studies/PhaseSection";
 import CaseHero from "@/components/case-studies/CaseHero";
 import SectionLabel from "@/components/global/SectionLabel";
@@ -54,6 +55,20 @@ export default async function CaseStudyPage({ params }: Props) {
   const next = getNextCase(slug, await getAllProjects());
   // The editorial template (2026-10) carries its own top: no back link, the
   // hero opens the page under the navbar.
+  // The magazine template (v4, 2026-10) likewise; its Next band also names
+  // the next case's client and year.
+  if (draft?.magazine) {
+    const nextDraft = next ? getCaseDraft(next.slug) : null;
+    const byline =
+      nextDraft?.magazine?.byline ??
+      [nextDraft?.client, nextDraft?.year].filter(Boolean).join(" · ");
+    return (
+      <CaseMagazineView
+        draft={draft}
+        next={next ? { ...next, byline: byline || undefined } : null}
+      />
+    );
+  }
   if (draft?.editorial) return <CaseEditorialView draft={draft} next={next} />;
   if (draft) {
     return (

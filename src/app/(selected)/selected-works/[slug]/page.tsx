@@ -8,6 +8,7 @@ import {
   selectedWorkSlugs,
 } from "@/lib/selected-works";
 import CaseEditorialView from "@/components/case-studies/CaseEditorial";
+import CaseMagazineView from "@/components/case-studies/CaseMagazine";
 import { selectedContactHref } from "@/lib/lead-source";
 
 // A selected case: the editorial template (content/cases/<slug>.md), with
@@ -36,7 +37,24 @@ export default async function SelectedCasePage({ params }: Props) {
   const work = getSelectedWork(slug);
   if (!work) notFound();
   const draft = getCaseDraft(slug);
-  if (!draft?.editorial) notFound();
+  if (!draft?.editorial && !draft?.magazine) notFound();
+
+  if (draft.magazine) {
+    const next = getNextSelectedWork(slug);
+    const nextWork = next ? getSelectedWork(next.slug) : null;
+    return (
+      <CaseMagazineView
+        draft={draft}
+        caseBase={SELECTED_BASE}
+        contactHref={selectedContactHref(slug)}
+        next={
+          next
+            ? { ...next, byline: [nextWork?.client, nextWork?.year].filter(Boolean).join(" · ") || undefined }
+            : null
+        }
+      />
+    );
+  }
 
   return (
     <CaseEditorialView

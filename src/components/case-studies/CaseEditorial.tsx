@@ -4,6 +4,7 @@ import {
   CaseEditorialFigure,
 } from "./CaseEditorialLightbox";
 import CaseEditorialIndex from "./CaseEditorialIndex";
+import CaseMagazineSummary from "./CaseMagazineSummary";
 import CaseFilmScreen from "./CaseFilmScreen";
 import ContactCta from "@/components/global/ContactCta";
 import type {
@@ -253,6 +254,7 @@ export default function CaseEditorialView({
               .
             </span>
           </h1>
+          {draft.subtitle && <CaseMagazineSummary text={draft.subtitle} className={s.summary} />}
         </div>
 
         {/* 3. Intro: sheet / text / air / vertical image */}

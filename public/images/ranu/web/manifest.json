@@ -1,0 +1,535 @@
+{
+  "project": "ranu",
+  "images": [
+    {
+      "name": "01-river-skyline",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ranu/web/01-river-skyline-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/ranu/web/01-river-skyline-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ranu/web/01-river-skyline-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ranu/web/01-river-skyline-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ranu/web/01-river-skyline-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/ranu/web/01-river-skyline-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ranu/web/01-river-skyline-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ranu/web/01-river-skyline-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "02-facade-terraces-bw",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 2133,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 2133,
+          "src": "/images/ranu/web/02-facade-terraces-bw-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 1280,
+          "src": "/images/ranu/web/02-facade-terraces-bw-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 2133,
+          "src": "/images/ranu/web/02-facade-terraces-bw-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 1280,
+          "src": "/images/ranu/web/02-facade-terraces-bw-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "02-facade-terraces",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 2133,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 2133,
+          "src": "/images/ranu/web/02-facade-terraces-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 1280,
+          "src": "/images/ranu/web/02-facade-terraces-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 2133,
+          "src": "/images/ranu/web/02-facade-terraces-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 1280,
+          "src": "/images/ranu/web/02-facade-terraces-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "03-aerial-night",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ranu/web/03-aerial-night-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/ranu/web/03-aerial-night-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ranu/web/03-aerial-night-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ranu/web/03-aerial-night-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ranu/web/03-aerial-night-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/ranu/web/03-aerial-night-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ranu/web/03-aerial-night-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ranu/web/03-aerial-night-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "04-libertador",
+      "set": null,
+      "naturalWidth": 3320,
+      "naturalHeight": 4000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/ranu/web/04-libertador-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ranu/web/04-libertador-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/ranu/web/04-libertador-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/ranu/web/04-libertador-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ranu/web/04-libertador-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/ranu/web/04-libertador-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "05-plaza",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 2286,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 2286,
+          "src": "/images/ranu/web/05-plaza-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 1372,
+          "src": "/images/ranu/web/05-plaza-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 2286,
+          "src": "/images/ranu/web/05-plaza-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 1372,
+          "src": "/images/ranu/web/05-plaza-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "06-avenue",
+      "set": null,
+      "naturalWidth": 1600,
+      "naturalHeight": 1928,
+      "widths": [
+        1600,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1600,
+          "height": 1928,
+          "src": "/images/ranu/web/06-avenue-1600.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/ranu/web/06-avenue-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1600,
+          "height": 1928,
+          "src": "/images/ranu/web/06-avenue-1600.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/ranu/web/06-avenue-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "07-lobby-tree",
+      "set": null,
+      "naturalWidth": 2730,
+      "naturalHeight": 3000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 2813,
+          "src": "/images/ranu/web/07-lobby-tree-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2110,
+          "src": "/images/ranu/web/07-lobby-tree-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1055,
+          "src": "/images/ranu/web/07-lobby-tree-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 2813,
+          "src": "/images/ranu/web/07-lobby-tree-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2110,
+          "src": "/images/ranu/web/07-lobby-tree-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1055,
+          "src": "/images/ranu/web/07-lobby-tree-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "08-lobby-gallery",
+      "set": null,
+      "naturalWidth": 2730,
+      "naturalHeight": 3000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 2813,
+          "src": "/images/ranu/web/08-lobby-gallery-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2110,
+          "src": "/images/ranu/web/08-lobby-gallery-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1055,
+          "src": "/images/ranu/web/08-lobby-gallery-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 2813,
+          "src": "/images/ranu/web/08-lobby-gallery-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2110,
+          "src": "/images/ranu/web/08-lobby-gallery-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1055,
+          "src": "/images/ranu/web/08-lobby-gallery-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "09-elevated-lobby",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1694,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/ranu/web/09-elevated-lobby-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/ranu/web/09-elevated-lobby-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ranu/web/09-elevated-lobby-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/ranu/web/09-elevated-lobby-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/ranu/web/09-elevated-lobby-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ranu/web/09-elevated-lobby-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "10-terraces-bw",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1356,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ranu/web/10-terraces-bw-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ranu/web/10-terraces-bw-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/ranu/web/10-terraces-bw-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/ranu/web/10-terraces-bw-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "diagram-plaza",
+      "set": null,
+      "naturalWidth": 2000,
+      "naturalHeight": 481,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 462,
+          "src": "/images/ranu/web/diagram-plaza-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 231,
+          "src": "/images/ranu/web/diagram-plaza-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 462,
+          "src": "/images/ranu/web/diagram-plaza-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 231,
+          "src": "/images/ranu/web/diagram-plaza-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "diagram-volumes",
+      "set": null,
+      "naturalWidth": 2000,
+      "naturalHeight": 585,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 562,
+          "src": "/images/ranu/web/diagram-volumes-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 281,
+          "src": "/images/ranu/web/diagram-volumes-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 562,
+          "src": "/images/ranu/web/diagram-volumes-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 281,
+          "src": "/images/ranu/web/diagram-volumes-960.webp"
+        }
+      ]
+    }
+  ]
+}

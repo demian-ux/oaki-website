@@ -451,6 +451,40 @@
           "src": "/images/manhattan-penthouse/web/11-bedroom-960.webp"
         }
       ]
+    },
+    {
+      "name": "12-concept",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1018,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 814,
+          "src": "/images/manhattan-penthouse/web/12-concept-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 407,
+          "src": "/images/manhattan-penthouse/web/12-concept-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 814,
+          "src": "/images/manhattan-penthouse/web/12-concept-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 407,
+          "src": "/images/manhattan-penthouse/web/12-concept-960.webp"
+        }
+      ]
     }
   ]
 }

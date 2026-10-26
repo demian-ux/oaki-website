@@ -1,0 +1,556 @@
+{
+  "project": "central-park-west",
+  "images": [
+    {
+      "name": "01-piano-room",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/central-park-west/web/01-piano-room-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/central-park-west/web/01-piano-room-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/central-park-west/web/01-piano-room-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/central-park-west/web/01-piano-room-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/central-park-west/web/01-piano-room-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/central-park-west/web/01-piano-room-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/central-park-west/web/01-piano-room-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/central-park-west/web/01-piano-room-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "02-piano",
+      "set": null,
+      "naturalWidth": 2490,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/central-park-west/web/02-piano-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/central-park-west/web/02-piano-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/central-park-west/web/02-piano-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/central-park-west/web/02-piano-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "03-living-dining",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/central-park-west/web/03-living-dining-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/central-park-west/web/03-living-dining-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/central-park-west/web/03-living-dining-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/central-park-west/web/03-living-dining-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/central-park-west/web/03-living-dining-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/central-park-west/web/03-living-dining-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/central-park-west/web/03-living-dining-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/central-park-west/web/03-living-dining-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "04-coffee-table",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 3000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 2560,
+          "src": "/images/central-park-west/web/04-coffee-table-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/central-park-west/web/04-coffee-table-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/central-park-west/web/04-coffee-table-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 2560,
+          "src": "/images/central-park-west/web/04-coffee-table-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/central-park-west/web/04-coffee-table-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/central-park-west/web/04-coffee-table-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "05-dining-to-library",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 3000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 2560,
+          "src": "/images/central-park-west/web/05-dining-to-library-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/central-park-west/web/05-dining-to-library-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/central-park-west/web/05-dining-to-library-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 2560,
+          "src": "/images/central-park-west/web/05-dining-to-library-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/central-park-west/web/05-dining-to-library-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/central-park-west/web/05-dining-to-library-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "06-library-bar",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 1717,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 1648,
+          "src": "/images/central-park-west/web/06-library-bar-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1099,
+          "src": "/images/central-park-west/web/06-library-bar-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 824,
+          "src": "/images/central-park-west/web/06-library-bar-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 412,
+          "src": "/images/central-park-west/web/06-library-bar-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 1648,
+          "src": "/images/central-park-west/web/06-library-bar-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1099,
+          "src": "/images/central-park-west/web/06-library-bar-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 824,
+          "src": "/images/central-park-west/web/06-library-bar-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 412,
+          "src": "/images/central-park-west/web/06-library-bar-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "08-bar",
+      "set": null,
+      "naturalWidth": 3321,
+      "naturalHeight": 4000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 3083,
+          "src": "/images/central-park-west/web/08-bar-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/central-park-west/web/08-bar-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1156,
+          "src": "/images/central-park-west/web/08-bar-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 3083,
+          "src": "/images/central-park-west/web/08-bar-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/central-park-west/web/08-bar-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1156,
+          "src": "/images/central-park-west/web/08-bar-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "09-library",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 3000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 2560,
+          "src": "/images/central-park-west/web/09-library-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/central-park-west/web/09-library-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/central-park-west/web/09-library-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 2560,
+          "src": "/images/central-park-west/web/09-library-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1920,
+          "src": "/images/central-park-west/web/09-library-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 960,
+          "src": "/images/central-park-west/web/09-library-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "10-kitchen-dining",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/central-park-west/web/10-kitchen-dining-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/central-park-west/web/10-kitchen-dining-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/central-park-west/web/10-kitchen-dining-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/central-park-west/web/10-kitchen-dining-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/central-park-west/web/10-kitchen-dining-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/central-park-west/web/10-kitchen-dining-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/central-park-west/web/10-kitchen-dining-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/central-park-west/web/10-kitchen-dining-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "11-kitchen",
+      "set": null,
+      "naturalWidth": 3320,
+      "naturalHeight": 4000,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/central-park-west/web/11-kitchen-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/central-park-west/web/11-kitchen-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/central-park-west/web/11-kitchen-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/central-park-west/web/11-kitchen-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/central-park-west/web/11-kitchen-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/central-park-west/web/11-kitchen-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "12-ceramics-shelf",
+      "set": null,
+      "naturalWidth": 2490,
+      "naturalHeight": 3000,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/central-park-west/web/12-ceramics-shelf-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/central-park-west/web/12-ceramics-shelf-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/central-park-west/web/12-ceramics-shelf-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1157,
+          "src": "/images/central-park-west/web/12-ceramics-shelf-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "13-kitchen-dining-bw",
+      "set": null,
+      "naturalWidth": 2400,
+      "naturalHeight": 1356,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/central-park-west/web/13-kitchen-dining-bw-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/central-park-west/web/13-kitchen-dining-bw-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/central-park-west/web/13-kitchen-dining-bw-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/central-park-west/web/13-kitchen-dining-bw-960.webp"
+        }
+      ]
+    }
+  ]
+}

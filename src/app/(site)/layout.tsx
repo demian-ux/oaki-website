@@ -8,7 +8,7 @@ import WarmupAssets from "@/components/global/WarmupAssets";
 import ScrollProfiler from "@/components/global/ScrollProfiler";
 import { HeroThemeProvider } from "@/components/global/HeroTheme";
 import { getAllProjects, getSiteSettings } from "@/lib/data";
-import { getCaseDraftCards } from "@/lib/case-drafts";
+import { getCaseDraftCards, withDraftTitles } from "@/lib/case-drafts";
 import { ponceCases } from "@/lib/ponce-cases";
 import { HIDDEN_PROJECT_SLUGS } from "@/lib/hidden-projects";
 
@@ -27,7 +27,7 @@ export default async function SiteLayout({
   // (and its "N case studies" counter) always agrees with /case-studies.
   const taken = new Set(sanityProjects.map((p) => p.slug));
   const projects = [
-    ...sanityProjects,
+    ...withDraftTitles(sanityProjects),
     ...getCaseDraftCards().filter((p) => !taken.has(p.slug)),
     ...ponceCases,
   ].filter((p) => !HIDDEN_PROJECT_SLUGS.has(p.slug));
