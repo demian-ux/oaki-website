@@ -2,6 +2,7 @@ import Link from "next/link";
 import JournalPicture from "@/components/journal/JournalPicture";
 import CaseEditorialIndex from "./CaseEditorialIndex";
 import CaseMagazineSummary from "./CaseMagazineSummary";
+import ClientQuote from "./ClientQuote";
 import ContactCta from "@/components/global/ContactCta";
 import type { CaseDraft, CaseMagazineImage, CaseMagazinePage } from "@/lib/case-drafts";
 import s from "./CaseMagazine.module.css";
@@ -141,7 +142,7 @@ function SheetBody({ page }: { page: CaseMagazinePage }) {
           ) : (
             <Pic img={page.image} sizes="100vw" />
           )}
-          {page.quote && <blockquote className={s.blockquote}>&ldquo;{page.quote}&rdquo;</blockquote>}
+          {page.quote && <ClientQuote text={page.quote} by={page.cite} inverted className={s.quoteBox} />}
         </>
       );
     case "quote":
@@ -150,10 +151,7 @@ function SheetBody({ page }: { page: CaseMagazinePage }) {
           <figure className={s.qimg}>
             <Pic img={page.image} sizes="100vw" />
           </figure>
-          <blockquote className={s.blockquote}>
-            &ldquo;{page.quote}&rdquo;
-            {page.cite && <cite className={s.cite}>{page.cite}</cite>}
-          </blockquote>
+          <ClientQuote text={page.quote} by={page.cite} className={s.quoteBox} />
         </>
       );
     case "text":
@@ -170,7 +168,7 @@ function SheetBody({ page }: { page: CaseMagazinePage }) {
                 ))}
               </div>
             )}
-            {page.quote && <blockquote className={s.q2}>&ldquo;{page.quote}&rdquo;</blockquote>}
+            {page.quote && <ClientQuote text={page.quote} by={page.quoteBy} className={s.quoteBox} />}
             {page.text.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -222,12 +220,7 @@ function SheetBody({ page }: { page: CaseMagazinePage }) {
           {page.text.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
-          {page.quote && (
-            <blockquote className={s.afterQ}>
-              &ldquo;{page.quote.text}&rdquo;
-              {page.quote.by && <cite className={s.cite}>{page.quote.by}</cite>}
-            </blockquote>
-          )}
+          {page.quote && <ClientQuote text={page.quote.text} by={page.quote.by} className={s.afterQ} />}
           {page.figures.length > 0 && (
             <div className={s.afterN}>
               {page.figures.map((f) => (

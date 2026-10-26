@@ -185,29 +185,10 @@
   display: flex;
   justify-content: center;
 }
-.blockquote {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 100;
-  font-size: clamp(26px, 3vw, 48px);
-  line-height: 1.18;
-  color: var(--color-ink);
-  text-align: right;
-  text-wrap: balance;
-}
-.darkQuote .blockquote {
-  color: #efece6;
-}
-.cite {
-  display: block;
-  margin-top: 1.2em;
-  font-style: normal;
-  font-family: var(--font-sans);
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--label);
+/* Quotes on the sheets render through ClientQuote (the home page's client
+   quote voice); the sheet only places the block. */
+.quoteBox {
+  width: 100%;
 }
 .cap {
   width: 100%;
@@ -246,16 +227,6 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--label);
-}
-.q2 {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 100;
-  font-size: clamp(24px, 2.6vw, 42px);
-  line-height: 1.2;
-  color: var(--color-ink);
-  max-width: 14em;
 }
 .under {
   margin-top: 2.2em;
@@ -363,18 +334,7 @@
 
 /* The client's words on the Afterward sheet, under the result. */
 .afterQ {
-  margin: 2.4em auto 0;
-  max-width: 30em;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 100;
-  font-size: clamp(22px, 2.2vw, 36px);
-  line-height: 1.25;
-  color: var(--color-ink);
-  text-wrap: balance;
-}
-.afterQ .cite {
-  text-align: center;
+  margin-top: 2.4em;
 }
 
 /* 6. Closing */
@@ -616,9 +576,7 @@
     padding-left: calc(var(--spine) + 3%);
     padding-right: 7%;
   }
-  .darkQuote .blockquote {
-    justify-self: end;
-  }
+
   /* Cita: plate at left (88 %), the sentence at right, right-aligned. */
   .quote {
     display: grid;
@@ -631,9 +589,7 @@
   .quote .qimg img {
     max-height: 88svh;
   }
-  .quote .blockquote {
-    justify-self: end;
-  }
+
   /* Texto + diagrama. */
   .text {
     display: grid;

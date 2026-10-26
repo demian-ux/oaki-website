@@ -292,12 +292,15 @@
 .outcome .text p + p {
   text-indent: 0;
 }
+/* The client's words (ClientQuote, the home page's voice) span the whole
+   outcome width, centered, not the text column. */
 .quote {
   margin: 0;
 }
-.quote blockquote {
-  margin: 0;
-  text-wrap: pretty;
+@media (min-width: 821px) {
+  .outcome > .quote {
+    grid-column: 1 / -1;
+  }
 }
 @media (min-width: 821px) {
   .outcome {

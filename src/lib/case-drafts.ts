@@ -148,7 +148,7 @@ export type CaseMagazinePage =
   /** Banda: the colour is as tall as the big image (80%), the small one centered in the rest. */
   | { kind: "band"; big: CaseMagazineImage; small: CaseMagazineImage }
   /** Hoja oscura: #1d1b18, image up to the full height, optional quote at right. */
-  | { kind: "dark"; image: CaseMagazineImage; quote?: string }
+  | { kind: "dark"; image: CaseMagazineImage; quote?: string; cite?: string }
   /** Cita: plate at left (88%), serif italic sentence at right, right-aligned. */
   | { kind: "quote"; image: CaseMagazineImage; quote: string; cite?: string }
   /** Texto + diagrama: figures / paragraphs / a quote at left, a diagram with
@@ -159,6 +159,7 @@ export type CaseMagazinePage =
       figures: CaseMagazineFigure[];
       text: string[];
       quote?: string;
+      quoteBy?: string;
       under?: CaseMagazineImage;
       right: CaseMagazineImage[];
     }
@@ -551,7 +552,12 @@ function parseMagazine(fm: Record<string, string>, body: string, images: Journal
         break;
       case "dark":
         need(1);
-        pages.push({ kind: "dark", image: imgs[0], quote: quoteParts ? stripQuotes(quoteParts[0]) : undefined });
+        pages.push({
+          kind: "dark",
+          image: imgs[0],
+          quote: quoteParts ? stripQuotes(quoteParts[0]) : undefined,
+          cite: quoteParts?.[1] || undefined,
+        });
         break;
       case "quote":
         need(1);
@@ -566,6 +572,7 @@ function parseMagazine(fm: Record<string, string>, body: string, images: Journal
           figures: words.figures,
           text: words.text,
           quote: words.quote,
+          quoteBy: words.quoteBy,
           under,
           right: under ? imgs.slice(1) : imgs,
         });

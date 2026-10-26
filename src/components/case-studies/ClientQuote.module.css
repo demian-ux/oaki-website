@@ -1,0 +1,41 @@
+/* A client's words, in the home page's Peer Band voice (PeerBand.module.css
+   .quote / .attribution / .author / .role). Values kept identical so every
+   quote on the site reads the same. */
+
+.block {
+  margin: 0 auto;
+  max-width: 1080px;
+  text-align: center;
+}
+.quote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.9rem, 4.2vw, 3.1rem);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: var(--color-ink, #222);
+  text-wrap: balance;
+}
+.attribution {
+  margin-top: 34px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+}
+.author {
+  color: var(--color-ink, #222);
+  font-weight: 500;
+}
+.role {
+  color: var(--color-muted, #67645d);
+}
+
+/* On the dark sheet. */
+.inverted .quote,
+.inverted .author {
+  color: #efece6;
+}
+.inverted .role {
+  color: #a89f90;
+}

@@ -5,6 +5,7 @@ import {
 } from "./CaseEditorialLightbox";
 import CaseEditorialIndex from "./CaseEditorialIndex";
 import CaseMagazineSummary from "./CaseMagazineSummary";
+import ClientQuote from "./ClientQuote";
 import CaseFilmScreen from "./CaseFilmScreen";
 import ContactCta from "@/components/global/ContactCta";
 import type {
@@ -317,14 +318,7 @@ export default function CaseEditorialView({
               ))}
             </div>
             {e.outcome.quote && (
-              <figure className={s.quote}>
-                <blockquote className="text-quote" style={{ color: "var(--color-ink)" }}>
-                  &ldquo;{e.outcome.quote.text}&rdquo;
-                </blockquote>
-                {e.outcome.quote.by && (
-                  <figcaption className="coord mt-5">{e.outcome.quote.by}</figcaption>
-                )}
-              </figure>
+              <ClientQuote text={e.outcome.quote.text} by={e.outcome.quote.by} className={s.quote} />
             )}
           </section>
         )}
