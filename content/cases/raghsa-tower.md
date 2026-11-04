@@ -31,7 +31,7 @@ page7: plate-bleed | 07-lobby-tree :: Ground floor lobby with a tree in daylight
 page8: bleed | 10-terraces-bw :: The stepped terraces in use, in black and white
 page9: afterward
 flag1: v4 Magazine (2026-10-26, from Diego's oaki-case-studies-v4 package). Page name Ranu; the slug raghsa-tower stays so the URL, the home shelf and the Perkins Eastman selected set keep working. Pack .md asks Next = The Point; the site's single chain decides.
-flag2: Masters: 01, 03, 04, 07, 08, 09 are the 4K files from images/raghsa-tower under the new names; 02, 05, 06, 10 and the two diagrams are the package webps until Diego's NAS originals arrive (same names).
+flag2: Masters: all stills are the 4K files from images/raghsa-tower/original under the new names (02, 05, 06, 10 swapped in 2026-11-04 from Close up - Terrazas fachada / Peatonal0 - Plaza central / Peatonal - Libertador 02 / Close up lobbyByN; 02-bw is a greyscale of the colour master). The two diagrams stay the package webps.
 flag3: 2026-10-22, Demi: competition at the Parque de la Innovación, Buenos Aires; AFT won it, construction is starting.
 ---
 ## Intro

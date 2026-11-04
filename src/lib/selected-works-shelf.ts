@@ -25,13 +25,11 @@ export function coverSrcSet(project: string, name: string, maxWidth = 1920): str
 
 /** One card per project for the hero: the index cover, the project's own
  *  collection line, title and client · year, exactly as the public shelf
- *  captions them. The Point carries its loop, as on the homepage. */
+ *  captions them. Stills only (Demi 2026-11-04: The Point no longer
+ *  carries its loop here; its card is the index cover). */
 export function getSelectedShelf(set: SelectedSet): HomeProject[] {
   return worksInSet(set).flatMap((work, i) => {
-    const video = work.slug === "the-point";
-    const img = video
-      ? "/video/the-point/hero-tall-poster.webp"
-      : coverSrc(work.cover.project, work.cover.name, 1920);
+    const img = coverSrc(work.cover.project, work.cover.name, 1920);
     if (!img) return [];
     return [
       {
@@ -41,12 +39,9 @@ export function getSelectedShelf(set: SelectedSet): HomeProject[] {
         client: work.client,
         year: work.year,
         img,
-        srcSet: video ? undefined : coverSrcSet(work.cover.project, work.cover.name, 1920),
+        srcSet: coverSrcSet(work.cover.project, work.cover.name, 1920),
         description: work.blurb,
         href: `${SELECTED_BASE}/${work.slug}`,
-        ...(video
-          ? { video: { mp4: "/video/the-point/hero-tall.mp4", webm: "/video/the-point/hero-tall.webm" } }
-          : {}),
       },
     ];
   });

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import styles from "./HeroShelf.module.css";
 import { homeProjects, type HomeProject } from "@/lib/home-projects";
@@ -170,7 +170,7 @@ export default function HeroShelf({
   // tablet tier); a mouse never matches it, so desktop keeps 20vw.
   const coverSizes =
     size === "large"
-      ? "min(22vw, 38svh)"
+      ? "(min-width: 768px) min(20vw, 38svh), min(22vw, 38svh)"
       : "(pointer: coarse) and (min-width: 768px) and (orientation: portrait) min(30vw, 460px), (min-width: 768px) min(20vw, 460px), 132px";
   const CENTER = Math.min(centerIndex, N - 1);
   // A still row is centred as a whole (its midpoint, which for an even N
@@ -711,7 +711,7 @@ export default function HeroShelf({
         // transitionDuration, not the `transition` shorthand: React cannot
         // mix a shorthand with the transitionDelay longhand in one style
         // object, and the delay was silently dropped on the open render.
-        style={{ transform, zIndex, visibility, transitionDelay: itemDelay, transitionDuration: open ? undefined : "0s" }}
+        style={{ transform, zIndex, visibility, transitionDelay: itemDelay, transitionDuration: open ? undefined : "0s", "--n": N } as CSSProperties}
       >
         <Link
           href={project.href}
@@ -753,7 +753,7 @@ export default function HeroShelf({
       <div
         ref={wmRef}
         className={`${styles.wm} ${open ? styles.wmOpen : styles.wmTicker}`}
-        style={{ "--wm-scale": wmScale } as React.CSSProperties}
+        style={{ "--wm-scale": wmScale } as CSSProperties}
         aria-hidden="true"
       >
         oaki<span className={styles.dot}>.</span>
@@ -814,7 +814,7 @@ export default function HeroShelf({
           // direct style writes once the spread has settled. Keeping the
           // offset in the drift state too means the handover frame paints
           // the row where it already was, never at x=0 for one flash.
-          style={{ "--full": `${full}px`, transform: `translateX(${baseOffset}px)` } as React.CSSProperties}
+          style={{ "--full": `${full}px`, transform: `translateX(${baseOffset}px)` } as CSSProperties}
         >
           {items}
         </div>

@@ -24,7 +24,7 @@ export default function SelectedLanding({ set }: { set: SelectedSet }) {
       <HeroShelf
         statement={STUDIO_STATEMENT}
         projects={shelf}
-        centerIndex={1}
+        centerIndex={Math.floor((shelf.length - 1) / 2)}
         contactHref={SELECTED_CONTACT}
         seenKey={`oaki:selected-hero-seen:${set.key}`}
         ariaLabel="Oaki Studio, selected work"

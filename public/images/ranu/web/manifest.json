@@ -60,17 +60,17 @@
     {
       "name": "02-facade-terraces-bw",
       "set": null,
-      "naturalWidth": 1600,
-      "naturalHeight": 2133,
+      "naturalWidth": 2250,
+      "naturalHeight": 3000,
       "widths": [
-        1600,
+        1920,
         960
       ],
       "avif": [
         {
-          "width": 1600,
-          "height": 2133,
-          "src": "/images/ranu/web/02-facade-terraces-bw-1600.avif"
+          "width": 1920,
+          "height": 2560,
+          "src": "/images/ranu/web/02-facade-terraces-bw-1920.avif"
         },
         {
           "width": 960,
@@ -80,9 +80,9 @@
       ],
       "webp": [
         {
-          "width": 1600,
-          "height": 2133,
-          "src": "/images/ranu/web/02-facade-terraces-bw-1600.webp"
+          "width": 1920,
+          "height": 2560,
+          "src": "/images/ranu/web/02-facade-terraces-bw-1920.webp"
         },
         {
           "width": 960,
@@ -94,17 +94,17 @@
     {
       "name": "02-facade-terraces",
       "set": null,
-      "naturalWidth": 1600,
-      "naturalHeight": 2133,
+      "naturalWidth": 2250,
+      "naturalHeight": 3000,
       "widths": [
-        1600,
+        1920,
         960
       ],
       "avif": [
         {
-          "width": 1600,
-          "height": 2133,
-          "src": "/images/ranu/web/02-facade-terraces-1600.avif"
+          "width": 1920,
+          "height": 2560,
+          "src": "/images/ranu/web/02-facade-terraces-1920.avif"
         },
         {
           "width": 960,
@@ -114,9 +114,9 @@
       ],
       "webp": [
         {
-          "width": 1600,
-          "height": 2133,
-          "src": "/images/ranu/web/02-facade-terraces-1600.webp"
+          "width": 1920,
+          "height": 2560,
+          "src": "/images/ranu/web/02-facade-terraces-1920.webp"
         },
         {
           "width": 960,
@@ -229,33 +229,44 @@
     {
       "name": "05-plaza",
       "set": null,
-      "naturalWidth": 1600,
-      "naturalHeight": 2286,
+      "naturalWidth": 2800,
+      "naturalHeight": 4000,
       "widths": [
-        1600,
+        2560,
+        1920,
         960
       ],
       "avif": [
         {
-          "width": 1600,
-          "height": 2286,
-          "src": "/images/ranu/web/05-plaza-1600.avif"
+          "width": 2560,
+          "height": 3657,
+          "src": "/images/ranu/web/05-plaza-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2743,
+          "src": "/images/ranu/web/05-plaza-1920.avif"
         },
         {
           "width": 960,
-          "height": 1372,
+          "height": 1371,
           "src": "/images/ranu/web/05-plaza-960.avif"
         }
       ],
       "webp": [
         {
-          "width": 1600,
-          "height": 2286,
-          "src": "/images/ranu/web/05-plaza-1600.webp"
+          "width": 2560,
+          "height": 3657,
+          "src": "/images/ranu/web/05-plaza-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2743,
+          "src": "/images/ranu/web/05-plaza-1920.webp"
         },
         {
           "width": 960,
-          "height": 1372,
+          "height": 1371,
           "src": "/images/ranu/web/05-plaza-960.webp"
         }
       ]
@@ -263,17 +274,23 @@
     {
       "name": "06-avenue",
       "set": null,
-      "naturalWidth": 1600,
-      "naturalHeight": 1928,
+      "naturalWidth": 3320,
+      "naturalHeight": 4000,
       "widths": [
-        1600,
+        2560,
+        1920,
         960
       ],
       "avif": [
         {
-          "width": 1600,
-          "height": 1928,
-          "src": "/images/ranu/web/06-avenue-1600.avif"
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/ranu/web/06-avenue-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ranu/web/06-avenue-1920.avif"
         },
         {
           "width": 960,
@@ -283,9 +300,14 @@
       ],
       "webp": [
         {
-          "width": 1600,
-          "height": 1928,
-          "src": "/images/ranu/web/06-avenue-1600.webp"
+          "width": 2560,
+          "height": 3084,
+          "src": "/images/ranu/web/06-avenue-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2313,
+          "src": "/images/ranu/web/06-avenue-1920.webp"
         },
         {
           "width": 960,
@@ -432,13 +454,25 @@
     {
       "name": "10-terraces-bw",
       "set": null,
-      "naturalWidth": 2400,
-      "naturalHeight": 1356,
+      "naturalWidth": 4000,
+      "naturalHeight": 2260,
       "widths": [
+        3840,
+        2560,
         1920,
         960
       ],
       "avif": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ranu/web/10-terraces-bw-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/ranu/web/10-terraces-bw-2560.avif"
+        },
         {
           "width": 1920,
           "height": 1085,
@@ -451,6 +485,16 @@
         }
       ],
       "webp": [
+        {
+          "width": 3840,
+          "height": 2170,
+          "src": "/images/ranu/web/10-terraces-bw-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/ranu/web/10-terraces-bw-2560.webp"
+        },
         {
           "width": 1920,
           "height": 1085,

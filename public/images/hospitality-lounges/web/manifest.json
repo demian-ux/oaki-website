@@ -1,0 +1,904 @@
+{
+  "project": "hospitality-lounges",
+  "images": [
+    {
+      "name": "01-terrace-night",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1412,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/hospitality-lounges/web/01-terrace-night-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/hospitality-lounges/web/01-terrace-night-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/hospitality-lounges/web/01-terrace-night-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/hospitality-lounges/web/01-terrace-night-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "02-brass-detail",
+      "set": null,
+      "naturalWidth": 4500,
+      "naturalHeight": 5000,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 4267,
+          "src": "/images/hospitality-lounges/web/02-brass-detail-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/hospitality-lounges/web/02-brass-detail-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 2133,
+          "src": "/images/hospitality-lounges/web/02-brass-detail-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/hospitality-lounges/web/02-brass-detail-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 4267,
+          "src": "/images/hospitality-lounges/web/02-brass-detail-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 2844,
+          "src": "/images/hospitality-lounges/web/02-brass-detail-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2133,
+          "src": "/images/hospitality-lounges/web/02-brass-detail-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 1067,
+          "src": "/images/hospitality-lounges/web/02-brass-detail-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "03-bar-navy",
+      "set": null,
+      "naturalWidth": 5000,
+      "naturalHeight": 3334,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/hospitality-lounges/web/03-bar-navy-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/hospitality-lounges/web/03-bar-navy-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/hospitality-lounges/web/03-bar-navy-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/hospitality-lounges/web/03-bar-navy-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2561,
+          "src": "/images/hospitality-lounges/web/03-bar-navy-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "src": "/images/hospitality-lounges/web/03-bar-navy-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/hospitality-lounges/web/03-bar-navy-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/hospitality-lounges/web/03-bar-navy-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "04-bar-glass",
+      "set": null,
+      "naturalWidth": 2500,
+      "naturalHeight": 1667,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/hospitality-lounges/web/04-bar-glass-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/hospitality-lounges/web/04-bar-glass-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1280,
+          "src": "/images/hospitality-lounges/web/04-bar-glass-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "src": "/images/hospitality-lounges/web/04-bar-glass-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "05-reception",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2251,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2161,
+          "src": "/images/hospitality-lounges/web/05-reception-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1441,
+          "src": "/images/hospitality-lounges/web/05-reception-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/05-reception-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/05-reception-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2161,
+          "src": "/images/hospitality-lounges/web/05-reception-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1441,
+          "src": "/images/hospitality-lounges/web/05-reception-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/05-reception-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/05-reception-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "06-garden-lounge",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1943,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1658,
+          "src": "/images/hospitality-lounges/web/06-garden-lounge-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1244,
+          "src": "/images/hospitality-lounges/web/06-garden-lounge-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 622,
+          "src": "/images/hospitality-lounges/web/06-garden-lounge-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1658,
+          "src": "/images/hospitality-lounges/web/06-garden-lounge-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1244,
+          "src": "/images/hospitality-lounges/web/06-garden-lounge-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 622,
+          "src": "/images/hospitality-lounges/web/06-garden-lounge-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "07-checkered",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/hospitality-lounges/web/07-checkered-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1806,
+          "src": "/images/hospitality-lounges/web/07-checkered-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/hospitality-lounges/web/07-checkered-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/hospitality-lounges/web/07-checkered-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/hospitality-lounges/web/07-checkered-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1806,
+          "src": "/images/hospitality-lounges/web/07-checkered-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/hospitality-lounges/web/07-checkered-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/hospitality-lounges/web/07-checkered-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "08-dining-ceiling",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2822,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/hospitality-lounges/web/08-dining-ceiling-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1806,
+          "src": "/images/hospitality-lounges/web/08-dining-ceiling-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/hospitality-lounges/web/08-dining-ceiling-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/hospitality-lounges/web/08-dining-ceiling-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2709,
+          "src": "/images/hospitality-lounges/web/08-dining-ceiling-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1806,
+          "src": "/images/hospitality-lounges/web/08-dining-ceiling-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1355,
+          "src": "/images/hospitality-lounges/web/08-dining-ceiling-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 677,
+          "src": "/images/hospitality-lounges/web/08-dining-ceiling-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "09-dining-light",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1697,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1448,
+          "src": "/images/hospitality-lounges/web/09-dining-light-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1086,
+          "src": "/images/hospitality-lounges/web/09-dining-light-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/hospitality-lounges/web/09-dining-light-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1448,
+          "src": "/images/hospitality-lounges/web/09-dining-light-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1086,
+          "src": "/images/hospitality-lounges/web/09-dining-light-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 543,
+          "src": "/images/hospitality-lounges/web/09-dining-light-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "10-blue-carpet",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1688,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/hospitality-lounges/web/10-blue-carpet-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/10-blue-carpet-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/10-blue-carpet-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/hospitality-lounges/web/10-blue-carpet-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/10-blue-carpet-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/10-blue-carpet-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "11-arch-copper",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1688,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/hospitality-lounges/web/11-arch-copper-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/11-arch-copper-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/11-arch-copper-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/hospitality-lounges/web/11-arch-copper-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/11-arch-copper-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/11-arch-copper-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "12-mirrors",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1688,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/hospitality-lounges/web/12-mirrors-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/12-mirrors-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/12-mirrors-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/hospitality-lounges/web/12-mirrors-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/12-mirrors-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/12-mirrors-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "13-kids",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1688,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/hospitality-lounges/web/13-kids-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/13-kids-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/13-kids-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "src": "/images/hospitality-lounges/web/13-kids-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/13-kids-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/13-kids-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "14-ribbed-lounge",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2587,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2484,
+          "src": "/images/hospitality-lounges/web/14-ribbed-lounge-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1656,
+          "src": "/images/hospitality-lounges/web/14-ribbed-lounge-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1242,
+          "src": "/images/hospitality-lounges/web/14-ribbed-lounge-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 621,
+          "src": "/images/hospitality-lounges/web/14-ribbed-lounge-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2484,
+          "src": "/images/hospitality-lounges/web/14-ribbed-lounge-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1656,
+          "src": "/images/hospitality-lounges/web/14-ribbed-lounge-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1242,
+          "src": "/images/hospitality-lounges/web/14-ribbed-lounge-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 621,
+          "src": "/images/hospitality-lounges/web/14-ribbed-lounge-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "16-food-hall-cafe",
+      "set": null,
+      "naturalWidth": 2000,
+      "naturalHeight": 1130,
+      "widths": [
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/hospitality-lounges/web/16-food-hall-cafe-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/hospitality-lounges/web/16-food-hall-cafe-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 1920,
+          "height": 1085,
+          "src": "/images/hospitality-lounges/web/16-food-hall-cafe-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/hospitality-lounges/web/16-food-hall-cafe-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "17-bar-ring",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1694,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/hospitality-lounges/web/17-bar-ring-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/hospitality-lounges/web/17-bar-ring-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/hospitality-lounges/web/17-bar-ring-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/hospitality-lounges/web/17-bar-ring-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/hospitality-lounges/web/17-bar-ring-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/hospitality-lounges/web/17-bar-ring-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "18-fries",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1694,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/hospitality-lounges/web/18-fries-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/hospitality-lounges/web/18-fries-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/hospitality-lounges/web/18-fries-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/hospitality-lounges/web/18-fries-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/hospitality-lounges/web/18-fries-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/hospitality-lounges/web/18-fries-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "19-fried-chicken",
+      "set": null,
+      "naturalWidth": 3000,
+      "naturalHeight": 1694,
+      "widths": [
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/hospitality-lounges/web/19-fried-chicken-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/hospitality-lounges/web/19-fried-chicken-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/hospitality-lounges/web/19-fried-chicken-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 2560,
+          "height": 1446,
+          "src": "/images/hospitality-lounges/web/19-fried-chicken-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1084,
+          "src": "/images/hospitality-lounges/web/19-fried-chicken-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 542,
+          "src": "/images/hospitality-lounges/web/19-fried-chicken-960.webp"
+        }
+      ]
+    },
+    {
+      "name": "21-lobby",
+      "set": null,
+      "naturalWidth": 4000,
+      "naturalHeight": 2251,
+      "widths": [
+        3840,
+        2560,
+        1920,
+        960
+      ],
+      "avif": [
+        {
+          "width": 3840,
+          "height": 2161,
+          "src": "/images/hospitality-lounges/web/21-lobby-3840.avif"
+        },
+        {
+          "width": 2560,
+          "height": 1441,
+          "src": "/images/hospitality-lounges/web/21-lobby-2560.avif"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/21-lobby-1920.avif"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/21-lobby-960.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 3840,
+          "height": 2161,
+          "src": "/images/hospitality-lounges/web/21-lobby-3840.webp"
+        },
+        {
+          "width": 2560,
+          "height": 1441,
+          "src": "/images/hospitality-lounges/web/21-lobby-2560.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "src": "/images/hospitality-lounges/web/21-lobby-1920.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "src": "/images/hospitality-lounges/web/21-lobby-960.webp"
+        }
+      ]
+    }
+  ]
+}

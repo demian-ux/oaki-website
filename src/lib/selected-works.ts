@@ -17,7 +17,7 @@ export const SELECTED_CONTACT = `${SELECTED_BASE}/contact`;
 
 /** Two sentences for someone who has already talked with Demi. */
 export const SELECTED_INTRO =
-  "Three projects, chosen after our conversation. Stills and film, built to outlast the meeting they were made for.";
+  "Five projects, chosen after our conversation. Stills and film, built to outlast the meeting they were made for.";
 
 export interface SelectedWork {
   slug: string;
@@ -32,7 +32,7 @@ export interface SelectedWork {
   /** One sentence under the title on the index. */
   blurb: string;
   /** Image-library project and master for the index cover. */
-  cover: { project: string; name: string };
+  cover: { project: string; name: string }; // prefer a vertical master (Demi 2026-11-04)
 }
 
 export interface SelectedSet {
@@ -56,7 +56,8 @@ export const selectedSets: SelectedSet[] = [
     path: SELECTED_BASE,
     title: "Selected work",
     intro: SELECTED_INTRO,
-    slugs: ["the-point", "pavilion-grove", "goldman"],
+    // 2026-11-04 (Demi): Ranu and Hospitality Lounges join the set.
+    slugs: ["the-point", "pavilion-grove", "goldman", "raghsa-tower", "hospitality-lounges"],
   },
   {
     // Perkins Eastman, senior living campus on the Hudson (Oct 2026):
@@ -81,7 +82,7 @@ export const selectedWorks: SelectedWork[] = [
     year: "2024",
     collection: "The Hospitality Collection",
     blurb: "A complete interior program, another designer's intent kept exact across every image.",
-    cover: { project: "the-point", name: "01-colonnade-pool" },
+    cover: { project: "the-point", name: "04-pool-pavilion" },
   },
   {
     slug: "pavilion-grove",
@@ -103,7 +104,7 @@ export const selectedWorks: SelectedWork[] = [
     year: "2025",
     collection: "The Workplace Collection",
     blurb: "Work at institutional name scale, chosen by a practice with visualization in-house.",
-    cover: { project: "goldman", name: "view-01-gateway" },
+    cover: { project: "goldman", name: "view-05-mixer" },
   },
   {
     // Location and developer withheld at the client's request (Sep 2025):
@@ -134,11 +135,11 @@ export const selectedWorks: SelectedWork[] = [
     title: "Ranu",
     short: "Ranu",
     coord: "Buenos Aires",
-    client: "AFT",
+    client: "AFT Arquitectos",
     year: "2026",
     collection: "The Competition Collection",
     blurb: "A competition won. The tower in the city's own photographs, then walked from the street to the elevated lobby.",
-    cover: { project: "raghsa-tower", name: "View 09_Aerial night" },
+    cover: { project: "ranu", name: "04-libertador" },
   },
   {
     slug: "numa",
@@ -150,6 +151,19 @@ export const selectedWorks: SelectedWork[] = [
     collection: "The Retail Collection",
     blurb: "A market hall and two bars of shops and offices under the pines, six views from the road to the hall at dusk.",
     cover: { project: "numa", name: "view-06-dusk" },
+  },
+  {
+    // Lounges (package 2026-11-04): designer undisclosed by Demi's call,
+    // no year on the card, as the package asks.
+    slug: "hospitality-lounges",
+    title: "Hospitality Lounges",
+    short: "Lounges",
+    coord: "New York",
+    client: "Undisclosed",
+    year: "",
+    collection: "The Hospitality Collection",
+    blurb: "Lounges, bars and dining rooms, built as working models with the designers and carried into the final frames.",
+    cover: { project: "hospitality-lounges", name: "02-brass-detail" },
   },
 ];
 

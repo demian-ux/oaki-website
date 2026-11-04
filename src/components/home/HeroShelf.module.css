@@ -297,8 +297,30 @@
 /* The large variant: a few covers, each a real card, capped by the
    viewport height so three fit on a phone and never run into the tagline. */
 .itemLarge {
-  width: min(clamp(104px, 22vw, 340px), 38svh);
-  margin-right: clamp(14px, 4vw, 72px);
+  /* --n (HeroShelf.tsx) = covers in the still row: five must fit a phone
+     side by side, as the row neither drifts nor drags. */
+  --gapL: clamp(10px, 4vw, 72px);
+  width: min(
+    clamp(104px, 22vw, 340px),
+    38svh,
+    calc((100vw - 32px - (var(--n, 3) - 1) * var(--gapL)) / var(--n, 3))
+  );
+  margin-right: var(--gapL);
+}
+/* Desktop: the same card as the homepage shelf (Demi 2026-11-04), so the
+   selected-work covers match the public site. Phones keep the row above. */
+@media (min-width: 768px) {
+  .itemLarge {
+    /* the last clause keeps every cover of the still row (--n of them,
+       set by HeroShelf.tsx) inside the viewport with the page gutters */
+    --gapL: clamp(28px, 2.4vw, 56px);
+    width: min(
+      clamp(200px, 20vw, 460px),
+      38svh,
+      calc((100vw - 64px - (var(--n, 3) - 1) * var(--gapL)) / var(--n, 3))
+    );
+    margin-right: var(--gapL);
+  }
 }
 .itemLarge .collection {
   font-size: 12px;
@@ -308,6 +330,18 @@
 }
 .itemLarge .meta {
   font-size: 11px;
+}
+/* Phones with more than three covers: captions scale with the cover. */
+@media (max-width: 767px) {
+  .itemLarge .collection {
+    font-size: clamp(8px, 2.6vw, 12px);
+  }
+  .itemLarge .title {
+    font-size: clamp(9px, 3vw, 15px);
+  }
+  .itemLarge .meta {
+    font-size: clamp(8px, 2.4vw, 11px);
+  }
 }
 .itemLink {
   display: block;
@@ -411,7 +445,7 @@
    ran into its neighbour), so titles wrap there and the covers sit a little
    further apart. */
 @media (max-width: 767px) {
-  .item {
+  .item:not(.itemLarge) {
     margin-right: 30px;
   }
   .title {

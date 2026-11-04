@@ -16,6 +16,8 @@ export const HIDDEN_PROJECT_SLUGS = new Set([
   "icrave-ballys-chicago",
   "icrave-sapphire",
   "icrave-southwest",
+  // Hospitality Lounges: private case study on /selected-works (2026-11-04).
+  "hospitality-lounges",
   // Dixon House (San Marino Island): awaiting client approval
   "dixon-house",
   // Hidden by Demi, 2026-10-21
