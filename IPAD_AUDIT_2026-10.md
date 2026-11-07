@@ -100,3 +100,16 @@ OK on the device: scroll feel with the Safari bar, case study reveals and inline
 Dev server: `allowedDevOrigins` added to `next.config.ts` so the iPad can load the dev build from `http://192.168.1.15:3001` (Next 16 blocked the dev resources for a non-localhost origin, which left the page unhydrated: no hero, no header).
 
 Round 2: the backdrop click never arrived on iOS (Safari only dispatches click to elements it deems clickable, and a delegated React handler is invisible to that heuristic), so `Header.tsx` closes the open panel from a document-level `pointerdown` on a coarse pointer: inside `.mega-inner` nothing, on the bar its own links decide, anywhere else closes. Confirmed on the device. All eight device checks pass; only the manifesto padding in portrait (finding 3) stays open.
+
+## iPad Pro 11" (M5), 2026-11-07
+
+Demi reported the site "not quite right in places" on the 11" (834 x 1210 portrait, 1210 x 834 landscape, DPR 2). Audited with `scripts/ipad-shots.mjs` (headless Chrome, coarse pointer) on every main route in both orientations.
+
+What differs from the 12.9": portrait is 834 px wide, under the `lg:` / 1024 line, so the 11" in portrait gets the phone header (hamburger, no mega menu) and the single-column layouts, while landscape (1210) gets the desktop. Both are correct; the width-based rules at 821 and 768 are what needed a look.
+
+| Found | Change | Where |
+|---|---|---|
+| Case study magazine in portrait: from 821 px every sheet is "one window tall", and in a 1210 px tall window the width binds the images long before the `svh` caps, so each spread sat in a screen of white (ny-penthouse was 10 698 px long). | In `(pointer: coarse) and (min-width: 821px) and (orientation: portrait)` the sheet is as tall as its images plus 6 svh of air top and bottom; colour, dark and band sheets wrap their image; the vertical film keeps the full window. Spine, rules and folio unchanged. ny-penthouse is now 6 316 px; a mouse at the same width still gets 10 697 px. | `CaseMagazine.module.css` |
+| Selected-work hero in portrait: the still row keeps five covers across, 131 px each; the 15 px title clipped ("HOSPITALITY LOUNG") and the collection line broke in three. | In coarse + portrait from 768 px the large-cover captions scale with the cover (title `clamp(10px, 1.5vw, 15px)`, may wrap), gap `clamp(18px, 2.2vw, 56px)`. At 1024 (12.9") every value is the desktop one again. | `HeroShelf.module.css` |
+
+Checked and left as is: home (hero three covers of 30vw, journal slider, quotes, trusted-by), case studies index (two columns), journal, contact with the booking picker open, process, mobile menu, the editorial case template (icnyc), landscape on every route. No horizontal overflow anywhere. Still open from October and more visible on the 11": the manifesto padding on the home (`py-[calc(50vh+4rem)]`, 669 px above and below one paragraph in portrait), Demi's call.

@@ -644,3 +644,48 @@
     height: 84svh;
   }
 }
+
+/* ---------------------------------------------------------------------
+   iPad / tablet tier, PORTRAIT (IPAD_AUDIT_2026-10.md). Guarded by
+   (pointer: coarse): a mouse never evaluates these, so desktop keeps the
+   block above. "Hoja = ventana" was drawn for a landscape window; in a
+   portrait tablet (834 x 1210 on the 11", 1024 x 1366 on the 12.9) the
+   width binds every image long before the svh caps do, and a sheet one
+   window tall is mostly white. Here the sheet is as tall as its images
+   plus the same 6 % of air top and bottom; the spine, the rules and the
+   folio stay. The vertical film keeps the full window: 9:16 fits.
+   --------------------------------------------------------------------- */
+@media (pointer: coarse) and (min-width: 821px) and (orientation: portrait) {
+  .sheet {
+    min-height: 0;
+    padding-top: 6svh;
+    padding-bottom: 6svh;
+  }
+  .color,
+  .dark {
+    height: auto;
+  }
+  .color {
+    padding-top: 6svh;
+    padding-bottom: 6svh;
+  }
+  .pair {
+    padding-top: 6svh;
+    padding-bottom: 6svh;
+  }
+  .band {
+    padding-top: 6svh;
+    padding-bottom: 6svh;
+  }
+  .bandBox {
+    height: auto;
+    padding-top: 5svh;
+    padding-bottom: 5svh;
+  }
+  .rest {
+    height: auto;
+  }
+  .film {
+    height: 100svh;
+  }
+}

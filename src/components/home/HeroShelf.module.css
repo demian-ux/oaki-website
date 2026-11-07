@@ -500,3 +500,24 @@
     margin-right: clamp(28px, 3.5vw, 56px);
   }
 }
+/* iPad 11" in portrait (834 x 1210): the still row of the selected-work
+   sets keeps all five covers inside the viewport, which leaves 131px per
+   cover; the 15px title clipped ("HOSPITALITY LOUNG") and the collection
+   line broke in three. Captions scale with the cover, as on phones, and
+   the title may wrap; the gap gives the cover a few px back. At 1024
+   (12.9") every value lands on its desktop size again. */
+@media (pointer: coarse) and (min-width: 768px) and (orientation: portrait) {
+  .itemLarge {
+    --gapL: clamp(18px, 2.2vw, 56px);
+  }
+  .itemLarge .collection {
+    font-size: clamp(9px, 1.3vw, 12px);
+  }
+  .itemLarge .title {
+    font-size: clamp(10px, 1.5vw, 15px);
+    white-space: normal;
+  }
+  .itemLarge .meta {
+    font-size: clamp(8px, 1.15vw, 11px);
+  }
+}
