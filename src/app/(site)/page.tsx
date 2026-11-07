@@ -133,14 +133,14 @@ export default async function HomePage() {
           </div>
           {/* Team photo at natural ratio — never cropped. */}
           <img
-            src="/images/about-us/web/meeting-1920.webp"
-            alt="The Oaki Studio team in a working session"
-            width={1920}
-            height={1280}
+            src="/images/about-us/web/terrace-2000.webp"
+            alt="The Oaki Studio team on the terrace"
+            width={2000}
+            height={873}
             // lazy: hidden below lg, and a lazy image that is display:none is
             // never requested (an eager one is, even when it will not show).
             loading="lazy"
-            className="hidden lg:block w-full h-auto"
+            className="hidden tablet:block lg:block w-full h-auto"
           />
         </div>
       </section>
